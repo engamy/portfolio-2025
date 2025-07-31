@@ -1,0 +1,164 @@
+.about-container {
+    height: 222.187vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    overflow-x: hidden;
+}
+
+.about-inner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8.5vw;
+}
+
+.about-intro h1{
+    position: fixed;
+    color: #F0EDE6;
+    transform: rotate(-10deg);
+    font-size: 6vw;
+    font-style: italic;
+    top: 15vw;
+    left: 39.4vw;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.about-intro p {
+    color: #101010;
+    position: relative;
+    left: 40vw;
+    top: 27vw;
+    font-size: 1.5vw;
+    width: 45vw;
+}
+
+.about-contacticon {
+    position: relative;
+    left: 40vw;
+    top: 27.5vw;
+}
+
+.about-contacticon img {
+    width: 2.5vw;
+    margin-right: 0.5vw;
+}
+
+.resumes {
+    margin-top: 2vw;
+}
+
+.resumes p{
+    margin: 0;
+    margin-top: 0.5vw;
+}
+
+.resumes a, .resumes a:visited {
+    color: #AE1D14;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    left: 12vw;
+    top: 40vw;
+}
+
+.experience-title {
+    width: 28vw;
+    font-style: italic;
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.experience-inner-container {
+    margin-top: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5vw;
+}
+
+.experience {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+}
+
+.experience-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0.1em;
+    font-size: 1.1vw;
+}
+
+.experience-details h3 {
+    font-style: italic;
+}
+
+.experience-details p {
+    color: #AE1D14;
+}
+
+.experience-time-place {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0.1em;
+    text-align: right;
+    font-size: 1vw;
+}
+
+.experience-details h3, .experience-details p {
+    margin: 0;
+}
+
+.experience-time-place p {
+    margin: 0;
+}
+
+.experience-details span {
+    font-size: 0.9vw;
+
+}
+
+.testimonies-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    position: relative;
+    top: 37vw;
+    margin: 0;
+}
+
+.testimonies-container p {
+    font-size: 2.4vw;
+}
+
+.testimony-1 {
+    width: 24.635vw;
+    margin-left: 2.5vw;
+}
+
+.testimony-2 {
+    margin-left: -2vw;
+    width: 28vw;
+}
+
+.testimonies-container p span {
+    font-weight: bold;
+}
+
+.testimony-name p {
+    font-weight: bold;
+    font-style: italic;
+    text-align: right;
+    font-size: 1.8vw;
+    margin-top: 6vw;
+}

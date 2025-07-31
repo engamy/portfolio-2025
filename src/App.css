@@ -1,0 +1,44 @@
+@import url("https://use.typekit.net/uiw1zfz.css");
+
+body {
+  color: black;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 1.25vw;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2vw;
+  min-height: calc(100vh - 5.625vw);
+}
+
+.page-container h1 {
+  color: #333333;
+  margin-bottom: 1vw;
+  font-size: 2.5vw;
+  font-weight: 700;
+}
+
+.page-container p {
+  color: #666666;
+  font-size: 1.1vw;
+  line-height: 1.6;
+  margin-bottom: 1vw;
+}
