@@ -1,0 +1,155 @@
+.navbar-light {
+  background-color: #F0EDE6;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 0.0625vw solid #101010;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Dark mode styles */
+.navbar-light.navbar-dark {
+  background-color: #101010;
+  border-bottom: 0.0625vw solid #F0EDE6;
+}
+
+.navbar-light.navbar-dark .nav-link {
+  color: #F0EDE6;
+}
+
+.navbar-light.navbar-dark .nav-link:hover {
+  color: #F0EDE6;
+}
+
+.navbar-light.navbar-dark .nav-link.active {
+  color: #F0EDE6;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.8vw;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1vw;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: #101010;
+  text-decoration: none;
+  font-style: normal;
+  font-size: 1vw;
+  padding: 0.5vw 0;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+}
+
+.nav-link:hover {
+  color: #101010;
+}
+
+.nav-link.active {
+  color: #101010;
+  font-weight: 700;
+}
+
+/* .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.125vw;
+  left: 0;
+  right: 0;
+  height: 0.125vw;
+  background-color: #AE1D14;
+} */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: scale(1.1);
+}
+
+.social-icon {
+  width: 2vw;
+  height: 2vw;
+  object-fit: contain;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1vw;
+    height: 4vw;
+  }
+  
+  .navbar-nav {
+    gap: 1vw;
+  }
+  
+  .nav-link {
+    font-size: 0.9vw;
+  }
+  
+  .brand-link {
+    font-size: 1.3vw;
+  }
+  
+  .social-icons {
+    gap: 0.75vw;
+  }
+  
+  .social-icon {
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav {
+    gap: 1vw;
+  }
+  
+  .nav-link {
+    font-size: 0.8vw;
+  }
+  
+  .social-icons {
+    gap: 0.5vw;
+  }
+  
+  .social-icon {
+    width: 1.8vw;
+    height: 1.8vw;
+  }
+} 
