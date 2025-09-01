@@ -69,6 +69,16 @@
     margin-top: 4vw;
 }
 
+.design-intro {
+    font-size: 1.2vw;
+    color: #F0EDE6;
+    width: 80vw;
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
 .design-collection {
     width: 25.3vw;
     display: flex;
@@ -149,4 +159,10 @@
     background-color: #AE1D14;
     color: #F0EDE6;
     border-color: #AE1D14;
+}
+
+.pdf-container {
+    width: 80vw;
+    margin-top: 2vw;
+    margin-bottom: 4vw;
 }

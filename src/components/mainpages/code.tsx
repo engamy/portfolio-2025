@@ -45,6 +45,50 @@ export default function Code() {
         <h2>Projects</h2>
 
         <div className="project">
+        <div className="project-text">
+            <div className="project-desc">
+              <div className="project-title-time">
+                <h3>Coopalytics</h3>
+                <p>Summer 2025</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <div className="project-links">
+                <a href="" target="_blank"><p>link 1</p></a>
+                <a href="" target="_blank"><p>link 2</p></a>
+              </div>
+            </div>
+            <div className="project-tags">
+              <p>tag</p>
+              <p>tag</p>
+              <p>tag</p>
+              <p>tag</p>
+              <p>tag</p>
+              <p>tag</p>
+            </div>
+          </div>
+          <div className="project-preview">
+            <video
+              muted
+              autoPlay
+              loop
+              playsInline
+              width="100%"
+              height="auto"
+              onError={(e) => console.error('Video error:', e)}
+              onLoadStart={() => console.log('Video loading started')}
+              onCanPlay={() => console.log('Video can play')}
+              onLoadedData={() => console.log('Video data loaded')}
+            >
+              <source src="/pictures/portfolio-content_spring2026/03_CODE/threetrios.mp4"
+                type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div className="project">
           <div className="project-text">
             <div className="project-desc">
               <div className="project-title-time">
