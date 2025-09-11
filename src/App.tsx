@@ -11,6 +11,7 @@ import About from './components/mainpages/about';
 import Art2022Portfolio from './components/art-collections/art-2022portfolio';
 import ArtMotionMedia from './components/art-collections/art-motionmedia';
 import DesignWikiBook from './components/design-collections/design-wikibook';
+import DesignMarshalls from './components/design-collections/design-marshalls';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
 
 const AppContent: React.FC = () => {
@@ -27,6 +28,7 @@ const AppContent: React.FC = () => {
         <Route path="/art-2022-portfolio" element={<Art2022Portfolio />} />
         <Route path="/art-motion-media" element={<ArtMotionMedia />} />
         <Route path="/design-wiki-book" element={<DesignWikiBook />} />
+        <Route path="/design-marshalls" element={<DesignMarshalls />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

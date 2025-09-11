@@ -30,7 +30,7 @@ export default function Design() {
       <div className="design-collections">
         <h2>Collections</h2>
         <div className="design-collection">
-          <a href="" target="_blank">
+          <a href="/design-marshalls" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg" alt="Marshalls Collection" />
             </div>
