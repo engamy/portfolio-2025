@@ -154,7 +154,7 @@ const EmailAssetsGrid: React.FC = () => {
             </div>
             {asset.cbImage && (
               <div 
-                className="email-asset-item"
+                className="email-asset-item email-asset-cb"
                 onClick={() => {
                   if (asset.cbImage) {
                     handleImageClick({
