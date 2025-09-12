@@ -60,6 +60,25 @@
   opacity: 0.9;
 }
 
+/* Mobile responsive styles for trending shop section */
+@media (max-width: 768px) {
+  .trending-shop-container {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .trending-shop-container img {
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  .trending-shop-container h4 {
+    min-width: auto !important;
+    text-align: center;
+  }
+}
+
+
 
 
 
