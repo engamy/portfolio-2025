@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './art-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import MasonryGrid from '../MasonryGrid';
+import MasonryGrid from '../page-components/MasonryGrid';
 
 export default function Art() {
   // Set darkMode to false for the art page

@@ -1,0 +1,56 @@
+.signage-container {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.signage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.signage-item {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signage-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.signage-thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signage-grid {
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+  
+  .signage-container {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signage-grid {
+    gap: 1rem;
+    max-width: 100%;
+  }
+  
+  .signage-container {
+    margin: 1rem 0;
+  }
+}
