@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../mainpages/design-style.css';
 import './design-marshalls-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import EmailAssetsGrid from '../EmailAssetsGrid';
+import EmailAssetsGrid from '../page-components/EmailAssetsGrid';
+import WebsiteAssetsGrid from '../WebsiteAssetsGrid';
+import TrendingShopLayoutGrid from '../TrendingShopLayoutGrid';
+import InstagramPosts from '../page-components/InstagramPosts';
+import BeforeAfterComparison from '../page-components/BeforeAfterComparison';
+import SpringGOImages from '../page-components/SpringGOImages';
+import SignageInStore from '../page-components/SignageInStore';
+import BilingualSignage from '../page-components/BilingualSignage';
+import OOHSignage from '../page-components/OOHSignage';
 
 export default function DesignMarshalls() {
   // Set darkMode to false for the design collection page
@@ -14,6 +22,7 @@ export default function DesignMarshalls() {
 
   // State for active tab
   const [activeTab, setActiveTab] = useState('digital');
+
 
   return (
     <main className="design-container">
@@ -58,28 +67,121 @@ export default function DesignMarshalls() {
       <div className="tab-content">
         {activeTab === 'digital' && (
           <div>
-            <h2>Digital Assets</h2>
-            <h4>Click on an asset to see different explorations!</h4>
+            <h2 style={{ textAlign: 'center' }}>Digital Assets</h2>
+            <h4 style={{ textAlign: 'center' }}>Click on an asset to see different explorations!</h4>
+
             <h3>Email Assets</h3>
             <h4>
-              Goal: create digital assets advertising different products 
+              Objective: create digital assets advertising different products 
               (new arrivals, early arrivals, dresses, denim, etc.)
             </h4>
-            
             <EmailAssetsGrid />
+
+            <h3>Website Assets</h3>
+            <h4>
+            Objective: create Summerween-themed digital assets for the 
+               <a href="https://www.marshalls.com/us/store/index.jsp" target="_blank" rel="noopener noreferrer" style={{ 
+                 fontStyle: 'italic', 
+                 color: '#F0EDE6', 
+                 textDecoration: 'underline',
+                 fontWeight: 'bold',
+                 backgroundColor: '#0024cc',
+                 padding: '4px 8px',
+                 margin: '4px 4px',
+                 borderRadius: '4px',
+                 transition: 'all 0.2s ease'
+               }}>Marshalls.com</a>website to advertise quality products.
+            </h4>
+            <WebsiteAssetsGrid />
+
+            <div className="trending-shop-container" style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '30px', 
+              marginBottom: '20px',
+              flexWrap: 'wrap'
+            }}>
+              <img 
+                src="/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/branding-3.gif" 
+                alt="The Trending Shop branding"
+                style={{ 
+                  maxWidth: '400px', 
+                  width: '100%',
+                  height: 'auto',
+                  borderRadius: '0',
+                  flex: '0 0 auto'
+                }}
+              />
+              <h4 style={{ 
+                margin: 0, 
+                flex: 1,
+                minWidth: '300px',
+                lineHeight: '1.4',
+                maxWidth: '60%'
+              }}>
+                Objective: design/brainstorm new branding and website graphic layouts for 
+                The Trending Shop, a new, ephemeral subpage on
+                <a href="https://www.marshalls.com/us/store/index.jsp" target="_blank" rel="noopener noreferrer" style={{ 
+                   fontStyle: 'italic', 
+                   color: '#F0EDE6', 
+                   textDecoration: 'underline',
+                   fontWeight: 'bold',
+                   backgroundColor: '#0024cc',
+                   padding: '4px 8px',
+                   margin: '4px 4px',
+                   borderRadius: '4px',
+                   transition: 'all 0.2s ease'
+                 }}>Marshalls.com</a>
+                 that highlights the most popular products/styles/categories/trends of the moment.
+              </h4>
+            </div>
+            <TrendingShopLayoutGrid />
+          
+            <h3>Social Content</h3>
+            <h4>
+            Objective: create social content for Marshalls' Instagram to advertise different products.
+            </h4>
+            
+            <InstagramPosts />
+
+            
           </div>
         )}
         
         {activeTab === 'print' && (
           <div>
-            <h2>Print Content</h2>
+            <h2 style={{ textAlign: 'center' }}>Print Content</h2>
             <p style={{ 
               fontSize: '1.2vw', 
               lineHeight: '1.4',
-              opacity: '0.9'
+              opacity: '0.9',
+              textAlign: 'center'
             }}>
-              This is the Print tab content. Add your print design work here.
+              In-store and out-of-home signage, including bilingual and Spring grand opening graphics.
             </p>
+
+            <h3>Store Design Mockups</h3>
+            <h4>Objective: create mockups for store design updates in different locations across the country.</h4>
+            <BeforeAfterComparison />
+
+            <h3>Signage</h3>
+            <h4>Objective: create signage to advertise the Marshalls brand and communicate to customers, 
+              including signage in both English and Spanish.
+            </h4>
+
+            <SpringGOImages />
+
+            <OOHSignage />
+
+            <SignageInStore />
+
+            <BilingualSignage />
+
+            
+
+
+
+
           </div>
         )}
       </div>

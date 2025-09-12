@@ -1,0 +1,97 @@
+.ooh-signage-container {
+  margin: 40px 0;
+}
+
+.ooh-signage-container h3 {
+  color: #F0EDE6;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ooh-signage-container h4 {
+  color: #F0EDE6;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: center;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ooh-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px 0;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.ooh-grid-item {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ooh-grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.ooh-thumbnail {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.ooh-grid-item:hover .ooh-thumbnail {
+  opacity: 0.9;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ooh-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .ooh-thumbnail {
+    height: 300px;
+  }
+  
+  .ooh-signage-container h3 {
+    font-size: 2rem;
+  }
+  
+  .ooh-signage-container h4 {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ooh-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .ooh-thumbnail {
+    height: 250px;
+  }
+  
+  .ooh-signage-container h3 {
+    font-size: 1.8rem;
+  }
+}
