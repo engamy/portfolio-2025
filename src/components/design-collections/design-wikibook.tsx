@@ -2,7 +2,7 @@ import React from 'react';
 import '../mainpages/design-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import SimplePDFViewer from '../SimplePDFViewer';
+import SimplePDFViewer from '../page-components/SimplePDFViewer';
 
 export default function DesignWikiBook() {
   // Set darkMode to true for the design collection page

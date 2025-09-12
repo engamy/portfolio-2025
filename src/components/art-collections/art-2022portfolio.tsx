@@ -2,7 +2,7 @@ import React from 'react';
 import '../mainpages/art-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import MasonryGrid from '../MasonryGrid';
+import MasonryGrid from '../page-components/MasonryGrid';
 
 export default function Art2022Portfolio() {
   // Set darkMode to true for the art collection page

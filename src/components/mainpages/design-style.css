@@ -29,9 +29,9 @@
     justify-content: center;
     text-align: left;
     align-items: flex-start;
-    width: 35%;
+    width: 50%;
     margin-left: 10vw;
-    color: #F0EDE6;
+    color: #000000;
 }
 
 .design-section-header .design-section-header-introtext h1 {
@@ -40,10 +40,12 @@
     font-style: italic;
     margin: 0;
     margin-bottom: 1vw;
+    color: #0024cc;
 }
 
 .design-section-header .design-section-header-introtext p {
     font-size: 1.5vw;
+    width: 80%;
 }
 
 .design-collections {
