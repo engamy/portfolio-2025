@@ -110,7 +110,7 @@ export default function Design() {
         </div>
 
         <div className="design-collection">
-          <Link to="/design-wiki-book">
+          <Link to="/design-layouts">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png" alt="Layout Design Collection" />
             </div>

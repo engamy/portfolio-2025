@@ -10,7 +10,7 @@ import Art from './components/mainpages/art';
 import About from './components/mainpages/about';
 import Art2022Portfolio from './components/art-collections/art-2022portfolio';
 import ArtMotionMedia from './components/art-collections/art-motionmedia';
-import DesignWikiBook from './components/design-collections/design-wikibook';
+import DesignWikiBook from './components/design-collections/design-layouts';
 import DesignMarshalls from './components/design-collections/design-marshalls';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
