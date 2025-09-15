@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ImageLightbox from './page-components/ImageLightbox';
+import ImageLightbox from './ImageLightbox';
 import './TrendingShopLayoutGrid.css';
 
 interface LayoutImage {

@@ -90,7 +90,7 @@ export default function Design() {
         </div>
 
         <div className="design-collection">
-          <a href="" target="_blank">
+          <Link to="/design-reading-redesign">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" alt="Reading Redesign Collection" />
             </div>
@@ -106,7 +106,7 @@ export default function Design() {
                 <p>Usability</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="design-collection">
