@@ -70,13 +70,13 @@ export default function Design() {
         </div>
 
         <div className="design-collection">
-          <a href="" target="_blank">
+          <Link to="/design-dishwasher" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" alt="IoT Dishwasher Collection" />
             </div>
             <div className="design-collection-info">
               <h4>IoT Dishwasher</h4>
-              <p>Month 20XX</p>
+              <p>September 2024</p>
               <div className="design-collection-tags">
                 <p>Product Design</p>
                 <p>IoT</p>
@@ -86,7 +86,7 @@ export default function Design() {
                 <p>Technology</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="design-collection">
@@ -96,7 +96,7 @@ export default function Design() {
             </div>
             <div className="design-collection-info">
               <h4>Reading Redesign</h4>
-              <p>Month 20XX</p>
+              <p>November 2024</p>
               <div className="design-collection-tags">
                 <p>UX Design</p>
                 <p>User Research</p>
