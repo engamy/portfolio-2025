@@ -13,6 +13,7 @@ import ArtMotionMedia from './components/art-collections/art-motionmedia';
 import DesignWikiBook from './components/design-collections/design-wikibook';
 import DesignMarshalls from './components/design-collections/design-marshalls';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
+import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
 
 const AppContent: React.FC = () => {
@@ -31,6 +32,7 @@ const AppContent: React.FC = () => {
         <Route path="/design-wiki-book" element={<DesignWikiBook />} />
         <Route path="/design-marshalls" element={<DesignMarshalls />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
+        <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
