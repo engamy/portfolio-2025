@@ -6,31 +6,35 @@ import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 
 export default function Design() {
   // Set darkMode to true for the design page
-  usePageDarkMode(false);
+  usePageDarkMode(true);
   
   // Enable scroll-based dark mode for this page, targeting the design-collections div
   // Use reverse=true to start light and turn dark when hitting the div
-  useScrollDarkMode(true, '.design-collections', true);
+  useScrollDarkMode(false, '.design-collections', false);
 
   return (
     <main className="design-container">
-      <div className="design-header">
-        <h1>Designer</h1>
-        <p>
-        Because design is in every aspect of our lives, I get to explore 
-        various fields and combine research and creativity in order to 
-        craft solutions that engage, inspire, and address complex challenges.
-        <br></br><br></br>
-        I've explored the intersection of design and innovation, spanning UI/UX, 
-        graphic design, corporate branding, and game design, and I'm always eager 
-        to learn more!
-        </p>
+      <div
+        className="design-section-header"
+        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')" }}
+      >
+        <div className="design-section-header-introtext">
+          <h1>Designer</h1>
+          <p>
+          Because design is in every aspect of our lives, I get to explore 
+          various fields and combine research and creativity in order to 
+          craft solutions that engage, inspire, and address complex challenges.
+          <br></br><br></br>
+          I've explored the intersection of design and innovation, spanning UI/UX, 
+          graphic design, and corporate branding, and I'm always eager to learn more!
+          </p>
+        </div>
       </div>
 
       <div className="design-collections">
         <h2>Collections</h2>
         <div className="design-collection">
-          <a href="" target="_blank">
+          <a href="/design-marshalls" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg" alt="Marshalls Collection" />
             </div>
@@ -49,7 +53,9 @@ export default function Design() {
           </a>
         </div>
 
-        <div className="design-collection">
+
+        {/* CBA Collection: HIDDEN UNTIL COMPLETED */}
+        {/* <div className="design-collection">
           <a href="" target="_blank">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_cba.jpg" alt="CBA Collection" />
@@ -67,16 +73,16 @@ export default function Design() {
               </div>
             </div>
           </a>
-        </div>
+        </div> */}
 
         <div className="design-collection">
-          <a href="" target="_blank">
+          <Link to="/design-dishwasher" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" alt="IoT Dishwasher Collection" />
             </div>
             <div className="design-collection-info">
               <h4>IoT Dishwasher</h4>
-              <p>Month 20XX</p>
+              <p>September 2024</p>
               <div className="design-collection-tags">
                 <p>Product Design</p>
                 <p>IoT</p>
@@ -86,17 +92,17 @@ export default function Design() {
                 <p>Technology</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="design-collection">
-          <a href="" target="_blank">
+          <a href="/design-reading-redesign" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" alt="Reading Redesign Collection" />
             </div>
             <div className="design-collection-info">
               <h4>Reading Redesign</h4>
-              <p>Month 20XX</p>
+              <p>November 2024</p>
               <div className="design-collection-tags">
                 <p>UX Design</p>
                 <p>User Research</p>
@@ -110,13 +116,13 @@ export default function Design() {
         </div>
 
         <div className="design-collection">
-          <Link to="/design-wiki-book">
+          <Link to="/design-layouts" target="_blank" rel="noopener noreferrer">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png" alt="Layout Design Collection" />
             </div>
             <div className="design-collection-info">
               <h4>Layout Design</h4>
-              <p>Month 20XX</p>
+              <p>March 2024 - June 2025</p>
               <div className="design-collection-tags">
                 <p>Layout Design</p>
                 <p>Typography</p>

@@ -1,0 +1,93 @@
+/* Custom styles for Marshalls header text */
+.design-section-header .design-section-header-introtext .marshalls-title {
+  color: #0024cc !important;
+}
+
+.design-section-header .design-section-header-introtext .marshalls-description {
+  color: #000000 !important;
+}
+
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  padding-top: 1vw;
+  border-bottom: 1px solid #F0EDE6;
+  background-color: #101010;
+}
+
+.tab-button {
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background-color: #F0EDE6;
+  color: #101010;
+  border-bottom: 3px solid #F0EDE6;
+}
+
+.tab-button.inactive {
+  background-color: transparent;
+  color: #F0EDE6;
+  border-bottom: 3px solid transparent;
+}
+
+.tab-content {
+  padding: 2rem 10vw;
+  background-color: #101010;
+  color: #F0EDE6;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+}
+
+.tab-content h2 {
+  font-size: 2.5vw;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #F0EDE6;
+}
+
+.tab-content h3 {
+  font-size: 2vw;
+  font-style: italic;
+  margin-top: 2vw;
+  margin-bottom: 0.5vw;
+  color: #F0EDE6;
+}
+
+.tab-content h4 {
+  font-size: 1.3vw;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 1vw;
+  color: #F0EDE6;
+  opacity: 0.9;
+}
+
+/* Mobile responsive styles for trending shop section */
+@media (max-width: 768px) {
+  .trending-shop-container {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .trending-shop-container img {
+    max-width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  .trending-shop-container h4 {
+    min-width: auto !important;
+    text-align: center;
+  }
+}
+
+
+
+
+
