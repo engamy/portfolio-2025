@@ -49,7 +49,9 @@ export default function Design() {
           </a>
         </div>
 
-        <div className="design-collection">
+
+        {/* CBA Collection: HIDDEN UNTIL COMPLETED */}
+        {/* <div className="design-collection">
           <a href="" target="_blank">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_cba.jpg" alt="CBA Collection" />
@@ -67,7 +69,7 @@ export default function Design() {
               </div>
             </div>
           </a>
-        </div>
+        </div> */}
 
         <div className="design-collection">
           <Link to="/design-dishwasher" target="_blank" rel="noopener noreferrer">
