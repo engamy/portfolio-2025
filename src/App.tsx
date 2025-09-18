@@ -29,7 +29,7 @@ const AppContent: React.FC = () => {
         <Route path="/art" element={<Art />} />
         <Route path="/art-2022-portfolio" element={<Art2022Portfolio />} />
         <Route path="/art-motion-media" element={<ArtMotionMedia />} />
-        <Route path="/design-wiki-book" element={<DesignWikiBook />} />
+        <Route path="/design-layouts" element={<DesignWikiBook />} />
         <Route path="/design-marshalls" element={<DesignMarshalls />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
