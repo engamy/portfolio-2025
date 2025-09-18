@@ -1,0 +1,166 @@
+.layout-lightboxes-container {
+  margin: 2rem 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  width: 80vw; /* match established content width */
+}
+
+.layout-lightboxes-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto auto; /* let rows size to intrinsic image heights */
+  gap: 1rem;
+  max-width: 100%;
+}
+
+.layout-lightboxes-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #f5f5f5;
+  min-width: 0; /* prevent overflow from intrinsic sizing */
+  min-height: 0;
+}
+
+.layout-lightboxes-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.layout-lightboxes-item.large {
+  grid-row: 1 / 4;
+  grid-column: 1;
+}
+
+/* Place the three right-side items into rows 1, 2, and 3 */
+.layout-lightboxes-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+.layout-lightboxes-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+.layout-lightboxes-item:nth-child(4) { grid-column: 2; grid-row: 3; }
+
+/* Two-column equal layout override for specific usages (election results) */
+.two-col-equal .layout-lightboxes-grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+.two-col-equal .layout-lightboxes-item {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+.two-col-equal .layout-lightboxes-thumbnail {
+  width: 100%;
+  height: auto; /* preserve aspect ratio */
+  object-fit: cover; /* ensure coverage if constrained */
+}
+
+/* Ensure the largest image contains without cropping inside its cell */
+.layout-lightboxes-item.large .layout-lightboxes-thumbnail {
+  height: 100%;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.layout-lightboxes-thumbnail {
+  width: 100%;
+  height: auto; /* preserve original aspect ratio */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.layout-lightboxes-item:hover .layout-lightboxes-thumbnail {
+  transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.layout-lightboxes-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+
+.layout-lightboxes-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout-lightboxes-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #F0EDE6;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.layout-lightboxes-close:hover {
+  color: #AE1D14;
+}
+
+.layout-lightboxes-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout-lightboxes-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .layout-lightboxes-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto; /* let content define height on small screens */
+  }
+  
+  .layout-lightboxes-item.large {
+    grid-row: 1;
+    grid-column: 1 / 3;
+  }
+  
+  .layout-lightboxes-image {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
+
+  .layout-lightboxes-thumbnail {
+    height: auto; /* avoid stretching on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-lightboxes-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    height: auto;
+  }
+  
+  .layout-lightboxes-item.large {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}

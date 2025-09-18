@@ -1,4 +1,4 @@
-.design-container {
+.design-layouts-page .design-container {
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     line-height: 1;
 }
 
-.design-section-header {
+.design-layouts-page .design-section-header {
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -23,7 +23,7 @@
     padding: 0;
 }
 
-.design-section-header-introtext {
+.design-layouts-page .design-section-header-introtext {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +34,7 @@
     color: #000000;
 }
 
-.design-section-header .design-section-header-introtext h1 {
+.design-layouts-page .design-section-header .design-section-header-introtext h1 {
     font-size: 5vw;
     text-align: left;
     font-style: italic;
@@ -43,90 +43,90 @@
     color: #0024cc;
 }
 
-.design-section-header .design-section-header-introtext p {
+.design-layouts-page .design-section-header .design-section-header-introtext p {
     font-size: 1.5vw;
     width: 80%;
 }
 
-.design-collections {
-    background-color: #101010;
+.design-layouts-page .design-collections {
+    background-color: #F0EDE6;
     margin: 0;
-    padding: 0;
+    padding: 0 10vw;
     line-height: 1;
-    color: #F0EDE6;
+    color: #101010;
     width: 100%;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-left: 10vw;
     gap: 2vw;
     padding-bottom: 5vw;
 }
 
-.design-collections h2 {
+.design-layouts-page .design-collections h2 {
     font-size: 2.5vw;
     font-style: italic;
-    width: 80vw;
+    width: 100%;
     margin-top: 4vw;
+    color: #101010;
 }
 
-.design-intro {
+.design-layouts-page .design-intro {
     font-size: 1.2vw;
-    color: #F0EDE6;
-    width: 80vw;
+    color: #101010;
+    width: 100%;
     line-height: 1.4;
     margin: 0;
     opacity: 0.9;
 }
 
-.design-collections h3 {
+.design-layouts-page .design-collections h3 {
     font-size: 2vw;
     font-style: italic;
-    color: #F0EDE6;
-    width: 80vw;
+    color: #101010;
+    width: 100%;
     margin: 0;
     margin-top: 2vw;
 }
 
-.design-collection {
+.design-layouts-page .design-collection {
     width: 25.3vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.design-collection a, .design-collection a:visited {
+.design-layouts-page .design-collection a, .design-layouts-page .design-collection a:visited {
     text-decoration: none;
-    color: #F0EDE6;
+    color: #101010;
 }
 
-.design-collection-image {
+.design-layouts-page .design-collection-image {
     width: 100%;
     height: 25.3vw;
-    background-color: #F0EDE6;
+    background-color: #101010;
     margin-bottom: 2vw;
     border-radius: 20px;
     overflow: hidden;
 }
 
-.design-collection-image img {
+.design-layouts-page .design-collection-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.design-collection-image:hover {
+.design-layouts-page .design-collection-image:hover {
     transform: scale(1.05);
     transition: all 0.2s ease;
 }
 
-.design-collection-image:hover img {
+.design-layouts-page .design-collection-image:hover img {
     transform: scale(1.1);
 }
 
-.design-collection-info {
+.design-layouts-page .design-collection-info {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -135,42 +135,42 @@
     padding: 0;
 }
 
-.design-collection-info h4 {
+.design-layouts-page .design-collection-info h4 {
     font-size: 1.5vw;
     margin: 0;
 }
 
-.design-collection-info p {
+.design-layouts-page .design-collection-info p {
     font-size: 1vw;
 }
 
-.design-collection-tags {
+.design-layouts-page .design-collection-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5vw;
 }
 
-.design-collection-tags p {
-    background-color: #F0EDE6;
-    color: #101010;
+.design-layouts-page .design-collection-tags p {
+    background-color: #101010;
+    color: #F0EDE6;
     padding: 0.5vw 1vw;
     border-radius: 20px;
     text-decoration: none;
     font-size: 0.75vw;
     font-weight: 500;
     transition: all 0.2s ease;
-    border: 1px solid #F0EDE6;
+    border: 1px solid #101010;
     margin: 0;
 }
 
-.design-collection-tags p:hover {
+.design-layouts-page .design-collection-tags p:hover {
     background-color: #AE1D14;
     color: #F0EDE6;
     border-color: #AE1D14;
 }
 
-.pdf-container {
-    width: 80vw;
+.design-layouts-page .pdf-container {
+    width: 100%;
     margin-top: 2vw;
     margin-bottom: 4vw;
 }
