@@ -49,23 +49,40 @@ export default function Code() {
             <div className="project-desc">
               <div className="project-title-time">
                 <h3>Coopalytics</h3>
-                <p>Summer 2025</p>
+                <p>Introduction to Databases | Summer 2025</p>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p>Coopalytics is a data-driven co-op matching platform that makes 
+                 the co-op/internshipsearch smarter and more transparent. Using advanced 
+                analytics, it connects students with positions that fit their 
+                skills and goals while offering clear insights into placement 
+                trends, salary ranges, and company ratings—saving time and removing 
+                the guesswork from blind applications.
+                <br></br><br></br>
+                Designed for students, employers, advisors, and administrators, 
+                Coopalytics streamlines the process with three core features: an 
+                intelligent matching system, a progress tracker, and historical 
+                analytics. By combining transparency with efficiency, it 
+                transforms the co-op search into a strategic, data-informed experience.
               </p>
               <div className="project-links">
-                <a href="" target="_blank"><p>link 1</p></a>
-                <a href="" target="_blank"><p>link 2</p></a>
+                <a href="https://www.youtube.com/watch?v=rf_tmN-ASdk" target="_blank"><p>Video Demo & Walkthrough</p></a>
+                <a href="https://github.com/kanghosaeyo/Coopalytics" target="_blank"><p>Github Repo</p></a>
               </div>
             </div>
             <div className="project-tags">
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
+              <p>Python</p>
+              <p>Flask REST API</p>
+              <p>Streamlit</p>
+              <p>SQL</p>
+              <p>Relational Database Design</p>
+              <p>Database Normalization</p>
+              <p>DataGrip</p>
+              <p>Docker</p>
+              <p>Containerization</p>
+              <p>Multi-Tier Architecture</p>
+              <p>API Development</p>
+              <p>Data Visualization</p>
+              <p>System Design</p>
             </div>
           </div>
           <div className="project-preview">
@@ -81,7 +98,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/threetrios.mp4"
+              <source src="/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4"
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -95,21 +112,37 @@ export default function Code() {
                 <h3>Djoda Website</h3>
                 <p>Spring 2025</p>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p>As a full-stack developer at Scout, Northeastern's student-run 
+                design agency, I collaborated with a client to build a 
+                React.js/Three.js website featuring a fully interactive 3D spine 
+                model, a pre-order system, a blog with a connected database, 
+                and customer testimonials. Working from Figma wireframes, I 
+                translated design concepts into functional, engaging web 
+                features that balanced creativity with usability.
+                <br></br><br></br>
+                This project emphasized teamwork and client collaboration, 
+                with weekly meetings to refine requirements, review progress, 
+                and incorporate feedback. By applying Git version control 
+                and iterative development practices, I ensured smooth 
+                integration across the team while delivering a polished, 
+                production-ready platform tailored to client needs.
               </p>
-              <div className="project-links">
-                <a href="" target="_blank"><p>link 1</p></a>
-                <a href="" target="_blank"><p>link 2</p></a>
-              </div>
             </div>
             <div className="project-tags">
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
+              <p>React.js</p>
+              <p>Three.js</p>
+              <p>Figma</p>
+              <p>Wireframes</p>
+              <p>JavaScript (ES6+)</p>
+              <p>3D Web Development</p>
+              <p>Frontend Development</p>
+              <p>Full-Stack Development</p>
+              <p>Database Integration</p>
+              <p>RESTful APIs</p>
+              <p>Git</p>
+              <p>Agile/Iterative Development</p>
+              <p>UI/UX Implementation</p>
+              <p>Client-Facing Development</p>
             </div>
           </div>
           <div className="project-preview">
@@ -125,7 +158,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/threetrios.mp4"
+              <source src="/pictures/portfolio-content_spring2026/03_CODE/djoda.mp4"
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
