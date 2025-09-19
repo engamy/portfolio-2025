@@ -13,7 +13,9 @@ export default function Home() {
       <div className="home-introtext">
         <h1>AMY ENG</h1>
         <p>she/her/hers</p>
-        <img src={`${IMG_PATH}06_Icons/star_red.svg`} alt="Red Star" />
+        <img src={`${IMG_PATH}06_ICONS/star_red.svg`} alt="Red Star" />
+
+        
         <p><span>Designer • Developer • Artist</span></p>
       </div>
       <div className="jumpimg">
@@ -33,16 +35,16 @@ export default function Home() {
         </p>
         <div className="contacticon">
           <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_Icons/linkedin.png`} alt="LinkedIn" />
+            <img src={`${IMG_PATH}06_ICONS/linkedin.png`} alt="LinkedIn" />
           </a>
           <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_Icons/instagram.png`} alt="Instagram" />
+            <img src={`${IMG_PATH}06_ICONS/instagram.png`} alt="Instagram" />
           </a>
           <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_Icons/github.png`} alt="GitHub" />
+            <img src={`${IMG_PATH}06_ICONS/github.png`} alt="GitHub" />
           </a>
           <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_Icons/youtube.png`} alt="YouTube" />
+            <img src={`${IMG_PATH}06_ICONS/youtube.png`} alt="YouTube" />
           </a>
         </div>
       </div>
