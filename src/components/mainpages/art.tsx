@@ -335,21 +335,23 @@ export default function Art() {
         </div>
 
         <div className="art-collection">
-          <div className="art-collection-image">
-
-          </div>
-          <div className="art-collection-info">
-            <h4>Collection Name</h4>
-            <p>Month 20XX</p>
-            <div className="art-collection-tags">
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
-              <p>tag</p>
+          <Link to="/art-makeit">
+            <div className="art-collection-image">
+              <img src="/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg" alt="Make It Collection" />
             </div>
-          </div>
+            <div className="art-collection-info">
+              <h4>Make It</h4>
+              <p>2024</p>
+              <div className="art-collection-tags">
+                <p>Handcrafted</p>
+                <p>Mixed Media</p>
+                <p>Physical Art</p>
+                <p>Creative Process</p>
+                <p>Experimentation</p>
+                <p>Innovation</p>
+              </div>
+            </div>
+          </Link>
         </div>
 
         <div className="art-collection">

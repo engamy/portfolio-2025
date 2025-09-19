@@ -19,7 +19,7 @@ const WebsiteAssetsGrid: React.FC = () => {
     {
       id: 1,
       thumbnailImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop_live.png',
-      lightboxImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/Halloween_SiteBanner_Value_DM_2287023_D.jpg',
+      lightboxImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop.jpg',
       title: 'Desktop Site Banner',
       alt: 'Desktop site banner thumbnail'
     },

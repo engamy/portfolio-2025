@@ -42,12 +42,13 @@ const EmailAssetsLightbox: React.FC<EmailAssetsLightboxProps> = ({
     }
   }, [isOpen, selectedFolder, onClose]);
 
-  if (!isOpen || !selectedFolder) return null;
-
+  if (!isOpen || !selectedFolder || !selectedFolder.allImages || selectedFolder.allImages.length === 0) return null;
 
   const currentImage = selectedFolder.allImages[currentImageIndex];
+  if (!currentImage) return null;
+
   const isApprovedImage = currentImage.includes('APPROVED');
-  const isCBImage = selectedFolder.folderName.includes('_CB');
+  const isCBImage = selectedFolder.folderName?.includes('_CB') || false;
 
   const handleOverlayClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -68,6 +69,7 @@ const EmailAssetsLightbox: React.FC<EmailAssetsLightboxProps> = ({
           {selectedFolder.allImages.length > 1 && (
             <div className="email-lightbox-left">
               {selectedFolder.allImages.map((image, index) => {
+                if (!image) return null;
                 const isImageApproved = image.includes('APPROVED');
                 const isSelected = image === currentImage;
                 return (

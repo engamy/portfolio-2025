@@ -31,8 +31,8 @@ export default function DesignMarshalls() {
         style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-3.png')" }}
       >
         <div className="design-section-header-introtext">
-          <h1>TJX/Marshalls Graphic Design Co-op</h1>
-          <p>
+          <h1 className="marshalls-title">TJX/Marshalls Graphic Design Co-op</h1>
+          <p className="marshalls-description">
             During my six-month co-op as a Graphic Designer at MARSHALLS LLC (The TJX Companies, Inc.), 
             I worked across the Retail, Ecommerce, and Social teams. I designed in-store signage, 
             including bilingual and grand opening graphics, some of which are now in stores nationwide. 
@@ -41,7 +41,7 @@ export default function DesignMarshalls() {
             On the Ecommerce and Social teams, I created marketing emails, website graphics, and 
             organic social content using Photoshop, Illustrator, and After Effects. Highlights included 
             designing seasonal campaigns, photographing in-store product shots, and contributing to 
-            Marshalls’ Instagram. This experience sharpened my technical, communication, and project 
+            Marshalls' Instagram. This experience sharpened my technical, communication, and project 
             management skills while deepening my understanding of brand marketing.
           </p>
         </div>
@@ -94,7 +94,8 @@ export default function DesignMarshalls() {
             </h4>
             <WebsiteAssetsGrid />
 
-            <div className="trending-shop-container" style={{ 
+              {/* HIDDEN UNTIL TRENDING SHOP GOES LIVE */}
+            {/* <div className="trending-shop-container" style={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: '30px', 
@@ -135,7 +136,7 @@ export default function DesignMarshalls() {
                  that highlights the most popular products/styles/categories/trends of the moment.
               </h4>
             </div>
-            <TrendingShopLayoutGrid />
+            <TrendingShopLayoutGrid /> */}
           
             <h3>Social Content</h3>
             <h4>

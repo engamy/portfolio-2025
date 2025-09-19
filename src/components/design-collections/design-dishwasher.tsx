@@ -38,14 +38,23 @@ export default function DesignDishwasher() {
         className="design-section-header"
         style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')" }}
       >
-        <div className="design-section-header-introtext">
-          <h1>IoT Dishwasher</h1>
-          <p>
-            A comprehensive product design project focused on creating an intuitive 
-            smart home appliance interface. This project demonstrates the complete 
-            design process from user research to interactive prototypes for IoT 
-            dishwasher functionality.
-          </p>
+        <div className="design-section-header-content">
+          <div className="design-section-header-introtext">
+            <h1>IoT Dishwasher</h1>
+            <p>
+              "The focus of this project is to identify the components of a 
+              physical interface (washing your dishes) and translate their 
+              purpose into a digital UI. Use UI components from an existing 
+              app and apply it to your digital translation"
+            </p>
+          </div>
+          <div className="design-section-header-image">
+            <img 
+              src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" 
+              alt="IoT Dishwasher thumbnail"
+              className="header-thumbnail"
+            />
+          </div>
         </div>
       </div>
 
@@ -57,15 +66,38 @@ export default function DesignDishwasher() {
             <div className="about-text">
               <h2>About</h2>
               <h4>
-              In this app, I used the UI components from Apple Maps to create an app that uses the internet of things to control a dishwasher remotely. This app would be used in the event that you need to schedule a cycle ahead of time or if you need to start it remotely. It also highlights the customization of different dishwashing cycles, something most of us never really consider when we hit the start button on our dish cycles.
+              An app interface design project focused on creating an intuitive 
+              smart home integration, inspired by Apple Maps' UI/UX design and 
+              interface.
+              <br></br><br></br>
+              In this app, I used the UI components from Apple Maps to design the interface for 
+              an app that uses the internet of things to control a dishwasher remotely. This 
+              app would be used in the event that you need to schedule a cycle ahead of time 
+              or if you need to start it remotely. It also highlights the customization of 
+              different dishwashing cycles, something most of us never really consider when 
+              we hit the start button on our dish cycles.
               </h4>
-              <p>Feel free to explore the hi-fi Figma prototype!</p>
+              <p>
+                <a 
+                  href="https://www.figma.com/proto/PnVqtZtiJ7H5QoOvgANPT7/-w--Amy-Eng?content-scaling=fixed&kind=proto&node-id=4145-5298&page-id=1%3A5&scaling=scale-down&starting-point-node-id=4145%3A5298" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="figma-link"
+                >
+                  Feel free to explore the hi-fi Figma prototype!
+                </a>
+              </p>
             </div>
             
             <div className="user-scenario">
               <h2>User Scenario</h2>
               <h4>
-              David is a 20-year-old student at Boston University who lives alone in an apartment. After finishing his hearty meal of spaghetti and meatballs for lunch, he neatly organizes his dirty dishes in the dishwasher. Then he runs off to his next class, but the moment he walks through the doors, he realizes that he forgot to start the dishwasher! He needs the cycle to be done before 6pm, so he can reuse the dishes he used earlier for dinner.
+              David is a 20-year-old student at Boston University who lives alone in an apartment. 
+              After finishing his hearty meal of spaghetti and meatballs for lunch, he neatly 
+              organizes his dirty dishes in the dishwasher. Then he runs off to his next class, 
+              but the moment he walks through the doors, he realizes that he forgot to start 
+              the dishwasher! He needs the cycle to be done before 6pm, so he can reuse the 
+              dishes he used earlier for dinner.
               </h4>
             </div>
           </div>

@@ -1,0 +1,350 @@
+/* Override header styles for dark theme */
+.art-section-header .art-section-header-introtext {
+  color: #F0EDE6 !important;
+}
+
+.art-section-header {
+  background-color: #101010;
+}
+
+.art-section-header .art-section-header-introtext h1 {
+  color: #F0EDE6 !important;
+}
+
+.art-section-header .art-section-header-introtext p {
+  color: #F0EDE6 !important;
+}
+
+/* Header content layout */
+.art-section-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60vh;
+  margin-right: 10vw;
+}
+
+.art-section-header-image {
+  max-width: 30vw;
+}
+
+.header-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.art-assorted.art-makeit-works {
+  background-color: #F0EDE6;
+  color: #101010;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  line-height: 1;
+}
+
+.art-assorted.art-makeit-works h2 {
+  font-size: 2.5vw;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #101010;
+}
+
+.makeit-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1vw;
+  margin-top: 4vw;
+  justify-content: center;
+}
+
+/* Force square dimensions with CSS custom property */
+.art-makeit-works {
+  --square-size: 30vw;
+}
+
+/* CSS Reset for this component only */
+.art-makeit-works * {
+  box-sizing: border-box !important;
+}
+
+.art-makeit-works img {
+  all: unset !important;
+  display: block !important;
+  width: 30vw !important;
+  height: 30vw !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+}
+
+/* Transform approach */
+.art-makeit-works .image-container {
+  transform: scale(1) !important;
+  transform-origin: center !important;
+}
+
+/* CSS Grid with explicit sizing */
+.art-makeit-works .makeit-grid > * {
+  width: 30vw !important;
+  height: 30vw !important;
+  min-width: 30vw !important;
+  min-height: 30vw !important;
+  max-width: 30vw !important;
+  max-height: 30vw !important;
+}
+
+/* Final attempt with CSS containment and calc */
+.art-makeit-works .image-container {
+  contain: layout style size !important;
+  width: calc(30vw) !important;
+  height: calc(30vw) !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.art-makeit-works .image-container img {
+  contain: layout style size !important;
+  width: calc(100%) !important;
+  height: calc(100%) !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* Target the exact structure from JSX */
+.art-assorted.art-makeit-works .makeit-grid .image-item .image-container img {
+  width: 30vw !important;
+  height: 30vw !important;
+  max-width: 30vw !important;
+  max-height: 30vw !important;
+  min-width: 30vw !important;
+  min-height: 30vw !important;
+  object-fit: cover !important;
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.art-makeit-works .image-item {
+  background-color: transparent !important;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.art-makeit-works .image-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.art-makeit-works .image-container {
+  position: relative;
+  width: 30vw !important;
+  height: 30vw !important;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  flex-basis: 30vw !important;
+}
+
+.art-makeit-works .image-container img,
+.art-makeit-works .image-item img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 30vw !important;
+  height: 30vw !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+  display: block !important;
+}
+
+/* Override any conflicting image styles with maximum specificity */
+.art-makeit-works img {
+  width: 30vw !important;
+  height: 30vw !important;
+  object-fit: cover !important;
+}
+
+/* Even more specific override */
+.art-container .art-makeit-works .image-item .image-container img {
+  width: var(--square-size) !important;
+  height: var(--square-size) !important;
+  max-width: var(--square-size) !important;
+  max-height: var(--square-size) !important;
+  min-width: var(--square-size) !important;
+  min-height: var(--square-size) !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Nuclear option - override everything */
+.art-makeit-works * img {
+  width: 30vw !important;
+  height: 30vw !important;
+  max-width: 30vw !important;
+  max-height: 30vw !important;
+  min-width: 30vw !important;
+  min-height: 30vw !important;
+  object-fit: cover !important;
+}
+
+/* Alternative method using padding-bottom trick */
+.art-makeit-works .image-container::before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+  width: 0;
+  height: 0;
+}
+
+/* Force the image to fill the container */
+.art-makeit-works .image-container img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 15px !important;
+}
+
+/* CSS Grid alternative approach */
+.art-makeit-works .image-item {
+  width: 30vw !important;
+  height: 30vw !important;
+  aspect-ratio: 1 / 1 !important;
+  display: block !important;
+}
+
+/* Flexbox approach */
+.art-makeit-works .image-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Viewport units approach */
+@media (min-width: 1px) {
+  .art-makeit-works .image-container {
+    width: 30vw !important;
+    height: 30vw !important;
+    max-width: 30vw !important;
+    max-height: 30vw !important;
+  }
+  
+  .art-makeit-works .image-container img {
+    width: 30vw !important;
+    height: 30vw !important;
+    max-width: 30vw !important;
+    max-height: 30vw !important;
+  }
+}
+
+.image-overlay {
+  display: none;
+}
+
+.art-makeit-works .image-item:hover .image-overlay {
+  display: none;
+}
+
+.expand-icon {
+  display: none;
+}
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 50vw;
+  max-height: 50vh;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid white;
+  color: white;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .art-section-header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem 5vw;
+    min-height: auto;
+  }
+  
+  .art-section-header-image {
+    max-width: 250px;
+    order: -1;
+  }
+  
+  .art-assorted.art-makeit-works {
+    padding: 1rem 5vw;
+  }
+  
+  .art-assorted.art-makeit-works h2 {
+    font-size: 4vw;
+  }
+  
+  .makeit-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+    padding: 0 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-assorted.art-makeit-works h2 {
+    font-size: 5vw;
+  }
+}

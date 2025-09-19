@@ -48,6 +48,15 @@
     width: 80%;
 }
 
+/* Marshalls specific header colors */
+.design-section-header .design-section-header-introtext .marshalls-title {
+    color: #0024cc !important;
+}
+
+.design-section-header .design-section-header-introtext .marshalls-description {
+    color: #000000 !important;
+}
+
 .design-collections {
     background-color: #101010;
     margin: 0;

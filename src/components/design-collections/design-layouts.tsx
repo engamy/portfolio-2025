@@ -94,13 +94,18 @@ export default function DesignWikiBook() {
         <h2>Design Articles</h2>
 
         <h3>Markiplier Wikibook</h3>
-        <p className="design-intro">Goal: Design a booklet about a topic of your choice using content from Wikipedia as well as a typographic system with which to design the booklet. Only use black, white, and one additional color and a maximum of two typefaces.</p>
+        <p className="design-intro">
+          Objective: Design a booklet about a topic of your choice using content 
+          from Wikipedia as well as a typographic system with which to design the 
+          booklet. Only use black, white, and one additional color and a maximum 
+          of two typefaces.
+          </p>
         
         <LayoutLightboxes images={markiplierImages} layoutType="default" />
         
         <h3>Northeastern University Political Review Layouts</h3>
         <p className="design-intro">
-          Goal: Design print layouts for student-written articles for the NUPR while 
+          Objective: Design print layouts for student-written articles for the NUPR while 
           consistently maintaining their visual identity.
         </p>
         <LayoutLightboxes images={freshMahaDeclineImages} layoutType="default" />

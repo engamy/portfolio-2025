@@ -38,13 +38,24 @@ export default function DesignReadingRedesign() {
         className="design-section-header"
         style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')" }}
       >
-        <div className="design-section-header-introtext">
-          <h1>Reading Redesign</h1>
-          <p>
-          This UX redesign project focused on improving the reading experience through comprehensive 
-              user research, information architecture, and iterative prototyping. The project demonstrates 
-              the complete design process from initial user research to final interactive prototypes.
-          </p>
+        <div className="design-section-header-content">
+          <div className="design-section-header-introtext">
+            <h1>Reading Redesign</h1>
+            <p>
+            "We are constantly reading, and reading all different types of media, 
+            but this project is focused on long-form text-based media. Design a user 
+            interface that enhances the reading experience of everyday readers. You 
+            will create a prototype for an interactive digital reading platform that 
+            accommodates specific reading styles and user needs."
+            </p>
+          </div>
+          <div className="design-section-header-image">
+            <img 
+              src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" 
+              alt="Reading Redesign thumbnail"
+              className="header-thumbnail"
+            />
+          </div>
         </div>
       </div>
 
@@ -55,16 +66,32 @@ export default function DesignReadingRedesign() {
           <div className="about-text">
             <h2>About</h2>
             <h4>
-               A comprehensive UX redesign project focused on improving the reading experience 
+            This Figma prototype features two AI-powered integrations into Apple Books. 
+            The first is a recommendation feature that takes in specific criterias and 
+            recommends five books in order to eliminate the paradox of choice. 
+            The second allows a user to select text within a book and prompt an AI 
+            model of their choice to generate an image or gif in an art style of their 
+            choice.
+            <br></br><br></br>
+            This is acomprehensive UX redesign project focused on improving the reading experience 
             through user research, information architecture, and iterative prototyping. 
             This project demonstrates the complete design process from initial user research 
             to final interactive prototypes.
             <br></br><br></br>
-            The redesign addresses key usability issues identified through user interviews 
+            The design addresses key usability issues identified through user interviews 
             and usability testing, resulting in a more intuitive and accessible reading 
             platform that better serves diverse user needs.
             </h4>
-            <p>Feel free to explore the hi-fi Figma prototype!</p>
+            <p>
+              <a 
+                href="https://www.figma.com/proto/W9bWaAroWLzF2gPgd8KSfY?content-scaling=fixed&kind=proto&node-id=3759-4771&page-id=3759%3A4367&scaling=scale-down&starting-point-node-id=3759%3A4771&fuid=1413253686122353770" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="figma-link"
+              >
+                Feel free to explore the hi-fi Figma prototype!
+              </a>
+            </p>
           </div>
           
           {/* Wireframe Video and Figma Prototype */}

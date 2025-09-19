@@ -3,8 +3,8 @@ import './code-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 
 export default function Code() {
-  // Set darkMode to true for the code page
-  usePageDarkMode(true);
+  // Set darkMode to true for the code page and force it regardless of scroll position
+  usePageDarkMode(true, true);
 
   return (
     <main className="code-container">
