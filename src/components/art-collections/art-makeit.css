@@ -35,7 +35,6 @@
 }
 
 .art-assorted.art-makeit-works {
-  padding: 2rem 10vw;
   background-color: #F0EDE6;
   color: #101010;
   font-family: "neue-haas-grotesk-display", sans-serif;
@@ -50,11 +49,10 @@
 }
 
 .makeit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 30vw);
-  grid-template-rows: repeat(2, 30vw);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1vw;
-  padding: 0 10vw;
   margin-top: 4vw;
   justify-content: center;
 }

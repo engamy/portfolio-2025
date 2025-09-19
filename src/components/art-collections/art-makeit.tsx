@@ -74,13 +74,8 @@ export default function ArtMakeIt() {
         <div className="art-section-header-content">
           <div className="art-section-header-introtext">
             <h1>Make It</h1>
-            <p>Handcrafted creations that explore the intersection of traditional techniques and contemporary expression.
-              <br></br><br></br>
-              This collection showcases my work in physical art-making, where each piece represents
-              a journey of discovery through materials, form, and creative problem-solving.
-              <br></br><br></br>
-              From mixed media experiments to sculptural explorations, these works demonstrate
-              my passion for bringing ideas to life through hands-on creation and artistic innovation.
+            <p>
+            "Students will generate a series of 8" x 8" handmade collages using found media (newspapers, magazines, trash, scraps, photos, etc.). This assignment will aid students to understand design principles of hierarchy, scale, symmetry, asymmetry, repetition, rhythm, balance, and movement. Balance the compositions using letterforms, images, and color."
             </p>
           </div>
           <div className="art-section-header-image">
@@ -101,9 +96,6 @@ export default function ArtMakeIt() {
             <div key={image.id} className="image-item">
               <div className="image-container" onClick={() => openLightbox(image.src)}>
                 <img src={image.src} alt={image.title} />
-                <div className="image-overlay">
-                  <div className="expand-icon">⛶</div>
-                </div>
               </div>
             </div>
           ))}
