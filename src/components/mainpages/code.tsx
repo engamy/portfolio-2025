@@ -11,13 +11,13 @@ export default function Code() {
       <div className="section-header">
         <div className="section-header-introtext">
           <h1>Developer</h1>
-          <p>I specialize in Java, HTML/CSS/JS, and object-oriented design,
-            delivering high-quality solutions across a range of projects.
+          <p>As a full-stack developer, I bring comprehensive technical expertise across 
+            modern web technologies including but not limited to JavaScript, TypeScript, 
+            React.js, Node.js, Next.js, Java, SQL, HTML, CSS, and Python.
             <br></br><br></br>
-            My technical expertise is complemented by strong problem-solving
-            abilities, debugging skills, and proficiency in key soft skills
-            such as teamwork, communication, and time management, all of
-            which enhance my ability to collaborate and delivery effective results.
+            While I excel in both frontend and backend development, I have a particular 
+            passion for frontend engineering, where I can combine my technical skills in 
+            web development with creative problem-solving to build engaging user experiences.
           </p>
         </div>
         <div className="header-media">
