@@ -58,7 +58,7 @@ export default function About() {
 
         <div className="resumes">
           <p>Download my Design Resume <a href="" target="_blank">here</a>!</p>
-          <p>Download my CS Resume <a href="" target="_blank">here</a>!</p>
+          <p>Download my CS Resume <a href={`${process.env.PUBLIC_URL}/pictures/portfolio-content_spring2026/05_ABOUT/EngAmy_CSResume_09292025.pdf`} target="_blank">here</a>!</p>
         </div>
       </div>
 
@@ -108,8 +108,8 @@ export default function About() {
                 <p>Website Designer</p>
               </div>
               <div className="experience-time-place">
-                <p>City, State</p>
-                <p>Month 20XX - Month 20XX</p>
+                <p>Remote</p>
+                <p>May 2024 - Present</p>
               </div>
             </div>
 
