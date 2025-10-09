@@ -12,11 +12,11 @@ export default function Home() {
     <main className="home-container">
       <div className="home-introtext">
         <h1>AMY ENG</h1>
-        <p>she/her/hers</p>
-        <img src={`${IMG_PATH}06_ICONS/star_red.svg`} alt="Red Star" />
-
-        
-        <p><span>Designer • Developer • Artist</span></p>
+        <div className="intro-subline">
+          <p>she/her/hers</p>
+          <img src={`${IMG_PATH}06_ICONS/star_red.svg`} alt="Red Star" />        
+          <p><span>Designer • Developer • Artist</span></p>
+        </div>
       </div>
       <div className="jumpimg">
         <img src={`${IMG_PATH}01_HOME/jump.png`} alt="Jump Hero" />
