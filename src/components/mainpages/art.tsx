@@ -323,12 +323,12 @@ export default function Art() {
               <h4>Ordinary and Extraordinary Portfolio</h4>
               <p>2022-2023</p>
               <div className="art-collection-tags">
-                  <p>tag</p>
-                  <p>tag</p>
-                  <p>tag</p>
-                  <p>tag</p>
-                  <p>tag</p>
-                  <p>tag</p>
+                  <p>AP Art & Design 5</p>
+                  <p>Best in Illustration at HCRHS</p>
+                  <p>Ink Pen</p>
+                  <p>Alcohol-based Markers</p>
+                  <p>Traditional Art</p>
+                  <p>Surrealism</p>
               </div>
             </div>
           </Link>
