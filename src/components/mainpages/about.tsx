@@ -25,19 +25,17 @@ export default function About() {
       }}
     >
       <div className="about-intro">
+        <img 
+          src={`${IMG_PATH}05_ABOUT/greece2024_pfp.jpg`} 
+          alt="Amy's profile picture" 
+          className="about-profile-image"
+        />
         <h1 style={{ opacity: isH1Visible ? 1 : 0 }}>Hello, I'm Amy!</h1>
-        <p>I’m a Computer Science and Interaction Design major at
-          Northeastern University, currently based in Boston. I
-          grew up in New Jersey with my family (and our cat, Ellie!).
+        <p>I'm a <span style={{fontWeight: 'bold'}}>Computer Science and Interaction Design</span> major at <span style={{fontWeight: 'bold'}}>Northeastern University</span>, currently based in <span style={{fontWeight: 'bold'}}>Boston</span>. I grew up in New Jersey with my family (and our cat, Ellie!).
           <br></br><br></br>
-          I’ve been coding since middle school, using languages like
-          Java, Python, HTML/CSS, and JavaScript, and tools like VS
-          Code, IntelliJ, Cursor, and Eclipse. I'm passionate about
-          UI/UX design and full-stack development.
+          I've been coding since middle school, using languages like <span style={{fontWeight: 'bold'}}>Java, Python, HTML/CSS, JavaScript, TypeScript, SQL</span>, and tools like <span style={{fontWeight: 'bold'}}>VS Code, IntelliJ, Cursor, Eclipse, and Git</span>. I'm passionate about <span style={{fontWeight: 'bold'}}>UI/UX design and full-stack development</span>.
           <br></br><br></br>
-          As a lifelong artist, I have strong skills in both traditional and
-          digital media, and I enjoy solving problems through creative,
-          user-focused design.
+          As a lifelong artist, I have strong skills in both <span style={{fontWeight: 'bold'}}>traditional and digital media</span>, and I enjoy solving problems through <span style={{fontWeight: 'bold'}}>creative, user-focused design</span>.
           <br></br><br></br>
           Thanks for visiting — feel free to reach out!</p>
 
@@ -56,10 +54,10 @@ export default function About() {
           </a>
         </div>
 
-        <div className="resumes">
+        {/* <div className="resumes">
           <p>Download my Design Resume <a href="" target="_blank">here</a>!</p>
           <p>Download my CS Resume <a href={`${process.env.PUBLIC_URL}/pictures/portfolio-content_spring2026/05_ABOUT/EngAmy_CSResume_09292025.pdf`} target="_blank">here</a>!</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="about-inner-container">
@@ -219,8 +217,6 @@ export default function About() {
           <div className="experience-title">
             <h2>Testimonies</h2>
           </div>
-          </div>
-
           <div className="testimonies-container">
 
             <div className="testimony-1">
@@ -256,7 +252,7 @@ export default function About() {
 
           </div>
         </div>
-
+      </div>
 
     </main>
   );

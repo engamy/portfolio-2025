@@ -54,12 +54,6 @@ export default function DesignWikiBook() {
       src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg',
       alt: 'Maha Problems layout',
       caption: 'Maha Problems layout'
-    },
-    {
-      id: 3,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/declineofcivility.jpg',
-      alt: 'Decline of Civility layout',
-      caption: 'Decline of Civility layout'
     }
   ];
 
@@ -108,7 +102,7 @@ export default function DesignWikiBook() {
           from Wikipedia as well as a typographic system with which to design the 
           booklet. Only use black, white, and one additional color and a maximum 
           of two typefaces.
-          </p>
+        </p>
         
         <LayoutLightboxes images={markiplierImages} layoutType="default" />
         

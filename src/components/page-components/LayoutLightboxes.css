@@ -22,6 +22,7 @@
   background: #f5f5f5;
   min-width: 0; /* prevent overflow from intrinsic sizing */
   min-height: 0;
+  aspect-ratio: 1; /* Ensure all thumbnails are square */
 }
 
 .layout-lightboxes-item:hover {
@@ -32,6 +33,7 @@
 .layout-lightboxes-item.large {
   grid-row: 1 / 4;
   grid-column: 1;
+  aspect-ratio: 1; /* Keep large items square too */
 }
 
 /* Place the three right-side items into rows 1, 2, and 3 */
@@ -63,9 +65,10 @@
 
 .layout-lightboxes-thumbnail {
   width: 100%;
-  height: auto; /* preserve original aspect ratio */
+  height: 100%; /* Fill the container completely */
   display: block;
   transition: transform 0.3s ease;
+  object-fit: cover; /* Ensure images cover the square container */
 }
 
 .layout-lightboxes-item:hover .layout-lightboxes-thumbnail {
@@ -133,36 +136,69 @@
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .layout-lightboxes-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
   .layout-lightboxes-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    height: auto; /* let content define height on small screens */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .layout-lightboxes-item {
+    flex: 0 0 calc(80% - 0.375rem); /* Two items per row with gap */
+    aspect-ratio: 1;
+    object-fit: cover;
+    max-width: calc(80% - 0.375rem);
   }
   
   .layout-lightboxes-item.large {
-    grid-row: 1;
-    grid-column: 1 / 3;
+    flex: 0 0 calc(80% - 0.375rem); /* Same size as other items */
+    max-width: calc(80% - 0.375rem);
+    object-fit: fill;
   }
   
   .layout-lightboxes-image {
     max-width: 95vw;
     max-height: 85vh;
   }
-
-  .layout-lightboxes-thumbnail {
-    height: auto; /* avoid stretching on small screens */
-  }
 }
 
 @media (max-width: 480px) {
+  .layout-lightboxes-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  
   .layout-lightboxes-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
-    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .layout-lightboxes-item {
+    flex: 0 0 calc(50% - 0.25rem); /* Two items per row with gap */
+    aspect-ratio: 1;
+    max-width: calc(50% - 0.25rem);
+    object-fit: cover;
   }
   
   .layout-lightboxes-item.large {
-    grid-row: 1;
-    grid-column: 1;
+    flex: 0 0 calc(50% - 0.25rem); /* Same size as other items */
+    max-width: calc(50% - 0.25rem);
+    object-fit: cover;
+  }
+  
+  .layout-lightboxes-image {
+    max-width: 98vw;
+    max-height: 80vh;
+    object-fit: cover;
   }
 }

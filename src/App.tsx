@@ -16,10 +16,15 @@ import DesignMarshalls from './components/design-collections/design-marshalls';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
+import { useAboutNavbarMode } from './hooks/useAboutNavbarMode';
 
 const AppContent: React.FC = () => {
   const { darkMode } = useDarkMode();
   const location = useLocation();
+  const aboutNavbarMode = useAboutNavbarMode();
+  
+  // Use custom navbar mode for about page, otherwise use global dark mode
+  const navbarDarkMode = location.pathname === '/about' ? aboutNavbarMode : darkMode;
 
   // Normalize anchor behavior on each route change:
   // - External links open in a new tab with rel security attributes
@@ -65,7 +70,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="App">
-      <Navbar darkMode={darkMode} />
+      <Navbar darkMode={navbarDarkMode} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/design" element={<Design />} />
