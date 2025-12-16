@@ -4,6 +4,7 @@ import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import '../mainpages/design-style.css';
 import './design-dishwasher.css';
 import ImageLightbox from '../page-components/ImageLightbox';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function DesignDishwasher() {
   interface LightboxImage {
@@ -116,11 +117,11 @@ export default function DesignDishwasher() {
                 style={{ width: '100%', height: 'auto' }}
               >
                 <source 
-                  src="/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov" 
+                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov")}
                   type="video/mp4" 
                 />
                 <source 
-                  src="/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov" 
+                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov")}
                   type="video/quicktime" 
                 />
                 Your browser does not support the video tag.

@@ -4,6 +4,7 @@ import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import '../mainpages/design-style.css';
 import './design-readingredesign.css';
 import ImageLightbox from '../page-components/ImageLightbox';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function DesignReadingRedesign() {
   interface LightboxImage {
@@ -107,7 +108,7 @@ export default function DesignReadingRedesign() {
                 className="wireframe-demo-video"
               >
                 <source 
-                  src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/wireframe_demo.mov" 
+                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/wireframe_demo.mov")}
                   type="video/mp4" 
                 />
                 Your browser does not support the video tag.

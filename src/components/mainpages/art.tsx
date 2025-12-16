@@ -4,6 +4,7 @@ import './art-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import MasonryGrid from '../page-components/MasonryGrid';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Art() {
   // Set darkMode to false for the art page
@@ -358,7 +359,7 @@ export default function Art() {
           <Link to="/art-motion-media">
                          <div className="art-collection-image">
                <video 
-                 src="/pictures/portfolio-content_spring2026/04_ART/motionMedia/omori.mov" 
+                 src={getAssetPath("/pictures/portfolio-content_spring2026/04_ART/motionMedia/omori.mov")}
                  autoPlay
                  muted
                  loop
