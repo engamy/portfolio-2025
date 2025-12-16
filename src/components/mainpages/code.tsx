@@ -3,6 +3,21 @@ import './code-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
 
+// Helper function for video error handling
+const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>, videoName: string) => {
+  const video = e.target as HTMLVideoElement;
+  const source = video.querySelector('source');
+  console.error(`Video error [${videoName}]:`, {
+    videoSrc: video.src,
+    sourceSrc: source?.src,
+    networkState: video.networkState,
+    readyState: video.readyState,
+    errorCode: video.error?.code,
+    errorMessage: video.error?.message,
+    error: video.error
+  });
+};
+
 export default function Code() {
   // Set darkMode to true for the code page and force it regardless of scroll position
   usePageDarkMode(true, true);
@@ -29,8 +44,11 @@ export default function Code() {
             playsInline
             width="100%"
             height="auto"
-            onError={(e) => console.error('Video error:', e)}
-            onLoadStart={() => console.log('Video loading started')}
+            onError={(e) => handleVideoError(e, 'minesweeper-header')}
+            onLoadStart={() => {
+              const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/minesweeper.mp4");
+              console.log('Video loading started [minesweeper-header]:', videoPath);
+            }}
             onCanPlay={() => console.log('Video can play')}
             onLoadedData={() => console.log('Video data loaded')}
           >
@@ -94,8 +112,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -154,8 +175,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -221,8 +245,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -270,8 +297,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -318,8 +348,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -364,8 +397,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -413,8 +449,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -464,8 +503,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
@@ -512,8 +554,11 @@ export default function Code() {
               playsInline
               width="100%"
               height="auto"
-              onError={(e) => console.error('Video error:', e)}
-              onLoadStart={() => console.log('Video loading started')}
+              onError={(e) => handleVideoError(e, 'coopalytics')}
+              onLoadStart={() => {
+                const videoPath = getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4");
+                console.log('Video loading started [coopalytics]:', videoPath);
+              }}
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
