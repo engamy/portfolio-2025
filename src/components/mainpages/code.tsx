@@ -1,6 +1,7 @@
 import React from 'react';
 import './code-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Code() {
   // Set darkMode to true for the code page and force it regardless of scroll position
@@ -33,7 +34,7 @@ export default function Code() {
             onCanPlay={() => console.log('Video can play')}
             onLoadedData={() => console.log('Video data loaded')}
           >
-            <source src="/pictures/portfolio-content_spring2026/03_CODE/minesweeper.mp4"
+            <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/minesweeper.mp4")}
               type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -98,7 +99,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/coopalytics.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -158,7 +159,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/djoda.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/djoda.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -225,7 +226,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/threetrios.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/threetrios.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video></div>
@@ -274,7 +275,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/minesweeper.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/minesweeper.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -322,7 +323,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/lightemall.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/lightemall.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -368,7 +369,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/ztype.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/ztype.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -417,7 +418,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/aniBos.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/aniBos.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -468,7 +469,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/3dmfa_2.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/3dmfa_2.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -516,7 +517,7 @@ export default function Code() {
               onCanPlay={() => console.log('Video can play')}
               onLoadedData={() => console.log('Video data loaded')}
             >
-              <source src="/pictures/portfolio-content_spring2026/03_CODE/pipefantasy_1.mp4"
+              <source src={getAssetPath("/pictures/portfolio-content_spring2026/03_CODE/pipefantasy_1.mp4")}
                 type="video/mp4" />
               Your browser does not support the video tag.
             </video>
