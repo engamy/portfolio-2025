@@ -12,6 +12,7 @@ import SpringGOImages from '../page-components/SpringGOImages';
 import SignageInStore from '../page-components/SignageInStore';
 import BilingualSignage from '../page-components/BilingualSignage';
 import OOHSignage from '../page-components/OOHSignage';
+import TrendingShopLayoutGrid from '../page-components/TrendingShopLayoutGrid';
 
 export default function DesignMarshalls() {
   // Set darkMode to false for the design collection page
@@ -94,8 +95,8 @@ export default function DesignMarshalls() {
             </h4>
             <WebsiteAssetsGrid />
 
-              {/* HIDDEN UNTIL TRENDING SHOP GOES LIVE */}
-            {/* <div className="trending-shop-container" style={{ 
+            <h3>The Trending Shop</h3>
+            <div className="trending-shop-container" style={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: '30px', 
@@ -122,7 +123,7 @@ export default function DesignMarshalls() {
               }}>
                 Objective: design/brainstorm new branding and website graphic layouts for 
                 The Trending Shop, a new, ephemeral subpage on
-                <a href="https://www.marshalls.com/us/store/index.jsp" target="_blank" rel="noopener noreferrer" style={{ 
+                <a href="https://www.marshalls.com/us/store/shop/trending-now/_/N-2582201712?tn=8" target="_blank" rel="noopener noreferrer" style={{ 
                    fontStyle: 'italic', 
                    color: '#F0EDE6', 
                    textDecoration: 'underline',
@@ -136,7 +137,7 @@ export default function DesignMarshalls() {
                  that highlights the most popular products/styles/categories/trends of the moment.
               </h4>
             </div>
-            <TrendingShopLayoutGrid /> */}
+            <TrendingShopLayoutGrid />
           
             <h3>Social Content</h3>
             <h4>
