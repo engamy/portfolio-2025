@@ -40,6 +40,7 @@ const AppContent: React.FC = () => {
         lowerHref.startsWith('#') ||
         lowerHref.startsWith('mailto:') ||
         lowerHref.startsWith('tel:') ||
+        // eslint-disable-next-line no-script-url
         lowerHref.startsWith('javascript:') ||
         lowerHref.startsWith('data:') ||
         lowerHref.startsWith('blob:')
