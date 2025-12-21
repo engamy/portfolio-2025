@@ -8,25 +8,25 @@ const BilingualSignage: React.FC = () => {
   const images = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_fallGO_stanchion_localLove-22x28_spanish.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_fallGO_stanchion_localLove-22x28_spanish.jpg'),
       alt: 'Fall Grand Opening Stanchion - Local Love (Spanish)',
       caption: 'Fall Grand Opening Stanchion - Local Love (Spanish)'
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_spanish.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_spanish.jpg'),
       alt: 'Spring Grand Opening Closing Window (Spanish)',
       caption: 'Spring Grand Opening Closing Window (Spanish)'
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_storeClosed1_spanish.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_storeClosed1_spanish.jpg'),
       alt: 'Spring Grand Opening Store Closed 1 (Spanish)',
       caption: 'Spring Grand Opening Store Closed 1 (Spanish)'
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_storeClosed2_spanish.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/bilingual/MA-FY25_springGO_closing_window-34x52_storeClosed2_spanish.jpg'),
       alt: 'Spring Grand Opening Store Closed 2 (Spanish)',
       caption: 'Spring Grand Opening Store Closed 2 (Spanish)'
     }

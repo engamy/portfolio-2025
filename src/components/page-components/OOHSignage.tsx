@@ -24,19 +24,19 @@ const OOHSignage: React.FC = () => {
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter2.jpg'),
       caption: 'Bus Shelter Design',
       alt: 'Marshalls bus shelter signage design'
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/pencilBanner.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/pencilBanner.jpg'),
       caption: 'Bus Shelter Design 2',
       alt: 'Marshalls bus shelter signage design alternative'
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/billboard.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/billboard.jpg'),
       caption: 'Pencil Banner Design',
       alt: 'Marshalls pencil banner signage design'
     }
