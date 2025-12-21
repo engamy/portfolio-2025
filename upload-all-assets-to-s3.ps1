@@ -80,6 +80,21 @@ Write-Host ""
 Write-Host "Uploading GIF images..." -ForegroundColor Yellow
 Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("gif") -ContentType "image/gif"
 
+# Upload SVG images
+Write-Host ""
+Write-Host "Uploading SVG images..." -ForegroundColor Yellow
+Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("svg") -ContentType "image/svg+xml"
+
+# Upload ICO files
+Write-Host ""
+Write-Host "Uploading ICO files..." -ForegroundColor Yellow
+Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("ico") -ContentType "image/x-icon"
+
+# Upload PDF files
+Write-Host ""
+Write-Host "Uploading PDF files..." -ForegroundColor Yellow
+Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("pdf") -ContentType "application/pdf"
+
 # Upload Videos
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
