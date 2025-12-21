@@ -25,8 +25,8 @@ export default function About() {
     >
       <div className="about-intro">
         <img 
-          src={`${IMG_PATH}05_ABOUT/greece2024_pfp.jpg`} 
-          alt="Amy's profile picture" 
+          src={getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/greece2024_pfp.jpg')} 
+          alt="Amy Eng profile" 
           className="about-profile-image"
         />
         <h1 style={{ opacity: isH1Visible ? 1 : 0 }}>Hello, I'm Amy!</h1>

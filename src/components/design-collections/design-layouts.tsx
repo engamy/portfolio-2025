@@ -24,17 +24,20 @@ export default function DesignWikiBook() {
     {
       id: 2,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_2.jpg'),
-      alt: 'Markiplier Wikibook Page 2'
+      alt: 'Markiplier Wikibook Page 2',
+      caption: 'Markiplier Wikibook Page 2'
     },
     {
       id: 3,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_3.jpg'),
-      alt: 'Markiplier Wikibook Page 3'
+      alt: 'Markiplier Wikibook Page 3',
+      caption: 'Markiplier Wikibook Page 3'
     },
     {
       id: 4,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_4.jpg'),
-      alt: 'Markiplier Wikibook Page 4'
+      alt: 'Markiplier Wikibook Page 4',
+      caption: 'Markiplier Wikibook Page 4'
     }
   ];
 
@@ -50,12 +53,14 @@ export default function DesignWikiBook() {
     {
       id: 2,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg'),
-      alt: 'Maha Problems layout'
+      alt: 'Maha Problems layout',
+      caption: 'Maha Problems layout'
     },
     {
       id: 3,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/declineofcivility.jpg'),
-      alt: 'Decline of Civility layout'
+      alt: 'Decline of Civility layout',
+      caption: 'Decline of Civility layout'
     }
   ];
 
@@ -64,12 +69,14 @@ export default function DesignWikiBook() {
     {
       id: 1,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_1.jpg'),
-      alt: 'Election Results layout 1'
+      alt: 'Election Results layout 1',
+      caption: 'Election Results layout 1'
     },
     {
       id: 2,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_2.jpg'),
-      alt: 'Election Results layout 2'
+      alt: 'Election Results layout 2',
+      caption: 'Election Results layout 2'
     }
   ];
 

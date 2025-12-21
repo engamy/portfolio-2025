@@ -17,17 +17,17 @@ const TrendingShopLayoutGrid: React.FC = () => {
   const layoutImages: LayoutImage[] = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-1.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-1.gif'),
       alt: 'Layout design 1'
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-2.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-2.gif'),
       alt: 'Layout design 2'
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-4.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-4.gif'),
       alt: 'Layout design 4'
     }
   ];
@@ -35,14 +35,14 @@ const TrendingShopLayoutGrid: React.FC = () => {
   // Define the standalone layout-5 image
   const standaloneImage: LayoutImage = {
     id: 5,
-    src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-5.gif',
+    src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-5.gif'),
     alt: 'Layout design 5'
   };
 
   // Define the standalone layout-3 image
   const standaloneImage2: LayoutImage = {
     id: 3,
-    src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-3.gif',
+    src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-3.gif'),
     alt: 'Layout design 3'
   };
 
