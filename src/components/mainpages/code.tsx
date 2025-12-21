@@ -42,6 +42,7 @@ export default function Code() {
             autoPlay
             loop
             playsInline
+            crossOrigin="anonymous"
             width="100%"
             height="auto"
             onError={(e) => handleVideoError(e, 'minesweeper-header')}
@@ -110,6 +111,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -173,6 +175,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -243,6 +246,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -295,6 +299,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -346,6 +351,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -395,6 +401,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -447,6 +454,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -501,6 +509,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
@@ -552,6 +561,7 @@ export default function Code() {
               autoPlay
               loop
               playsInline
+              crossOrigin="anonymous"
               width="100%"
               height="auto"
               onError={(e) => handleVideoError(e, 'coopalytics')}
