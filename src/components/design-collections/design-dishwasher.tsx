@@ -23,11 +23,6 @@ export default function DesignDishwasher() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<LightboxImage | null>(null);
 
-  const openLightbox = (src: string, alt: string) => {
-    setCurrentImage({ id: Date.now(), src, caption: '', alt });
-    setLightboxOpen(true);
-  };
-
   const closeLightbox = () => {
     setLightboxOpen(false);
     setCurrentImage(null);

@@ -84,8 +84,8 @@ export default function Code() {
                 transforms the co-op search into a strategic, data-informed experience.
               </p>
               <div className="project-links">
-                <a href="https://www.youtube.com/watch?v=rf_tmN-ASdk" target="_blank"><p>Video Demo & Walkthrough</p></a>
-                <a href="https://github.com/kanghosaeyo/Coopalytics" target="_blank"><p>Github Repo</p></a>
+                <a href="https://www.youtube.com/watch?v=rf_tmN-ASdk" target="_blank" rel="noreferrer"><p>Video Demo & Walkthrough</p></a>
+                <a href="https://github.com/kanghosaeyo/Coopalytics" target="_blank" rel="noreferrer"><p>Github Repo</p></a>
               </div>
             </div>
             <div className="project-tags">
@@ -213,9 +213,9 @@ export default function Code() {
                 run out of cards in your hand to win!
               </p>
               <div className="project-links">
-                <a href="https://www.youtube.com/watch?v=vz4FiUyOoak" target="_blank"><p>Video Code Walkthrough</p></a>
-                <a href="https://github.com/engamy/three-trios" target="_blank"><p>Github Repo</p></a>
-                <a href="https://github.com/engamy/three-trios-adapter" target="_blank"><p>Github Repo (Adapter Pattern)</p></a>
+                <a href="https://www.youtube.com/watch?v=vz4FiUyOoak" target="_blank" rel="noreferrer"><p>Video Code Walkthrough</p></a>
+                <a href="https://github.com/engamy/three-trios" target="_blank" rel="noreferrer"><p>Github Repo</p></a>
+                <a href="https://github.com/engamy/three-trios-adapter" target="_blank" rel="noreferrer"><p>Github Repo (Adapter Pattern)</p></a>
               </div>
             </div>
             <div className="project-tags">

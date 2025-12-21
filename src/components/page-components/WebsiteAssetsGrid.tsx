@@ -47,18 +47,6 @@ const WebsiteAssetsGrid: React.FC = () => {
     setCurrentImage(null);
   };
 
-  const handlePrevious = () => {
-    // For now, just close since we only have 2 images
-    // This could be expanded if more images are added
-    handleCloseLightbox();
-  };
-
-  const handleNext = () => {
-    // For now, just close since we only have 2 images
-    // This could be expanded if more images are added
-    handleCloseLightbox();
-  };
-
   return (
     <div className="website-assets-container">
       <div className="website-assets-grid">

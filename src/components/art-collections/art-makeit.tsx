@@ -81,7 +81,7 @@ export default function ArtMakeIt() {
           <div className="art-section-header-image">
             <img 
               src="/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg" 
-              alt="Make It Collection header image"
+              alt="Make It Collection header"
               className="header-thumbnail"
             />
           </div>

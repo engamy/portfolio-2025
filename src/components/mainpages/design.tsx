@@ -34,7 +34,7 @@ export default function Design() {
       <div className="design-collections">
         <h2>Collections</h2>
         <div className="design-collection">
-          <a href="/design-marshalls" target="_blank" rel="noopener noreferrer">
+          <Link to="/design-marshalls">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg" alt="Marshalls Collection" />
             </div>
@@ -50,7 +50,7 @@ export default function Design() {
                 <p>Layout</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
 
@@ -76,7 +76,7 @@ export default function Design() {
         </div> */}
 
         <div className="design-collection">
-          <Link to="/design-dishwasher" target="_blank" rel="noopener noreferrer">
+          <Link to="/design-dishwasher">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" alt="IoT Dishwasher Collection" />
             </div>
@@ -96,7 +96,7 @@ export default function Design() {
         </div>
 
         <div className="design-collection">
-          <a href="/design-reading-redesign" target="_blank" rel="noopener noreferrer">
+          <Link to="/design-reading-redesign">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" alt="Reading Redesign Collection" />
             </div>
@@ -112,11 +112,11 @@ export default function Design() {
                 <p>Usability</p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="design-collection">
-          <Link to="/design-layouts" target="_blank" rel="noopener noreferrer">
+          <Link to="/design-layouts">
             <div className="design-collection-image">
               <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png" alt="Layout Design Collection" />
             </div>

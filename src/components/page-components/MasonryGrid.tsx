@@ -45,38 +45,30 @@ const MasonryGrid: React.FC<MasonryGridProps> = ({ images }) => {
     setLightboxOpen(false);
   };
 
-  const goToPrevious = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? images.length - 1 : prev - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex((prev) => 
-      prev === images.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (!lightboxOpen) return;
-    
-    switch (e.key) {
-      case 'Escape':
-        closeLightbox();
-        break;
-      case 'ArrowLeft':
-        goToPrevious();
-        break;
-      case 'ArrowRight':
-        goToNext();
-        break;
-    }
-  };
-
   useEffect(() => {
+    if (!lightboxOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Escape':
+          setLightboxOpen(false);
+          break;
+        case 'ArrowLeft':
+          setCurrentImageIndex((prev) => 
+            prev === 0 ? images.length - 1 : prev - 1
+          );
+          break;
+        case 'ArrowRight':
+          setCurrentImageIndex((prev) => 
+            prev === images.length - 1 ? 0 : prev + 1
+          );
+          break;
+      }
+    };
+
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxOpen, currentImageIndex]);
+  }, [lightboxOpen, images.length]);
 
   // Create columns for masonry layout
   const columnImages = Array.from({ length: columns }, (_, columnIndex) =>

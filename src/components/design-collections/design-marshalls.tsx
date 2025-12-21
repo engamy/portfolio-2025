@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../mainpages/design-style.css';
 import './design-marshalls-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import EmailAssetsGrid from '../page-components/EmailAssetsGrid';
 import WebsiteAssetsGrid from '../page-components/WebsiteAssetsGrid';
-import TrendingShopLayoutGrid from '../page-components/TrendingShopLayoutGrid';
 import InstagramPosts from '../page-components/InstagramPosts';
 import BeforeAfterComparison from '../page-components/BeforeAfterComparison';
 import SpringGOImages from '../page-components/SpringGOImages';
