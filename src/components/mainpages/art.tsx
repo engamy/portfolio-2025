@@ -318,7 +318,7 @@ export default function Art() {
         <div className="art-collection">
           <Link to="/art-2022-portfolio" target="_blank">
             <div className="art-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/evangelion.jpg" alt="2022 Portfolio" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/evangelion.jpg')} alt="2022 Portfolio" />
             </div>
             <div className="art-collection-info">
               <h4>Ordinary and Extraordinary Portfolio</h4>
@@ -338,7 +338,7 @@ export default function Art() {
         <div className="art-collection">
           <Link to="/art-makeit">
             <div className="art-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg" alt="Make It Collection" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg')} alt="Make It Collection" />
             </div>
             <div className="art-collection-info">
               <h4>Make It</h4>
