@@ -23,99 +23,99 @@ const EmailAssetsGrid: React.FC = () => {
         const folderData = [
           {
             folderName: 'Dresses_EMM_Newness_2208560',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/APPROVED.jpg',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/APPROVED.jpg'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/APPROVED.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/Dresses_EMM_Newness_2208560-1.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/Dresses_EMM_Newness_2208560-2.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/APPROVED.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/Dresses_EMM_Newness_2208560-1.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Newness_2208560/Dresses_EMM_Newness_2208560-2.jpg')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_NewArrivals.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_NewArrivals.jpg')
           },
           {
             folderName: 'Dresses_EMM_Volume_2219550',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/APPROVED.jpg',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/APPROVED.jpg'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/APPROVED.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/Dresses_EMM_Volume_2219550-1.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/Dresses_EMM_Volume_2219550-2.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/APPROVED.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/Dresses_EMM_Volume_2219550-1.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Dresses_EMM_Volume_2219550/Dresses_EMM_Volume_2219550-2.jpg')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_Denim.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_Denim.jpg')
           },
           {
             folderName: 'NAA_EME_Cinco_de_Mayo_2197778',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/APPROVED.jpg',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/APPROVED.jpg'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/APPROVED.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/NAA_EME_Cinco_de_Mayo_2197778-1.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/NAA_EME_Cinco_de_Mayo_2197778-2.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/APPROVED.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/NAA_EME_Cinco_de_Mayo_2197778-1.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NAA_EME_Cinco_de_Mayo_2197778/NAA_EME_Cinco_de_Mayo_2197778-2.jpg')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_OutdoorHome.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_OutdoorHome.jpg')
           },
           {
             folderName: 'TJXR_EA_EME_Summer_TL_V2_2197916',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TJXR_EA_EME_Summer_TL_V2_2197916/APPROVED.jpg',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TJXR_EA_EME_Summer_TL_V2_2197916/APPROVED.jpg'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TJXR_EA_EME_Summer_TL_V2_2197916/APPROVED.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TJXR_EA_EME_Summer_TL_V2_2197916/APPROVED.jpg')
             ]
           },
           {
             folderName: 'NA_EMM_Easter_2180600',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/APPROVED.gif',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/APPROVED.gif'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/APPROVED.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-1.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-2.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-3.gif'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/APPROVED.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-1.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-2.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Easter_2180600/NA_EMM_Easter_2180600-3.gif')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_FamilySwim.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_FamilySwim.jpg')
           },
           {
             folderName: 'NA_EMM_KentuckyDerby_2189878',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/APPROVED.gif',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/APPROVED.gif'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/APPROVED.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-1.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-2.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-3.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/APPROVED.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-1.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-2.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_KentuckyDerby_2189878/NA_EMM_KentuckyDerby_2189878-3.jpg')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_SummerGetaway.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_SummerGetaway.jpg')
           },
           {
             folderName: 'Food_EMIS_Quality_2223050',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/APPROVED.gif',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/APPROVED.gif'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/APPROVED.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-1.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-2.jpg',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-3.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-4.gif'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/APPROVED.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-1.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-2.jpg'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-3.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/Food_EMIS_Quality_2223050/Food_EMIS_Quality_2223050-4.gif')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_MothersDay.jpg'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_MothersDay.jpg')
           },
           {
             folderName: 'NA_EMM_MD_2208450',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_MD_2208450/APPROVED.gif',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_MD_2208450/APPROVED.gif'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_MD_2208450/APPROVED.gif'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_MD_2208450/APPROVED.gif')
             ]
           },
           {
             folderName: 'NA_EMM_Newness_2229700',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/APPROVED.gif',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/APPROVED.gif'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/APPROVED.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 1.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 2.gif',
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 5.gif'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/APPROVED.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 1.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 2.gif'),
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/NA_EMM_Newness_2229700/NA_EMM_Newness_2229700 - 5.gif')
             ]
           },
           {
             folderName: 'TA_EME_Summer_TL_V2_2171338',
-            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TA_EME_Summer_TL_V2_2171338/APPROVED.jpg',
+            approvedImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TA_EME_Summer_TL_V2_2171338/APPROVED.jpg'),
             allImages: [
-              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TA_EME_Summer_TL_V2_2171338/APPROVED.jpg'
+              getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/EM/TA_EME_Summer_TL_V2_2171338/APPROVED.jpg')
             ],
-            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_Food.gif'
+            cbImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/email_assets/CB/CB_Food.gif')
           }
         ];
 

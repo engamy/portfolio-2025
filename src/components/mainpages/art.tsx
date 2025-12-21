@@ -25,7 +25,7 @@ export default function Art() {
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/forget.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/forget.jpg'),
       caption: 'Forget - Mixed media piece exploring memory and the passage of time',
       alt: 'Forget mixed media artwork',
       width: 700,
@@ -33,7 +33,7 @@ export default function Art() {
     },
     {
       id: 15,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makiZenin.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makiZenin.jpg'),
       caption: 'Maki Zenin - Digital character illustration with dynamic pose and action',
       alt: 'Maki Zenin character illustration',
       width: 800,
@@ -41,7 +41,7 @@ export default function Art() {
     },
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/carisDemise.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/carisDemise.jpg'),
       caption: 'Caris\' Demise (2022)',
       alt: 'Caris Demise digital illustration',
       width: 800,
@@ -49,7 +49,7 @@ export default function Art() {
     },
     {
       id: 12,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/femmeFatale.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/femmeFatale.jpg'),
       caption: 'Femme Fatale - Digital character design with noir aesthetic and dramatic lighting',
       alt: 'Femme Fatale character design',
       width: 700,
@@ -57,7 +57,7 @@ export default function Art() {
     },
     {
       id: 6,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/scubadivers.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/scubadivers.jpg'),
       caption: 'Scuba Divers - Underwater scene created with traditional painting techniques',
       alt: 'Scuba divers underwater painting',
       width: 700,
@@ -65,7 +65,7 @@ export default function Art() {
     },
     {
       id: 9,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/faceStudies.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/faceStudies.jpg'),
       caption: 'Face Studies - Traditional drawing studies focusing on facial anatomy and expression',
       alt: 'Face studies drawings',
       width: 600,
@@ -73,7 +73,7 @@ export default function Art() {
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/hutao.png',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/hutao.png'),
       caption: 'Hu Tao Fan Art - Digital character illustration with vibrant colors and dynamic composition',
       alt: 'Hu Tao character illustration',
       width: 600,
@@ -81,7 +81,7 @@ export default function Art() {
     },
     {
       id: 11,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/myFaithLooksUpToThee.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/myFaithLooksUpToThee.jpg'),
       caption: 'My Faith Looks Up To Thee - Traditional painting with religious themes and symbolism',
       alt: 'My Faith Looks Up To Thee painting',
       width: 800,
@@ -89,7 +89,7 @@ export default function Art() {
     },
     {
       id: 13,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/higaruma.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/higaruma.jpg'),
       caption: 'Higaruma - Digital character illustration with detailed linework and shading',
       alt: 'Higaruma character illustration',
       width: 600,
@@ -97,7 +97,7 @@ export default function Art() {
     },
     {
       id: 7,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/gojo.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/gojo.jpg'),
       caption: 'Gojo Satoru - Digital character portrait with dynamic lighting and composition',
       alt: 'Gojo Satoru character portrait',
       width: 800,
@@ -105,7 +105,7 @@ export default function Art() {
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/farm.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/farm.jpg'),
       caption: 'Farm Scene - Traditional ink drawing capturing rural life and agricultural themes',
       alt: 'Farm scene ink drawing',
       width: 600,
@@ -113,7 +113,7 @@ export default function Art() {
     },
     {
       id: 10,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/lights.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/lights.jpg'),
       caption: 'Lights - Digital illustration exploring atmospheric lighting and mood',
       alt: 'Lights digital illustration',
       width: 700,
@@ -121,7 +121,7 @@ export default function Art() {
     },
     {
       id: 5,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makima.png',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makima.png'),
       caption: 'Makima Portrait - Digital painting focusing on character expression and mood',
       alt: 'Makima character portrait',
       width: 800,
@@ -129,7 +129,7 @@ export default function Art() {
     },
     {
       id: 14,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/yuta.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/yuta.jpg'),
       caption: 'Yuta - Digital character portrait with emotional depth and expressive features',
       alt: 'Yuta character portrait',
       width: 700,
@@ -137,7 +137,7 @@ export default function Art() {
     },
     {
       id: 16,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ellie.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ellie.jpg'),
       caption: 'Ellie - Digital character illustration with emotional storytelling and detailed rendering',
       alt: 'Ellie character illustration',
       width: 800,
@@ -145,7 +145,7 @@ export default function Art() {
     },
     {
       id: 17,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/miku_2022.png',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/miku_2022.png'),
       caption: 'Miku 2022 - Digital fan art of Hatsune Miku with vibrant colors and dynamic composition',
       alt: 'Miku 2022 fan art',
       width: 700,
@@ -153,7 +153,7 @@ export default function Art() {
     },
     {
       id: 18,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_squirrel.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_squirrel.jpg'),
       caption: 'Ink Squirrel - Traditional ink drawing showcasing wildlife and natural forms',
       alt: 'Ink squirrel drawing',
       width: 600,
@@ -161,7 +161,7 @@ export default function Art() {
     },
     {
       id: 19,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_panda.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_panda.jpg'),
       caption: 'Ink Panda - Traditional ink drawing with expressive linework and character',
       alt: 'Ink panda drawing',
       width: 600,
@@ -169,7 +169,7 @@ export default function Art() {
     },
     {
       id: 20,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_cat.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ink_cat.jpg'),
       caption: 'Ink Cat - Traditional ink drawing capturing feline grace and movement',
       alt: 'Ink cat drawing',
       width: 600,
@@ -177,7 +177,7 @@ export default function Art() {
     },
     {
       id: 21,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicFortuneCat.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicFortuneCat.jpg'),
       caption: 'Ceramic Fortune Cat - 3D ceramic sculpture with traditional Japanese symbolism',
       alt: 'Ceramic fortune cat sculpture',
       width: 800,
@@ -185,7 +185,7 @@ export default function Art() {
     },
     {
       id: 22,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicPanda.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicPanda.jpg'),
       caption: 'Ceramic Panda - 3D ceramic sculpture with detailed texture and form',
       alt: 'Ceramic panda sculpture',
       width: 800,
@@ -193,7 +193,7 @@ export default function Art() {
     },
     {
       id: 23,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicDragon.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/ceramicDragon.jpg'),
       caption: 'Ceramic Dragon - 3D ceramic sculpture with intricate details and mythical themes',
       alt: 'Ceramic dragon sculpture',
       width: 800,
@@ -201,7 +201,7 @@ export default function Art() {
     },
     {
       id: 24,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/thanksgiving.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/thanksgiving.jpg'),
       caption: 'Thanksgiving - Traditional painting capturing holiday warmth and family themes',
       alt: 'Thanksgiving painting',
       width: 700,
@@ -209,7 +209,7 @@ export default function Art() {
     },
     {
       id: 25,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/subway.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/subway.jpg'),
       caption: 'Subway - Urban scene capturing the energy and movement of city life',
       alt: 'Subway urban scene',
       width: 700,
@@ -217,7 +217,7 @@ export default function Art() {
     },
     {
       id: 26,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/gojo_sketchbook.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/gojo_sketchbook.jpg'),
       caption: 'Gojo Sketchbook - Traditional sketchbook studies showing character development process',
       alt: 'Gojo sketchbook studies',
       width: 600,
@@ -225,7 +225,7 @@ export default function Art() {
     },
     {
       id: 27,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/killua.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/killua.jpg'),
       caption: 'Killua - Digital character portrait with dynamic lighting and expressive features',
       alt: 'Killua character portrait',
       width: 700,
@@ -233,7 +233,7 @@ export default function Art() {
     },
     {
       id: 28,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/satosugu.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/satosugu.jpg'),
       caption: 'Satosugu - Digital character illustration with emotional depth and storytelling',
       alt: 'Satosugu character illustration',
       width: 700,
@@ -241,7 +241,7 @@ export default function Art() {
     },
     {
       id: 29,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/sukuna.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/sukuna.jpg'),
       caption: 'Sukuna - Digital character portrait with dark themes and powerful presence',
       alt: 'Sukuna character portrait',
       width: 700,
@@ -249,7 +249,7 @@ export default function Art() {
     },
     {
       id: 30,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/dandadan.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/dandadan.jpg'),
       caption: 'Dandadan - Digital character illustration with dynamic action and vibrant colors',
       alt: 'Dandadan character illustration',
       width: 700,
@@ -257,7 +257,7 @@ export default function Art() {
     },
     {
       id: 31,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makimaBang.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/makimaBang.jpg'),
       caption: 'Makima Bang - Digital character illustration with dramatic lighting and intense expression',
       alt: 'Makima Bang character illustration',
       width: 700,
@@ -265,7 +265,7 @@ export default function Art() {
     },
     {
       id: 32,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/scubadivers2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/scubadivers2.jpg'),
       caption: 'Scuba Divers 2 - Traditional painting exploring underwater themes and marine life',
       alt: 'Scuba divers 2 painting',
       width: 700,
@@ -273,7 +273,7 @@ export default function Art() {
     },
     {
       id: 33,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/akiangel2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/akiangel2.jpg'),
       caption: 'Aki Angel 2 - Digital character illustration with ethereal themes and angelic symbolism',
       alt: 'Aki Angel 2 character illustration',
       width: 800,
@@ -281,7 +281,7 @@ export default function Art() {
     },
     {
       id: 34,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/akiangel1.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/content_assorted/akiangel1.jpg'),
       caption: 'Aki Angel 1 - Digital character illustration with celestial themes and divine beauty',
       alt: 'Aki Angel 1 character illustration',
       width: 800,

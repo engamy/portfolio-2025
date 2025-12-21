@@ -16,23 +16,23 @@ export default function DesignWikiBook() {
   const markiplierImages = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_1.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_1.jpg'),
       alt: 'Markiplier Wikibook Page 1',
       isLarge: true
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_2.jpg'),
       alt: 'Markiplier Wikibook Page 2'
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_3.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_3.jpg'),
       alt: 'Markiplier Wikibook Page 3'
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_4.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_4.jpg'),
       alt: 'Markiplier Wikibook Page 4'
     }
   ];
@@ -41,18 +41,18 @@ export default function DesignWikiBook() {
   const freshMahaDeclineImages = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/freshfornoone.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/freshfornoone.jpg'),
       alt: 'Fresh For No One layout',
       isLarge: true
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg'),
       alt: 'Maha Problems layout'
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/declineofcivility.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/declineofcivility.jpg'),
       alt: 'Decline of Civility layout'
     }
   ];
@@ -61,12 +61,12 @@ export default function DesignWikiBook() {
   const electionResultsImages = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_1.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_1.jpg'),
       alt: 'Election Results layout 1'
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_2.jpg'),
       alt: 'Election Results layout 2'
     }
   ];

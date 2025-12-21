@@ -8,25 +8,25 @@ const SpringGOImages: React.FC = () => {
   const images = [
     {
       id: 1,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/1.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/1.jpg'),
       alt: 'Spring Grand Opening 1',
       caption: 'Spring Grand Opening 1'
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/2.jpg'),
       alt: 'Spring Grand Opening 2',
       caption: 'Spring Grand Opening 2'
     },
     {
       id: 3,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/3.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/3.jpg'),
       alt: 'Spring Grand Opening 3',
       caption: 'Spring Grand Opening 3'
     },
     {
       id: 4,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/4.png',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/springGO/4.png'),
       alt: 'Spring Grand Opening 4',
       caption: 'Spring Grand Opening 4'
     }
