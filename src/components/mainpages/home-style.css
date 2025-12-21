@@ -48,6 +48,13 @@
 
 }
 
+.intro-subline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vw;
+}
+
 .home-introtext p span {
   color: #AE1D14;
 }
@@ -73,4 +80,78 @@
 
 .contacticon img {
   width: 2.5vw;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    gap: 4vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-bottom: 16vw;
+  }
+
+  .jumpimg {
+    order: 1;
+    padding: 0;
+    margin: 0;
+  }
+
+  .jumpimg img {
+    width: 72vw;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-introtext {
+    order: 0;
+    width: 100%;
+    gap: 2.5vw;
+    text-align: center;
+    align-items: center;
+  }
+
+  .home-introtext img {
+    width: 8vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-introtext h1 {
+    font-size: 14vw;
+    margin-bottom:0;
+  }
+
+  .home-introtext p {
+    font-size: 4vw;
+    margin-bottom: 0;
+  }
+
+  .intro-subline {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5vw;
+  }
+
+  .smallbio {
+    order: 2;
+    width: 100%;
+    text-align: left;
+    margin-top: 2vw;
+    font-size: 5vw;
+    line-height: 1.2;
+  }
+
+  .contacticon {
+    justify-content: flex-start;
+    gap: 3vw;
+  }
+
+  .contacticon img {
+    width: 8vw;
+  }
 }

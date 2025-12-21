@@ -18,6 +18,7 @@ export default function DesignWikiBook() {
       id: 1,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_1.jpg'),
       alt: 'Markiplier Wikibook Page 1',
+      caption: 'Markiplier Wikibook Page 1',
       isLarge: true
     },
     {
@@ -43,6 +44,7 @@ export default function DesignWikiBook() {
       id: 1,
       src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/freshfornoone.jpg'),
       alt: 'Fresh For No One layout',
+      caption: 'Fresh For No One layout',
       isLarge: true
     },
     {
@@ -100,7 +102,7 @@ export default function DesignWikiBook() {
           from Wikipedia as well as a typographic system with which to design the 
           booklet. Only use black, white, and one additional color and a maximum 
           of two typefaces.
-          </p>
+        </p>
         
         <LayoutLightboxes images={markiplierImages} layoutType="default" />
         

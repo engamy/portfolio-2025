@@ -20,13 +20,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-right">
-
         <div className="footer-links">
-          <div className="footer-email-phone">
-          <div><span className="footer-contact-label">Email:</span> amyeng895@gmail.com</div>
-          <div><span className="footer-contact-label">Phone:</span> 347-480-4767</div>
-          </div>
-
           <div className="footer-socials">
           <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
             <img src={`${ICON_PATH}linkedin.png`} alt="LinkedIn" />
@@ -40,6 +34,15 @@ export default function Footer() {
           <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
             <img src={`${ICON_PATH}youtube.png`} alt="YouTube" />
           </a>
+        </div>
+
+          <div className="footer-email-phone">
+          <div><span className="footer-contact-label">Email:</span> amyeng895@gmail.com</div>
+          <div><span className="footer-contact-label">Phone:</span> 347-480-4767</div>
+          </div>
+
+          <div className="footer-copyright">
+          © Amy Eng 2025 All Rights Reserved
         </div>
         </div>
 

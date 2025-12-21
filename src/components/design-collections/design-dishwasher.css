@@ -122,11 +122,13 @@
 .prototype-container {
   display: flex;
   gap: 2vw;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .lofi-video-container {
-  flex: 0 0 400px;
+  width: 400px;
+  margin: 0 auto;
   background-color: #ffffff;
   border-radius: 15px;
   padding: 0;
@@ -143,7 +145,8 @@
 }
 
 .figma-prototype-vertical {
-  flex: 0 0 400px;
+  width: 400px;
+  margin: 0 auto;
   background-color: #ffffff;
   border-radius: 15px;
   padding: 0;
@@ -250,15 +253,21 @@
   }
   
   .dishwasher-content h2 {
-    font-size: 4vw;
+    font-size: 6vw;
   }
   
   .dishwasher-content h3 {
-    font-size: 3.5vw;
+    font-size: 5vw;
   }
   
   .dishwasher-content h4 {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
+    line-height: 1.4em;
+  }
+  
+  .dishwasher-content .about-text p {
+    font-size: 3.5vw;
+    line-height: 1.4em;
   }
   
   .about-section {
@@ -325,15 +334,21 @@
 
 @media (max-width: 480px) {
   .dishwasher-content h2 {
-    font-size: 5vw;
+    font-size: 7vw;
   }
   
   .dishwasher-content h3 {
-    font-size: 4.5vw;
+    font-size: 6vw;
   }
   
   .dishwasher-content h4 {
-    font-size: 3vw;
+    font-size: 4vw;
+    line-height: 1.4em;
+  }
+  
+  .dishwasher-content .about-text p {
+    font-size: 4vw;
+    line-height: 1.4em;
   }
   
   .figma-prototype-vertical {

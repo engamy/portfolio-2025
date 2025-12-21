@@ -4,7 +4,6 @@
   top: 0;
   z-index: 1000;
   border-bottom: 0.0625vw solid #101010;
-  padding-left: 0.5vw;
   padding-right: 0.5vw;
   font-family: "neue-haas-grotesk-display", sans-serif;
   box-sizing: border-box;
@@ -30,9 +29,10 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   height: 2.8vw;
+  gap: 1vw;
 }
 
 .navbar-brand {
@@ -40,17 +40,33 @@
   align-items: center;
 }
 
+.brand-link {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1vw;
+  display: none; /* hidden on desktop */
+}
+
+.navbar-light.navbar-dark .brand-link {
+  color: #F0EDE6;
+}
+
 .navbar-nav {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1vw;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
+  margin-right: 1vw;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
 }
 
 .nav-link {
@@ -83,6 +99,11 @@
   background-color: #AE1D14;
 } */
 
+.navbar-spacer {
+  flex: 1;
+  margin-left: 2vw;
+}
+
 .social-icons {
   display: flex;
   align-items: center;
@@ -106,50 +127,206 @@
   object-fit: contain;
 }
 
+/* Hamburger button - hidden on desktop */
+.hamburger-button {
+  display: none;
+  width: 12vw;
+  height: 12vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  display: block;
+  width: 7vw;
+  height: 0.6vw;
+  background-color: #101010;
+  margin: 0.9vw 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  border-radius: 0.3vw;
+}
+
+.navbar-light.navbar-dark .hamburger-line {
+  background-color: #F0EDE6;
+}
+
+.hamburger-button.open .hamburger-line:nth-child(1) {
+  transform: translateY(1.5vw) rotate(45deg);
+}
+
+.hamburger-button.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.open .hamburger-line:nth-child(3) {
+  transform: translateY(-1.5vw) rotate(-45deg);
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999; /* under sticky navbar which is 1000; overlay appears after nav in DOM */
+  background-color: inherit; /* follow navbar light/dark */
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 300ms ease-in-out;
+  pointer-events: none; /* prevent interaction when closed */
+}
+
+.mobile-overlay.open {
+  transform: translateX(0%);
+  pointer-events: auto;
+}
+
+.overlay-header {
+  height: 16vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  border-bottom: 0.0625vw solid #101010;
+}
+
+.overlay-brand-link {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 5.2vw;
+  line-height: 1;
+}
+
+.navbar-light.navbar-dark .overlay-brand-link {
+  color: #F0EDE6;
+}
+
+.navbar-light.navbar-dark .overlay-header {
+  border-bottom: 0.0625vw solid #F0EDE6;
+}
+
+.exit-button {
+  width: 12vw;
+  height: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.exit-line {
+  display: block;
+  width: 7vw;
+  height: 0.6vw;
+  background-color: #101010;
+  position: absolute;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 0.3vw;
+}
+
+.exit-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.exit-line:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.navbar-light.navbar-dark .exit-line {
+  background-color: #F0EDE6;
+}
+
+.overlay-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.overlay-nav {
+  list-style: none;
+  margin: 0;
+  padding: 4vw 6vw 0 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+  
+}
+
+.overlay-link {
+  color: #101010;
+  text-decoration: none;
+  font-size: 6vw;
+  line-height: 1.8;
+}
+
+.overlay-link.active {
+  font-weight: 700;
+}
+
+.navbar-light.navbar-dark .overlay-link {
+  color: #F0EDE6;
+}
+
+.overlay-footer {
+  padding: 6vw;
+}
+
+.overlay-social-icons {
+  display: flex;
+  gap: 5vw;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .navbar-container {
-    padding: 0 1vw;
-    height: 4vw;
+    padding: 0 3vw;
+    height: 16vw; /* taller bar on mobile */
   }
   
-  .navbar-nav {
-    gap: 1vw;
+  /* layout: brand left, hamburger right */
+  .navbar-brand {
+    flex: 1;
   }
-  
-  .nav-link {
-    font-size: 0.9vw;
-  }
-  
+
   .brand-link {
-    font-size: 1.3vw;
+    font-size: 5.2vw;
+    line-height: 1;
+    display: block; /* show on mobile */
+  }
+
+  .hamburger-button {
+    display: flex;
+  }
+
+  /* hide desktop nav + social on mobile in the top bar */
+  .navbar-nav {
+    display: none;
   }
   
   .social-icons {
-    gap: 0.75vw;
+    display: none;
   }
   
   .social-icon {
-    width: 2vw;
-    height: 2vw;
+    width: 6vw;
+    height: 6vw;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar-nav {
-    gap: 1vw;
-  }
-  
-  .nav-link {
-    font-size: 0.8vw;
-  }
-  
-  .social-icons {
-    gap: 0.5vw;
-  }
-  
-  .social-icon {
-    width: 1.8vw;
-    height: 1.8vw;
+  .overlay-link {
+    font-size: 6vw;
   }
 } 

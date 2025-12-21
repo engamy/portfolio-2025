@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './LayoutLightboxes.css';
+import ImageLightbox from './ImageLightbox';
 
 interface LayoutImageItem {
   id: number;
   src: string;
   alt: string;
+  caption: string;
   isLarge?: boolean;
 }
 
@@ -19,21 +21,28 @@ const LayoutLightboxes: React.FC<LayoutLightboxesProps> = ({
   layoutType = 'default',
   className = ''
 }) => {
-  const [selectedImage, setSelectedImage] = useState<LayoutImageItem | null>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openLightbox = (image: LayoutImageItem) => setSelectedImage(image);
-  const closeLightbox = () => setSelectedImage(null);
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
 
   const containerClass = `layout-lightboxes-container ${layoutType === 'two-col-equal' ? 'two-col-equal' : ''} ${className}`.trim();
 
   return (
     <div className={containerClass}>
       <div className="layout-lightboxes-grid">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <div
             key={image.id}
             className={`layout-lightboxes-item ${image.isLarge ? 'large' : ''}`}
-            onClick={() => openLightbox(image)}
+            onClick={() => openLightbox(index)}
           >
             <img
               src={image.src}
@@ -44,22 +53,11 @@ const LayoutLightboxes: React.FC<LayoutLightboxesProps> = ({
         ))}
       </div>
 
-      {selectedImage && (
-        <div className="layout-lightboxes-overlay" onClick={closeLightbox}>
-          <div className="layout-lightboxes-content" onClick={(e) => e.stopPropagation()}>
-            <button className="layout-lightboxes-close" onClick={closeLightbox}>
-              ×
-            </button>
-            <div className="layout-lightboxes-image-container">
-              <img
-                src={selectedImage.src}
-                alt={selectedImage.alt}
-                className="layout-lightboxes-image"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      <ImageLightbox
+        isOpen={isLightboxOpen}
+        currentImage={images[currentImageIndex]}
+        onClose={closeLightbox}
+      />
     </div>
   );
 };
