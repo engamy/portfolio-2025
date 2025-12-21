@@ -152,12 +152,7 @@ export default function DesignMarshalls() {
         {activeTab === 'print' && (
           <div>
             <h2 style={{ textAlign: 'center' }}>Print Content</h2>
-            <p style={{ 
-              fontSize: '1.2vw', 
-              lineHeight: '1.4',
-              opacity: '0.9',
-              textAlign: 'center'
-            }}>
+            <p className="print-intro-text">
               In-store and out-of-home signage, including bilingual and Spring grand opening graphics.
             </p>
 

@@ -69,8 +69,53 @@
   opacity: 0.9;
 }
 
-/* Mobile responsive styles for trending shop section */
+.print-intro-text {
+  font-size: 1.2vw;
+  line-height: 1.4;
+  opacity: 0.9;
+  text-align: center;
+  color: #F0EDE6;
+}
+
+/* Mobile responsive styles for tab navigation and content */
 @media (max-width: 768px) {
+  .tab-navigation {
+    padding-top: 2vw;
+  }
+
+  .tab-button {
+    padding: 2vw 4vw;
+    font-size: 4vw;
+    margin: 0 1vw;
+  }
+
+  .tab-content {
+    padding: 1vw 5vw 4vw 5vw;
+  }
+
+  .tab-content h2 {
+    font-size: 8vw;
+    margin-top: 8vw;    
+    margin-bottom: 3vw;
+  }
+
+  .tab-content h3 {
+    font-size: 6vw;
+    margin-top: 6vw;
+    margin-bottom: 2vw;
+  }
+
+  .tab-content h4 {
+    font-size: 4vw;
+    margin-bottom: 3vw;
+    line-height: 1.4;
+  }
+
+  .print-intro-text {
+    font-size: 4vw;
+    margin-bottom: 3vw;
+  }
+
   .trending-shop-container {
     flex-direction: column !important;
     align-items: center !important;
@@ -84,6 +129,34 @@
   .trending-shop-container h4 {
     min-width: auto !important;
     text-align: center;
+    font-size: 4vw !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 2.5vw 5vw;
+    font-size: 4.5vw;
+  }
+
+  .tab-content h2 {
+    font-size: 9vw;
+  }
+
+  .tab-content h3 {
+    font-size: 7vw;
+  }
+
+  .tab-content h4 {
+    font-size: 4.5vw;
+  }
+
+  .print-intro-text {
+    font-size: 4.5vw;
+  }
+
+  .trending-shop-container h4 {
+    font-size: 4.5vw !important;
   }
 }
 

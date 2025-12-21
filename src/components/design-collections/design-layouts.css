@@ -76,7 +76,7 @@
     color: #101010;
     line-height: 1.4;
     margin: 0;
-    opacity: 0.9;
+    opacity: 1
 }
 
 .design-layouts-page .design-collections h3 {
@@ -172,4 +172,114 @@
     width: 100%;
     margin-top: 2vw;
     margin-bottom: 4vw;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .design-layouts-page .design-section-header {
+    height: auto;
+    min-height: 60vh;
+    padding: 2rem 5vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .design-layouts-page .design-section-header-introtext {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .design-layouts-page .design-section-header .design-section-header-introtext h1 {
+    font-size: 8vw;
+    margin-bottom: 2rem;
+  }
+  
+  .design-layouts-page .design-section-header .design-section-header-introtext p {
+    font-size: 3.5vw;
+    width: 100%;
+    line-height: 1.5em;
+    margin: 0;
+  }
+  
+  .design-layouts-page .design-collections {
+    padding: 2rem 5vw;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .design-layouts-page .design-collections h2 {
+    font-size: 6vw;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .design-layouts-page .design-collections h3 {
+    font-size: 5vw;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .design-layouts-page .design-intro {
+    font-size: 3.5vw;
+    line-height: 1.5em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .design-layouts-page .design-collection {
+    width: 100%;
+  }
+  
+  .design-layouts-page .design-collection-image {
+    height: 60vw;
+  }
+  
+  .design-layouts-page .design-collection-info h4 {
+    font-size: 3.5vw;
+  }
+  
+  .design-layouts-page .design-collection-info p {
+    font-size: 2.5vw;
+  }
+  
+  .design-layouts-page .design-collection-tags p {
+    font-size: 2vw;
+    padding: 0.75vw 1.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .design-layouts-page .design-section-header .design-section-header-introtext h1 {
+    font-size: 10vw;
+  }
+  
+  .design-layouts-page .design-section-header .design-section-header-introtext p {
+    font-size: 4vw;
+  }
+  
+  .design-layouts-page .design-collections h2 {
+    font-size: 7vw;
+  }
+  
+  .design-layouts-page .design-collections h3 {
+    font-size: 6vw;
+  }
+  
+  .design-layouts-page .design-intro {
+    font-size: 4vw;
+  }
+  
+  .design-layouts-page .design-collection-info h4 {
+    font-size: 4vw;
+  }
+  
+  .design-layouts-page .design-collection-info p {
+    font-size: 3vw;
+  }
+  
+  .design-layouts-page .design-collection-tags p {
+    font-size: 2.5vw;
+  }
 }
