@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ImageLightbox from './ImageLightbox';
 import './TrendingShopLayoutGrid.css';
+import { getAssetPath } from '../../utils/assetUtils';
 
 interface LayoutImage {
   id: number;
@@ -16,17 +17,17 @@ const TrendingShopLayoutGrid: React.FC = () => {
   const layoutImages: LayoutImage[] = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-1.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-1.gif',
       alt: 'Layout design 1'
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-2.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-2.gif',
       alt: 'Layout design 2'
     },
     {
       id: 4,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-4.gif',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/layout-4.gif',
       alt: 'Layout design 4'
     }
   ];

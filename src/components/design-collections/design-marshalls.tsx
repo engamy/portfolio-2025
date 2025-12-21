@@ -3,6 +3,7 @@ import '../mainpages/design-style.css';
 import './design-marshalls-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import { getAssetPath } from '../../utils/assetUtils';
 import EmailAssetsGrid from '../page-components/EmailAssetsGrid';
 import WebsiteAssetsGrid from '../page-components/WebsiteAssetsGrid';
 import InstagramPosts from '../page-components/InstagramPosts';
@@ -27,7 +28,7 @@ export default function DesignMarshalls() {
     <main className="design-container">
       <div
         className="design-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-3.png')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-3.png')})` }}
       >
         <div className="design-section-header-introtext">
           <h1 className="marshalls-title">TJX/Marshalls Graphic Design Co-op</h1>
@@ -102,7 +103,7 @@ export default function DesignMarshalls() {
               flexWrap: 'wrap'
             }}>
               <img 
-                src="/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/branding-3.gif" 
+                src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop/branding-3.gif')} 
                 alt="The Trending Shop branding"
                 style={{ 
                   maxWidth: '400px', 

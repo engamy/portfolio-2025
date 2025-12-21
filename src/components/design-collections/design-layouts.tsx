@@ -3,6 +3,7 @@ import './design-layouts.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import LayoutLightboxes from '../page-components/LayoutLightboxes';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function DesignWikiBook() {
   // Set darkMode to true for the design collection page
@@ -15,28 +16,25 @@ export default function DesignWikiBook() {
   const markiplierImages = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_1.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_1.jpg',
       alt: 'Markiplier Wikibook Page 1',
       caption: 'Markiplier Wikibook Page 1',
       isLarge: true
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_2.jpg',
-      alt: 'Markiplier Wikibook Page 2',
-      caption: 'Markiplier Wikibook Page 2'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_2.jpg',
+      alt: 'Markiplier Wikibook Page 2'
     },
     {
       id: 3,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_3.jpg',
-      alt: 'Markiplier Wikibook Page 3',
-      caption: 'Markiplier Wikibook Page 3'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_3.jpg',
+      alt: 'Markiplier Wikibook Page 3'
     },
     {
       id: 4,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_4.jpg',
-      alt: 'Markiplier Wikibook Page 4',
-      caption: 'Markiplier Wikibook Page 4'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/markiplier_4.jpg',
+      alt: 'Markiplier Wikibook Page 4'
     }
   ];
 
@@ -44,16 +42,20 @@ export default function DesignWikiBook() {
   const freshMahaDeclineImages = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/freshfornoone.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/freshfornoone.jpg',
       alt: 'Fresh For No One layout',
       caption: 'Fresh For No One layout',
       isLarge: true
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg',
-      alt: 'Maha Problems layout',
-      caption: 'Maha Problems layout'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/mahaproblems.jpg',
+      alt: 'Maha Problems layout'
+    },
+    {
+      id: 3,
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/declineofcivility.jpg',
+      alt: 'Decline of Civility layout'
     }
   ];
 
@@ -61,15 +63,13 @@ export default function DesignWikiBook() {
   const electionResultsImages = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_1.jpg',
-      alt: 'Election Results layout 1',
-      caption: 'Election Results layout 1'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_1.jpg',
+      alt: 'Election Results layout 1'
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_2.jpg',
-      alt: 'Election Results layout 2',
-      caption: 'Election Results layout 2'
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/05_LAYOUTS/electionresults_2.jpg',
+      alt: 'Election Results layout 2'
     }
   ];
 
@@ -77,7 +77,7 @@ export default function DesignWikiBook() {
     <main className="design-container design-layouts-page">
       <div
         className="design-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')})` }}
       >
         <div className="design-section-header-introtext">
           <h1>Layout Design</h1>

@@ -1,8 +1,7 @@
 import React from 'react';
 import './home-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-
-const IMG_PATH = process.env.PUBLIC_URL + '/pictures/portfolio-content_spring2026/';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Home() {
   // Set darkMode to false for the home page
@@ -12,14 +11,14 @@ export default function Home() {
     <main className="home-container">
       <div className="home-introtext">
         <h1>AMY ENG</h1>
-        <div className="intro-subline">
-          <p>she/her/hers</p>
-          <img src={`${IMG_PATH}06_ICONS/star_red.svg`} alt="Red Star" />        
-          <p><span>Designer • Developer • Artist</span></p>
-        </div>
+        <p>she/her/hers</p>
+        <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/star_red.svg')} alt="Red Star" />
+
+        
+        <p><span>Designer • Developer • Artist</span></p>
       </div>
       <div className="jumpimg">
-        <img src={`${IMG_PATH}01_HOME/jump.png`} alt="Jump Hero" />
+        <img src={getAssetPath('/pictures/portfolio-content_spring2026/01_HOME/jump.png')} alt="Jump Hero" />
       </div>
       <div className="smallbio">
         <p>Hello! I am a <span>designer, developer, </span> <br></br>
@@ -35,16 +34,16 @@ export default function Home() {
         </p>
         <div className="contacticon">
           <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/linkedin.png`} alt="LinkedIn" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png')} alt="LinkedIn" />
           </a>
           <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/instagram.png`} alt="Instagram" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png')} alt="Instagram" />
           </a>
           <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/github.png`} alt="GitHub" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png')} alt="GitHub" />
           </a>
           <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/youtube.png`} alt="YouTube" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png')} alt="YouTube" />
           </a>
         </div>
       </div>

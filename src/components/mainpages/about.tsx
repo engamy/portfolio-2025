@@ -3,8 +3,7 @@ import './about-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-
-const IMG_PATH = process.env.PUBLIC_URL + '/pictures/portfolio-content_spring2026/';
+import { getAssetPath } from '../../utils/assetUtils';
 
 
 export default function About() {
@@ -21,7 +20,7 @@ export default function About() {
     <main
       className="about-container"
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/pictures/portfolio-content_spring2026/05_ABOUT/background.jpg)`
+        backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/background.jpg')})`
       }}
     >
       <div className="about-intro">
@@ -41,16 +40,16 @@ export default function About() {
 
         <div className="about-contacticon">
           <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/linkedin.png`} alt="LinkedIn" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png')} alt="LinkedIn" />
           </a>
           <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/instagram.png`} alt="Instagram" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png')} alt="Instagram" />
           </a>
           <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/github.png`} alt="GitHub" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png')} alt="GitHub" />
           </a>
           <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={`${IMG_PATH}06_ICONS/youtube.png`} alt="YouTube" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png')} alt="YouTube" />
           </a>
         </div>
 

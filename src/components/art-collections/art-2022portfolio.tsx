@@ -3,6 +3,7 @@ import '../mainpages/art-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import MasonryGrid from '../page-components/MasonryGrid';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Art2022Portfolio() {
   // Set darkMode to true for the art collection page
@@ -15,7 +16,7 @@ export default function Art2022Portfolio() {
   const portfolio2022Images = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/adamAndEve.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/adamAndEve.jpg',
       caption: 'Adam and Eve - Digital illustration exploring biblical themes with contemporary interpretation',
       alt: 'Adam and Eve digital illustration',
       width: 800,
@@ -23,7 +24,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/bloodyMary.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/bloodyMary.jpg',
       caption: 'Bloody Mary - Digital character illustration with dark themes and dramatic lighting',
       alt: 'Bloody Mary character illustration',
       width: 800,
@@ -31,7 +32,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 3,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/suki.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/suki.jpg',
       caption: 'Suki - Digital character portrait with emotional depth and expressive features',
       alt: 'Suki character portrait',
       width: 700,
@@ -39,7 +40,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 4,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/evangelion.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/evangelion.jpg',
       caption: 'Evangelion - Digital fan art inspired by the iconic anime series with dynamic composition',
       alt: 'Evangelion fan art',
       width: 700,
@@ -47,7 +48,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 5,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/nineToFive.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/nineToFive.jpg',
       caption: 'Nine to Five - Digital illustration exploring themes of work and daily routine',
       alt: 'Nine to Five illustration',
       width: 800,
@@ -55,7 +56,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 6,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/whereIBelong.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/whereIBelong.jpg',
       caption: 'Where I Belong - Digital artwork exploring themes of identity and belonging',
       alt: 'Where I Belong artwork',
       width: 700,
@@ -63,7 +64,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 7,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/youth.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/youth.jpg',
       caption: 'Youth - Digital illustration capturing the energy and vitality of young life',
       alt: 'Youth illustration',
       width: 800,
@@ -71,7 +72,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 8,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/haircut.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/haircut.jpg',
       caption: 'Haircut - Digital character illustration with intimate, personal themes',
       alt: 'Haircut character illustration',
       width: 600,
@@ -79,7 +80,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 9,
-      src: '/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/143.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/143.jpg',
       caption: '143 - Digital artwork with minimalist approach and numerical symbolism',
       alt: '143 artwork',
       width: 600,
@@ -91,7 +92,7 @@ export default function Art2022Portfolio() {
     <main className="art-container">
       <div
         className="art-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/04_ART/header.png')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/04_ART/header.png')})` }}
       >
         <div className="art-section-header-introtext">
           <h1>Ordinary & Extraordinary</h1>

@@ -3,6 +3,7 @@ import '../mainpages/art-style.css';
 import './art-makeit.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function ArtMakeIt() {
   // Set darkMode to true for the art collection page
@@ -18,42 +19,42 @@ export default function ArtMakeIt() {
   const makeItImages = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg',
       title: 'Make It Three',
       description: 'Handcrafted creation exploring form and texture',
       year: '2024'
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg',
       title: 'Make It Four',
       description: 'Experimental piece combining traditional and modern techniques',
       year: '2024'
     },
     {
       id: 3,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/six.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/six.jpg',
       title: 'Make It Six',
       description: 'Abstract composition exploring color and movement',
       year: '2024'
     },
     {
       id: 4,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/nine.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/nine.jpg',
       title: 'Make It Nine',
       description: 'Mixed media work showcasing creative problem-solving',
       year: '2024'
     },
     {
       id: 5,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/ten.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/ten.jpg',
       title: 'Make It Ten',
       description: 'Final piece in the series, representing completion and growth',
       year: '2024'
     },
     {
       id: 6,
-      src: '/pictures/portfolio-content_spring2026/04_ART/makeit/eleven.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/eleven.jpg',
       title: 'Make It Eleven',
       description: 'Extended exploration beyond the original series',
       year: '2024'
@@ -80,7 +81,7 @@ export default function ArtMakeIt() {
           </div>
           <div className="art-section-header-image">
             <img 
-              src="/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg')} 
               alt="Make It Collection header"
               className="header-thumbnail"
             />
