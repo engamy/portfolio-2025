@@ -35,5 +35,5 @@ export const useScrollDarkMode = (enabled: boolean = false, targetSelector?: str
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [setDarkMode, enabled, targetSelector]);
+  }, [setDarkMode, enabled, targetSelector, reverse]);
 }; 
