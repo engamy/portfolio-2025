@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './OOHSignage.css';
 import ImageLightbox from './ImageLightbox';
+import { getAssetPath } from '../../utils/assetUtils';
 
 interface Image {
   id: number;
@@ -17,25 +18,25 @@ const OOHSignage: React.FC = () => {
   const images: Image[] = [
     {
       id: 1,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter.jpg'),
       caption: 'Billboard Design',
       alt: 'Marshalls billboard signage design'
     },
     {
       id: 2,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter2.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/busShelter2.jpg',
       caption: 'Bus Shelter Design',
       alt: 'Marshalls bus shelter signage design'
     },
     {
       id: 3,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/pencilBanner.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/pencilBanner.jpg',
       caption: 'Bus Shelter Design 2',
       alt: 'Marshalls bus shelter signage design alternative'
     },
     {
       id: 4,
-      src: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/billboard.jpg',
+      src: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/OOH/billboard.jpg',
       caption: 'Pencil Banner Design',
       alt: 'Marshalls pencil banner signage design'
     }

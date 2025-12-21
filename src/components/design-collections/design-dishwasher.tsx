@@ -32,7 +32,7 @@ export default function DesignDishwasher() {
     <main className="design-container">
       <div
         className="design-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')})` }}
       >
         <div className="design-section-header-content">
           <div className="design-section-header-introtext">
@@ -46,7 +46,7 @@ export default function DesignDishwasher() {
           </div>
           <div className="design-section-header-image">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png')} 
               alt="IoT Dishwasher thumbnail"
               className="header-thumbnail"
             />

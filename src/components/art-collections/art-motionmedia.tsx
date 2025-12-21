@@ -2,6 +2,7 @@ import React from 'react';
 import '../mainpages/art-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function ArtMotionMedia() {
   // Set darkMode to true for the art collection page
@@ -63,7 +64,7 @@ export default function ArtMotionMedia() {
     <main className="art-container">
       <div
         className="art-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/04_ART/header.png')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/04_ART/header.png')})` }}
       >
         <div className="art-section-header-introtext">
           <h1>Motion Media</h1>

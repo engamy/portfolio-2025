@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './design-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Design() {
   // Set darkMode to true for the design page
@@ -16,7 +17,7 @@ export default function Design() {
     <main className="design-container">
       <div
         className="design-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')})` }}
       >
         <div className="design-section-header-introtext">
           <h1>Designer</h1>
@@ -36,7 +37,7 @@ export default function Design() {
         <div className="design-collection">
           <Link to="/design-marshalls">
             <div className="design-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg" alt="Marshalls Collection" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')} alt="Marshalls Collection" />
             </div>
             <div className="design-collection-info">
               <h4>Marshalls</h4>
@@ -78,7 +79,7 @@ export default function Design() {
         <div className="design-collection">
           <Link to="/design-dishwasher">
             <div className="design-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png" alt="IoT Dishwasher Collection" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png')} alt="IoT Dishwasher Collection" />
             </div>
             <div className="design-collection-info">
               <h4>IoT Dishwasher</h4>
@@ -98,7 +99,7 @@ export default function Design() {
         <div className="design-collection">
           <Link to="/design-reading-redesign">
             <div className="design-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" alt="Reading Redesign Collection" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg')} alt="Reading Redesign Collection" />
             </div>
             <div className="design-collection-info">
               <h4>Reading Redesign</h4>
@@ -118,7 +119,7 @@ export default function Design() {
         <div className="design-collection">
           <Link to="/design-layouts">
             <div className="design-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png" alt="Layout Design Collection" />
+              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png')} alt="Layout Design Collection" />
             </div>
             <div className="design-collection-info">
               <h4>Layout Design</h4>

@@ -37,7 +37,7 @@ export default function DesignReadingRedesign() {
     <main className="design-container">
       <div
         className="design-section-header"
-        style={{ backgroundImage: "url('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')" }}
+        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')})` }}
       >
         <div className="design-section-header-content">
           <div className="design-section-header-introtext">
@@ -52,7 +52,7 @@ export default function DesignReadingRedesign() {
           </div>
           <div className="design-section-header-image">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg')} 
               alt="Reading Redesign thumbnail"
               className="header-thumbnail"
             />
@@ -137,7 +137,7 @@ export default function DesignReadingRedesign() {
         <div className="image-grid image-grid--stack">
           <div className="image-item">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png" 
               alt="User Persona" 
               onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png', 'User Persona')}
               style={{ cursor: 'zoom-in' }}
@@ -145,7 +145,7 @@ export default function DesignReadingRedesign() {
           </div>
           <div className="image-item">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png" 
               alt="Storyboard" 
               onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png', 'Storyboard')}
               style={{ cursor: 'zoom-in' }}
@@ -161,7 +161,7 @@ export default function DesignReadingRedesign() {
         <div className="image-grid">
           <div className="image-item">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png" 
               alt="Site Map" 
               onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png', 'Site Map')}
               style={{ cursor: 'zoom-in' }}
@@ -169,7 +169,7 @@ export default function DesignReadingRedesign() {
           </div>
           <div className="image-item">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png" 
               alt="Task Flow 1" 
               onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png', 'Task Flow 1')}
               style={{ cursor: 'zoom-in' }}
@@ -177,7 +177,7 @@ export default function DesignReadingRedesign() {
           </div>
           <div className="image-item">
             <img 
-              src="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png" 
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png" 
               alt="Task Flow 2" 
               onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png', 'Task Flow 2')}
               style={{ cursor: 'zoom-in' }}
