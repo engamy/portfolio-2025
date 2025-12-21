@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navbar-style.css';
+import { getAssetPath } from '../utils/assetUtils';
 
 interface NavbarProps {
   darkMode?: boolean;
@@ -20,22 +21,22 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
 
   const socialLinks = [
     { 
-      icon: '/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png', 
+      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png'), 
       url: 'https://www.linkedin.com/in/amyeng895/', 
       alt: 'LinkedIn' 
     },
     { 
-      icon: '/pictures/portfolio-content_spring2026/06_ICONS/instagram.png', 
+      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png'), 
       url: 'https://www.instagram.com/yifeng.art/', 
       alt: 'Instagram' 
     },
     { 
-      icon: '/pictures/portfolio-content_spring2026/06_ICONS/github.png', 
+      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png'), 
       url: 'https://github.com/engamy', 
       alt: 'GitHub' 
     },
     { 
-      icon: '/pictures/portfolio-content_spring2026/06_ICONS/youtube.png', 
+      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png'), 
       url: 'https://www.youtube.com/@yifengart', 
       alt: 'YouTube' 
     }
