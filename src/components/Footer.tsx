@@ -1,7 +1,6 @@
 import React from 'react';
 import './footer-style.css';
-
-const ICON_PATH = process.env.PUBLIC_URL + '/pictures/portfolio-content_spring2026/06_ICONS/';
+import { getAssetPath } from '../utils/assetUtils';
 
 export default function Footer() {
   return (
@@ -23,16 +22,16 @@ export default function Footer() {
         <div className="footer-links">
           <div className="footer-socials">
           <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={`${ICON_PATH}linkedin.png`} alt="LinkedIn" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png')} alt="LinkedIn" />
           </a>
           <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={`${ICON_PATH}instagram.png`} alt="Instagram" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png')} alt="Instagram" />
           </a>
           <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={`${ICON_PATH}github.png`} alt="GitHub" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png')} alt="GitHub" />
           </a>
           <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={`${ICON_PATH}youtube.png`} alt="YouTube" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png')} alt="YouTube" />
           </a>
         </div>
 
@@ -47,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-logo">
-            <img src={`${ICON_PATH}logo_red.png`} alt="Logo" />
+            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/logo_red.png')} alt="Logo" />
           </div>
         
       </div>

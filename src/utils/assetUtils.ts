@@ -35,7 +35,6 @@ export const getAssetPath = (path: string): string => {
     s3Path = `assets/${s3Path}`;
     
     const s3Url = `${s3BucketUrl}/${s3Path}`;
-    console.log('Using S3 URL for asset:', { originalPath: path, s3Path, s3Url });
     return s3Url;
   }
   
