@@ -8,21 +8,65 @@ export default function Home() {
   // Set darkMode to false for the home page
   usePageDarkMode(false);
 
-  // Mouse position state for parallax effect
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // Parallax position state (combines mouse and device orientation)
+  const [parallaxPosition, setParallaxPosition] = useState({ x: 0, y: 0 });
+  const [useDeviceOrientation, setUseDeviceOrientation] = useState(false);
 
-  // Track mouse movement for parallax
+  // Track device orientation for mobile parallax
+  useEffect(() => {
+    const handleDeviceOrientation = (e: DeviceOrientationEvent) => {
+      if (e.gamma !== null && e.beta !== null) {
+        // gamma: left-right tilt (-90 to 90 degrees)
+        // beta: front-back tilt (-180 to 180 degrees)
+        // Normalize to -1 to 1 range
+        const x = Math.max(-1, Math.min(1, e.gamma / 45)); // Clamp gamma to reasonable range
+        const y = Math.max(-1, Math.min(1, (e.beta - 90) / 45)); // Adjust beta to center around 0
+        setParallaxPosition({ x, y });
+      }
+    };
+
+    // Check if DeviceOrientationEvent is supported
+    if (typeof DeviceOrientationEvent !== 'undefined') {
+      // iOS 13+ requires permission
+      if (typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
+        (DeviceOrientationEvent as any).requestPermission()
+          .then((response: string) => {
+            if (response === 'granted') {
+              setUseDeviceOrientation(true);
+              window.addEventListener('deviceorientation', handleDeviceOrientation);
+            }
+          })
+          .catch(() => {
+            // Permission denied or error - fall back to mouse
+            setUseDeviceOrientation(false);
+          });
+      } else {
+        // Android and older iOS - no permission needed
+        setUseDeviceOrientation(true);
+        window.addEventListener('deviceorientation', handleDeviceOrientation);
+      }
+    }
+
+    return () => {
+      window.removeEventListener('deviceorientation', handleDeviceOrientation);
+    };
+  }, []);
+
+  // Track mouse movement for desktop parallax
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize mouse position to -1 to 1 range
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-      setMousePosition({ x, y });
+      // Use mouse if device orientation is not being used
+      if (!useDeviceOrientation) {
+        // Normalize mouse position to -1 to 1 range
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = (e.clientY / window.innerHeight) * 2 - 1;
+        setParallaxPosition({ x, y });
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [useDeviceOrientation]);
 
   // Animation for intro text section
   const introSpring = useSpring({
@@ -84,27 +128,27 @@ export default function Home() {
   };
 
   const introParallax = useSpring({
-    x: mousePosition.x * parallaxIntensity.intro,
-    y: mousePosition.y * parallaxIntensity.intro,
+    x: parallaxPosition.x * parallaxIntensity.intro,
+    y: parallaxPosition.y * parallaxIntensity.intro,
     config: { tension: 50, friction: 30 },
   });
 
   const jumpParallax = useSpring({
-    x: mousePosition.x * parallaxIntensity.jump,
-    y: mousePosition.y * parallaxIntensity.jump,
+    x: parallaxPosition.x * parallaxIntensity.jump,
+    y: parallaxPosition.y * parallaxIntensity.jump,
     config: { tension: 50, friction: 30 },
   });
 
   const bioParallax = useSpring({
-    x: mousePosition.x * parallaxIntensity.bio,
-    y: mousePosition.y * parallaxIntensity.bio,
+    x: parallaxPosition.x * parallaxIntensity.bio,
+    y: parallaxPosition.y * parallaxIntensity.bio,
     config: { tension: 50, friction: 30 },
   });
 
   const starParallax = useSpring({
-    x: mousePosition.x * parallaxIntensity.star,
-    y: mousePosition.y * parallaxIntensity.star,
-    rotate: mousePosition.x * 5, // Slight rotation based on horizontal mouse position
+    x: parallaxPosition.x * parallaxIntensity.star,
+    y: parallaxPosition.y * parallaxIntensity.star,
+    rotate: parallaxPosition.x * 5, // Slight rotation based on horizontal position
     config: { tension: 50, friction: 30 },
   });
 
