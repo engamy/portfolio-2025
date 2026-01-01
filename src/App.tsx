@@ -8,6 +8,7 @@ import Design from './components/mainpages/design';
 import Code from './components/mainpages/code';
 import Art from './components/mainpages/art';
 import About from './components/mainpages/about';
+import Physics from './components/mainpages/physics';
 import Art2022Portfolio from './components/art-collections/art-2022portfolio';
 import ArtMotionMedia from './components/art-collections/art-motionmedia';
 import ArtMakeIt from './components/art-collections/art-makeit';
@@ -85,6 +86,7 @@ const AppContent: React.FC = () => {
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />
+        <Route path="/physics" element={<Physics />} />
       </Routes>
       <Footer />
     </div>
