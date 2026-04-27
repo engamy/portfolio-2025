@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import './BeforeAfterComparison.css';
 import ImageLightbox from './ImageLightbox';
+import { getAssetPath } from '../../utils/assetUtils';
 
 const BeforeAfterComparison: React.FC = () => {
   // All before images
   const beforeImages = [
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_manhasset-1.jpeg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_manhasset-2.jpeg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-1.jpg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-2.png',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-3.png'
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_manhasset-1.jpeg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_manhasset-2.jpeg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-1.jpg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-2.png'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/before_washingtonHeights-3.png')
   ];
 
   // All after images
   const afterImages = [
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_manhasset-1.jpg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_manhasset-2.jpg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-1.jpg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-2.jpg',
-    '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-3.jpg'
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_manhasset-1.jpg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_manhasset-2.jpg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-1.jpg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-2.jpg'),
+    getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/storedesign_mockups/after_washingtonHeights-3.jpg')
   ];
 
   // Combine all images for lightbox navigation

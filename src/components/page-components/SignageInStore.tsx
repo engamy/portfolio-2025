@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import './SignageInStore.css';
 import ImageLightbox from './ImageLightbox';
+import { getAssetPath } from '../../utils/assetUtils';
 
 const SignageInStore: React.FC = () => {
   // Images with thumbnail and lightbox pairs
   const imagePairs = [
     {
       id: 1,
-      thumbnail: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/pinpad_thumbnail.jpg',
-      lightbox: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/pinpad_lightbox.jpg',
+      thumbnail: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/pinpad_thumbnail.jpg'),
+      lightbox: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/pinpad_lightbox.jpg'),
       alt: 'Pinpad Signage',
       caption: 'Pinpad Signage'
     },
     {
       id: 2,
-      thumbnail: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/violator_thumbnail.jpg',
-      lightbox: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/violator_lightbox.jpg',
+      thumbnail: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/violator_thumbnail.jpg'),
+      lightbox: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/01_RETAIL/signage/violator_lightbox.jpg'),
       alt: 'Violator Signage',
       caption: 'Violator Signage'
     }
