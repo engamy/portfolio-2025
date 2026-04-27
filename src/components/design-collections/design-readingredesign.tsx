@@ -139,7 +139,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png')} 
               alt="User Persona" 
-              onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png', 'User Persona')}
+              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png'), 'User Persona')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -147,7 +147,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png')} 
               alt="Storyboard" 
-              onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png', 'Storyboard')}
+              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png'), 'Storyboard')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -163,7 +163,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png')} 
               alt="Site Map" 
-              onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png', 'Site Map')}
+              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png'), 'Site Map')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -171,7 +171,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png')} 
               alt="Task Flow 1" 
-              onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png', 'Task Flow 1')}
+              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png'), 'Task Flow 1')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -179,7 +179,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png')} 
               alt="Task Flow 2" 
-              onClick={() => openLightbox('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png', 'Task Flow 2')}
+              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png'), 'Task Flow 2')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ImageLightbox from './ImageLightbox';
 import './WebsiteAssetsGrid.css';
+import { getAssetPath } from '../../utils/assetUtils';
 
 interface WebsiteAsset {
   id: number;
@@ -18,15 +19,15 @@ const WebsiteAssetsGrid: React.FC = () => {
   const websiteAssets: WebsiteAsset[] = [
     {
       id: 1,
-      thumbnailImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop_live.png',
-      lightboxImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop.jpg',
+      thumbnailImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop_live.png'),
+      lightboxImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop.jpg'),
       title: 'Desktop Site Banner',
       alt: 'Desktop site banner thumbnail'
     },
     {
       id: 2,
-      thumbnailImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile_live.jpg',
-      lightboxImage: '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile.jpg',
+      thumbnailImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile_live.jpg'),
+      lightboxImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile.jpg'),
       title: 'Mobile Site Banner',
       alt: 'Mobile site banner thumbnail'
     }
