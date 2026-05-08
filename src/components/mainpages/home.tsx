@@ -93,7 +93,7 @@ export default function Home() {
         opacity: jumpImageSpring.opacity,
         transform: to([jumpImageSpring.y, jumpImageSpring.scale], (y, s) => `translate3d(0, ${y}px, 0) scale(${s})`),
       }}>
-        <img src={getAssetPath('/pictures/portfolio-content_spring2026/01_HOME/jump.png')} alt="Jump Hero" />
+        <img src={getAssetPath('/pictures/portfolio-content_spring2026/01_HOME/jump-v2.png')} alt="Jump Hero" />
       </animated.div>
       <animated.div className="smallbio" style={{
         opacity: bioSpring.opacity,
