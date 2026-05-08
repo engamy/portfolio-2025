@@ -1,17 +1,17 @@
 .home-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: #F0EDE6;
   height: 95vh;
   font-family: "neue-haas-grotesk-display", sans-serif;
-  padding-left: 5vw;
+  padding-left: 8vw;
   padding-right: 5vw;
 }
 
 .jumpimg img {
-  width: 28vw;
+  width: 33vw;
   padding: 0;
   margin: 0;
 }
