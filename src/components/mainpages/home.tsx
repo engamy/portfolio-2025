@@ -141,7 +141,7 @@ export default function Home() {
       <section className="home-featured">
         <div className="home-featured-header">
           <h2>Featured Work</h2>
-          <p>Latest case study from my TJX/Marshalls graphic design co-op.</p>
+          <p>Latest case studies from my recent co-ops.</p>
         </div>
         <Link to="/design-marshalls-casestudy" className="home-featured-card">
           <div className="home-featured-image">
@@ -161,6 +161,31 @@ export default function Home() {
               <p>Design Systems</p>
               <p>Print Design</p>
               <p>Marketing</p>
+            </div>
+            <p className="home-featured-cta">Read the case study →</p>
+          </div>
+        </Link>
+        <Link to="/design-next-casestudy" className="home-featured-card">
+          <div className="home-featured-image">
+            <img
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/02_NEXT/via_teamphoto.jpg')}
+              alt="Harbor v2.0: NExT × Via Separations team"
+            />
+          </div>
+          <div className="home-featured-info">
+            <p className="home-featured-eyebrow">Case Study</p>
+            <h3>Harbor v2.0: Designing for Manufacturing Planning at Via Separations</h3>
+            <p className="home-featured-dates">
+              Product Designer & Software Engineer, NExT Consulting × Via Separations ·
+              January–April 2026
+            </p>
+            <div className="home-featured-tags">
+              <p>Product Design</p>
+              <p>Front-End</p>
+              <p>UX Research</p>
+              <p>Information Architecture</p>
+              <p>Data Density</p>
+              <p>Climate Tech</p>
             </div>
             <p className="home-featured-cta">Read the case study →</p>
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './code-style.css';
+import './home-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
 
@@ -58,6 +60,38 @@ export default function Code() {
           </video>
         </div>
       </div>
+
+      <section className="home-featured code-featured">
+        <div className="home-featured-header">
+          <h2>Featured Work</h2>
+          <p>Latest case study from my engineering work at NExT Consulting.</p>
+        </div>
+        <Link to="/design-next-casestudy" className="home-featured-card">
+          <div className="home-featured-image">
+            <img
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/02_NEXT/via_teamphoto.jpg')}
+              alt="Harbor v2.0: NExT × Via Separations team"
+            />
+          </div>
+          <div className="home-featured-info">
+            <p className="home-featured-eyebrow">Case Study</p>
+            <h3>Harbor v2.0: Designing for Manufacturing Planning at Via Separations</h3>
+            <p className="home-featured-dates">
+              Product Designer & Software Engineer, NExT Consulting × Via Separations ·
+              January–April 2026
+            </p>
+            <div className="home-featured-tags">
+              <p>Product Design</p>
+              <p>Front-End</p>
+              <p>UX Research</p>
+              <p>Information Architecture</p>
+              <p>Data Density</p>
+              <p>Climate Tech</p>
+            </div>
+            <p className="home-featured-cta">Read the case study →</p>
+          </div>
+        </Link>
+      </section>
 
       <div className="project-container">
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './design-style.css';
+import './home-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
@@ -9,9 +10,9 @@ export default function Design() {
   // Set darkMode to true for the design page
   usePageDarkMode(true);
   
-  // Enable scroll-based dark mode for this page, targeting the design-collections div
-  // Use reverse=true to start light and turn dark when hitting the div
-  useScrollDarkMode(false, '.design-collections', false);
+  // Enable scroll-based dark mode for this page. The featured-work section
+  // is the first dark panel after the hero, so trigger on that.
+  useScrollDarkMode(false, '.design-featured', false);
 
   return (
     <main className="design-container">
@@ -32,28 +33,37 @@ export default function Design() {
         </div>
       </div>
 
+      <section className="home-featured design-featured">
+        <div className="home-featured-header">
+          <h2>Featured Work</h2>
+          <p>Latest case study from my TJX/Marshalls graphic design co-op.</p>
+        </div>
+        <Link to="/design-marshalls-casestudy" className="home-featured-card">
+          <div className="home-featured-image">
+            <img
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')}
+              alt="Designing the Trend Shop for Marshalls.com"
+            />
+          </div>
+          <div className="home-featured-info">
+            <p className="home-featured-eyebrow">Case Study</p>
+            <h3>Designing the Trend Shop for Marshalls.com</h3>
+            <p className="home-featured-dates">Graphic Designer, TJX · January–June 2025</p>
+            <div className="home-featured-tags">
+              <p>Brand Identity</p>
+              <p>Web Design</p>
+              <p>Typography</p>
+              <p>Design Systems</p>
+              <p>Print Design</p>
+              <p>Marketing</p>
+            </div>
+            <p className="home-featured-cta">Read the case study →</p>
+          </div>
+        </Link>
+      </section>
+
       <div className="design-collections">
         <h2>Collections</h2>
-        <div className="design-collection">
-          <Link to="/design-marshalls-casestudy">
-            <div className="design-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')} alt="Marshalls Collection" />
-            </div>
-            <div className="design-collection-info">
-              <h4>Marshalls</h4>
-              <p>January 2025 - June 2025</p>
-              <div className="design-collection-tags">
-                <p>Brand Identity</p>
-                <p>Web Design</p>
-                <p>Typography</p>
-                <p>Print Design</p>
-                <p>Marketing</p>
-                <p>Social Media</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
 
         {/* CBA Collection: HIDDEN UNTIL COMPLETED */}
         {/* <div className="design-collection">
