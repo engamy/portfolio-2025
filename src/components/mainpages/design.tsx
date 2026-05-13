@@ -35,7 +35,7 @@ export default function Design() {
       <div className="design-collections">
         <h2>Collections</h2>
         <div className="design-collection">
-          <Link to="/design-marshalls">
+          <Link to="/design-marshalls-casestudy">
             <div className="design-collection-image">
               <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')} alt="Marshalls Collection" />
             </div>
@@ -43,12 +43,12 @@ export default function Design() {
               <h4>Marshalls</h4>
               <p>January 2025 - June 2025</p>
               <div className="design-collection-tags">
-                <p>Graphic Design</p>
                 <p>Brand Identity</p>
+                <p>Web Design</p>
+                <p>Typography</p>
                 <p>Print Design</p>
                 <p>Marketing</p>
-                <p>Typography</p>
-                <p>Layout</p>
+                <p>Social Media</p>
               </div>
             </div>
           </Link>

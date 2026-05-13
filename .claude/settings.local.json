@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(npm uninstall *)",
-      "WebFetch(domain:www.heroui.com)"
+      "WebFetch(domain:www.heroui.com)",
+      "Bash(python -c \"from docx import Document; doc = Document\\('feedback.docx'\\); [print\\(p.text\\) for p in doc.paragraphs]\")",
+      "PowerShell(python scripts\\\\export_brief_pages.py)",
+      "PowerShell(Get-ChildItem \"public\\\\pictures\\\\portfolio-content_spring2026\\\\02_DESIGN\\\\01_MARSHALLS\\\\02_ECOMM\\\\trending_shop_casestudy\" | Sort-Object Name | Format-Table Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}} -AutoSize)",
+      "Bash(aws s3 *)"
     ]
   }
 }
