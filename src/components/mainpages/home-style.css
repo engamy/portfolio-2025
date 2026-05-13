@@ -1,13 +1,175 @@
+.home-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .home-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   background-color: #F0EDE6;
-  height: 95vh;
+  height: 90vh;
   font-family: "neue-haas-grotesk-display", sans-serif;
   padding-left: 8vw;
   padding-right: 8vw;
+  margin-top: 0;
+  padding-bottom: 5vw;
+}
+
+/* ---------- Featured Work ---------- */
+
+.home-featured {
+  background-color: #101010;
+  color: #F0EDE6;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  padding: 5vw 10vw 6vw 10vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw;
+}
+
+.home-featured-header h2 {
+  font-size: 2.5vw;
+  font-style: italic;
+  margin: 0 0 0.5vw 0;
+  color: #F0EDE6;
+}
+
+.home-featured-header p {
+  font-size: 1.1vw;
+  margin: 0;
+  opacity: 0.8;
+  color: #F0EDE6;
+}
+
+.home-featured-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3vw;
+  align-items: center;
+  text-decoration: none;
+  color: #F0EDE6;
+  background-color: #F0EDE6;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-featured-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.home-featured-image {
+  width: 100%;
+  height: 28vw;
+  overflow: hidden;
+  background-color: #F0EDE6;
+}
+
+.home-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.home-featured-card:hover .home-featured-image img {
+  transform: scale(1.04);
+}
+
+.home-featured-image--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8vw;
+  background-color: #ffffff;
+  border: 2px dashed #0024cc;
+  border-radius: 16px;
+}
+
+.home-featured-placeholder-number {
+  font-size: 5vw;
+  font-weight: 700;
+  color: #0024cc;
+  font-style: italic;
+  line-height: 1;
+}
+
+.home-featured-placeholder-description {
+  font-size: 1vw;
+  color: #101010;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-featured-info {
+  padding: 2vw 3vw 2vw 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+  color: #101010;
+}
+
+.home-featured-eyebrow {
+  font-size: 0.85vw !important;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #0024cc !important;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.home-featured-info h3 {
+  font-size: 2vw;
+  font-style: italic;
+  margin: 0;
+  color: #0024cc;
+  line-height: 1.15;
+}
+
+.home-featured-dates {
+  font-size: 1vw !important;
+  margin: 0 !important;
+  color: #101010 !important;
+  opacity: 0.75;
+}
+
+.home-featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5vw;
+  margin-top: 0.5vw;
+}
+
+.home-featured-tags p {
+  background-color: transparent;
+  color: #101010;
+  padding: 0.5vw 1vw;
+  border-radius: 20px;
+  font-size: 0.75vw !important;
+  font-weight: 500;
+  margin: 0 !important;
+  border: 1px solid #101010;
+  transition: all 0.2s ease;
+}
+
+.home-featured-tags p:hover {
+  background-color: #AE1D14;
+  color: #F0EDE6;
+  border-color: #AE1D14;
+}
+
+.home-featured-cta {
+  font-size: 1vw !important;
+  margin-top: 0.5vw !important;
+  color: #0024cc !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .jumpimg img {
@@ -64,6 +226,13 @@
   font-size: 1.8vw;
   text-align: right;
   margin-top: 4.5vw;
+}
+
+.smallbio p:first-of-type {
+  font-size: 3.2vw;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 1vw;
 }
 
 .smallbio span {
@@ -146,6 +315,11 @@
     line-height: 1.2;
   }
 
+  .smallbio p:first-of-type {
+    font-size: 9vw;
+    margin-bottom: 3vw;
+  }
+
   .contacticon {
     justify-content: flex-start;
     gap: 3vw;
@@ -153,5 +327,69 @@
 
   .contacticon img {
     width: 8vw;
+  }
+
+  /* Featured Work — mobile */
+  .home-featured {
+    padding: 10vw 6vw;
+    gap: 6vw;
+  }
+
+  .home-featured-header h2 {
+    font-size: 8vw;
+  }
+
+  .home-featured-header p {
+    font-size: 4vw;
+  }
+
+  .home-featured-card {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-featured-image {
+    height: 60vw;
+  }
+
+  .home-featured-placeholder-number {
+    font-size: 18vw;
+  }
+
+  .home-featured-placeholder-description {
+    font-size: 3.5vw;
+  }
+
+  .home-featured-info {
+    padding: 6vw 6vw 7vw 6vw;
+    gap: 2.5vw;
+  }
+
+  .home-featured-eyebrow {
+    font-size: 3vw !important;
+  }
+
+  .home-featured-info h3 {
+    font-size: 6.5vw;
+  }
+
+  .home-featured-dates {
+    font-size: 3.5vw !important;
+  }
+
+  .home-featured-tags {
+    gap: 2vw;
+    margin-top: 2vw;
+  }
+
+  .home-featured-tags p {
+    font-size: 2.8vw !important;
+    padding: 1.6vw 3vw;
+    border-radius: 15px;
+  }
+
+  .home-featured-cta {
+    font-size: 4vw !important;
+    margin-top: 2vw !important;
   }
 }

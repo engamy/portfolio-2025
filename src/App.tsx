@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -13,6 +13,8 @@ import ArtMotionMedia from './components/art-collections/art-motionmedia';
 import ArtMakeIt from './components/art-collections/art-makeit';
 import DesignWikiBook from './components/design-collections/design-layouts';
 import DesignMarshalls from './components/design-collections/design-marshalls';
+import DesignMarshallsCasestudy from './components/design-collections/design-marshalls-casestudy';
+import DesignNextCasestudy from './components/design-collections/design-next-casestudy';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
@@ -25,6 +27,12 @@ const AppContent: React.FC = () => {
   
   // Use custom navbar mode for about page, otherwise use global dark mode
   const navbarDarkMode = location.pathname === '/about' ? aboutNavbarMode : darkMode;
+
+  // Reset scroll position to the top before the new route paints so the
+  // page never appears at the previous route's scroll position first.
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   // Normalize anchor behavior on each route change:
   // - External links open in a new tab with rel security attributes
@@ -82,6 +90,8 @@ const AppContent: React.FC = () => {
         <Route path="/art-makeit" element={<ArtMakeIt />} />
         <Route path="/design-layouts" element={<DesignWikiBook />} />
         <Route path="/design-marshalls" element={<DesignMarshalls />} />
+        <Route path="/design-marshalls-casestudy" element={<DesignMarshallsCasestudy />} />
+        <Route path="/design-next-casestudy" element={<DesignNextCasestudy />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />

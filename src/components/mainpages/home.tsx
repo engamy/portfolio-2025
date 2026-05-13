@@ -1,12 +1,16 @@
 import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { useSpring, animated, useSprings, to } from '@react-spring/web';
 import './home-style.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
+import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
 
 export default function Home() {
-  // Set darkMode to false for the home page
+  // Start in light mode over the cream hero, flip to dark
+  // when the dark Featured Work section scrolls under the navbar.
   usePageDarkMode(false);
+  useScrollDarkMode(true, '.home-featured', true);
 
   // Animation for intro text section
   const introSpring = useSpring({
@@ -60,7 +64,8 @@ export default function Home() {
   );
 
   return (
-    <main className="home-container">
+    <main className="home-page">
+      <section className="home-container">
       <div className="home-introtext">
         <animated.h1 style={{
           opacity: introSpring.opacity,
@@ -99,13 +104,14 @@ export default function Home() {
         opacity: bioSpring.opacity,
         transform: bioSpring.x.to(x => `translate3d(${x}px, 0, 0)`)
       }}>
-        <p>Hello! I am a <span>designer, developer, </span> <br></br>
-          and artist currently based in <span>Boston</span> who is studying
-          <span> Computer Science and Design</span> <br></br>
+        <p>Hello, I'm Amy! </p>
+          <p>I'm a <span>product designer </span>
+          based <br></br>in <span>Boston</span> and <span>New York </span> who is studying
+          <br></br><span> Computer Science and Design </span>
           with a concentration in <span>UI/UX Design</span> <br></br>
           at <span>Northeastern University</span>.
           <br></br><br></br>
-          Welcome to my self-coded portfolio, and <br></br>
+          Welcome to my portfolio, and <br></br>
           thank you for your interest in my work.
           <br></br><br></br>
           Feel free to connect with me!
@@ -130,6 +136,61 @@ export default function Home() {
           ))}
         </div>
       </animated.div>
+      </section>
+
+      <section className="home-featured">
+        <div className="home-featured-header">
+          <h2>Featured Work</h2>
+          <p>Latest case studies from my recent co-ops.</p>
+        </div>
+        <Link to="/design-marshalls-casestudy" className="home-featured-card">
+          <div className="home-featured-image">
+            <img
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')}
+              alt="Designing the Trend Shop for Marshalls.com"
+            />
+          </div>
+          <div className="home-featured-info">
+            <p className="home-featured-eyebrow">Case Study</p>
+            <h3>Designing the Trend Shop for Marshalls.com</h3>
+            <p className="home-featured-dates">Graphic Designer, TJX · January–June 2025</p>
+            <div className="home-featured-tags">
+              <p>Brand Identity</p>
+              <p>Web Design</p>
+              <p>Typography</p>
+              <p>Design Systems</p>
+              <p>Print Design</p>
+              <p>Marketing</p>
+            </div>
+            <p className="home-featured-cta">Read the case study →</p>
+          </div>
+        </Link>
+        <Link to="/design-next-casestudy" className="home-featured-card">
+          <div className="home-featured-image">
+            <img
+              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/02_NEXT/via_teamphoto.jpg')}
+              alt="Harbor v2.0: NExT × Via Separations team"
+            />
+          </div>
+          <div className="home-featured-info">
+            <p className="home-featured-eyebrow">Case Study</p>
+            <h3>Harbor v2.0: Designing for Manufacturing Planning at Via Separations</h3>
+            <p className="home-featured-dates">
+              Product Designer & Software Engineer, NExT Consulting × Via Separations ·
+              January–April 2026
+            </p>
+            <div className="home-featured-tags">
+              <p>Product Design</p>
+              <p>Front-End</p>
+              <p>UX Research</p>
+              <p>Information Architecture</p>
+              <p>Data Density</p>
+              <p>Climate Tech</p>
+            </div>
+            <p className="home-featured-cta">Read the case study →</p>
+          </div>
+        </Link>
+      </section>
     </main>
   );
 } 

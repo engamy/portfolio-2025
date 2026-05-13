@@ -1,0 +1,577 @@
+/* ---------- Hero ---------- */
+
+.trendshop-hero {
+  position: relative;
+  height: 100vh;
+  background-size: 180%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.trendshop-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+.trendshop-hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 10vw 18vw 10vw;
+}
+
+.trendshop-hero-text {
+  max-width: 70vw;
+}
+
+.trendshop-eyebrow {
+  font-size: 1.1vw;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #F0EDE6;
+  font-weight: 700;
+  margin: 0 0 1vw 0;
+  opacity: 0.85;
+}
+
+.trendshop-title {
+  font-size: 4.5vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: #F0EDE6 !important;
+  font-style: italic;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.trendshop-meta {
+  display: flex;
+  gap: 3vw;
+  margin-top: 1.5vw;
+  flex-wrap: wrap;
+}
+
+.trendshop-meta p {
+  font-size: 1.1vw !important;
+  margin: 0 !important;
+  width: auto !important;
+  color: #F0EDE6 !important;
+}
+
+.trendshop-meta p span {
+  display: block;
+  font-size: 0.75vw;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F0EDE6;
+  margin-bottom: 0.25vw;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+/* ---------- Content ---------- */
+
+.trendshop-content {
+  padding: 5vw 10vw;
+  background-color: #F0EDE6;
+  color: #101010;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  line-height: 1.4;
+}
+
+.trendshop-section {
+  margin-bottom: 6vw;
+}
+
+.trendshop-content h2 {
+  font-size: 2.8vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: #0024cc;
+}
+
+.trendshop-content h3 {
+  font-size: 1.9vw;
+  font-style: italic;
+  margin: 3vw 0 0.5vw 0;
+  color: #0024cc;
+}
+
+.trendshop-content h4 {
+  font-size: 1.1vw;
+  font-weight: normal;
+  margin: 0 0 1.5vw 0;
+  color: #101010;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.trendshop-prose p {
+  font-size: 1.2vw;
+  line-height: 1.55;
+  margin: 0 0 1.2vw 0;
+  color: #101010;
+}
+
+.trendshop-prose strong {
+  color: #0024cc;
+}
+
+.trendshop-prose--full {
+  max-width: 100%;
+}
+
+/* Two-column layouts (prose + figure) */
+.trendshop-twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3vw;
+  align-items: center;
+}
+
+.trendshop-twocol--reverse .trendshop-figure {
+  order: 0;
+}
+
+.trendshop-figure {
+  cursor: pointer;
+  margin: 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(16, 16, 16, 0.06);
+}
+
+.trendshop-figure:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.trendshop-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.trendshop-figure figcaption {
+  font-size: 0.85vw;
+  text-align: center;
+  margin-top: 0.6vw;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ---------- Exploration grids ---------- */
+
+.trendshop-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vw;
+  margin: 1vw 0 2vw 0;
+}
+
+.trendshop-explore-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(16, 16, 16, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+.trendshop-explore-tile {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #F0EDE6;
+  aspect-ratio: 16 / 9;
+  transition: transform 0.25s ease;
+}
+
+.trendshop-explore-tile:hover {
+  transform: scale(1.02);
+}
+
+.trendshop-explore-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.trendshop-explore-label {
+  margin: 0.3vw 0 0 0;
+  font-size: 1vw;
+  font-style: italic;
+  color: #0024cc;
+  text-align: center;
+}
+
+/* ---------- Wordmark grid ---------- */
+
+.trendshop-wordmark-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2vw;
+  margin: 1vw 0 2vw 0;
+}
+
+.trendshop-wordmark-tile {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(16, 16, 16, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8vw;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 18vw;
+}
+
+.trendshop-wordmark-tile:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.trendshop-wordmark-tile img {
+  max-width: 100%;
+  max-height: 14vw;
+  object-fit: contain;
+  display: block;
+}
+
+.trendshop-wordmark-tile p {
+  margin: 0;
+  font-size: 0.85vw;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0024cc;
+  font-weight: 700;
+}
+
+/* ---------- Trade-offs grid (prose + callout) ---------- */
+
+.trendshop-tradeoffs-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3vw;
+  align-items: start;
+}
+
+/* ---------- Callout (feedback) ---------- */
+
+.trendshop-callout {
+  background-color: #ffffff;
+  color: #101010;
+  border-radius: 16px;
+  padding: 2vw 2.5vw;
+  margin: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(16, 16, 16, 0.06);
+}
+
+.trendshop-callout-eyebrow {
+  font-size: 0.85vw;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin: 0 0 1.2vw 0;
+  font-weight: 700;
+  color: #0024cc;
+}
+
+.trendshop-callout-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+.trendshop-callout-list li {
+  font-size: 1vw;
+  line-height: 1.5;
+  padding-left: 1.4vw;
+  position: relative;
+}
+
+.trendshop-callout-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55vw;
+  width: 0.45vw;
+  height: 0.45vw;
+  background-color: #0024cc;
+  border-radius: 50%;
+}
+
+.trendshop-callout-list strong {
+  color: #0024cc;
+}
+
+/* ---------- Shipped grid ---------- */
+
+.trendshop-shipped-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2vw;
+  margin: 1.5vw 0;
+}
+
+.trendshop-shipped-tile--single {
+  margin: 2vw 0 0 0;
+  width: 100%;
+}
+
+.trendshop-shipped-tile {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 0.8vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(16, 16, 16, 0.06);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.trendshop-shipped-tile:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.trendshop-shipped-tile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ---------- Other Work section (dark panel) ---------- */
+/* The embedded reusable grids were originally styled for the dark
+   /design-marshalls page. Wrapping Other Work in a dark panel keeps
+   their typography and contrast identical to the original page. */
+
+.trendshop-otherwork {
+  margin: 8vw -10vw -5vw -10vw;
+  padding: 6vw 10vw;
+  background-color: #101010;
+  color: #F0EDE6;
+}
+
+.trendshop-otherwork h2,
+.trendshop-otherwork h3 {
+  color: #F0EDE6;
+}
+
+.trendshop-otherwork h4 {
+  color: #F0EDE6;
+  opacity: 0.9;
+}
+
+.trendshop-otherwork-intro {
+  font-size: 1.2vw;
+  max-width: 70vw;
+  line-height: 1.55;
+  margin: 0 0 3vw 0;
+  color: #F0EDE6;
+  opacity: 0.9;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .trendshop-hero {
+    height: 80vh;
+    background-position: center;
+  }
+
+  .trendshop-hero-overlay {
+    padding: 0 5vw 18vw 5vw;
+  }
+
+  .trendshop-hero-text {
+    max-width: 100%;
+  }
+
+  .trendshop-eyebrow {
+    font-size: 3vw;
+    margin-bottom: 3vw;
+  }
+
+  .trendshop-title {
+    font-size: 9vw !important;
+  }
+
+  .trendshop-meta {
+    gap: 6vw;
+    margin-top: 5vw;
+  }
+
+  .trendshop-meta p {
+    font-size: 3.5vw !important;
+  }
+
+  .trendshop-meta p span {
+    font-size: 2.5vw;
+    margin-bottom: 1vw;
+  }
+
+  .trendshop-content {
+    padding: 8vw 5vw;
+  }
+
+  .trendshop-section {
+    margin-bottom: 12vw;
+  }
+
+  .trendshop-content h2 {
+    font-size: 7vw;
+    margin-bottom: 4vw;
+  }
+
+  .trendshop-content h3 {
+    font-size: 5.5vw;
+    margin: 8vw 0 2vw 0;
+  }
+
+  .trendshop-content h4 {
+    font-size: 3.8vw;
+    margin-bottom: 4vw;
+  }
+
+  .trendshop-prose p {
+    font-size: 3.8vw;
+    margin-bottom: 3vw;
+  }
+
+  .trendshop-prose--full {
+    max-width: 100%;
+  }
+
+  .trendshop-twocol,
+  .trendshop-twocol--reverse,
+  .trendshop-tradeoffs-grid {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .trendshop-twocol--reverse .trendshop-figure {
+    order: -1;
+  }
+
+  .trendshop-figure {
+    padding: 2vw;
+  }
+
+  .trendshop-figure figcaption {
+    font-size: 2.8vw;
+    margin-top: 2vw;
+  }
+
+  .trendshop-explore-grid {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .trendshop-explore-card {
+    padding: 3vw;
+    gap: 2vw;
+  }
+
+  .trendshop-explore-label {
+    font-size: 3.5vw;
+    margin-top: 1.5vw;
+  }
+
+  .trendshop-wordmark-grid {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .trendshop-wordmark-tile {
+    padding: 5vw;
+    min-height: auto;
+  }
+
+  .trendshop-wordmark-tile img {
+    max-height: 40vw;
+  }
+
+  .trendshop-wordmark-tile p {
+    font-size: 3vw;
+  }
+
+  .trendshop-callout {
+    padding: 6vw 6vw;
+  }
+
+  .trendshop-callout-eyebrow {
+    font-size: 2.8vw;
+    margin-bottom: 4vw;
+  }
+
+  .trendshop-callout-list {
+    gap: 3vw;
+  }
+
+  .trendshop-callout-list li {
+    font-size: 3.6vw;
+    padding-left: 4vw;
+  }
+
+  .trendshop-callout-list li::before {
+    width: 2vw;
+    height: 2vw;
+    top: 2vw;
+  }
+
+  .trendshop-shipped-grid {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .trendshop-otherwork {
+    margin: 14vw -5vw -8vw -5vw;
+    padding: 10vw 5vw;
+  }
+
+  .trendshop-otherwork-intro {
+    font-size: 3.8vw;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .trendshop-title {
+    font-size: 10vw !important;
+  }
+
+  .trendshop-content h2 {
+    font-size: 8vw;
+  }
+
+  .trendshop-content h3 {
+    font-size: 6vw;
+  }
+}

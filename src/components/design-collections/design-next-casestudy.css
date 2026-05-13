@@ -1,0 +1,425 @@
+/* ---------- Hero ---------- */
+
+.next-hero {
+  position: relative;
+  height: 100vh;
+  background-color: #101010;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.next-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(5px);
+  /* slight scale prevents soft blurred edges from showing the underlying bg */
+  transform: scale(1.04);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.next-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.next-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  padding: 0 10vw 8vw 10vw;
+}
+
+.next-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  max-width: 70vw;
+}
+
+.next-eyebrow {
+  font-size: 1.1vw;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #F0EDE6;
+  font-weight: 700;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.next-title {
+  font-size: 4vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: #F0EDE6 !important;
+  font-style: italic;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.next-meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3vw;
+  margin-top: 0.5vw;
+}
+
+.next-meta p {
+  font-size: 1.1vw !important;
+  margin: 0 !important;
+  width: auto !important;
+  color: #F0EDE6 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.next-meta p span {
+  font-size: 0.75vw;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F0EDE6;
+  margin-bottom: 0.25vw;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+/* ---------- Content ---------- */
+
+.next-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw;
+  background-color: #F0EDE6;
+  color: #101010;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  line-height: 1.4;
+}
+
+/* flow-root makes the section a clean BFC so floated children
+   are contained and the next section starts on its own row. */
+.next-section {
+  display: flow-root;
+}
+
+.next-content h2 {
+  font-size: 2.8vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: #101010;
+}
+
+.next-content h3 {
+  font-size: 1.9vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: #101010;
+}
+
+/* Final design subheading starts on a fresh row beneath any
+   preceding float (e.g., the lifecycle figure in Feature 1). */
+.next-final-design {
+  clear: both;
+  margin-top: 2vw !important;
+}
+
+/* Used on Feature 1's "Final design" h3 when the resdetails figure
+   floats from within the prose above — we want the h3 to wrap
+   beside the float instead of clearing below it. */
+.next-final-design--no-clear {
+  clear: none !important;
+  margin-top: 2vw !important;
+}
+
+.next-prose p {
+  font-size: 1.2vw;
+  line-height: 1.55;
+  margin: 0 0 1.2vw 0;
+  color: #101010;
+}
+
+.next-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.next-disclaimer {
+  font-style: italic;
+  opacity: 0.7;
+  padding-left: 1vw;
+  border-left: 3px solid rgba(16, 16, 16, 0.25);
+}
+
+/* ---------- Float utilities (text wraps around image) ---------- */
+
+.next-float-left {
+  float: left;
+  margin: 0.3vw 3vw 3vw 0;
+  shape-outside: margin-box;
+}
+
+.next-float-right {
+  float: right;
+  margin: 0.3vw 0 3vw 3vw;
+  shape-outside: margin-box;
+}
+
+/* Chained selectors so float margins win over the
+   `.next-figure { margin: 0 }` reset below. */
+.next-figure.next-float-left {
+  margin: 0.3vw 3vw 3vw 0;
+}
+
+.next-figure.next-float-right {
+  margin: 0.3vw 0 3vw 3vw;
+}
+
+/* ---------- Figures ---------- */
+
+.next-figure {
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.next-figure:hover {
+  transform: scale(1.01);
+}
+
+.next-figure img {
+  display: block;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+/* Subtle outline on the feature screenshots (excludes the
+   team photo, which uses `.next-figure--static`). */
+.next-figure:not(.next-figure--static) img {
+  border: 1px solid rgba(16, 16, 16, 0.12);
+}
+
+.next-figure--landscape img {
+  width: 100%;
+  max-width: 55vw;
+  height: auto;
+  object-fit: contain;
+}
+
+.next-figure--portrait img {
+  width: auto;
+  max-width: 32vw;
+  max-height: 65vh;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Smaller variant used when text wraps around the figure */
+.next-figure--thumb.next-figure--landscape img {
+  max-width: 40vw;
+}
+
+.next-figure--thumb.next-figure--portrait img {
+  max-width: 20vw;
+  max-height: 60vh;
+}
+
+/* Extra-large variant used when the image should cut through
+   an entire section (e.g., the Material Planner in Feature 2). */
+.next-figure--xl.next-figure--portrait img {
+  max-width: 35vw;
+  max-height: none;
+}
+
+/* Non-clickable variant (e.g., team photo at the end) */
+.next-figure--static {
+  cursor: default;
+}
+
+.next-figure--static:hover {
+  transform: none;
+}
+
+/* Mobile-only figures (placed below Final Design in DOM); hidden on desktop. */
+.next-figure--mobile-only {
+  display: none;
+}
+
+/* Team photo (floated, non-clickable) — 50vw on desktop */
+.next-figure--static.next-figure--landscape img {
+  max-width: 50vw;
+}
+
+/* ---------- Logos (Quick Summary, float right on desktop) ---------- */
+
+.next-logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: 30vw;
+}
+
+.next-logo {
+  display: block;
+  object-fit: contain;
+}
+
+.next-logo--next {
+  width: 14vw;
+  height: auto;
+  border-radius: 6px;
+}
+
+.next-logo--via {
+  width: 14vw;
+  height: auto;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .next-hero {
+    height: 80vh;
+    background-position: center;
+  }
+
+  .next-hero-overlay {
+    padding: 0 5vw 12vw 5vw;
+  }
+
+  .next-hero-text {
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .next-eyebrow {
+    font-size: 3vw;
+  }
+
+  .next-title {
+    font-size: 7.5vw !important;
+  }
+
+  .next-meta {
+    gap: 5vw;
+    margin-top: 2vw;
+  }
+
+  .next-meta p {
+    font-size: 3.5vw !important;
+  }
+
+  .next-meta p span {
+    font-size: 2.5vw;
+    margin-bottom: 1vw;
+  }
+
+  .next-content {
+    padding: 8vw 5vw;
+    gap: 12vw;
+  }
+
+  .next-content h2 {
+    font-size: 7vw;
+    margin-bottom: 4vw;
+  }
+
+  .next-content h3 {
+    font-size: 5.5vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-final-design {
+    margin-top: 6vw !important;
+  }
+
+  .next-prose p {
+    font-size: 3.8vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-disclaimer {
+    padding-left: 3vw;
+    border-left-width: 2px;
+  }
+
+  /* Floats stack: figure becomes a normal block above the prose */
+  .next-float-left,
+  .next-float-right {
+    float: none;
+    margin: 0 0 4vw 0;
+  }
+
+  /* On mobile, the desktop-only floated figures are hidden and the
+     mobile-only duplicates render below Final Design instead. */
+  .next-figure--desktop-only {
+    display: none;
+  }
+
+  .next-figure--mobile-only {
+    display: block;
+    margin: 4vw 0 0 0;
+  }
+
+  .next-figure--landscape img,
+  .next-figure--portrait img,
+  .next-figure--thumb.next-figure--landscape img,
+  .next-figure--thumb.next-figure--portrait img {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .next-figure--static.next-figure--landscape img {
+    max-width: 100%;
+  }
+
+  /* Logos stack underneath Quick Summary, side-by-side row */
+  .next-logos {
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 6vw;
+    margin-top: 4vw;
+  }
+
+  .next-logo--next {
+    width: 22vw;
+  }
+
+  .next-logo--via {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .next-title {
+    font-size: 8.5vw !important;
+  }
+
+  .next-content h2 {
+    font-size: 8vw;
+  }
+
+  .next-content h3 {
+    font-size: 6vw;
+  }
+}
