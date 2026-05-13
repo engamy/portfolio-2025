@@ -19,6 +19,11 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
     { path: '/about', label: 'About' }
   ];
 
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname === path || location.pathname.startsWith(`${path}-`);
+  };
+
   const socialLinks = [
     { 
       icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png'), 
@@ -54,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
             <li key={item.path} className="nav-item">
               <Link
                 to={item.path}
-                className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+                className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
               >
                 {item.label}
               </Link>
@@ -122,7 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
                 <li key={item.path} className="overlay-item">
                   <Link
                     to={item.path}
-                    className={`overlay-link ${location.pathname === item.path ? 'active' : ''}`}
+                    className={`overlay-link ${isActive(item.path) ? 'active' : ''}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}

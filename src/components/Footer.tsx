@@ -15,7 +15,7 @@ export default function Footer() {
           <a href="/about">About</a>
         </nav>
         <div className="footer-copyright">
-          © Amy Eng 2025 All Rights Reserved
+          © Amy Eng 2026 All Rights Reserved
         </div>
       </div>
       <div className="footer-right">
@@ -37,12 +37,7 @@ export default function Footer() {
 
           <div className="footer-email-phone">
           <div><span className="footer-contact-label">Email:</span> amyeng895@gmail.com</div>
-          <div><span className="footer-contact-label">Phone:</span> 347-480-4767</div>
           </div>
-
-          <div className="footer-copyright">
-          © Amy Eng 2025 All Rights Reserved
-        </div>
         </div>
 
         <div className="footer-logo">

@@ -68,12 +68,23 @@ export default function About() {
 
             <div className="experience">
               <div className="experience-details">
+                <h3>NExT Consulting</h3>
+                <p>Software Engineer & Product Designer</p>
+              </div>
+              <div className="experience-time-place">
+                <p>Boston, MA</p>
+                <p>January 2026 - April 2026</p>
+              </div>
+            </div>
+
+            <div className="experience">
+              <div className="experience-details">
                 <h3>Engine Red Design Agency</h3>
                 <p>Content Designer</p>
               </div>
               <div className="experience-time-place">
                 <p>Boston, MA</p>
-                <p>May 2025 - Present</p>
+                <p>May 2025 - April 2026</p>
               </div>
             </div>
 
@@ -84,18 +95,7 @@ export default function About() {
               </div>
               <div className="experience-time-place">
                 <p>Boston, MA</p>
-                <p>September 2024 - Present</p>
-              </div>
-            </div>
-
-            <div className="experience">
-              <div className="experience-details">
-                <h3>Burning Rose YDSA</h3>
-                <p>Graphic Designer, Illustrator, and Layout Designer</p>
-              </div>
-              <div className="experience-time-place">
-                <p>Boston, MA</p>
-                <p>September 2024 - Present</p>
+                <p>October 2024 - Present</p>
               </div>
             </div>
 
@@ -106,7 +106,18 @@ export default function About() {
               </div>
               <div className="experience-time-place">
                 <p>Remote</p>
-                <p>May 2024 - Present</p>
+                <p>March 2024 - January 2026</p>
+              </div>
+            </div>
+
+            <div className="experience">
+              <div className="experience-details">
+                <h3>Northeastern University</h3>
+                <p>DRC Notetaker</p>
+              </div>
+              <div className="experience-time-place">
+                <p>Boston, MA</p>
+                <p>September 2025 - December 2025</p>
               </div>
             </div>
 
@@ -129,8 +140,19 @@ export default function About() {
               </div>
               <div className="experience-time-place">
                 <p>Boston, MA</p>
-                <p>January 2025 - April 2025</p>
-                <p>October 2025 - Dec 2025</p>
+                <p>January 2025 - May 2025</p>
+                <p>September 2024 - December 2024</p>
+              </div>
+            </div>
+
+            <div className="experience">
+              <div className="experience-details">
+                <h3>Burning Rose YDSA</h3>
+                <p>Graphic Designer, Illustrator, and Layout Designer</p>
+              </div>
+              <div className="experience-time-place">
+                <p>Boston, MA</p>
+                <p>September 2024 - May 2025</p>
               </div>
             </div>
 

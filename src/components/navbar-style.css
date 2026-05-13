@@ -107,7 +107,7 @@
 .social-icons {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 0.4vw;
 }
 
 .social-link {
@@ -122,8 +122,8 @@
 }
 
 .social-icon {
-  width: 2vw;
-  height: 2vw;
+  width: 1.75vw;
+  height: 1.75vw;
   object-fit: contain;
 }
 
