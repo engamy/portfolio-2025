@@ -124,7 +124,7 @@ export default function DesignMarshallsCasestudy() {
             <h1 className="trendshop-title">Designing the Trend Shop for Marshalls.com</h1>
             <div className="trendshop-meta">
               <p><span>Role</span> Graphic Designer, TJX</p>
-              <p><span>Timeline</span> January–June 2025</p>
+              <p><span>Timeline</span> April–June 2025</p>
             </div>
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function DesignMarshallsCasestudy() {
           <h3>Wordmark</h3>
           <div className="trendshop-prose trendshop-prose--full">
             <p>
-              I also developed the wordmark, since the shop needed a name that could
+              I also developed a wordmark, since the shop needed a name that could
               stand on its own without a logo system behind it.
             </p>
           </div>
@@ -305,19 +305,28 @@ export default function DesignMarshallsCasestudy() {
               <h2>Trade-offs</h2>
               <div className="trendshop-prose">
                 <p>
-                  Two constraints eliminated four of the seven header directions outright.
-                  The directions leaning on custom photography couldn't survive the
-                  existing-shoots-only rule. The directions leaning on subcopy couldn't
-                  survive the minimal-copy rule. What was left were the directions that held
-                  up on shape language and typography alone — and within those, the ones
-                  that adapted gracefully to fewer than six categories.
+                  The hardest part of this project wasn't visual. It was that two
+                  stakeholder groups wanted different things from the same page. Brand
+                  marketing wanted a Trend Shop that looked like a destination with rich
+                  imagery, distinct personality. They wanted something that could carry a
+                  marketing moment for Marshalls.com users. The creative and copy teams,
+                  who would be updating the page every month, wanted the opposite: less
+                  imagery per trend, less copy per trend, less production work to refresh,
+                  with the trend names themselves doing as much of the merchandising as
+                  possible.
                 </p>
                 <p>
-                  The petal-to-square hover from the seasonal direction was the visual idea
-                  the team kept coming back to, but applied to imagery it created a problem:
-                  every trend swap meant a new photo, which fought the monthly refresh
-                  cadence. The fix was to keep the shape language and drop the imagery from
-                  the tiles themselves.
+                  Both groups were right about their own constraints. A page that looked
+                  beautiful but took two weeks to update wouldn't survive a trend's
+                  lifecycle. A page that updated in an afternoon but read as generic
+                  wouldn't earn its slot in the top nav. The directions that made it
+                  through round one were the ones that balanced the creative/copy and
+                  brand team's needs: typography and shape language doing the personality
+                  work, photography limited to a single hero shot the merchandising team
+                  could swap seasonally without rebuilding the layout, copy held to trend
+                  names and a one-line subhead. That meant the imagery-heavy directions
+                  and the subcopy-heavy directions came off the table early, even when
+                  they were the strongest visually.
                 </p>
               </div>
             </div>
@@ -345,8 +354,8 @@ export default function DesignMarshallsCasestudy() {
               team carried the project forward without me. The version that eventually
               launched took a different route from anything I'd developed: photography-led
               tiles, serif italic headlines, pill-shaped CTAs. The shape language, the
-              typography-first approach, the wordmark, the petal-to-square hover — none
-              of it made it through.
+              typography-first approach, the wordmark, the petal-to-square hover seem to
+              have not made it through.
             </p>
             <p>
               That's the part of agency and in-house work I didn't fully understand going
@@ -355,8 +364,8 @@ export default function DesignMarshallsCasestudy() {
               the live page. It's everything that happened before the handoff: the
               framing of the problem, the stress-testing across constraints I'd never had
               to design against before, the back-and-forth with brand marketing and the
-              MMX team, building a wordmark from scratch. That's the work I'd point to,
-              and it's the work that taught me what I'd do differently next time.
+              MMX team, building a wordmark from scratch. That's the design problem I
+              most enjoyed working at, and I'm happy with the options I delivered.
             </p>
           </div>
           <div
@@ -375,25 +384,24 @@ export default function DesignMarshallsCasestudy() {
           <h2>Reflection</h2>
           <div className="trendshop-prose trendshop-prose--full">
             <p>
-              If I were doing this again, the thing I'd change is upstream of the visual
-              exploration. I built seven header directions and five landing-page
-              directions stress-tested against a placeholder trend set, which is a lot
-              of pixels to push without much grounding in how shoppers actually scan a
-              page like this. The directions got evaluated on taste and on the
-              constraints I could see (variable trend counts, minimal copy, existing
-              photography), but not on anything closer to user behavior.
+              That being said, if I were doing this again, the thing I'd change is
+              upstream of the visual exploration. I built seven header directions and
+              five landing-page directions stress-tested against a placeholder trend
+              set, which is a lot of pixels to push without much grounding in how
+              shoppers actually scan a page like this. The directions were evaluated on
+              taste and on the constraints I could see (variable trend counts, minimal
+              copy, existing photography), but not on anything closer to user behavior.
             </p>
             <p>
-              If my role had been more UX-leaning, I would have pushed to do interviews
+              On a project where research was scoped in, I'd have pushed for interviews
               or quick usability tests before the second round of exploration. Even five
               conversations with people who shop Marshalls online would have told me
               whether shoppers expected to see product imagery in the tiles, whether the
               wordmark was doing anything for recognition, whether "Trending Now" as a
               label even read the way we assumed it did. That research wouldn't have
-              guaranteed my directions survived to launch — plenty of things kill a
-              design between exploration and ship — but it would have given the work a
-              sharper argument than "this is the one that holds up across the
-              constraints."
+              guaranteed my directions survived to launch but it would have given the
+              motive behind my design decisions a sharper argument than "this is the one
+              that holds up across the constraints."
             </p>
             <p>
               The other thing I'd do differently is get closer to the merchandisers
