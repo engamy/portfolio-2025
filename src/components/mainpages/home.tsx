@@ -165,7 +165,7 @@ export default function Home() {
             <p className="home-featured-cta">Read the case study →</p>
           </div>
         </Link>
-        <Link to="/design-next-casestudy" className="home-featured-card">
+        <Link to="/design-next-casestudy" className="home-featured-card home-featured-card--next">
           <div className="home-featured-image">
             <img
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/02_NEXT/via_teamphoto.jpg')}

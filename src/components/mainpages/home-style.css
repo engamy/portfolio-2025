@@ -172,6 +172,18 @@
   letter-spacing: 0.05em;
 }
 
+.home-featured-card--next .home-featured-eyebrow {
+  color: #025A44 !important;
+}
+
+.home-featured-card--next .home-featured-info h3 {
+  color: #025A44;
+}
+
+.home-featured-card--next .home-featured-cta {
+  color: #025A44 !important;
+}
+
 .jumpimg img {
   width: 33vw;
   padding: 0;

@@ -399,12 +399,6 @@ export default function DesignNextCasestudy() {
         {/* Outcomes */}
         <section className="next-section">
           <h2>Outcomes</h2>
-          <figure className="next-figure next-figure--landscape next-figure--static next-float-right">
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via_teamphoto.jpg`)}
-              alt="NExT × Via Separations team"
-            />
-          </figure>
           <div className="next-prose">
             <p>
               Demand from across the organization is now tracked in one reservation
@@ -454,6 +448,19 @@ export default function DesignNextCasestudy() {
               on the screen lines up with what the user needs to know.
             </p>
           </div>
+        </section>
+
+        {/* Team photo */}
+        <section className="next-section next-teamphoto-section">
+          <figure className="next-figure next-figure--static next-teamphoto">
+            <img
+              src={getAssetPath(`${ASSET_BASE}/via_teamphoto.jpg`)}
+              alt="NExT × Via Separations team"
+            />
+            <figcaption>
+              NExT team photo at Via Separations HQ after our fi nal presentation!
+            </figcaption>
+          </figure>
         </section>
 
       </div>
