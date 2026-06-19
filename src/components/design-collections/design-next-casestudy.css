@@ -73,6 +73,14 @@
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
+.next-subtitle {
+  font-size: 1.4vw;
+  margin: 0;
+  color: #F0EDE6;
+  opacity: 0.85;
+  font-style: italic;
+}
+
 .next-meta {
   display: flex;
   flex-direction: row;
@@ -117,6 +125,30 @@
    are contained and the next section starts on its own row. */
 .next-section {
   display: flow-root;
+}
+
+/* Context section — image and text in equal-height columns. */
+.next-section.next-context-section {
+  display: grid;
+  grid-template-columns: 22vw 1fr;
+  gap: 3vw;
+  align-items: stretch;
+}
+
+/* Two prose sections shown side by side (e.g., Problem + Goals). */
+.next-section.next-twocol-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+/* Solution section — prose on the left, vertical before/after on the right. */
+.next-section.next-solution-section {
+  display: grid;
+  grid-template-columns: 1fr 24vw;
+  gap: 4vw;
+  align-items: start;
 }
 
 .next-content h2 {
@@ -164,6 +196,219 @@
   opacity: 0.7;
   padding-left: 1vw;
   border-left: 3px solid rgba(16, 16, 16, 0.25);
+  font-size: 0.95vw !important;
+  line-height: 1.5 !important;
+}
+
+/* ---------- Subsections (Quick Summary sub-headings) ---------- */
+
+/* flow-root contains any floats (e.g., the logos in Details) within
+   the subsection so the next subheading starts on a fresh row. */
+.next-subsection {
+  display: flow-root;
+}
+
+.next-subsection + .next-subsection {
+  margin-top: 2.5vw;
+}
+
+.next-subheading {
+  margin: 0 0 1vw 0 !important;
+}
+
+/* ---------- Bento cards (Quick Summary: PSR row + Impact) ---------- */
+
+.next-bento-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5vw;
+}
+
+.next-bento-card {
+  background-color: rgba(2, 90, 68, 0.06);
+  border: 1px solid rgba(2, 90, 68, 0.18);
+  border-radius: 12px;
+  padding: 2vw 1.8vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Outline variant — transparent fill, slightly stronger border.
+   Used for the Problem/Solution/Result row so the stat-driven
+   Impact cards stay visually heavier than the prose cards. */
+.next-bento-row--outline .next-bento-card {
+  background-color: transparent;
+  border-color: rgba(2, 90, 68, 0.4);
+}
+
+/* Bento card heading — smaller than the section h3 so it scales
+   inside the card without dominating the body copy. */
+.next-content .next-bento-card h3 {
+  font-size: 1.6vw;
+  font-style: italic;
+  margin: 0 0 1vw 0;
+  color: #025A44;
+}
+
+.next-bento-card p {
+  font-size: 1.05vw;
+  line-height: 1.5;
+  margin: 0;
+  color: #101010;
+}
+
+/* Impact-specific: stat + substat sit on the same baseline. */
+.next-bento-stat-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.8vw;
+  margin-bottom: 1vw;
+}
+
+.next-bento-stat {
+  font-size: 4.2vw;
+  line-height: 1;
+  font-style: italic;
+  color: #025A44;
+  font-weight: 500;
+}
+
+.next-bento-substat {
+  font-size: 1.2vw;
+  font-style: italic;
+  color: #025A44;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Topic line at the top of an insight bento card — italic green,
+   slightly larger than body copy to anchor the card. */
+.next-insight-topic {
+  font-size: 1.4vw !important;
+  font-style: italic;
+  color: #025A44 !important;
+  font-weight: 500;
+  line-height: 1.3 !important;
+  margin: 0 0 1vw 0 !important;
+}
+
+/* Spacing between a bento row and surrounding prose within a section. */
+.next-prose + .next-bento-row {
+  margin-top: 2vw;
+}
+
+.next-bento-row + .next-prose {
+  margin-top: 2vw;
+}
+
+/* ---------- Before / After comparison (Harbor v1.0 → v2.0) ---------- */
+
+/* Stacked vertically: v1.0 → arrow (down) → v2.0 */
+.next-beforeafter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2vw;
+}
+
+.next-prose + .next-beforeafter {
+  margin-top: 2vw;
+}
+
+.next-beforeafter + .next-prose {
+  margin-top: 2vw;
+}
+
+.next-beforeafter-box {
+  background-color: transparent;
+  border: 1px solid rgba(2, 90, 68, 0.4);
+  width: 100%;
+  max-width: 24vw;
+  box-sizing: border-box;
+}
+
+.next-content .next-beforeafter-box h3 {
+  font-size: 1.8vw;
+  margin: 0 0 1.2vw 0;
+  color: #025A44;
+  font-style: italic;
+}
+
+.next-beforeafter-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
+}
+
+.next-beforeafter-box li {
+  font-size: 1.1vw;
+  line-height: 1.45;
+  color: #101010;
+  padding-left: 1.2vw;
+  position: relative;
+}
+
+.next-beforeafter-box li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #025A44;
+  font-weight: 700;
+}
+
+.next-beforeafter-arrow {
+  font-size: 3vw;
+  color: #025A44;
+  font-style: italic;
+  line-height: 1;
+  transform: rotate(90deg);
+}
+
+/* ---------- Placeholder image (stand-in for unshot visuals) ---------- */
+
+.next-placeholder {
+  background-color: rgba(2, 90, 68, 0.06);
+  border: 2px dashed rgba(2, 90, 68, 0.35);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(2, 90, 68, 0.55);
+  font-size: 1vw;
+  font-style: italic;
+  text-align: center;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.next-placeholder--portrait {
+  width: 22vw;
+  height: 30vw;
+}
+
+.next-placeholder--landscape {
+  width: 40vw;
+  height: 24vw;
+}
+
+/* Context variant — fills its grid cell so the placeholder
+   matches the text column's height. */
+.next-placeholder--context {
+  width: 100%;
+  height: 100%;
+}
+
+/* Float margins win over the placeholder's own (none) when floated. */
+.next-placeholder.next-float-left {
+  margin: 0.3vw 3vw 3vw 0;
+}
+
+.next-placeholder.next-float-right {
+  margin: 0.3vw 0 3vw 3vw;
 }
 
 /* ---------- Float utilities (text wraps around image) ---------- */
@@ -295,15 +540,28 @@
   color: #101010;
 }
 
-/* ---------- Logos (Quick Summary, float right on desktop) ---------- */
+/* ---------- Logos (Quick Summary intro, side-by-side row) ---------- */
 
 .next-logos {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 2vw;
-  width: 30vw;
+  justify-content: flex-start;
+  gap: 1.5vw;
+  width: 21vw;
+}
+
+/* Two-column layout pairing the logo row with the intro prose. */
+.next-summary-intro {
+  display: grid;
+  grid-template-columns: 21vw 1fr;
+  gap: 3vw;
+  align-items: start;
+}
+
+/* Spacing between the intro block and the bento row that follows. */
+.next-summary-intro + .next-subsection {
+  margin-top: 2.5vw;
 }
 
 .next-logo {
@@ -312,13 +570,13 @@
 }
 
 .next-logo--next {
-  width: 14vw;
+  width: 10vw;
   height: auto;
   border-radius: 6px;
 }
 
 .next-logo--via {
-  width: 14vw;
+  width: 10vw;
   height: auto;
 }
 
@@ -345,6 +603,10 @@
 
   .next-title {
     font-size: 7.5vw !important;
+  }
+
+  .next-subtitle {
+    font-size: 4vw;
   }
 
   .next-meta {
@@ -388,6 +650,87 @@
   .next-disclaimer {
     padding-left: 3vw;
     border-left-width: 2px;
+    font-size: 3vw !important;
+  }
+
+  .next-subsection + .next-subsection {
+    margin-top: 7vw;
+  }
+
+  .next-subheading {
+    margin-bottom: 3vw !important;
+  }
+
+  .next-bento-row {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .next-bento-card {
+    padding: 6vw 5vw;
+  }
+
+  .next-content .next-bento-card h3 {
+    font-size: 5vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-bento-card p {
+    font-size: 3.6vw;
+  }
+
+  .next-bento-stat-header {
+    gap: 3vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-bento-stat {
+    font-size: 13vw;
+  }
+
+  .next-bento-substat {
+    font-size: 4vw;
+  }
+
+  .next-placeholder {
+    font-size: 3.4vw;
+    padding: 5vw;
+  }
+
+  .next-placeholder--portrait {
+    width: 100%;
+    height: 60vw;
+  }
+
+  .next-placeholder--landscape {
+    width: 100%;
+    height: 50vw;
+  }
+
+  .next-placeholder--context {
+    width: 100%;
+    height: 60vw;
+  }
+
+  .next-section.next-context-section {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .next-insight-topic {
+    font-size: 4.5vw !important;
+    margin-bottom: 3vw !important;
+  }
+
+  .next-prose + .next-bento-row,
+  .next-bento-row + .next-prose {
+    margin-top: 5vw;
+  }
+
+  .next-placeholder.next-float-left,
+  .next-placeholder.next-float-right {
+    float: none;
+    margin: 0 0 4vw 0;
   }
 
   /* Floats stack: figure becomes a normal block above the prose */
@@ -430,14 +773,63 @@
     margin-top: 3vw;
   }
 
-  /* Logos stack underneath Quick Summary, side-by-side row */
+  /* Logos go side-by-side on mobile to save vertical space */
   .next-logos {
     flex-direction: row;
     width: 100%;
     align-items: center;
     justify-content: center;
     gap: 6vw;
-    margin-top: 4vw;
+  }
+
+  .next-summary-intro {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .next-summary-intro + .next-subsection {
+    margin-top: 7vw;
+  }
+
+  .next-section.next-twocol-section {
+    grid-template-columns: 1fr;
+    gap: 10vw;
+  }
+
+  .next-section.next-solution-section {
+    grid-template-columns: 1fr;
+    gap: 6vw;
+  }
+
+  .next-beforeafter {
+    gap: 3vw;
+  }
+
+  .next-prose + .next-beforeafter,
+  .next-beforeafter + .next-prose {
+    margin-top: 5vw;
+  }
+
+  .next-beforeafter-box {
+    max-width: 100%;
+  }
+
+  .next-beforeafter-arrow {
+    font-size: 10vw;
+  }
+
+  .next-content .next-beforeafter-box h3 {
+    font-size: 5.5vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-beforeafter-box ul {
+    gap: 2vw;
+  }
+
+  .next-beforeafter-box li {
+    font-size: 3.6vw;
+    padding-left: 3.5vw;
   }
 
   .next-logo--next {

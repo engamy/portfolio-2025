@@ -57,20 +57,18 @@ export default function DesignNextCasestudy() {
           <div className="next-hero-text">
             <p className="next-eyebrow">Case Study</p>
             <h1 className="next-title">
-              Harbor v2.0: Designing for Manufacturing Planning at Via Separations
+              Harbor Warehouse Management System (WMS) v2.0
             </h1>
+            <p className="next-subtitle">Designing as an engineer, for engineers</p>
             <div className="next-meta">
               <p>
-                <span>Role</span> Product Designer and Software Engineer
+                <span>Role</span> Product Designer, UI/UX Designer, Full-stack Software Engineer
               </p>
               <p>
-                <span>Org</span> NExT Consulting × Via Separations
+                <span>Timeline</span> January 2026 to April 2026
               </p>
               <p>
-                <span>Timeline</span> Spring 2026 (January to April)
-              </p>
-              <p>
-                <span>Team</span> 5 engineers, 1 manager, 1 client stakeholder pair
+                <span>Team</span> 5 engineers, NExT Consulting × Via Separations
               </p>
             </div>
           </div>
@@ -81,39 +79,134 @@ export default function DesignNextCasestudy() {
         {/* Quick Summary */}
         <section className="next-section">
           <h2>Quick Summary</h2>
-          <div className="next-logos next-float-right">
-            <img
-              src={getAssetPath(`${ASSET_BASE}/next_logo.jpg`)}
-              alt="NExT Consulting logo"
-              className="next-logo next-logo--next"
-            />
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via_logo.png`)}
-              alt="Via Separations logo"
-              className="next-logo next-logo--via"
-            />
+
+          {/* Logos + intro prose */}
+          <div className="next-summary-intro">
+            <div className="next-logos">
+              <img
+                src={getAssetPath(`${ASSET_BASE}/next_logo.jpg`)}
+                alt="NExT Consulting logo"
+                className="next-logo next-logo--next"
+              />
+              <img
+                src={getAssetPath(`${ASSET_BASE}/via_logo.png`)}
+                alt="Via Separations logo"
+                className="next-logo next-logo--via"
+              />
+            </div>
+            <div className="next-prose">
+              <p>
+                Harbor v2.0 was a four-month engagement that extended Via Separations'
+                internal warehouse management system into a manufacturing planning and
+                traceability platform. I owned design and UX across the product while
+                building features as one of five software engineers, working directly with
+                Via's supply chain lead through weekly syncs. The scope covered a
+                manufacturing bill of materials (a structured list of every part that goes
+                into a product, and every part that goes into those parts, all the way
+                down), a material requirements planner, a reservation and demand system,
+                and end-to-end traceability across Via's manufacturing process.
+              </p>
+              <p className="next-disclaimer">
+                Harbor was implemented for Via Separations, a company whose product is a
+                specialized industrial component, and the specifics are under NDA. To keep
+                the interface legible without those specifics, the screenshots in this
+                case study use a familiar stand-in, a three-layer cake and its
+                ingredients, in place of Via's actual product. The structure on screen is
+                real; only the names have been swapped.
+              </p>
+            </div>
           </div>
-          <div className="next-prose">
-            <p>
-              Via Separations, a growth-stage climate tech company, was scaling from small
-              validation runs to commercial-scale orders, but their planning, demand
-              tracking, and traceability still lived in spreadsheets and one person's
-              memory. We extended Harbor, the client's existing warehouse management
-              system, into a manufacturing planning and traceability platform. I led the
-              design and front-end implementation of two of the features that anchor it.
-            </p>
-            <p className="next-disclaimer">
-              Visuals in this case study have been recreated with a vanilla cake production
-              scenario in place of Via's actual product data, per NDA. The designs
-              themselves are real.
-            </p>
+
+          {/* Problem / Solution / Result (bento row) */}
+          <div className="next-subsection">
+            <div className="next-bento-row next-bento-row--outline">
+              <div className="next-bento-card">
+                <h3>Problem</h3>
+                <p>
+                  With Harbor v1.0, Via knew what inventory it had and where it was.
+                  Everything beyond that, including what to order, when to order it, and
+                  what actually went into each product already built, lived in spreadsheets
+                  and a handful of people's memories. This worked at the company's current
+                  scale, but it could not survive the scale Via was planning for.
+                  Enterprise systems like SAP and Acumatica handle these functions, but
+                  they are built for operations far larger and higher-volume than Via's,
+                  so Via partnered with NExT to extend Harbor into a planning and
+                  traceability layer sized to its own operation instead.
+                </p>
+              </div>
+              <div className="next-bento-card">
+                <h3>Solution</h3>
+                <p>
+                  Harbor v2.0 consolidated work that had been scattered across
+                  spreadsheets and informal handoffs into one system: a queryable product
+                  structure, a planner that calculates what to order and when, a
+                  reservation system that tracks who has claimed which inventory, and a
+                  genealogy record tracing finished products back to their raw material
+                  lots.
+                </p>
+              </div>
+              <div className="next-bento-card">
+                <h3>Result</h3>
+                <p>
+                  Capabilities that did not exist in Harbor before, including material
+                  requirements planning, available-to-promise inventory, demand
+                  reservations, and full as-built traceability, now live in one system
+                  instead of a chain of disconnected workbooks and verbal handoffs, which
+                  gives Via's manufacturing and planning processes room to scale as the
+                  company grows.
+                </p>
+              </div>
+            </div>
           </div>
+
+          {/* Impact */}
+          <div className="next-subsection">
+            <h3 className="next-subheading">Impact</h3>
+            <div className="next-bento-row">
+              <div className="next-bento-card">
+                <div className="next-bento-stat-header">
+                  <span className="next-bento-stat">6</span>
+                  <span className="next-bento-substat">new operational capabilities.</span>
+                </div>
+                <p>
+                  Material requirements planning, available-to-promise inventory
+                  calculation, lead time visualization, demand reservation management,
+                  as-built genealogy tracking, and bulk production data capture.
+                </p>
+              </div>
+              <div className="next-bento-card">
+                <div className="next-bento-stat-header">
+                  <span className="next-bento-stat">1</span>
+                  <span className="next-bento-substat">system</span>
+                </div>
+                <p>
+                  in place of the spreadsheets, files, and manual calculations that
+                  previously multiplied with every new customer, manufacturing partner,
+                  and production run.
+                </p>
+              </div>
+              <div className="next-bento-card">
+                <div className="next-bento-stat-header">
+                  <span className="next-bento-stat">40,000</span>
+                  <span className="next-bento-substat">modules</span>
+                </div>
+                <p>
+                  of recorded demand through 2031 across seven or more customers
+                  supported by Harbor's scalable framework.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         {/* Context */}
-        <section className="next-section">
-          <h2>Context</h2>
+        <section className="next-section next-context-section">
+          <div className="next-placeholder next-placeholder--context">
+            <span>Placeholder image</span>
+          </div>
           <div className="next-prose">
+            <h2>Context</h2>
             <p>
               Via Separations makes graphene oxide filtration membranes that replace
               heat-based industrial separation processes, which currently account for
@@ -148,319 +241,178 @@ export default function DesignNextCasestudy() {
           </div>
         </section>
 
-        {/* Research and Discovery */}
+        {/* Problem + Goals (side by side) */}
+        <section className="next-section next-twocol-section">
+          <div>
+            <h2>Problem</h2>
+            <div className="next-prose">
+              <p>
+                Harbor v1 told Via where its inventory was. It could not tell them what
+                they needed, when they needed it, or what had actually gone into the
+                things they had already built. Everything beyond the warehouse walls lived
+                somewhere else. Planning ran through a chain of manually maintained
+                spreadsheets. Demand arrived through several different channels and was
+                captured mostly through conversation and rough estimates. The genealogy of
+                any finished product, meaning the specific raw material lots that went
+                into it, was not recorded anywhere in a systematic way. The operation
+                worked because a small number of people carried the lead times, the batch
+                constraints, and the supplier quirks in their memories, and coordinated
+                through meetings, messages, and spreadsheet handoffs.
+              </p>
+              <p>
+                The cost of this was not speed. It was scalability. The spreadsheets
+                calculated Via's needs perfectly well, and copying a workbook was never
+                the bottleneck. The problem was that every new supplier meant another
+                copy of a calculator, every new production run meant another set of
+                references, and every new product meant another trip through engineering
+                to rebuild the structure. These manual steps compound. At Via's current
+                scale they were manageable. At its forecasted scale they would become the
+                bottleneck.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2>Goals</h2>
+            <div className="next-prose">
+              <p>
+                Build around Via's existing workflow rather than replacing it with a more
+                rigorous one. Via's planning ran on spreadsheets and institutional memory,
+                and that informal process worked at the company's current scale. The goal
+                was to move it into software so it could survive growth, not to correct
+                it into something more disciplined. A system that demanded planners
+                suddenly behave like operators of a large enterprise tool would have been
+                abandoned the moment it met how people actually worked, so every major
+                decision started from the workflow that already existed and asked how to
+                support it.
+              </p>
+              <p>
+                Replace the compounding spreadsheet pattern with one consolidated,
+                scalable system. The old approach did not fail because it was slow. It
+                failed because it multiplied. Every new customer, manufacturing partner,
+                and production run spawned another workbook, another set of manual
+                cross-references, none of which talked to each other. The system had to
+                absorb that growth into a single framework, so that the next customer or
+                configuration or production run was a new entry in an existing structure
+                rather than a new spreadsheet to maintain by hand.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Process and Key Insights */}
         <section className="next-section">
-          <h2>Research and Discovery</h2>
+          <h2>Process and Key Insights</h2>
           <div className="next-prose">
             <p>
-              Discovery ran in parallel with early development across the first month.
-              Twelve weekly client syncs anchored almost every decision in this case
-              study. Beyond the syncs, we ran requirements interviews to understand how
-              planning and lead times were currently being tracked, and we shadowed a
-              single module order from demand identification all the way through
-              execution.
+              Talk first, build after. The engagement opened with structured discovery
+              rather than a rush to build. We ran weekly syncs with Via's supply chain
+              lead and her technical counterpart across the full four months, walked
+              through the existing systems, and researched how industry-standard tools
+              handle material planning, reservations, and traceability. The weekly
+              cadence mattered more than any single session, because it turned design
+              into an ongoing conversation. Decisions were validated in the next sync,
+              ambiguities were resolved in a short exchange rather than a formal round,
+              and several features changed shape directly in response to what we heard.
             </p>
+            <p>Three insights from discovery shaped everything that followed.</p>
+          </div>
+
+          <div className="next-bento-row next-bento-row--outline">
+            <div className="next-bento-card">
+              <p className="next-insight-topic">
+                First, parts were already being held aside informally.
+              </p>
+              <p>
+                To guarantee that inventory would be available for a particular
+                production run, people were quietly setting parts aside in the warehouse,
+                which meant there was no way for anyone else to know what was already
+                spoken for. A reservation system did not need to invent a new behavior.
+                It needed to formalize and communicate one that already existed.
+              </p>
+            </div>
+            <div className="next-bento-card">
+              <p className="next-insight-topic">
+                Second, planning was not a rigorous process.
+              </p>
+              <p>
+                It ran on conversations and memory, and that informality was not a flaw
+                to be corrected so much as the actual working system, one that functioned
+                because of the people in it. Anything we built had to fit into that
+                reality rather than demand that planners suddenly operate like a large
+                enterprise tool expects.
+              </p>
+            </div>
+            <div className="next-bento-card">
+              <p className="next-insight-topic">
+                Third, a planner needs a real calculation engine, or it does nothing.
+              </p>
+              <p>
+                Industry research confirmed that walking a product's full structure,
+                level by level, and subtracting what is already in stock at each level is
+                the baseline for any planning view that does real work. Without that
+                calculation underneath it, a planning surface is effectively static. This
+                told us where the floor was for the planner, even though the original
+                scope had framed a calculation engine as out of bounds.
+              </p>
+            </div>
+          </div>
+
+          <div className="next-prose">
             <p>
-              The most useful thing we found by shadowing was that parts were being
-              informally held aside in the warehouse to protect future production, with no
-              system tracking who was holding what. People just had to know. That finding
-              is what motivated building a dedicated reservation system in the first
-              place.
-            </p>
-            <p>
-              We also looked at how SAP, Acumatica, MRPeasy, and a handful of similar
-              platforms handle planning. That research mattered for one specific scope
-              decision, which I'll get to in the second feature.
+              Together these insights point at the principle that runs through the rest
+              of this case study: design for the process that exists, not the process a
+              textbook wants. Via's informal workflow worked at their scale, and the job
+              was to build software that let it survive growth, not to replace it with a
+              more rigorous system that would have clashed with how people actually
+              worked. Each of the major decisions below is an instance of that principle,
+              of refusing to ask users to be more rigorous than their real workflow
+              supported.
             </p>
           </div>
         </section>
 
-        {/* Feature 1: Reservations */}
-        <section className="next-section">
-          <h2>Feature 1: Reservations</h2>
-          <figure
-            className="next-figure next-figure--portrait next-figure--thumb next-float-left"
-            onClick={() =>
-              openLightbox(
-                `${ASSET_BASE}/via-resline_lifecycle.png`,
-                'Reservation line lifecycle diagram',
-                'Reservation line lifecycle: how quantity flows between Needed, Reserved, and Fulfilled'
-              )
-            }
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
-              alt="Reservation line lifecycle diagram"
-            />
-          </figure>
-          <div className="next-prose">
-            <p>
-              During discovery, we found that demand was coming from several different
-              sources, each with its own stakeholders, timelines, and degrees of
-              formality. Nothing was tracked in one place, and nothing prevented two
-              people from independently committing the same inventory to different
-              things.
-            </p>
-            <p>
-              The first version of the reservation system shipped in March. It let users
-              claim inventory that already existed in the warehouse, but anything users
-              needed in the future, like a part that hadn't been ordered yet or materials
-              for a production run six months out, lived somewhere else entirely. A few
-              weeks later, once the Material Planner was released and started producing
-              demand for those future parts, that split stopped making sense. Users could
-              calculate what they needed and when, but they didn't have a place to note
-              that they needed those parts. We rebuilt the reservation system to
-              consolidate that type of demand capture into a reservation itself.
-            </p>
-            <p>
-              For the redesign, we wanted users to understand the state of the parts they
-              need at a glance on any reservation line. We landed on three quantity
-              columns per line, rendered as a segmented progress bar. Needed shows what
-              still has to be sourced. Reserved shows what's in current inventory and
-              committed. Fulfilled shows what's been pulled and used. The colors and
-              proportions of the bar tell the user the state of the line before they read
-              any numbers.
-            </p>
-            <p>
-              The alternative we considered was keeping a single-quantity model and adding
-              a separate forecast entity for future demand, which would then feed into the
-              reservation system once parts arrived. This was conceptually cleaner on a
-              whiteboard, but it would have produced two sources of data doing essentially
-              the same task. The three-column model takes more upfront explanation when
-              someone first encounters it, but once a user gets that needed plus reserved
-              plus fulfilled equals total requested, they can read any reservation in the
-              system without instructions.
-            </p>
-            <figure
-              className="next-figure next-figure--landscape next-figure--thumb next-float-right next-figure--desktop-only"
-              onClick={() =>
-                openLightbox(
-                  `${ASSET_BASE}/via-resdetails.png`,
-                  'Reservation detail page',
-                  'Reservation detail page'
-                )
-              }
-            >
-              <img
-                src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
-                alt="Reservation detail page"
-              />
-            </figure>
-            <p>
-              We made one significant tradeoff: reservations operate at the part level,
-              not the item level. A reservation says "we need 10 units of this part"
-              rather than "we need these 10 specific items on the shelf." The system
-              can't physically earmark inventory the way an item-level model could, which
-              means it can't catch the case where two reservations both think they own the
-              same physical box. We considered going to item level, but that would have
-              required planners to know which specific items will exist months before
-              those items exist. Asking planners to do something more rigorous than they'd
-              ever done before, on day one, would have killed adoption of Harbor. We
-              accepted the tradeoff and built three layers of automated checks to catch
-              any inconsistencies it introduces.
-            </p>
+        {/* Solution */}
+        <section className="next-section next-solution-section">
+          <div className="next-solution-text">
+            <h2>Solution</h2>
+            <div className="next-prose">
+              <p>
+                Harbor v2.0 extended the warehouse system into a manufacturing planning
+                and traceability platform. Where Harbor v1.0 answered "what do we have?"
+                and "where is it?," Harbor v2.0 answers "what do we need?" "when do we
+                need it?" "how do we build it?" and "what actually went into what we
+                built?" In practice that meant a queryable, versioned product structure
+                to replace the spreadsheet hierarchy, a material planner that calculates
+                what to order and when, a reservation system that consolidates demand and
+                tracks who has claimed which inventory, and a genealogy record that
+                traces a finished product back to its raw material lots.
+              </p>
+              <p>
+                The two features worth examining in depth, because they carry the most
+                design judgment, are the reservation system and the material planner.
+              </p>
+            </div>
           </div>
 
-          <h3 className="next-final-design next-final-design--no-clear">Final Design</h3>
-          <div className="next-prose">
-            <p>
-              Across five lines, the segmented bars do most of the reading. Sourcing,
-              partial, oversubscribed, complete, and cancelled each have a distinct
-              visual signature, so the state of the reservation is legible before any
-              numbers are parsed.
-            </p>
+          <div className="next-beforeafter">
+            <div className="next-bento-card next-beforeafter-box">
+              <h3>Harbor v1.0</h3>
+              <ul>
+                <li>What do we have?</li>
+                <li>Where is it?</li>
+              </ul>
+            </div>
+            <div className="next-beforeafter-arrow" aria-hidden="true">→</div>
+            <div className="next-bento-card next-beforeafter-box">
+              <h3>Harbor v2.0</h3>
+              <ul>
+                <li>What do we need?</li>
+                <li>When do we need it?</li>
+                <li>How do we build it?</li>
+                <li>What actually went into what we built?</li>
+              </ul>
+            </div>
           </div>
-          <figure
-            className="next-figure next-figure--landscape next-figure--mobile-only"
-            onClick={() =>
-              openLightbox(
-                `${ASSET_BASE}/via-resdetails.png`,
-                'Reservation detail page',
-                'Reservation detail page'
-              )
-            }
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
-              alt="Reservation detail page"
-            />
-          </figure>
-        </section>
-
-        {/* Feature 2: Material Planner */}
-        <section className="next-section">
-          <h2>Feature 2: Material Planner</h2>
-          <div className="next-prose">
-            <p>
-              Every time a client places an order, Via has to figure out what to procure
-              or produce, and when to start. Before Harbor, that meant working through
-              three separate workbooks, cross-referencing inventory by hand, and computing
-              requirements at every level of the product hierarchy. The actual arithmetic
-              isn't slow; the pain is that every new contract manufacturer needs its own
-              copy of the workbooks, and every new product needs engineering involved to
-              update them, so the manual workload compounds with every variable added.
-            </p>
-            <p>
-              We could have shipped a simple bill-of-materials viewer with stock
-              annotations and called it a day, since it would have satisfied the original
-              brief. We deliberately chose not to. Looking at how SAP, Acumatica, and
-              MRPeasy handle this surface, it became clear that the actual baseline for a
-              useful planning view is a recursive calculation: start at the finished
-              product, walk down the hierarchy, deduct available stock at every level.
-              Without that calculation, the visibility surface is basically a static
-              diagram. You can see the shape of things, but you can't actually plan with
-              it.
-            </p>
-            <p>
-              The design problem was how to present the output of that calculation
-              without overwhelming a user who's trying to make a procurement decision in
-              the next ten minutes. Each row needs to communicate gross demand, current
-              stock, net requirement, lead time, order date, and need date, with
-              substitutes and substitution status surfaced inline. That's a lot of
-              information per row, and the obvious risk is that the screen turns into a
-              wall of numbers.
-            </p>
-            <p>
-              The decision that anchored the layout was treating the row as the unit of
-              attention. A user reading a row is asking one question: is this part okay,
-              or do I need to act on it. Everything in the row should answer that
-              question fast. We rendered net requirement as a segmented coverage bar so
-              the user can see how much of the demand is covered by stock and how much
-              isn't. We colored the order date directly: red if it has already passed,
-              orange if it's coming up, no color if the part is fully covered. Parts with
-              missing lead times get a fourth color, a muted purple, to flag a data gap
-              rather than imply urgency we can't actually compute.
-            </p>
-            <figure
-              className="next-figure next-figure--portrait next-figure--xl next-float-right next-figure--desktop-only"
-              onClick={() =>
-                openLightbox(
-                  `${ASSET_BASE}/via-mrp.png`,
-                  'Material Planner results view',
-                  'Material Planner results view'
-                )
-              }
-            >
-              <img
-                src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
-                alt="Material Planner results view"
-              />
-            </figure>
-            <p>
-              Substitutes were the trickier interaction. Some parts have approved
-              alternatives the supply chain lead can swap to, and we wanted swapping to
-              feel like part of the planning flow, not a detour. The substitute picker
-              lives inline on the row. If a primary part is short and an approved
-              substitute is in stock, the system pre-selects the substitute and marks it
-              as auto-picked. The user can override with one click, and the calculation
-              re-runs immediately. We considered a separate substitutes panel that would
-              slide in from the side, but pulled back from it because it forced the user
-              to leave the row they were reading to make a decision about that row.
-            </p>
-            <p>
-              The main tradeoff in the calculation itself was that the planner doesn't
-              account for incoming purchase orders or scheduled outflows the way a full
-              enterprise system would. We deliberately chose not to account for this.
-              Via's production runs span weeks or months, so the timing of next Tuesday's
-              procurement matters much less than it would for a high-volume manufacturer
-              running short cycles. The simpler model covers Via's realistic planning
-              window and stays comprehensible to a user reading the screen. Procurement
-              work itself stays with humans, because supplier negotiation and CM
-              scheduling are conversations, not calculations.
-            </p>
-          </div>
-
-          <h3 className="next-final-design next-final-design--no-clear">Final Design</h3>
-          <div className="next-prose">
-            <p>
-              A row reads in one pass. The coverage bar shows how much of the demand is
-              covered, the order date carries its own urgency color, and substitute
-              status sits inline where the swap actually happens. Three ingredients are
-              flagged for action; the rest can be ignored.
-            </p>
-          </div>
-          <figure
-            className="next-figure next-figure--portrait next-figure--mobile-only"
-            onClick={() =>
-              openLightbox(
-                `${ASSET_BASE}/via-mrp.png`,
-                'Material Planner results view',
-                'Material Planner results view'
-              )
-            }
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
-              alt="Material Planner results view"
-            />
-          </figure>
-        </section>
-
-        {/* Outcomes */}
-        <section className="next-section">
-          <h2>Outcomes</h2>
-          <div className="next-prose">
-            <p>
-              Demand from across the organization is now tracked in one reservation
-              system with line-level quantities visible at a glance. Planning that used to
-              require copying and updating spreadsheets for every new production run runs
-              off a single calculation that adapts to whatever bill of materials,
-              alternative parts, and inventory situation exists at the time. Lead times,
-              multi-level product structures, and shelf life data that used to live in
-              people's memories is now data anyone authorized can query.
-            </p>
-            <p>
-              Harbor didn't make anything dramatically faster on its own. Their
-              spreadsheets worked at the current scale, and nobody was waiting hours for
-              arithmetic. What changed is that the amount of manual work stopped
-              compounding with every new variable. A new contract manufacturer used to
-              mean a new copy of the workbooks. A new product meant pulling engineering in
-              to update them. A new customer meant another set of cross-references to
-              maintain by hand. Now adding one is just a data entry.
-            </p>
-          </div>
-        </section>
-
-        {/* Reflection */}
-        <section className="next-section">
-          <h2>Reflection</h2>
-          <div className="next-prose">
-            <p>
-              The reservation system was the clearest case of shipping something that was
-              right for what we knew when we built it and wrong for what we learned a few
-              weeks later. The fix wasn't expensive once we made it, but the lesson is to
-              ask the harder design question earlier. We didn't ask "what happens when
-              this is used alongside a planning tool that produces forward-looking demand"
-              until the planning tool existed. If we had, modeling demand and fulfillment
-              as separate concerns from day one would have cost us less than rebuilding
-              the model mid-engagement did.
-            </p>
-            <p>
-              The other thing I learned was about how data density and visual density are
-              completely different design problems. The Material Planner shows a lot of
-              information per row and reads fine, because each piece of information
-              answers a question the user is already asking when they look at that row.
-              Other surfaces I worked on started visually sparse but were cognitively
-              dense, because users had to hold a bunch of relationships in their head to
-              make sense of what they were looking at. We iterated on those several times
-              before they felt usable. From this, I realized that visual density isn't
-              really about how much is on the screen; it's about whether what's actually
-              on the screen lines up with what the user needs to know.
-            </p>
-          </div>
-        </section>
-
-        {/* Team photo */}
-        <section className="next-section next-teamphoto-section">
-          <figure className="next-figure next-figure--static next-teamphoto">
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via_teamphoto.jpg`)}
-              alt="NExT × Via Separations team"
-            />
-            <figcaption>
-              NExT team photo at Via Separations HQ after our fi nal presentation!
-            </figcaption>
-          </figure>
         </section>
 
       </div>
