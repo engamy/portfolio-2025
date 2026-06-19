@@ -8,6 +8,11 @@
   align-items: flex-end;
   justify-content: flex-start;
   overflow: hidden;
+  /* Override .design-section-header's padding (shared class) so the
+     hero is exactly 100vw wide. The overlay's own padding handles
+     the inset instead. */
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 .next-hero-bg {
@@ -45,6 +50,7 @@
   width: 100%;
   display: flex;
   padding: 0 10vw 8vw 10vw;
+  box-sizing: border-box;
 }
 
 .next-hero-text {
@@ -127,6 +133,41 @@
   display: flow-root;
 }
 
+/* ---------- "Read more" expander button ---------- */
+
+.next-readmore-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+}
+
+.next-readmore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6vw;
+  background-color: #025A44;
+  border: 1px solid #025A44;
+  color: #F0EDE6;
+  padding: 0.9vw 2.4vw;
+  border-radius: 999px;
+  font-size: 1.15vw;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.next-readmore-btn:hover {
+  background-color: transparent;
+  color: #025A44;
+  transform: translateY(2px);
+}
+
+.next-readmore-arrow {
+  font-size: 1.25vw;
+  line-height: 1;
+}
+
 /* Context section — image and text in equal-height columns. */
 .next-section.next-context-section {
   display: grid;
@@ -140,6 +181,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4vw;
+  align-items: start;
+}
+
+/* Three prose subsections shown side by side (e.g., Context). */
+.next-context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
   align-items: start;
 }
 
@@ -216,6 +265,42 @@
   margin: 0 0 1vw 0 !important;
 }
 
+/* Subsection-level two-column layout (e.g., Our Decision + Tradeoffs).
+   Mirrors the section-level .next-twocol-section pattern but lives
+   inside an existing <section>. */
+.next-subsection.next-twocol-subsection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+/* Density layout: content on the left (header + prose),
+   lifecycle image on the right. Lives inside .next-subsection. */
+.next-density-layout {
+  display: grid;
+  grid-template-columns: 1fr 26vw;
+  gap: 3vw;
+  align-items: start;
+}
+
+.next-density-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+/* Split the second density paragraph into two side-by-side columns. */
+.next-prose--twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5vw;
+}
+
+.next-prose--twocol p {
+  margin: 0;
+}
+
 /* ---------- Bento cards (Quick Summary: PSR row + Impact) ---------- */
 
 .next-bento-row {
@@ -239,6 +324,11 @@
 .next-bento-row--outline .next-bento-card {
   background-color: transparent;
   border-color: rgba(2, 90, 68, 0.4);
+}
+
+/* 2-up variant — same card style, only two columns. */
+.next-bento-row--two {
+  grid-template-columns: 1fr 1fr;
 }
 
 /* Bento card heading — smaller than the section h3 so it scales
@@ -300,6 +390,96 @@
 
 .next-bento-row + .next-prose {
   margin-top: 2vw;
+}
+
+/* ---------- Comparison row (e.g., Item-level vs Part-level) ---------- */
+
+.next-comparison-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5vw;
+  margin-top: 1.5vw;
+}
+
+.next-comparison-card {
+  background-color: transparent;
+  border-color: rgba(2, 90, 68, 0.4);
+}
+
+.next-content .next-comparison-card h4 {
+  font-size: 1.5vw;
+  font-style: italic;
+  margin: 0 0 0.5vw 0;
+  color: #025A44;
+  font-weight: 500;
+}
+
+.next-comparison-quote {
+  font-size: 1.05vw !important;
+  font-style: italic;
+  color: #025A44 !important;
+  opacity: 0.7;
+  margin: 0 0 1vw 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* ---------- Density principle visuals (placeholder vs lifecycle) ---------- */
+
+.next-density-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: start;
+  margin-top: 1.5vw;
+}
+
+.next-density-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.next-density-figure img {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.next-density-figure figcaption {
+  font-size: 0.95vw;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 1vw;
+  opacity: 0.7;
+  font-style: italic;
+  color: #101010;
+}
+
+.next-placeholder--density {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+/* Reservation line lifecycle figure — fills its grid cell on the
+   right of the density subsection (desktop). */
+.next-density-lifecycle {
+  margin: 0;
+}
+
+.next-density-lifecycle img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Mobile-only duplicate of the lifecycle, sits between the two density
+   paragraphs. Hidden on desktop; revealed on mobile. */
+.next-density-lifecycle--mobile {
+  display: none;
 }
 
 /* ---------- Before / After comparison (Harbor v1.0 → v2.0) ---------- */
@@ -548,15 +728,16 @@
   align-items: center;
   justify-content: flex-start;
   gap: 1.5vw;
-  width: 21vw;
+  width: 25.5vw;
 }
 
-/* Two-column layout pairing the logo row with the intro prose. */
+/* Two-column layout pairing the logo row with the intro prose,
+   vertically centered against the text + footnote on the right. */
 .next-summary-intro {
   display: grid;
-  grid-template-columns: 21vw 1fr;
+  grid-template-columns: 25.5vw 1fr;
   gap: 3vw;
-  align-items: start;
+  align-items: center;
 }
 
 /* Spacing between the intro block and the bento row that follows. */
@@ -570,13 +751,13 @@
 }
 
 .next-logo--next {
-  width: 10vw;
+  width: 12vw;
   height: auto;
   border-radius: 6px;
 }
 
 .next-logo--via {
-  width: 10vw;
+  width: 12vw;
   height: auto;
 }
 
@@ -584,48 +765,67 @@
 
 @media (max-width: 768px) {
   .next-hero {
-    height: 80vh;
+    height: auto;
+    min-height: 100vh;
     background-position: center;
   }
 
   .next-hero-overlay {
-    padding: 0 5vw 12vw 5vw;
+    padding: 25vh 5vw 12vw 5vw;
+    box-sizing: border-box;
   }
 
   .next-hero-text {
-    gap: 4vw;
+    gap: 3vw;
     max-width: 100%;
   }
 
   .next-eyebrow {
-    font-size: 3vw;
+    font-size: 3.6vw;
   }
 
   .next-title {
-    font-size: 7.5vw !important;
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
   }
 
   .next-subtitle {
-    font-size: 4vw;
+    font-size: 4.6vw;
+    line-height: 1.3;
   }
 
   .next-meta {
-    gap: 5vw;
-    margin-top: 2vw;
+    flex-direction: column;
+    gap: 3vw;
+    margin-top: 4vw;
   }
 
   .next-meta p {
-    font-size: 3.5vw !important;
+    font-size: 4.2vw !important;
   }
 
   .next-meta p span {
-    font-size: 2.5vw;
-    margin-bottom: 1vw;
+    font-size: 3vw;
+    margin-bottom: 0.8vw;
   }
 
   .next-content {
     padding: 8vw 5vw;
     gap: 12vw;
+  }
+
+  .next-readmore-row {
+    margin-top: 6vw;
+  }
+
+  .next-readmore-btn {
+    font-size: 3.5vw;
+    padding: 3vw 6vw;
+    gap: 2vw;
+  }
+
+  .next-readmore-arrow {
+    font-size: 3.8vw;
   }
 
   .next-content h2 {
@@ -796,9 +996,84 @@
     gap: 10vw;
   }
 
+  .next-context-grid {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
   .next-section.next-solution-section {
     grid-template-columns: 1fr;
     gap: 6vw;
+  }
+
+  .next-comparison-row {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .next-content .next-comparison-card h4 {
+    font-size: 5vw;
+  }
+
+  .next-comparison-quote {
+    font-size: 3.4vw !important;
+    margin-bottom: 3vw !important;
+  }
+
+  .next-density-comparison {
+    grid-template-columns: 1fr;
+    gap: 6vw;
+  }
+
+  .next-bento-row--two {
+    grid-template-columns: 1fr;
+  }
+
+  /* Density layout collapses to one column; the desktop lifecycle
+     (right-column copy) is hidden, and the mobile copy sits between
+     the two density paragraphs. */
+  .next-density-layout {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .next-density-lifecycle--desktop {
+    display: none;
+  }
+
+  .next-density-lifecycle--mobile {
+    display: flex;
+    justify-content: center;
+    margin: 4vw 0;
+  }
+
+  .next-density-lifecycle--mobile img {
+    max-width: 80vw;
+  }
+
+  .next-density-figure figcaption {
+    font-size: 3vw;
+    margin-top: 2.5vw;
+  }
+
+  /* Decision/Tradeoffs subsection collapses to one column. */
+  .next-subsection.next-twocol-subsection {
+    grid-template-columns: 1fr;
+    gap: 7vw;
+  }
+
+  /* Split paragraph reverts to a single flowing block on mobile. */
+  .next-prose--twocol {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .next-prose--twocol p {
+    margin-bottom: 3vw;
+  }
+
+  .next-prose--twocol p:last-child {
+    margin-bottom: 0;
   }
 
   .next-beforeafter {
@@ -833,17 +1108,29 @@
   }
 
   .next-logo--next {
-    width: 22vw;
+    width: 28vw;
   }
 
   .next-logo--via {
-    width: 50vw;
+    width: 28vw;
   }
 }
 
 @media (max-width: 480px) {
   .next-title {
-    font-size: 8.5vw !important;
+    font-size: 10vw !important;
+  }
+
+  .next-subtitle {
+    font-size: 5vw;
+  }
+
+  .next-meta p {
+    font-size: 4.6vw !important;
+  }
+
+  .next-meta p span {
+    font-size: 3.2vw;
   }
 
   .next-content h2 {

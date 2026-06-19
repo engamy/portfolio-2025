@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../mainpages/design-style.css';
 import './design-next-casestudy.css';
 import { usePageDarkMode } from '../../hooks/usePageDarkMode';
@@ -31,8 +31,19 @@ export default function DesignNextCasestudy() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setDarkMode]);
 
+  const [expanded, setExpanded] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<LightboxImage | null>(null);
+  const contextRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (expanded && contextRef.current) {
+      // Scroll to Context, but offset by ~80px to account for the
+      // sticky navbar + a bit of breathing room above the heading.
+      const top = contextRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top - 80, behavior: 'smooth' });
+    }
+  }, [expanded]);
 
   const openLightbox = (src: string, alt: string, caption: string = '') => {
     setCurrentImage({ id: Date.now(), src: getAssetPath(src), caption, alt });
@@ -57,7 +68,7 @@ export default function DesignNextCasestudy() {
           <div className="next-hero-text">
             <p className="next-eyebrow">Case Study</p>
             <h1 className="next-title">
-              Harbor Warehouse Management System (WMS) v2.0
+              Harbor Warehouse Management System v2.0
             </h1>
             <p className="next-subtitle">Designing as an engineer, for engineers</p>
             <div className="next-meta">
@@ -96,15 +107,16 @@ export default function DesignNextCasestudy() {
             </div>
             <div className="next-prose">
               <p>
-                Harbor v2.0 was a four-month engagement that extended Via Separations'
-                internal warehouse management system into a manufacturing planning and
-                traceability platform. I owned design and UX across the product while
-                building features as one of five software engineers, working directly with
-                Via's supply chain lead through weekly syncs. The scope covered a
-                manufacturing bill of materials (a structured list of every part that goes
-                into a product, and every part that goes into those parts, all the way
-                down), a material requirements planner, a reservation and demand system,
-                and end-to-end traceability across Via's manufacturing process.
+                Harbor v2.0 was a four-month engagement between NExT Consulting and Via
+                Separations that extended Via's internal warehouse management system into
+                a manufacturing planning and traceability platform. I worked as a
+                consultant and owned design and UX across the product while building
+                features as one of five software engineers, working directly with Via's
+                supply chain lead through weekly syncs. The scope covered a manufacturing
+                bill of materials (a structured list of every part that goes into a
+                product, and every part that goes into those parts, all the way down), a
+                material requirements planner, a reservation and demand system, and
+                end-to-end traceability across Via's manufacturing process.
               </p>
               <p className="next-disclaimer">
                 Harbor was implemented for Via Separations, a company whose product is a
@@ -198,46 +210,75 @@ export default function DesignNextCasestudy() {
             </div>
           </div>
 
+          <div className="next-readmore-row">
+            <button
+              type="button"
+              className="next-readmore-btn"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? 'Hide' : 'Read more'}
+              <span className="next-readmore-arrow" aria-hidden="true">
+                {expanded ? '↑' : '↓'}
+              </span>
+            </button>
+          </div>
+
         </section>
 
+        {expanded && (
+        <>
         {/* Context */}
-        <section className="next-section next-context-section">
-          <div className="next-placeholder next-placeholder--context">
-            <span>Placeholder image</span>
-          </div>
-          <div className="next-prose">
-            <h2>Context</h2>
-            <p>
-              Via Separations makes graphene oxide filtration membranes that replace
-              heat-based industrial separation processes, which currently account for
-              around 12 percent of global energy use. Their flagship deployment, Project
-              Kodiak, has been running commercially at an International Paper mill in
-              Alberta for nearly two years, and a Series C in April 2026 is funding their
-              expansion into refining and chemicals.
-            </p>
-            <p>
-              Hardware companies at this stage tend to share a pattern. The operations
-              work because a small group of engineers carries the planning logic in their
-              heads, which holds up at small scale and falls apart with growth. Our job
-              was to build software around that existing process so it could keep working
-              when the people who held it together got pulled in fifteen directions at
-              once.
-            </p>
-            <p>
-              We designed for two primary user groups. The supply chain lead worked across
-              multiple workbooks every day and needed dense, cross-referenceable surfaces.
-              Warehouse operators worked on mobile devices on the floor, where any
-              friction translated directly into duplicated time on every transaction. My
-              design work focused mostly on the supply chain lead's surfaces, which is
-              what the rest of this case study covers.
-            </p>
-            <p>
-              Off-the-shelf software didn't fit their exact needs either. Small-team tools
-              handled inventory but not multi-level bills of materials. Enterprise systems
-              like SAP were built for organizations an order of magnitude larger, with
-              dedicated IT teams and twelve-month implementation cycles. What the client
-              actually needed sat in between, where nothing exists as a coherent product.
-            </p>
+        <section className="next-section" ref={contextRef}>
+          <h2>Context</h2>
+
+          <div className="next-context-grid">
+            <div>
+              <h3 className="next-subheading">Who is Via Separations?</h3>
+              <div className="next-prose">
+                <p>
+                  Via Separations is a climate technology company that builds graphene
+                  oxide membranes to replace heat-based industrial filtration, which is a
+                  large contributor to global energy use. Via's membranes do the same
+                  separation work mechanically, cutting the energy cost of the process by
+                  up to 90%. At the time of this engagement, Via was past the
+                  science-experiment stage and into commercial deployment, with a
+                  first-of-a-kind installation that had been running for about two years
+                  and a new Series C round backing its planned growth.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="next-subheading">Why did Via need Harbor?</h3>
+              <div className="next-prose">
+                <p>
+                  The stage Via was in matters for understanding the work we did. Via was
+                  scaling from qualification batches of 20 to 40 modules into commercial
+                  orders of hundreds or thousands of modules per order, a figure
+                  projected to reach tens of thousands per order over the next several
+                  years across multiple customers. The manual process that supported the
+                  smaller scale, built on spreadsheets and a few people's understanding,
+                  was about to meet a volume of orders it was never built for.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="next-subheading">Who were Harbor's users?</h3>
+              <div className="next-prose">
+                <p>
+                  Harbor serves two internal groups at Via. The first is warehouse
+                  operators, who check parts in and out on the floor using a mobile
+                  device and need a system that adds almost no friction to each scan.
+                  The second is supply chain and operations staff, who plan production,
+                  track demand, and trace what went into what, and who need dense,
+                  cross-referenceable surfaces they can study. My design work focused on
+                  the second group, through Via's supply chain lead, who owned the
+                  end-to-end manufacturing process and was the closest thing the
+                  existing workflow had to a single source of truth before Harbor.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -414,6 +455,464 @@ export default function DesignNextCasestudy() {
             </div>
           </div>
         </section>
+
+        {/* Design 1: Reservations */}
+        <section className="next-section">
+          <h2>Design 1: Reservations</h2>
+
+          {/* Why reservations? */}
+          <div className="next-subsection">
+            <h3 className="next-subheading">Why reservations?</h3>
+            <div className="next-prose">
+              <p>
+                A reservation is a claim on inventory for a future need. The supply chain
+                lead needed a way to set inventory aside for a specific upcoming build,
+                and to see, at a glance, what had been promised against what was actually
+                in the warehouse, so that two people could not independently promise more
+                parts than existed. The informal version of this, parts held aside and
+                remembered, already worked. It simply could not survive more customers
+                and more concurrent runs.
+              </p>
+            </div>
+          </div>
+
+          {/* The central decision */}
+          <div className="next-subsection">
+            <h3 className="next-subheading">
+              The central decision: claiming a specific item, or just an amount
+            </h3>
+            <div className="next-prose">
+              <p>
+                The core design question was whether a reservation should claim specific
+                physical items or just a quantity of a part. In plain terms, the question
+                was whether the supply chain lead should reserve this exact carton of
+                flour on this exact shelf (item-level), or any one carton of flour, no
+                matter which (part-level).
+              </p>
+            </div>
+
+            <div className="next-comparison-row">
+              <div className="next-bento-card next-comparison-card">
+                <h4>Item-level</h4>
+                <p className="next-comparison-quote">
+                  "reserve this exact carton of flour on this exact shelf"
+                </p>
+                <p>
+                  Feels safer at first, because reserving a specific carton seems to
+                  guarantee nobody else can take it. The cost is severe, though, because
+                  it forces the planner to know which specific physical items will exist
+                  months before those items have even arrived, even in cases where it
+                  makes no difference which carton she eventually pulls off the shelf.
+                </p>
+              </div>
+              <div className="next-bento-card next-comparison-card">
+                <h4>Part-level</h4>
+                <p className="next-comparison-quote">
+                  "any one carton of flour, no matter which"
+                </p>
+                <p>
+                  Asks nothing of the planner except a part and a quantity, at the cost
+                  of leaving the system without a hard guarantee that any one specific
+                  item is set aside.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Our Decision + Tradeoffs (two-column prose, no cards) */}
+          <div className="next-subsection next-twocol-subsection">
+            <div>
+              <h3 className="next-subheading">Our Decision</h3>
+              <div className="next-prose">
+                <p>
+                  After several syncs walking through her workflow, we went with
+                  part-level reservations. Planning at Via happened through conversation,
+                  well before specific items existed, so asking her to reserve a specific
+                  item on a specific shelf half a year in advance would have created
+                  friction at exactly the moment we were trying to get her into the
+                  system at all. Part-level reservations also matched how Via already
+                  thought, because every item of a given part was interchangeable from
+                  their perspective anyway. In other words, the design followed the
+                  reality that the planner was reserving an amount of something, not a
+                  particular instance of it.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 className="next-subheading">Tradeoffs</h3>
+              <div className="next-prose">
+                <p>
+                  Because no specific item is set aside, two reservations can each claim
+                  inventory that, added together, exceeds what physically exists. Whoever
+                  pulls the parts first gets them, and the other reservation comes up
+                  short and has to source the part elsewhere. We accepted this knowingly.
+                  When commitments for a part exceed actual stock, the available count
+                  goes negative, and automated checks flag the moment a checkout makes
+                  another reservation unfulfillable. A nightly sweep catches anything the
+                  daytime checks missed. The conflict is always surfaced as a warning
+                  rather than a hard block, so the system never stops a user from doing
+                  real work in order to protect a number.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* What I learned about visual vs. cognitive density */}
+          <div className="next-subsection">
+            <div className="next-density-layout">
+              <div className="next-density-content">
+                <h3 className="next-subheading">
+                  What I learned about visual vs. cognitive density
+                </h3>
+                <div className="next-prose">
+                  <p>
+                    Designing the reservation screens is where I began to understand the
+                    balance of how much information a single component on a screen
+                    should communicate to a user. A reservation line had to communicate
+                    its place in the reservation lifecycle at a glance, and to do this
+                    we decided to show three quantities: Needed, Reserved, and
+                    Fulfilled. Three numbers per reserved part, and dozens of reserved
+                    parts per reservation. This is a lot of data to show to a user at
+                    once.
+                  </p>
+                </div>
+
+                {/* Mobile-only lifecycle (above the last paragraph) */}
+                <figure
+                  className="next-figure next-density-lifecycle next-density-lifecycle--mobile"
+                  onClick={() =>
+                    openLightbox(
+                      `${ASSET_BASE}/via-resline_lifecycle.png`,
+                      'Reservation line lifecycle diagram',
+                      'Reservation line lifecycle: how one line moves quantity from Needed to Reserved to Fulfilled across its life'
+                    )
+                  }
+                >
+                  <img
+                    src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
+                    alt="Reservation line lifecycle diagram"
+                  />
+                </figure>
+
+                <div className="next-prose">
+                  <p>
+                    My first instinct as a graphic designer was that a cleaner screen
+                    with less data is a better screen, but I had to unlearn this here.
+                    We considered a screen with less visible data that would have looked
+                    lighter and easier to visually process, but upon further
+                    consideration we realized it would have forced the supply chain lead
+                    to reconstruct the relationship between the three quantities for
+                    each part mentally. This would have created more cognitive friction
+                    for her, so we decided to communicate all of the data in a different
+                    way: a segmented bar split into the three quantities, with a
+                    singular status per reservation line which was derived from the
+                    Needed/Reserved/Fulfilled quantities. This way, it actually looked
+                    cleaner, and it was significantly easier for the supply chain lead
+                    to understand the volume of data at a glance. Because we took the
+                    time to understand exactly what questions she would ask when looking
+                    at this screen, we optimized the amount of information the progress
+                    bar and status chips needed to convey.
+                  </p>
+                </div>
+              </div>
+
+              {/* Reservation line lifecycle — right side of the layout (desktop only) */}
+              <figure
+                className="next-figure next-density-lifecycle next-density-lifecycle--desktop"
+                onClick={() =>
+                  openLightbox(
+                    `${ASSET_BASE}/via-resline_lifecycle.png`,
+                    'Reservation line lifecycle diagram',
+                    'Reservation line lifecycle: how one line moves quantity from Needed to Reserved to Fulfilled across its life'
+                  )
+                }
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
+                  alt="Reservation line lifecycle diagram"
+                />
+              </figure>
+            </div>
+
+            {/* Full-width comparison: sparser alternative | chosen design */}
+            <div className="next-density-comparison">
+              <figure
+                className="next-figure next-density-figure"
+                onClick={() =>
+                  openLightbox(
+                    `${ASSET_BASE}/via-resdetails-simple.jpg`,
+                    'Sparser reservation details alternative',
+                    'Sparser, cognitively heavier alternative considered'
+                  )
+                }
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-resdetails-simple.jpg`)}
+                  alt="Sparser reservation details alternative"
+                />
+                <figcaption>
+                  Considered: a sparser layout where each reservation line carries only
+                  a single derived status, and the underlying quantities are hidden a
+                  click away.
+                </figcaption>
+              </figure>
+              <figure
+                className="next-figure next-density-figure"
+                onClick={() =>
+                  openLightbox(
+                    `${ASSET_BASE}/via-resdetails.png`,
+                    'Reservation details page',
+                    'Reservation details page'
+                  )
+                }
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
+                  alt="Reservation details page"
+                />
+                <figcaption>
+                  Chosen: a segmented bar showing Needed, Reserved, and Fulfilled
+                  quantities at a glance, with a status chip per line derived from
+                  those quantities.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* Design 2: Material Planner */}
+        <section className="next-section">
+          <h2>Design 2: Material Planner</h2>
+
+          <div className="next-subsection">
+            <h3 className="next-subheading">Why a material planner?</h3>
+            <div className="next-prose">
+              <p>
+                Every time an order came in, the supply chain lead had to work out two
+                things: what do I need to buy or make to build this, and when does each
+                piece need to be ordered so the whole thing is ready on time. Answering
+                it by hand meant working through the product structure,
+                cross-referencing current inventory, calculating quantities level by
+                level, and reasoning about lead times, the time between ordering a part
+                and receiving it, mostly from memory.
+              </p>
+            </div>
+          </div>
+
+          <div className="next-subsection">
+            <h3 className="next-subheading">Keeping the core judgment with the user</h3>
+            <div className="next-prose">
+              <p>
+                The design question here was how much of that calculation the tool
+                should do, and how much to leave to the planner's judgment. The
+                original scope framed the planner as a visibility tool and put
+                calculation engines out of bounds, which left a choice: display
+                information for someone else to compute by hand, or build the
+                calculation in despite the scope. To resolve it, we led discussions
+                with the supply chain lead and did industry research to find the
+                smallest amount of calculation that would actually deliver the
+                visibility she needed.
+              </p>
+              <p>
+                Research told us that without walking the full product structure,
+                subtracting available stock at every level, and substituting an
+                in-stock alternate when the primary part is short, the surface is
+                static and does none of the planner's real work. So the planner walks
+                the entire structure, subtracts available inventory at every level,
+                auto-selects an in-stock substitute when the primary part is short,
+                and schedules backward from the need-by date through each part's lead
+                time to produce an order-by date for every component. It sits at the
+                minimum-useful end of that spectrum by design, doing the arithmetic
+                that has to be automatic while leaving the judgment calls, supplier
+                negotiation, scheduling, the things where her experience actually
+                earns its keep, to her.
+              </p>
+            </div>
+          </div>
+
+          <div className="next-subsection">
+            <h3 className="next-subheading">Density without clutter</h3>
+            <div className="next-prose">
+              <p>
+                The density principle returns here through a different lens than the
+                reservation bar. Each planner row carries a lot: a gross requirement,
+                current stock, a net requirement, a coverage bar, a lead time, an
+                order-by date, and a color flagging whether a part is late,
+                approaching its deadline, or missing a lead time entirely. As raw
+                numbers, that is a heavy row to read, and the graphic designer in me
+                instinctively wanted to thin it out. The value of the planner, though,
+                is exactly the dense cross-referencing, because for each row the
+                supply chain lead needs to know two things at once: whether she has
+                enough of a part, and whether she has enough time to order more if she
+                does not.
+              </p>
+              <p>
+                The decision to keep all of that on screen, carried through chips and
+                bars rather than bare numbers, came from her needs and from the
+                industry research, not from instinct. What Harbor taught me is that a
+                screen can be packed with information and still be easy to read, as
+                long as every element on it answers a question the user is already
+                asking. Had I followed my instinct and dropped some of those numbers,
+                the screen would have looked lighter and been heavier to use, because
+                she would have had to pull the missing pieces together herself instead
+                of reading them at a glance.
+              </p>
+            </div>
+
+            {/* Sparser planner alternative | chosen material planner */}
+            <div className="next-density-comparison">
+              <figure
+                className="next-figure next-density-figure"
+                onClick={() =>
+                  openLightbox(
+                    `${ASSET_BASE}/via-mrp-simple.png`,
+                    'Sparser material planner alternative',
+                    'Sparser, cognitively heavier planner alternative considered'
+                  )
+                }
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-mrp-simple.png`)}
+                  alt="Sparser material planner alternative"
+                />
+                <figcaption>
+                  Considered: a sparser planner row showing only top-level totals,
+                  with coverage bars, lead times, and order-by dates hidden behind a
+                  click.
+                </figcaption>
+              </figure>
+              <figure
+                className="next-figure next-density-figure"
+                onClick={() =>
+                  openLightbox(
+                    `${ASSET_BASE}/via-mrp.png`,
+                    'Material Planner results view',
+                    'Material Planner results view'
+                  )
+                }
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
+                  alt="Material Planner results view"
+                />
+                <figcaption>
+                  Chosen: a dense planner row carrying gross requirement, stock, net
+                  requirement, a coverage bar, lead time, and a color-coded order-by
+                  date — every column answering a question the user is already
+                  asking.
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        {/* Reflection */}
+        <section className="next-section">
+          <h2>Reflection</h2>
+
+          <div className="next-subsection next-twocol-subsection">
+            <div>
+              <h3 className="next-subheading">The assumption that broke</h3>
+              <div className="next-prose">
+                <p>
+                  The thing that taught me the most was a mistake we made building the
+                  reservation system. Early on, in our weekly syncs, we assumed that a
+                  reservation would only ever claim inventory that already existed in
+                  the warehouse. Given what we knew at the time, that was a reasonable
+                  assumption, and the system we built on it was internally sound.
+                </p>
+                <p>
+                  Partway through the engagement, the assumption broke. Once the
+                  material planner started producing requirements for parts that did
+                  not yet exist, it became clear the reservation system had to track
+                  demand for inventory that had not arrived, not just inventory on
+                  hand. It needed to separate what was needed from what was reserved
+                  from what was fulfilled, which the original single-quantity model
+                  could not represent.
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 className="next-subheading">Knowing when a rebuild is worth it</h3>
+              <div className="next-prose">
+                <p>
+                  Rebuilding the reservation system was a hard call to face, and it
+                  was the right one. The redesign moved each reservation line to the
+                  three quantities, Needed, Reserved, and Fulfilled, which is the
+                  same model that later made the progress bar readable at a glance.
+                  What looks like a clean design in hindsight was the second attempt,
+                  and it was better precisely because the planner had revealed what
+                  the reservation system actually had to do.
+                </p>
+                <p>
+                  The lesson I took from it is not that wrong assumptions should be
+                  avoided, since that is an unrealistic standard under time pressure,
+                  incomplete information, and ordinary human error. The lesson is to
+                  build so that a wrong assumption stays survivable, and to recognize
+                  the moment when working around a mistake costs more than replacing
+                  it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What I'd Do Next: Harbor v3.0 */}
+        <section className="next-section">
+          <h2>What I'd Do Next: Harbor v3.0</h2>
+          <div className="next-prose">
+            <p>
+              Harbor v2.0 moved Via's planning out of spreadsheets and memory and
+              into a system built to scale with them. Two extensions stand out as the
+              next step, both of which would move more manual coordination off of
+              people and into the system.
+            </p>
+          </div>
+
+          <div className="next-bento-row next-bento-row--outline next-bento-row--two">
+            <div className="next-bento-card">
+              <h3>Automatic allocation</h3>
+              <p>
+                When new stock arrives, assigning it to the reservations waiting on
+                it is still a manual step, and automating it would close the last
+                manual loop in the planning-to-fulfillment workflow.
+              </p>
+            </div>
+            <div className="next-bento-card">
+              <h3>Timeline view</h3>
+              <p>
+                The order-by dates the planner already calculates, laid out across
+                parts and suppliers at once, so a whole production run can be read at
+                a glance instead of one part at a time.
+              </p>
+            </div>
+          </div>
+
+          <div className="next-prose">
+            <p>
+              If I picked this up with the team again, the approach would be the same
+              one that made Harbor v2.0 work: start in the weekly syncs, watch how the
+              supply chain lead actually uses what we shipped, and let the next set of
+              decisions come from her workflow. The foundation is in place, and Harbor
+              is ready to keep growing alongside Via.
+            </p>
+          </div>
+        </section>
+
+        {/* Team photo */}
+        <section className="next-section next-teamphoto-section">
+          <figure className="next-figure next-figure--static next-teamphoto">
+            <img
+              src={getAssetPath(`${ASSET_BASE}/via_teamphoto.jpg`)}
+              alt="NExT × Via Separations team"
+            />
+            <figcaption>
+              NExT team photo at Via Separations HQ after our final presentation!
+            </figcaption>
+          </figure>
+        </section>
+        </>
+        )}
 
       </div>
 
