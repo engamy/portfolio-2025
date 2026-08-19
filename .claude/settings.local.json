@@ -7,7 +7,8 @@
       "PowerShell(python scripts\\\\export_brief_pages.py)",
       "PowerShell(Get-ChildItem \"public\\\\pictures\\\\portfolio-content_spring2026\\\\02_DESIGN\\\\01_MARSHALLS\\\\02_ECOMM\\\\trending_shop_casestudy\" | Sort-Object Name | Format-Table Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}} -AutoSize)",
       "Bash(aws s3 *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(git -C \".claude/worktrees/agent-adc0ef2e8ff3e297e\" status --short)"
     ]
   }
 }
