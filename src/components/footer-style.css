@@ -8,7 +8,7 @@
   align-items: center;
   padding: 2.5vw 2.5vw 2.5vw 2.5vw;
   box-sizing: border-box;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--font-display);
 }
 
 .footer-left {

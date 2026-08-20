@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './EmailAssetsLightbox.css';
+import { activateProps } from '../../hooks/useLightbox';
 
 interface EmailAsset {
   folderName: string;
@@ -76,7 +77,10 @@ const EmailAssetsLightbox: React.FC<EmailAssetsLightboxProps> = ({
                   <div 
                     key={index} 
                     className={`email-lightbox-item ${isSelected ? 'selected' : ''}`}
-                    onClick={() => setCurrentImageIndex(index)}
+                    {...activateProps(
+                      () => setCurrentImageIndex(index),
+                      isImageApproved ? 'approved design' : `exploration ${index + 1}`
+                    )}
                   >
                     <img 
                       src={image} 

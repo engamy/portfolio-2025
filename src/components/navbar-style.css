@@ -1,30 +1,30 @@
 .navbar-light {
-  background-color: #F0EDE6;
+  background-color: var(--cream);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 0.0625vw solid #101010;
+  border-bottom: 0.0625vw solid var(--ink);
   padding-right: 0.5vw;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--font-display);
   box-sizing: border-box;
 }
 
 /* Dark mode styles */
 .navbar-light.navbar-dark {
-  background-color: #101010;
-  border-bottom: 0.0625vw solid #F0EDE6;
+  background-color: var(--ink);
+  border-bottom: 0.0625vw solid var(--cream);
 }
 
 .navbar-light.navbar-dark .nav-link {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .navbar-light.navbar-dark .nav-link:hover {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .navbar-light.navbar-dark .nav-link.active {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .navbar-container {
@@ -41,7 +41,7 @@
 }
 
 .brand-link {
-  color: #101010;
+  color: var(--ink);
   text-decoration: none;
   font-weight: 700;
   font-size: 1.1vw;
@@ -49,7 +49,7 @@
 }
 
 .navbar-light.navbar-dark .brand-link {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .navbar-nav {
@@ -70,22 +70,22 @@
 }
 
 .nav-link {
-  color: #101010;
+  color: var(--ink);
   text-decoration: none;
   font-style: normal;
   font-size: 1vw;
   padding: 0.5vw 0;
   transition: all 0.3s ease;
   position: relative;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--font-display);
 }
 
 .nav-link:hover {
-  color: #101010;
+  color: var(--ink);
 }
 
 .nav-link.active {
-  color: #101010;
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -96,7 +96,7 @@
   left: 0;
   right: 0;
   height: 0.125vw;
-  background-color: #AE1D14;
+  background-color: var(--red);
 } */
 
 .navbar-spacer {
@@ -145,14 +145,14 @@
   display: block;
   width: 7vw;
   height: 0.6vw;
-  background-color: #101010;
+  background-color: var(--ink);
   margin: 0.9vw 0;
   transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
   border-radius: 0.3vw;
 }
 
 .navbar-light.navbar-dark .hamburger-line {
-  background-color: #F0EDE6;
+  background-color: var(--cream);
 }
 
 .hamburger-button.open .hamburger-line:nth-child(1) {
@@ -191,11 +191,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 3vw;
-  border-bottom: 0.0625vw solid #101010;
+  border-bottom: 0.0625vw solid var(--ink);
 }
 
 .overlay-brand-link {
-  color: #101010;
+  color: var(--ink);
   text-decoration: none;
   font-weight: 700;
   font-size: 5.2vw;
@@ -203,11 +203,11 @@
 }
 
 .navbar-light.navbar-dark .overlay-brand-link {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .navbar-light.navbar-dark .overlay-header {
-  border-bottom: 0.0625vw solid #F0EDE6;
+  border-bottom: 0.0625vw solid var(--cream);
 }
 
 .exit-button {
@@ -227,7 +227,7 @@
   display: block;
   width: 7vw;
   height: 0.6vw;
-  background-color: #101010;
+  background-color: var(--ink);
   position: absolute;
   transition: transform 0.3s ease, background-color 0.3s ease;
   border-radius: 0.3vw;
@@ -242,7 +242,7 @@
 }
 
 .navbar-light.navbar-dark .exit-line {
-  background-color: #F0EDE6;
+  background-color: var(--cream);
 }
 
 .overlay-content {
@@ -265,7 +265,7 @@
 }
 
 .overlay-link {
-  color: #101010;
+  color: var(--ink);
   text-decoration: none;
   font-size: 6vw;
   line-height: 1.8;
@@ -276,7 +276,7 @@
 }
 
 .navbar-light.navbar-dark .overlay-link {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .overlay-footer {

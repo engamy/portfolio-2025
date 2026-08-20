@@ -1,17 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './art-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import MasonryGrid from '../page-components/MasonryGrid';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import CollectionCard from '../page-components/CollectionCard';
+import { artCollections } from '../../data/collections';
+import PageHero from '../page-components/PageHero';
 
 export default function Art() {
-  // Set darkMode to false for the art page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.art-assorted' });
   
-  // Enable scroll-based dark mode for this page, targeting the art-assorted div
-  useScrollDarkMode(true, '.art-assorted');
 
   // Sample images for the masonry grid
   const assortedImages = [
@@ -291,13 +289,13 @@ export default function Art() {
 
   return (
     <main className="art-container">
-      <div
-        className="art-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/04_ART/header.png')})` }}
-      >
-        <div className="art-section-header-introtext">
-          <h1>Artist</h1>
-          <p>Photoshop, Illustrator, InDesign, After Effects, Krita,
+      <PageHero
+        variant="art"
+        backgroundImage="/pictures/portfolio-content_spring2026/04_ART/header.png"
+        title="Artist"
+        intro={
+          <>
+            Photoshop, Illustrator, InDesign, After Effects, Krita,
             Wacom Intuos Pro, ink, pencil, alcohol-based markers,
             colored pencils, tape, glue, plastic sheets, paper receipts,
             toilet paper rolls...
@@ -309,77 +307,15 @@ export default function Art() {
             boundaries of creativity and produce unique, impactful
             pieces. Whether digital or analog, I'm always seeking new
             way to bring my visions to life.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="art-featured-collections">
         <h2>Featured Collections</h2>
-        <div className="art-collection">
-          <Link to="/art-2022-portfolio" target="_blank">
-            <div className="art-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/evangelion.jpg')} alt="2022 Portfolio" />
-            </div>
-            <div className="art-collection-info">
-              <h4>Ordinary and Extraordinary Portfolio</h4>
-              <p>2022-2023</p>
-              <div className="art-collection-tags">
-                  <p>AP Art & Design 5</p>
-                  <p>Best in Illustration at HCRHS</p>
-                  <p>Ink Pen</p>
-                  <p>Alcohol-based Markers</p>
-                  <p>Traditional Art</p>
-                  <p>Surrealism</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className="art-collection">
-          <Link to="/art-makeit">
-            <div className="art-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/three.jpg')} alt="Make It Collection" />
-            </div>
-            <div className="art-collection-info">
-              <h4>Make It</h4>
-              <p>2024</p>
-              <div className="art-collection-tags">
-                <p>Handcrafted</p>
-                <p>Mixed Media</p>
-                <p>Physical Art</p>
-                <p>Creative Process</p>
-                <p>Experimentation</p>
-                <p>Innovation</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className="art-collection">
-          <Link to="/art-motion-media">
-                         <div className="art-collection-image">
-               <video 
-                 src={getAssetPath("/pictures/portfolio-content_spring2026/04_ART/motionMedia/omori.mov")}
-                 autoPlay
-                 muted
-                 loop
-                 playsInline
-               />
-             </div>
-            <div className="art-collection-info">
-              <h4>Motion Media</h4>
-              <p>2023</p>
-              <div className="art-collection-tags">
-                <p>Animation</p>
-                <p>Video</p>
-                <p>Motion Graphics</p>
-                <p>Character Design</p>
-                <p>Digital Art</p>
-                <p>YouTube</p>
-              </div>
-            </div>
-          </Link>
-        </div>
+        {artCollections.map(collection => (
+          <CollectionCard key={collection.to} variant="art" {...collection} />
+        ))}
       </div>
 
       <div className="art-assorted">

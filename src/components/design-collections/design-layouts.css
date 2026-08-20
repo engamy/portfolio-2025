@@ -2,7 +2,7 @@
     width: 100vw;
     margin: 0;
     padding: 0;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--font-display);
     line-height: 1;
 }
 
@@ -40,7 +40,7 @@
     font-style: italic;
     margin: 0;
     margin-bottom: 1vw;
-    color: #0024cc;
+    color: var(--blue);
 }
 
 .design-layouts-page .design-section-header .design-section-header-introtext p {
@@ -49,11 +49,11 @@
 }
 
 .design-layouts-page .design-collections {
-    background-color: #F0EDE6;
+    background-color: var(--cream);
     margin: 0;
     padding: 0 10vw;
     line-height: 1;
-    color: #101010;
+    color: var(--ink);
     width: 100%;
 
     display: flex;
@@ -68,12 +68,12 @@
     font-style: italic;
     width: 100%;
     margin-top: 4vw;
-    color: #101010;
+    color: var(--ink);
 }
 
 .design-layouts-page .design-intro {
     font-size: 1.2vw;
-    color: #101010;
+    color: var(--ink);
     line-height: 1.4;
     margin: 0;
     opacity: 1
@@ -82,7 +82,7 @@
 .design-layouts-page .design-collections h3 {
     font-size: 2vw;
     font-style: italic;
-    color: #101010;
+    color: var(--ink);
     width: 100%;
     margin: 0;
     margin-top: 2vw;
@@ -97,13 +97,13 @@
 
 .design-layouts-page .design-collection a, .design-layouts-page .design-collection a:visited {
     text-decoration: none;
-    color: #101010;
+    color: var(--ink);
 }
 
 .design-layouts-page .design-collection-image {
     width: 100%;
     height: 25.3vw;
-    background-color: #101010;
+    background-color: var(--ink);
     margin-bottom: 2vw;
     border-radius: 20px;
     overflow: hidden;
@@ -150,22 +150,22 @@
 }
 
 .design-layouts-page .design-collection-tags p {
-    background-color: #101010;
-    color: #F0EDE6;
+    background-color: var(--ink);
+    color: var(--cream);
     padding: 0.5vw 1vw;
     border-radius: 20px;
     text-decoration: none;
     font-size: 0.75vw;
     font-weight: 500;
     transition: all 0.2s ease;
-    border: 1px solid #101010;
+    border: 1px solid var(--ink);
     margin: 0;
 }
 
 .design-layouts-page .design-collection-tags p:hover {
-    background-color: #AE1D14;
-    color: #F0EDE6;
-    border-color: #AE1D14;
+    background-color: var(--red);
+    color: var(--cream);
+    border-color: var(--red);
 }
 
 .design-layouts-page .pdf-container {

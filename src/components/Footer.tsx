@@ -1,6 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './footer-style.css';
 import { getAssetPath } from '../utils/assetUtils';
+import ExternalLink from './page-components/ExternalLink';
+import { ICONS, socials } from '../data/socials';
+
+const pages = [
+  { to: '/', label: 'Home' },
+  { to: '/design', label: 'Design' },
+  { to: '/code', label: 'Code' },
+  { to: '/art', label: 'Art' },
+  { to: '/about', label: 'About' }
+];
 
 export default function Footer() {
   return (
@@ -8,11 +19,10 @@ export default function Footer() {
       <div className="footer-left">
         <div className="footer-nav-title">Where To?</div>
         <nav className="footer-nav-links">
-          <a href="/">Home</a>
-          <a href="/design">Design</a>
-          <a href="/code">Code</a>
-          <a href="/art">Art</a>
-          <a href="/about">About</a>
+          {/* Router links rather than plain anchors, so these do not reload the page. */}
+          {pages.map(page => (
+            <Link key={page.to} to={page.to}>{page.label}</Link>
+          ))}
         </nav>
         <div className="footer-copyright">
           © Amy Eng 2026 All Rights Reserved
@@ -21,19 +31,12 @@ export default function Footer() {
       <div className="footer-right">
         <div className="footer-links">
           <div className="footer-socials">
-          <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png')} alt="LinkedIn" />
-          </a>
-          <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png')} alt="Instagram" />
-          </a>
-          <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png')} alt="GitHub" />
-          </a>
-          <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png')} alt="YouTube" />
-          </a>
-        </div>
+            {socials.map(social => (
+              <ExternalLink key={social.href} href={social.href}>
+                <img src={getAssetPath(`${ICONS}/${social.icon}`)} alt={social.label} />
+              </ExternalLink>
+            ))}
+          </div>
 
           <div className="footer-email-phone">
           <div><span className="footer-contact-label">Email:</span> amyeng895@gmail.com</div>
@@ -41,10 +44,10 @@ export default function Footer() {
         </div>
 
         <div className="footer-logo">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/logo_red.png')} alt="Logo" />
+            <img src={getAssetPath(`${ICONS}/logo_red.png`)} alt="Logo" />
           </div>
-        
+
       </div>
     </footer>
   );
-} 
+}

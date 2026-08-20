@@ -1,64 +1,36 @@
-import React, { useState } from 'react';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import React from 'react';
 import '../mainpages/design-style.css';
 import './design-readingredesign.css';
 import ImageLightbox from '../page-components/ImageLightbox';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
+import { useSingleImageLightbox } from '../../hooks/useLightbox';
 
 export default function DesignReadingRedesign() {
-  interface LightboxImage {
-    id: number;
-    src: string;
-    caption: string;
-    alt: string;
-  }
-
-  // Set darkMode to true for the header (navbar will be dark)
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.reading-redesign-content' });
   
-  // Enable scroll-based dark mode for this page - start dark, turn light when hitting content
-  useScrollDarkMode(true, '.reading-redesign-content', false);
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<LightboxImage | null>(null);
-
-  const openLightbox = (src: string, alt: string) => {
-    setCurrentImage({ id: Date.now(), src, caption: '', alt });
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setCurrentImage(null);
-  };
+  const lightbox = useSingleImageLightbox();
 
   return (
     <main className="design-container">
-      <div
-        className="design-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')})` }}
-      >
-        <div className="design-section-header-content">
-          <div className="design-section-header-introtext">
-            <h1>Reading Redesign</h1>
-            <p>
-            "We are constantly reading, and reading all different types of media, 
-            but this project is focused on long-form text-based media. Design a user 
-            interface that enhances the reading experience of everyday readers. You 
-            will create a prototype for an interactive digital reading platform that 
+      <PageHero
+        variant="design"
+        backgroundImage="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png"
+        thumbnail="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg"
+        thumbnailAlt="Reading Redesign thumbnail"
+        title="Reading Redesign"
+        intro={
+          <>
+            "We are constantly reading, and reading all different types of media,
+            but this project is focused on long-form text-based media. Design a user
+            interface that enhances the reading experience of everyday readers. You
+            will create a prototype for an interactive digital reading platform that
             accommodates specific reading styles and user needs."
-            </p>
-          </div>
-          <div className="design-section-header-image">
-            <img 
-              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg')} 
-              alt="Reading Redesign thumbnail"
-              className="header-thumbnail"
-            />
-          </div>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="reading-redesign-content">
 
@@ -107,10 +79,7 @@ export default function DesignReadingRedesign() {
                 controls={false}
                 className="wireframe-demo-video"
               >
-                <source 
-                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/wireframe_demo.mov")}
-                  type="video/mp4" 
-                />
+                <source src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/wireframe_demo.mov")} />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -139,7 +108,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png')} 
               alt="User Persona" 
-              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png'), 'User Persona')}
+              {...lightbox.trigger(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/persona.png'), 'User Persona')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -147,7 +116,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png')} 
               alt="Storyboard" 
-              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png'), 'Storyboard')}
+              {...lightbox.trigger(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/storyboard.png'), 'Storyboard')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -163,7 +132,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png')} 
               alt="Site Map" 
-              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png'), 'Site Map')}
+              {...lightbox.trigger(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/sitemap.png'), 'Site Map')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -171,7 +140,7 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png')} 
               alt="Task Flow 1" 
-              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png'), 'Task Flow 1')}
+              {...lightbox.trigger(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow1.png'), 'Task Flow 1')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
@@ -179,14 +148,14 @@ export default function DesignReadingRedesign() {
             <img 
               src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png')} 
               alt="Task Flow 2" 
-              onClick={() => openLightbox(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png'), 'Task Flow 2')}
+              {...lightbox.trigger(getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/taskflow2.png'), 'Task Flow 2')}
               style={{ cursor: 'zoom-in' }}
             />
           </div>
         </div>
 
       </div>
-      <ImageLightbox isOpen={lightboxOpen} currentImage={currentImage} onClose={closeLightbox} />
+      <ImageLightbox isOpen={lightbox.isOpen} currentImage={lightbox.currentImage} onClose={lightbox.close} />
     </main>
   );
 }

@@ -35,21 +35,12 @@
   max-width: 70vw;
 }
 
-.trendshop-eyebrow {
-  font-size: 1.1vw;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #F0EDE6;
-  font-weight: 700;
-  margin: 0 0 1vw 0;
-  opacity: 0.85;
-}
 
 .trendshop-title {
   font-size: 4.5vw !important;
   line-height: 1.05 !important;
   margin: 0 !important;
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
   font-style: italic;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
@@ -62,18 +53,16 @@
 }
 
 .trendshop-meta p {
-  font-size: 1.1vw !important;
+  font-size: var(--text-meta) !important;
   margin: 0 !important;
   width: auto !important;
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 .trendshop-meta p span {
   display: block;
   font-size: 0.75vw;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #F0EDE6;
+  color: var(--cream);
   margin-bottom: 0.25vw;
   font-weight: 700;
   opacity: 0.75;
@@ -83,9 +72,9 @@
 
 .trendshop-content {
   padding: 5vw 10vw;
-  background-color: #F0EDE6;
-  color: #101010;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
   line-height: 1.4;
 }
 
@@ -97,34 +86,34 @@
   font-size: 2.8vw;
   font-style: italic;
   margin: 0 0 1.5vw 0;
-  color: #0024cc;
+  color: var(--blue);
 }
 
 .trendshop-content h3 {
   font-size: 1.9vw;
   font-style: italic;
   margin: 3vw 0 0.5vw 0;
-  color: #0024cc;
+  color: var(--blue);
 }
 
 .trendshop-content h4 {
   font-size: 1.1vw;
   font-weight: normal;
   margin: 0 0 1.5vw 0;
-  color: #101010;
+  color: var(--ink);
   opacity: 0.75;
   line-height: 1.4;
 }
 
 .trendshop-prose p {
-  font-size: 1.2vw;
+  font-size: var(--text-body);
   line-height: 1.55;
   margin: 0 0 1.2vw 0;
-  color: #101010;
+  color: var(--ink);
 }
 
 .trendshop-prose strong {
-  color: #0024cc;
+  color: var(--blue);
 }
 
 .trendshop-prose--full {
@@ -167,7 +156,7 @@
 }
 
 .trendshop-figure figcaption {
-  font-size: 0.85vw;
+  font-size: var(--text-caption);
   text-align: center;
   margin-top: 0.6vw;
   opacity: 0.7;
@@ -199,7 +188,7 @@
   cursor: pointer;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #F0EDE6;
+  background-color: var(--cream);
   aspect-ratio: 16 / 9;
   transition: transform 0.25s ease;
 }
@@ -219,7 +208,7 @@
   margin: 0.3vw 0 0 0;
   font-size: 1vw;
   font-style: italic;
-  color: #0024cc;
+  color: var(--blue);
   text-align: center;
 }
 
@@ -263,9 +252,7 @@
 .trendshop-wordmark-tile p {
   margin: 0;
   font-size: 0.85vw;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #0024cc;
+  color: var(--blue);
   font-weight: 700;
 }
 
@@ -282,7 +269,7 @@
 
 .trendshop-callout {
   background-color: #ffffff;
-  color: #101010;
+  color: var(--ink);
   border-radius: 16px;
   padding: 2vw 2.5vw;
   margin: 0;
@@ -292,11 +279,9 @@
 
 .trendshop-callout-eyebrow {
   font-size: 0.85vw;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
   margin: 0 0 1.2vw 0;
   font-weight: 700;
-  color: #0024cc;
+  color: var(--blue);
 }
 
 .trendshop-callout-list {
@@ -309,7 +294,7 @@
 }
 
 .trendshop-callout-list li {
-  font-size: 1vw;
+  font-size: var(--text-small);
   line-height: 1.5;
   padding-left: 1.4vw;
   position: relative;
@@ -322,12 +307,12 @@
   top: 0.55vw;
   width: 0.45vw;
   height: 0.45vw;
-  background-color: #0024cc;
+  background-color: var(--blue);
   border-radius: 50%;
 }
 
 .trendshop-callout-list strong {
-  color: #0024cc;
+  color: var(--blue);
 }
 
 /* ---------- Shipped grid ---------- */
@@ -375,26 +360,26 @@
 .trendshop-otherwork {
   margin: 8vw -10vw -5vw -10vw;
   padding: 6vw 10vw;
-  background-color: #101010;
-  color: #F0EDE6;
+  background-color: var(--ink);
+  color: var(--cream);
 }
 
 .trendshop-otherwork h2,
 .trendshop-otherwork h3 {
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .trendshop-otherwork h4 {
-  color: #F0EDE6;
+  color: var(--cream);
   opacity: 0.9;
 }
 
 .trendshop-otherwork-intro {
-  font-size: 1.2vw;
+  font-size: var(--text-body);
   max-width: 70vw;
   line-height: 1.55;
   margin: 0 0 3vw 0;
-  color: #F0EDE6;
+  color: var(--cream);
   opacity: 0.9;
 }
 
@@ -414,10 +399,6 @@
     max-width: 100%;
   }
 
-  .trendshop-eyebrow {
-    font-size: 3vw;
-    margin-bottom: 3vw;
-  }
 
   .trendshop-title {
     font-size: 9vw !important;
@@ -484,10 +465,6 @@
     padding: 2vw;
   }
 
-  .trendshop-figure figcaption {
-    font-size: 2.8vw;
-    margin-top: 2vw;
-  }
 
   .trendshop-explore-grid {
     grid-template-columns: 1fr;

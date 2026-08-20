@@ -1,18 +1,18 @@
 /* Override header styles for dark theme */
 .art-section-header .art-section-header-introtext {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 .art-section-header {
-  background-color: #101010;
+  background-color: var(--ink);
 }
 
 .art-section-header .art-section-header-introtext h1 {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 .art-section-header .art-section-header-introtext p {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 /* Header content layout */
@@ -35,9 +35,9 @@
 }
 
 .art-assorted.art-makeit-works {
-  background-color: #F0EDE6;
-  color: #101010;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
   line-height: 1;
 }
 
@@ -45,7 +45,7 @@
   font-size: 2.5vw;
   font-style: italic;
   margin-bottom: 1rem;
-  color: #101010;
+  color: var(--ink);
 }
 
 .makeit-grid {
@@ -261,57 +261,7 @@
   display: none;
 }
 
-.lightbox-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  cursor: pointer;
-}
 
-.lightbox-content {
-  position: relative;
-  max-width: 50vw;
-  max-height: 50vh;
-  cursor: default;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid white;
-  color: white;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1001;
-}
-
-.lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

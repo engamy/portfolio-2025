@@ -80,6 +80,11 @@ Write-Host ""
 Write-Host "Uploading GIF images..." -ForegroundColor Yellow
 Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("gif") -ContentType "image/gif"
 
+# Upload SVG images
+Write-Host ""
+Write-Host "Uploading SVG images..." -ForegroundColor Yellow
+Upload-Directory -LocalDir $basePath -S3Dir $s3BasePath -Extensions @("svg") -ContentType "image/svg+xml"
+
 # Upload Videos
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan

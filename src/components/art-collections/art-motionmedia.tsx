@@ -1,15 +1,11 @@
 import React from 'react';
 import '../mainpages/art-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
 
 export default function ArtMotionMedia() {
-  // Set darkMode to true for the art collection page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.art-motion-works' });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true, '.art-motion-works');
 
   // Motion Media videos with YouTube links
   const motionMediaVideos = [
@@ -62,13 +58,13 @@ export default function ArtMotionMedia() {
 
   return (
     <main className="art-container">
-      <div
-        className="art-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/04_ART/header.png')})` }}
-      >
-        <div className="art-section-header-introtext">
-          <h1>Motion Media</h1>
-          <p>Exploring the intersection of art and animation through digital and traditional techniques.
+      <PageHero
+        variant="art"
+        backgroundImage="/pictures/portfolio-content_spring2026/04_ART/header.png"
+        title="Motion Media"
+        intro={
+          <>
+            Exploring the intersection of art and animation through digital and traditional techniques.
             <br></br><br></br>
             This collection showcases my work in motion graphics, character animation, and
             experimental video art. Each piece represents a journey into the dynamic world
@@ -76,9 +72,9 @@ export default function ArtMotionMedia() {
             <br></br><br></br>
             From character animations to abstract motion studies, these videos demonstrate
             my passion for bringing static artwork to life through the magic of animation.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="art-assorted art-motion-works">
         <h2>Motion Media Collection</h2>

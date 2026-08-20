@@ -3,7 +3,7 @@
 .next-hero {
   position: relative;
   height: 100vh;
-  background-color: #101010;
+  background-color: var(--ink);
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -60,21 +60,12 @@
   max-width: 70vw;
 }
 
-.next-eyebrow {
-  font-size: 1.1vw;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #F0EDE6;
-  font-weight: 700;
-  margin: 0;
-  opacity: 0.85;
-}
 
 .next-title {
   font-size: 4vw !important;
   line-height: 1.05 !important;
   margin: 0 !important;
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
   font-style: italic;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
@@ -82,7 +73,7 @@
 .next-subtitle {
   font-size: 1.4vw;
   margin: 0;
-  color: #F0EDE6;
+  color: var(--cream);
   opacity: 0.85;
   font-style: italic;
 }
@@ -96,19 +87,17 @@
 }
 
 .next-meta p {
-  font-size: 1.1vw !important;
+  font-size: var(--text-meta) !important;
   margin: 0 !important;
   width: auto !important;
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
   display: flex;
   flex-direction: column;
 }
 
 .next-meta p span {
   font-size: 0.75vw;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #F0EDE6;
+  color: var(--cream);
   margin-bottom: 0.25vw;
   font-weight: 700;
   opacity: 0.75;
@@ -121,9 +110,9 @@
   flex-direction: column;
   gap: 6vw;
   padding: 5vw 10vw;
-  background-color: #F0EDE6;
-  color: #101010;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
   line-height: 1.4;
 }
 
@@ -145,12 +134,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6vw;
-  background-color: #025A44;
-  border: 1px solid #025A44;
-  color: #F0EDE6;
+  background-color: var(--green);
+  border: 1px solid var(--green);
+  color: var(--cream);
   padding: 0.9vw 2.4vw;
   border-radius: 999px;
-  font-size: 1.15vw;
+  font-size: var(--text-meta);
   font-family: inherit;
   line-height: 1;
   cursor: pointer;
@@ -159,7 +148,7 @@
 
 .next-readmore-btn:hover {
   background-color: transparent;
-  color: #025A44;
+  color: var(--green);
   transform: translateY(2px);
 }
 
@@ -195,23 +184,23 @@
 /* Solution section — prose on the left, vertical before/after on the right. */
 .next-section.next-solution-section {
   display: grid;
-  grid-template-columns: 1fr 24vw;
-  gap: 4vw;
-  align-items: start;
+  grid-template-columns: 28vw 1fr;
+  gap: 3vw;
+  align-items: center;
 }
 
 .next-content h2 {
   font-size: 2.8vw;
   font-style: italic;
   margin: 0 0 1.5vw 0;
-  color: #025A44;
+  color: var(--green);
 }
 
 .next-content h3 {
   font-size: 1.9vw;
   font-style: italic;
   margin: 0 0 1.5vw 0;
-  color: #025A44;
+  color: var(--green);
 }
 
 /* Final design subheading starts on a fresh row beneath any
@@ -230,23 +219,26 @@
 }
 
 .next-prose p {
-  font-size: 1.2vw;
+  font-size: var(--text-body);
   line-height: 1.55;
   margin: 0 0 1.2vw 0;
-  color: #101010;
+  color: var(--ink);
 }
 
 .next-prose p:last-child {
   margin-bottom: 0;
 }
 
-.next-disclaimer {
+/* NDA stand-in note in the hero. No rule or bar; it sits over the dark hero
+   image, so it needs light text at a readable size. */
+.next-hero-note {
+  max-width: 46vw;
+  margin: 1.5vw 0 0 0;
   font-style: italic;
-  opacity: 0.7;
-  padding-left: 1vw;
-  border-left: 3px solid rgba(16, 16, 16, 0.25);
-  font-size: 0.95vw !important;
-  line-height: 1.5 !important;
+  font-size: 1vw;
+  line-height: 1.5;
+  color: var(--cream);
+  opacity: 0.8;
 }
 
 /* ---------- Subsections (Quick Summary sub-headings) ---------- */
@@ -277,28 +269,198 @@
 
 /* Density layout: content on the left (header + prose),
    lifecycle image on the right. Lives inside .next-subsection. */
-.next-density-layout {
+/* Reservations intro: the "Why" and "central decision" blocks on the left,
+   the lifecycle diagram alongside them on the right. */
+.next-reservations-intro {
   display: grid;
-  grid-template-columns: 1fr 26vw;
-  gap: 3vw;
+  grid-template-columns: 50vw 1fr;
+  gap: 2.5vw;
   align-items: start;
 }
 
+.next-reservations-intro + .next-subsection {
+  margin-top: 5vw;
+}
+
+/* The lifecycle diagram this used to sit beside now lives up in the intro
+   grid, so the write-up takes the full content width and splits into two
+   columns instead (see .next-prose--flowcols below). */
 .next-density-content {
   display: flex;
   flex-direction: column;
   gap: 1.5vw;
 }
 
-/* Split the second density paragraph into two side-by-side columns. */
-.next-prose--twocol {
+/* Process and Key Insights: text at the width it had as one column, with the
+   industry reference screens in the space beside it. */
+.next-section.next-process-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5vw;
+  /* Both columns sized explicitly so the leftover width sits between them
+     rather than stretching the reference column. */
+  grid-template-columns: 38vw 32vw;
+  gap: 4vw;
+  justify-content: space-between;
+  align-items: start;
 }
 
-.next-prose--twocol p {
+.next-process-section .next-prose {
+  margin-bottom: 1.5vw;
+}
+
+.next-reference-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  /* A little narrower than the body column, so the reference screens read as
+     supporting material beside the text. */
+  max-width: 32vw;
+}
+
+.next-reference-figure {
   margin: 0;
+}
+
+.next-reference-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.next-reference-figure figcaption {
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 0.8vw;
+  opacity: 0.7;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.next-learnings {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 1.6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.next-learnings li {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.next-learnings li::marker {
+  color: var(--ink);
+}
+
+/* The opening sentence of each item sits on its own line. */
+.next-learnings li span {
+  display: block;
+}
+
+/* 5. Text that flows across two columns instead of one paragraph per column. */
+.next-prose--flowcols {
+  column-count: 2;
+  column-gap: 3vw;
+  /* A set height makes the text wrap from the first column into the second
+     instead of balancing into two separate-looking blocks. */
+  height: 10vw;
+}
+
+.next-prose--flowcols p {
+  break-inside: auto;
+}
+
+/* ---------- Inline links in body copy ---------- */
+
+.next-prose a,
+.next-prose a:visited {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+}
+
+.next-prose a:hover {
+  opacity: 0.7;
+}
+
+/* ---------- Goals: numbered list with circled numerals ---------- */
+
+.next-goals {
+  list-style: none;
+  counter-reset: next-goal;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.next-goals li {
+  counter-increment: next-goal;
+  position: relative;
+  padding-left: 3.6vw;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* A line of space either side of the first goal, which frames the two below it. */
+.next-goals li:first-child {
+  margin-top: calc(var(--text-body) * 1.55);
+  margin-bottom: calc(var(--text-body) * 1.55);
+}
+
+.next-goals li::before {
+  content: counter(next-goal);
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* Exactly one line tall, so a one-line goal is the same height as its
+     circle. Any taller and the circle spills into the gap below; any shorter
+     and single-line items sit in a taller box than they need. */
+  width: calc(var(--text-body) * 1.55);
+  height: calc(var(--text-body) * 1.55);
+  box-sizing: border-box;
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  color: var(--green);
+  font-size: 1.15vw;
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Design 1 / Design 2 as subsections of Solution ---------- */
+
+/* Design 1 and Design 2 read as subsections of Solution through their
+   heading levels: h3 for the section, h4 for its subheadings. */
+.next-content h4 {
+  font-size: 1.5vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: var(--green);
+}
+
+.next-content h5 {
+  font-size: 1.3vw;
+  font-style: italic;
+  margin: 0 0 0.5vw 0;
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* ---------- Half-width subsections (the two "Why" blocks) ---------- */
+
+.next-subsection--half {
+  max-width: 45vw;
 }
 
 /* ---------- Bento cards (Quick Summary: PSR row + Impact) ---------- */
@@ -337,14 +499,14 @@
   font-size: 1.6vw;
   font-style: italic;
   margin: 0 0 1vw 0;
-  color: #025A44;
+  color: var(--green);
 }
 
 .next-bento-card p {
-  font-size: 1.05vw;
+  font-size: var(--text-meta);
   line-height: 1.5;
   margin: 0;
-  color: #101010;
+  color: var(--ink);
 }
 
 /* Impact-specific: stat + substat sit on the same baseline. */
@@ -360,27 +522,16 @@
   font-size: 4.2vw;
   line-height: 1;
   font-style: italic;
-  color: #025A44;
+  color: var(--green);
   font-weight: 500;
 }
 
 .next-bento-substat {
   font-size: 1.2vw;
   font-style: italic;
-  color: #025A44;
+  color: var(--green);
   font-weight: 500;
   line-height: 1.2;
-}
-
-/* Topic line at the top of an insight bento card — italic green,
-   slightly larger than body copy to anchor the card. */
-.next-insight-topic {
-  font-size: 1.4vw !important;
-  font-style: italic;
-  color: #025A44 !important;
-  font-weight: 500;
-  line-height: 1.3 !important;
-  margin: 0 0 1vw 0 !important;
 }
 
 /* Spacing between a bento row and surrounding prose within a section. */
@@ -406,21 +557,23 @@
   border-color: rgba(2, 90, 68, 0.4);
 }
 
-.next-content .next-comparison-card h4 {
+.next-content .next-comparison-card h5 {
   font-size: 1.5vw;
-  font-style: italic;
-  margin: 0 0 0.5vw 0;
-  color: #025A44;
-  font-weight: 500;
+  margin-bottom: 0.5vw;
 }
 
 .next-comparison-quote {
-  font-size: 1.05vw !important;
+  font-size: var(--text-meta) !important;
   font-style: italic;
-  color: #025A44 !important;
-  opacity: 0.7;
+  /* Lighter than the heading green so the quote reads as supporting text. */
+  color: rgba(2, 90, 68, 0.62) !important;
   margin: 0 0 1vw 0 !important;
   line-height: 1.4 !important;
+}
+
+/* The display italic sets "lo" too tightly in words like "flour". */
+.next-kern {
+  letter-spacing: 0.03em;
 }
 
 /* ---------- Density principle visuals (placeholder vs lifecycle) ---------- */
@@ -449,13 +602,13 @@
 }
 
 .next-density-figure figcaption {
-  font-size: 0.95vw;
+  font-size: var(--text-caption);
   line-height: 1.5;
   text-align: center;
   margin-top: 1vw;
   opacity: 0.7;
   font-style: italic;
-  color: #101010;
+  color: var(--ink);
 }
 
 .next-placeholder--density {
@@ -476,18 +629,14 @@
   border-radius: 12px;
 }
 
-/* Mobile-only duplicate of the lifecycle, sits between the two density
-   paragraphs. Hidden on desktop; revealed on mobile. */
-.next-density-lifecycle--mobile {
-  display: none;
-}
-
 /* ---------- Before / After comparison (Harbor v1.0 → v2.0) ---------- */
 
 /* Stacked vertically: v1.0 → arrow (down) → v2.0 */
+/* Desktop: v1.0 -> v2.0 reads across, on the same line as the Solution text.
+   The mobile block below returns it to a vertical stack. */
 .next-beforeafter {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 1.2vw;
 }
@@ -503,15 +652,16 @@
 .next-beforeafter-box {
   background-color: transparent;
   border: 1px solid rgba(2, 90, 68, 0.4);
-  width: 100%;
-  max-width: 24vw;
+  flex: 1;
+  min-width: 0;
   box-sizing: border-box;
+  align-self: stretch;
 }
 
 .next-content .next-beforeafter-box h3 {
   font-size: 1.8vw;
   margin: 0 0 1.2vw 0;
-  color: #025A44;
+  color: var(--green);
   font-style: italic;
 }
 
@@ -525,9 +675,9 @@
 }
 
 .next-beforeafter-box li {
-  font-size: 1.1vw;
+  font-size: var(--text-meta);
   line-height: 1.45;
-  color: #101010;
+  color: var(--ink);
   padding-left: 1.2vw;
   position: relative;
 }
@@ -536,16 +686,16 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #025A44;
+  color: var(--green);
   font-weight: 700;
 }
 
 .next-beforeafter-arrow {
-  font-size: 3vw;
-  color: #025A44;
+  font-size: 2.2vw;
+  color: var(--green);
   font-style: italic;
   line-height: 1;
-  transform: rotate(90deg);
+  flex-shrink: 0;
 }
 
 /* ---------- Placeholder image (stand-in for unshot visuals) ---------- */
@@ -712,12 +862,12 @@
 }
 
 .next-teamphoto figcaption {
-  font-size: 0.95vw;
+  font-size: var(--text-caption);
   text-align: center;
   margin-top: 0.8vw;
   opacity: 0.7;
   font-style: italic;
-  color: #101010;
+  color: var(--ink);
 }
 
 /* ---------- Logos (Quick Summary intro, side-by-side row) ---------- */
@@ -780,9 +930,6 @@
     max-width: 100%;
   }
 
-  .next-eyebrow {
-    font-size: 3.6vw;
-  }
 
   .next-title {
     font-size: 9vw !important;
@@ -847,10 +994,10 @@
     margin-bottom: 3vw;
   }
 
-  .next-disclaimer {
-    padding-left: 3vw;
-    border-left-width: 2px;
-    font-size: 3vw !important;
+  .next-hero-note {
+    max-width: 100%;
+    margin-top: 4vw;
+    font-size: 3.4vw;
   }
 
   .next-subsection + .next-subsection {
@@ -917,11 +1064,6 @@
     gap: 5vw;
   }
 
-  .next-insight-topic {
-    font-size: 4.5vw !important;
-    margin-bottom: 3vw !important;
-  }
-
   .next-prose + .next-bento-row,
   .next-bento-row + .next-prose {
     margin-top: 5vw;
@@ -968,10 +1110,6 @@
     max-width: 100%;
   }
 
-  .next-teamphoto figcaption {
-    font-size: 3.2vw;
-    margin-top: 3vw;
-  }
 
   /* Logos go side-by-side on mobile to save vertical space */
   .next-logos {
@@ -1006,13 +1144,72 @@
     gap: 6vw;
   }
 
+  .next-section.next-process-section {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .next-reference-stack {
+    gap: 6vw;
+    /* The desktop cap would leave these at a third of the screen width. */
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .next-learnings {
+    gap: 4vw;
+    padding-left: 5vw;
+  }
+
+  .next-learnings li {
+    font-size: 3.8vw;
+  }
+
+  .next-prose--flowcols {
+    column-count: 1;
+    height: auto;
+  }
+
+  .next-reservations-intro {
+    grid-template-columns: 1fr;
+    gap: 6vw;
+  }
+
+  .next-subsection--half {
+    max-width: 100%;
+  }
+
+  .next-goals {
+    gap: 4vw;
+  }
+
+  .next-goals li {
+    font-size: 3.8vw;
+    padding-left: 9vw;
+  }
+
+  .next-goals li::before {
+    font-size: 3.6vw;
+  }
+
+  .next-content h4 {
+    font-size: 5vw;
+    margin-bottom: 3vw;
+  }
+
+  .next-content h5 {
+    font-size: 4.2vw;
+    margin-bottom: 2vw;
+  }
+
   .next-comparison-row {
     grid-template-columns: 1fr;
     gap: 4vw;
   }
 
-  .next-content .next-comparison-card h4 {
+  .next-content .next-comparison-card h5 {
     font-size: 5vw;
+    margin-bottom: 2vw;
   }
 
   .next-comparison-quote {
@@ -1029,32 +1226,6 @@
     grid-template-columns: 1fr;
   }
 
-  /* Density layout collapses to one column; the desktop lifecycle
-     (right-column copy) is hidden, and the mobile copy sits between
-     the two density paragraphs. */
-  .next-density-layout {
-    grid-template-columns: 1fr;
-    gap: 5vw;
-  }
-
-  .next-density-lifecycle--desktop {
-    display: none;
-  }
-
-  .next-density-lifecycle--mobile {
-    display: flex;
-    justify-content: center;
-    margin: 4vw 0;
-  }
-
-  .next-density-lifecycle--mobile img {
-    max-width: 80vw;
-  }
-
-  .next-density-figure figcaption {
-    font-size: 3vw;
-    margin-top: 2.5vw;
-  }
 
   /* Decision/Tradeoffs subsection collapses to one column. */
   .next-subsection.next-twocol-subsection {
@@ -1062,21 +1233,8 @@
     gap: 7vw;
   }
 
-  /* Split paragraph reverts to a single flowing block on mobile. */
-  .next-prose--twocol {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .next-prose--twocol p {
-    margin-bottom: 3vw;
-  }
-
-  .next-prose--twocol p:last-child {
-    margin-bottom: 0;
-  }
-
   .next-beforeafter {
+    flex-direction: column;
     gap: 3vw;
   }
 
@@ -1091,6 +1249,7 @@
 
   .next-beforeafter-arrow {
     font-size: 10vw;
+    transform: rotate(90deg);
   }
 
   .next-content .next-beforeafter-box h3 {

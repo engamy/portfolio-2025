@@ -1,16 +1,13 @@
 import React from 'react';
 import './design-layouts.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import LayoutLightboxes from '../page-components/LayoutLightboxes';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
 
 export default function DesignWikiBook() {
-  // Set darkMode to true for the design collection page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.design-collections' });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true, '.design-collections');
 
   // Markiplier Wikibook images
   const markiplierImages = [
@@ -82,13 +79,13 @@ export default function DesignWikiBook() {
 
   return (
     <main className="design-container design-layouts-page">
-      <div
-        className="design-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')})` }}
-      >
-        <div className="design-section-header-introtext">
-          <h1>Layout Design</h1>
-          <p>A comprehensive collection of design projects and creative solutions.
+      <PageHero
+        variant="design"
+        backgroundImage="/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg"
+        title="Layout Design"
+        intro={
+          <>
+            A comprehensive collection of design projects and creative solutions.
             <br></br><br></br>
             This collection showcases my design work across various mediums including
             retail branding, digital marketing, and visual identity development.
@@ -96,9 +93,9 @@ export default function DesignWikiBook() {
             From logo design to campaign visuals, each project demonstrates
             my approach to problem-solving through design and my commitment to
             creating impactful visual experiences.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="design-collections">
         <h2>Design Articles</h2>

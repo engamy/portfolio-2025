@@ -27,7 +27,7 @@
   right: 30px;
   background: rgba(0, 0, 0, 0.7);
   border: none;
-  color: #F0EDE6;
+  color: var(--cream);
   font-size: 2.5rem;
   cursor: pointer;
   z-index: 10001;
@@ -130,11 +130,11 @@
 
 .email-lightbox-caption {
   margin-top: 20px;
-  color: #F0EDE6;
+  color: var(--cream);
   font-size: 1.5rem;
   text-align: center;
   font-weight: 600;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--font-display);
   letter-spacing: 1px;
 }
 

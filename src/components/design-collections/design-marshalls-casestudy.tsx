@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import '../mainpages/design-style.css';
 import './design-marshalls-casestudy.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useDarkMode } from '../../contexts/DarkModeContext';
 import { getAssetPath } from '../../utils/assetUtils';
 import ImageLightbox from '../page-components/ImageLightbox';
@@ -9,17 +8,11 @@ import EmailAssetsGrid from '../page-components/EmailAssetsGrid';
 import WebsiteAssetsGrid from '../page-components/WebsiteAssetsGrid';
 import InstagramPosts from '../page-components/InstagramPosts';
 import BeforeAfterComparison from '../page-components/BeforeAfterComparison';
-import SpringGOImages from '../page-components/SpringGOImages';
-import SignageInStore from '../page-components/SignageInStore';
-import BilingualSignage from '../page-components/BilingualSignage';
-import OOHSignage from '../page-components/OOHSignage';
-
-interface LightboxImage {
-  id: number;
-  src: string;
-  caption: string;
-  alt: string;
-}
+import { usePageMode } from '../../hooks/usePageMode';
+import ImageGridLightbox from '../page-components/ImageGridLightbox';
+import { bilingualSignage, inStoreSignage, oohSignage, springGrandOpening } from '../../data/marshallsGalleries';
+import CaseStudyHero from '../page-components/CaseStudyHero';
+import { useSingleImageLightbox } from '../../hooks/useLightbox';
 
 const ASSET_BASE = '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/trending_shop_casestudy';
 
@@ -78,7 +71,7 @@ const landingDirections = [
 ];
 
 export default function DesignMarshallsCasestudy() {
-  usePageDarkMode(true);
+  usePageMode({ initial: true });
   const { setDarkMode } = useDarkMode();
 
   // Navbar starts dark (over the hero), turns light over the cream content,
@@ -99,36 +92,20 @@ export default function DesignMarshallsCasestudy() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setDarkMode]);
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<LightboxImage | null>(null);
-
-  const openLightbox = (src: string, alt: string, caption: string = '') => {
-    setCurrentImage({ id: Date.now(), src: getAssetPath(src), caption, alt });
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setCurrentImage(null);
-  };
+  const lightbox = useSingleImageLightbox();
 
   return (
     <main className="design-container trendshop-casestudy">
-      <div
-        className="design-section-header trendshop-hero"
-        style={{ backgroundImage: `url(${getAssetPath(`${ASSET_BASE}/hero-bespoke-pattern.jpg`)})` }}
-      >
-        <div className="trendshop-hero-overlay">
-          <div className="trendshop-hero-text">
-            <p className="trendshop-eyebrow">Case Study</p>
-            <h1 className="trendshop-title">Designing the Trend Shop for Marshalls.com</h1>
-            <div className="trendshop-meta">
-              <p><span>Role</span> Graphic Designer, TJX</p>
-              <p><span>Timeline</span> April–June 2025</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CaseStudyHero
+        variant="trendshop"
+        backgroundMode="css"
+        backgroundImage={`${ASSET_BASE}/hero-bespoke-pattern.jpg`}
+        title="Designing the Trend Shop for Marshalls.com"
+        meta={[
+          { label: 'Role', value: 'Graphic Designer, TJX' },
+          { label: 'Timeline', value: 'April–June 2025' }
+        ]}
+      />
 
       <div className="trendshop-content">
 
@@ -157,7 +134,7 @@ export default function DesignMarshallsCasestudy() {
             </div>
             <figure
               className="trendshop-figure"
-              onClick={() => openLightbox(`${ASSET_BASE}/brief-competitive-matrix.png`, 'Competitive matrix', 'Competitive audit: 5 of 5 direct competitors ran a Trend Shop in main nav.')}
+              {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/brief-competitive-matrix.png`), 'Competitive matrix', 'Competitive audit: 5 of 5 direct competitors ran a Trend Shop in main nav.')}
             >
               <img
                 src={getAssetPath(`${ASSET_BASE}/brief-competitive-matrix.png`)}
@@ -174,7 +151,7 @@ export default function DesignMarshallsCasestudy() {
           <div className="trendshop-twocol trendshop-twocol--reverse">
             <figure
               className="trendshop-figure"
-              onClick={() => openLightbox(`${ASSET_BASE}/brief-goals-summary.png`, 'Brief: goals, location, maintenance', 'Project goals, placement, and maintenance cadence.')}
+              {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/brief-goals-summary.png`), 'Brief: goals, location, maintenance', 'Project goals, placement, and maintenance cadence.')}
             >
               <img
                 src={getAssetPath(`${ASSET_BASE}/brief-goals-summary.png`)}
@@ -231,7 +208,7 @@ export default function DesignMarshallsCasestudy() {
               <div key={d.key} className="trendshop-explore-card">
                 <div
                   className="trendshop-explore-tile"
-                  onClick={() => openLightbox(d.anim, d.label, d.label)}
+                  {...lightbox.trigger(d.anim, d.label, d.label)}
                 >
                   <img src={getAssetPath(d.anim)} alt={d.label} />
                 </div>
@@ -247,7 +224,7 @@ export default function DesignMarshallsCasestudy() {
               <div key={d.key} className="trendshop-explore-card">
                 <div
                   className="trendshop-explore-tile"
-                  onClick={() => openLightbox(d.anim, d.label, d.label)}
+                  {...lightbox.trigger(d.anim, d.label, d.label)}
                 >
                   <img src={getAssetPath(d.anim)} alt={d.label} />
                 </div>
@@ -267,7 +244,7 @@ export default function DesignMarshallsCasestudy() {
           <div className="trendshop-wordmark-grid">
             <div
               className="trendshop-wordmark-tile"
-              onClick={() => openLightbox(`${ASSET_BASE}/wordmark-horizontal.gif`, 'Wordmark horizontal animation', 'Horizontal jump animation')}
+              {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/wordmark-horizontal.gif`), 'Wordmark horizontal animation', 'Horizontal jump animation')}
             >
               <img
                 src={getAssetPath(`${ASSET_BASE}/wordmark-horizontal.gif`)}
@@ -277,7 +254,7 @@ export default function DesignMarshallsCasestudy() {
             </div>
             <div
               className="trendshop-wordmark-tile"
-              onClick={() => openLightbox(`${ASSET_BASE}/wordmark-vertical.gif`, 'Wordmark vertical animation', 'Vertical jump animation')}
+              {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/wordmark-vertical.gif`), 'Wordmark vertical animation', 'Vertical jump animation')}
             >
               <img
                 src={getAssetPath(`${ASSET_BASE}/wordmark-vertical.gif`)}
@@ -287,7 +264,7 @@ export default function DesignMarshallsCasestudy() {
             </div>
             <div
               className="trendshop-wordmark-tile"
-              onClick={() => openLightbox(`${ASSET_BASE}/wordmark-logobox.png`, 'Logo box hover scale', 'Logo box / hover scale')}
+              {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/wordmark-logobox.png`), 'Logo box hover scale', 'Logo box / hover scale')}
             >
               <img
                 src={getAssetPath(`${ASSET_BASE}/wordmark-logobox.png`)}
@@ -370,7 +347,7 @@ export default function DesignMarshallsCasestudy() {
           </div>
           <div
             className="trendshop-shipped-tile trendshop-shipped-tile--single"
-            onClick={() => openLightbox(`${ASSET_BASE}/where-it-went-live.png`, 'The Trending Shop, live on Marshalls.com', 'The Trending Shop, live on Marshalls.com')}
+            {...lightbox.trigger(getAssetPath(`${ASSET_BASE}/where-it-went-live.png`), 'The Trending Shop, live on Marshalls.com', 'The Trending Shop, live on Marshalls.com')}
           >
             <img
               src={getAssetPath(`${ASSET_BASE}/where-it-went-live.png`)}
@@ -436,28 +413,28 @@ export default function DesignMarshallsCasestudy() {
             Signage for relocating, relocated, opening-soon, and newly-opened stores —
             English and Spanish.
           </h4>
-          <SpringGOImages />
+          <ImageGridLightbox {...springGrandOpening} />
 
           <h3>Out-of-home signage</h3>
           <h4>
             Pre- and post-move bus shelters and billboards for Spring 2025 grand
             openings.
           </h4>
-          <OOHSignage />
+          <ImageGridLightbox {...oohSignage} />
 
           <h3>In-store signage</h3>
           <h4>
             Loss prevention beauty violator and a TJX Rewards pin pad sign — design and
             in-store photography.
           </h4>
-          <SignageInStore />
+          <ImageGridLightbox {...inStoreSignage} />
 
           <h3>Bilingual signage</h3>
           <h4>
             Closing, store-closed, remodel, and remodel-stanchion signage in English and
             Spanish.
           </h4>
-          <BilingualSignage />
+          <ImageGridLightbox {...bilingualSignage} />
 
           <h3>Email assets</h3>
           <h4>
@@ -484,9 +461,9 @@ export default function DesignMarshallsCasestudy() {
       </div>
 
       <ImageLightbox
-        isOpen={lightboxOpen}
-        currentImage={currentImage}
-        onClose={closeLightbox}
+        isOpen={lightbox.isOpen}
+        currentImage={lightbox.currentImage}
+        onClose={lightbox.close}
       />
     </main>
   );

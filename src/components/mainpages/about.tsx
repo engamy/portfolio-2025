@@ -1,17 +1,15 @@
 import React from 'react';
 import './about-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
 import { useScrollVisibility } from '../../hooks/useScrollVisibility';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import ExternalLink from '../page-components/ExternalLink';
+import { ICONS, socials } from '../../data/socials';
 
 
 export default function About() {
-  // Set darkMode to false for the about page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAfterScroll: true });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true);
   
   // Use scroll visibility hook for the h1 tag
   const isH1Visible = useScrollVisibility(20);
@@ -39,18 +37,11 @@ export default function About() {
           Thanks for visiting — feel free to reach out!</p>
 
         <div className="about-contacticon">
-          <a href="https://www.linkedin.com/in/amyeng895/" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png')} alt="LinkedIn" />
-          </a>
-          <a href="https://www.instagram.com/yifeng.art/" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png')} alt="Instagram" />
-          </a>
-          <a href="https://github.com/engamy" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png')} alt="GitHub" />
-          </a>
-          <a href="https://www.youtube.com/@yifengart" target="_blank" rel="noopener noreferrer">
-            <img src={getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png')} alt="YouTube" />
-          </a>
+          {socials.map(social => (
+            <ExternalLink key={social.href} href={social.href}>
+              <img src={getAssetPath(`${ICONS}/${social.icon}`)} alt={social.label} />
+            </ExternalLink>
+          ))}
         </div>
 
         {/* <div className="resumes">

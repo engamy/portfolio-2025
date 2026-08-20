@@ -1,58 +1,32 @@
-import React, { useState } from 'react';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
+import React from 'react';
 import '../mainpages/design-style.css';
 import './design-dishwasher.css';
-import ImageLightbox from '../page-components/ImageLightbox';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
 
 export default function DesignDishwasher() {
-  interface LightboxImage {
-    id: number;
-    src: string;
-    caption: string;
-    alt: string;
-  }
-
-  // Set darkMode to true for the header (navbar will be dark)
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.dishwasher-content' });
   
-  // Enable scroll-based dark mode for this page - start dark, turn light when hitting content
-  useScrollDarkMode(true, '.dishwasher-content', false);
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<LightboxImage | null>(null);
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setCurrentImage(null);
-  };
 
   return (
     <main className="design-container">
-      <div
-        className="design-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png')})` }}
-      >
-        <div className="design-section-header-content">
-          <div className="design-section-header-introtext">
-            <h1>IoT Dishwasher</h1>
-            <p>
-              "The focus of this project is to identify the components of a 
-              physical interface (washing your dishes) and translate their 
-              purpose into a digital UI. Use UI components from an existing 
-              app and apply it to your digital translation"
-            </p>
-          </div>
-          <div className="design-section-header-image">
-            <img 
-              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png')} 
-              alt="IoT Dishwasher thumbnail"
-              className="header-thumbnail"
-            />
-          </div>
-        </div>
-      </div>
+      <PageHero
+        variant="design"
+        backgroundImage="/pictures/portfolio-content_spring2026/02_DESIGN/04_RR/header.png"
+        thumbnail="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png"
+        thumbnailAlt="IoT Dishwasher thumbnail"
+        title="IoT Dishwasher"
+        intro={
+          <>
+            "The focus of this project is to identify the components of a
+            physical interface (washing your dishes) and translate their
+            purpose into a digital UI. Use UI components from an existing
+            app and apply it to your digital translation"
+          </>
+        }
+      />
 
       <div className="dishwasher-content">
 
@@ -111,14 +85,10 @@ export default function DesignDishwasher() {
                 className="lofi-demo-video"
                 style={{ width: '100%', height: 'auto' }}
               >
-                <source 
-                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov")}
-                  type="video/mp4" 
-                />
-                <source 
-                  src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov")}
-                  type="video/quicktime" 
-                />
+                {/* No type attribute: the file is a QuickTime container, so
+                    declaring it as video/mp4 made browsers pick it and then
+                    fail. Letting them sniff the real container works. */}
+                <source src={getAssetPath("/pictures/portfolio-content_spring2026/02_DESIGN/03_DISHWASHER/lofi.mov")} />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -138,7 +108,6 @@ export default function DesignDishwasher() {
         </div>
         
       </div>
-      <ImageLightbox isOpen={lightboxOpen} currentImage={currentImage} onClose={closeLightbox} />
     </main>
   );
 }

@@ -1,60 +1,42 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
+import {
+  SCROLL_THRESHOLD_VW,
+  isAboveThreshold,
+  useScrollListener,
+} from './useScrollThreshold';
 
+const MOBILE_BREAKPOINT = 768;
+
+/**
+ * The About page needs its own navbar mode: the hero is dark on desktop but
+ * light on mobile, and the flip point is the experience section rather than a
+ * fixed scroll offset.
+ */
 export const useAboutNavbarMode = () => {
   const [navbarDarkMode, setNavbarDarkMode] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    // Check if mobile on mount and resize
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+  const update = useCallback(() => {
+    // Read the viewport width directly rather than holding it in state, so a
+    // resize does not tear down and re-register the scroll listener.
+    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+      setNavbarDarkMode(false);
+      return;
+    }
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    const experienceSection = document.querySelector('.experience-container');
+    if (!experienceSection) {
+      setNavbarDarkMode(isAboveThreshold(SCROLL_THRESHOLD_VW));
+      return;
+    }
 
-    // Handle navbar dark mode based on mobile/desktop
-    const handleScroll = () => {
-      if (isMobile) {
-        // On mobile: always light mode
-        setNavbarDarkMode(false);
-      } else {
-        // On desktop: dark mode until experience section, then scroll-based
-        const experienceSection = document.querySelector('.experience-container');
-        if (experienceSection) {
-          const rect = experienceSection.getBoundingClientRect();
-          const isAboveExperience = rect.top > 0;
-          
-          if (isAboveExperience) {
-            // Above experience section: dark mode
-            setNavbarDarkMode(true);
-          } else {
-            // Below experience section: scroll-based toggle
-            const scrollY = window.scrollY;
-            const threshold = window.innerWidth * 0.3; // 30vw threshold
-            setNavbarDarkMode(scrollY < threshold);
-          }
-        } else {
-          // Fallback: use scroll-based behavior
-          const scrollY = window.scrollY;
-          const threshold = window.innerWidth * 0.3;
-          setNavbarDarkMode(scrollY < threshold);
-        }
-      }
-    };
+    // Dark above the experience section, then scroll-based below it.
+    const aboveExperience = experienceSection.getBoundingClientRect().top > 0;
+    setNavbarDarkMode(
+      aboveExperience ? true : isAboveThreshold(SCROLL_THRESHOLD_VW)
+    );
+  }, []);
 
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial call to set the correct state
-    handleScroll();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, [isMobile]);
+  useScrollListener(update);
 
   return navbarDarkMode;
 };

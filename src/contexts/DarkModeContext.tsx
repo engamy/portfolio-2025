@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useMemo, useState, ReactNode } from 'react';
 
 interface DarkModeContextType {
   darkMode: boolean;
@@ -22,8 +22,12 @@ interface DarkModeProviderProps {
 export const DarkModeProvider: React.FC<DarkModeProviderProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
+  // Memoised so consumers only re-render when darkMode actually changes, rather
+  // than on every render of the provider.
+  const value = useMemo(() => ({ darkMode, setDarkMode }), [darkMode]);
+
   return (
-    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+    <DarkModeContext.Provider value={value}>
       {children}
     </DarkModeContext.Provider>
   );

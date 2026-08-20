@@ -1,6 +1,6 @@
 /* Custom styles for Marshalls header text */
 .design-section-header .design-section-header-introtext .marshalls-title {
-  color: #0024cc !important;
+  color: var(--blue) !important;
 }
 
 .design-section-header .design-section-header-introtext .marshalls-description {
@@ -12,8 +12,8 @@
   justify-content: center;
   margin-top: 0;
   padding-top: 1vw;
-  border-bottom: 1px solid #F0EDE6;
-  background-color: #101010;
+  border-bottom: 1px solid var(--cream);
+  background-color: var(--ink);
 }
 
 .tab-button {
@@ -22,34 +22,34 @@
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-family: var(--font-display);
   transition: all 0.2s ease;
 }
 
 .tab-button.active {
-  background-color: #F0EDE6;
-  color: #101010;
-  border-bottom: 3px solid #F0EDE6;
+  background-color: var(--cream);
+  color: var(--ink);
+  border-bottom: 3px solid var(--cream);
 }
 
 .tab-button.inactive {
   background-color: transparent;
-  color: #F0EDE6;
+  color: var(--cream);
   border-bottom: 3px solid transparent;
 }
 
 .tab-content {
   padding: 2rem 10vw;
-  background-color: #101010;
-  color: #F0EDE6;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  background-color: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-display);
 }
 
 .tab-content h2 {
   font-size: 2.5vw;
   font-style: italic;
   margin-bottom: 1rem;
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .tab-content h3 {
@@ -57,7 +57,7 @@
   font-style: italic;
   margin-top: 2vw;
   margin-bottom: 0.5vw;
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 .tab-content h4 {
@@ -65,7 +65,7 @@
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 1vw;
-  color: #F0EDE6;
+  color: var(--cream);
   opacity: 0.9;
 }
 
@@ -74,7 +74,7 @@
   line-height: 1.4;
   opacity: 0.9;
   text-align: center;
-  color: #F0EDE6;
+  color: var(--cream);
 }
 
 /* Mobile responsive styles for tab navigation and content */

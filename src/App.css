@@ -38,7 +38,7 @@ body {
 
 .page-container p {
   color: #666666;
-  font-size: 1.1vw;
+  font-size: var(--text-meta);
   line-height: 1.6;
   margin-bottom: 1vw;
 }

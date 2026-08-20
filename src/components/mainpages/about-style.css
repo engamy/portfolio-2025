@@ -4,7 +4,7 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--font-display);
     overflow-x: hidden;
 }
 
@@ -16,7 +16,7 @@
 
 .about-intro h1{
     position: fixed;
-    color: #F0EDE6;
+    color: var(--cream);
     transform: rotate(-10deg);
     font-size: 6vw;
     font-style: italic;
@@ -26,7 +26,7 @@
 }
 
 .about-intro p {
-    color: #101010;
+    color: var(--ink);
     position: relative;
     left: 40vw;
     top: 27vw;
@@ -55,7 +55,7 @@
 }
 
 .resumes a, .resumes a:visited {
-    color: #AE1D14;
+    color: var(--red);
 }
 
 .experience-container {
@@ -94,7 +94,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     gap: 0.1em;
-    font-size: 1.1vw;
+    font-size: var(--text-meta);
 }
 
 .experience-details h3 {
@@ -102,7 +102,7 @@
 }
 
 .experience-details p {
-    color: #AE1D14;
+    color: var(--red);
 }
 
 .experience-time-place {
@@ -111,7 +111,7 @@
     justify-content: space-evenly;
     gap: 0.1em;
     text-align: right;
-    font-size: 1vw;
+    font-size: var(--text-small);
 }
 
 .experience-details h3, .experience-details p {
@@ -175,7 +175,7 @@
         min-height: 100vh;
         
         background-image: none !important;
-        background-color: #F0EDE6 !important;
+        background-color: var(--cream) !important;
     }
 
     .about-profile-image {
@@ -196,7 +196,7 @@
         margin: 20px 0;
         padding-left: 3vw;
         padding-right: 3vw;
-        color: #101010;
+        color: var(--ink);
         opacity: 1 !important;
     }
 
@@ -311,7 +311,7 @@
 
     .testimony-quote {
         position: relative;
-        border: 5px solid #AE1D14;
+        border: 5px solid var(--red);
         border-radius: 30px;
         padding: 30px;
         margin: 10px 0;
@@ -324,9 +324,9 @@
         top: -25px;
         left: 1px;
         font-size: 13vw;
-        color: #AE1D14;
+        color: var(--red);
         font-weight: bold;
-        background-color: #F0EDE6;
+        background-color: var(--cream);
         padding: 0 5px;
         z-index: 1;
     }
@@ -337,9 +337,9 @@
         bottom: -55px;
         right: 1px;
         font-size: 13vw;
-        color: #AE1D14;
+        color: var(--red);
         font-weight: bold;
-        background-color: #F0EDE6;
+        background-color: var(--cream);
         padding: 0 5px;
         z-index: 1;
     }

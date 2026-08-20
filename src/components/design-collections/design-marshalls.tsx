@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import '../mainpages/design-style.css';
 import './design-marshalls-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
 import EmailAssetsGrid from '../page-components/EmailAssetsGrid';
 import WebsiteAssetsGrid from '../page-components/WebsiteAssetsGrid';
 import InstagramPosts from '../page-components/InstagramPosts';
 import BeforeAfterComparison from '../page-components/BeforeAfterComparison';
-import SpringGOImages from '../page-components/SpringGOImages';
-import SignageInStore from '../page-components/SignageInStore';
-import BilingualSignage from '../page-components/BilingualSignage';
-import OOHSignage from '../page-components/OOHSignage';
 import TrendingShopLayoutGrid from '../page-components/TrendingShopLayoutGrid';
+import { usePageMode } from '../../hooks/usePageMode';
+import ImageGridLightbox from '../page-components/ImageGridLightbox';
+import { bilingualSignage, inStoreSignage, oohSignage, springGrandOpening } from '../../data/marshallsGalleries';
+import PageHero from '../page-components/PageHero';
 
 export default function DesignMarshalls() {
-  // Set darkMode to false for the design collection page
-  usePageDarkMode(false);
+  usePageMode({ initial: false, flipAt: '.tab-navigation' });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true, '.tab-navigation', true);
 
   // State for active tab
   const [activeTab, setActiveTab] = useState('digital');
@@ -27,26 +22,27 @@ export default function DesignMarshalls() {
 
   return (
     <main className="design-container">
-      <div
-        className="design-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-3.png')})` }}
-      >
-        <div className="design-section-header-introtext">
-          <h1 className="marshalls-title">TJX/Marshalls Graphic Design Co-op</h1>
-          <p className="marshalls-description">
-            During my six-month co-op as a Graphic Designer at MARSHALLS LLC (The TJX Companies, Inc.), 
-            I worked across the Retail, Ecommerce, and Social teams. I designed in-store signage, 
-            including bilingual and grand opening graphics, some of which are now in stores nationwide. 
+      <PageHero
+        variant="design"
+        backgroundImage="/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-3.png"
+        title="TJX/Marshalls Graphic Design Co-op"
+        titleClassName="marshalls-title"
+        introClassName="marshalls-description"
+        intro={
+          <>
+            During my six-month co-op as a Graphic Designer at MARSHALLS LLC (The TJX Companies, Inc.),
+            I worked across the Retail, Ecommerce, and Social teams. I designed in-store signage,
+            including bilingual and grand opening graphics, some of which are now in stores nationwide.
             I also assisted with store design mockups, print prep, and competitor research.
             <br></br><br></br>
-            On the Ecommerce and Social teams, I created marketing emails, website graphics, and 
-            organic social content using Photoshop, Illustrator, and After Effects. Highlights included 
-            designing seasonal campaigns, photographing in-store product shots, and contributing to 
-            Marshalls' Instagram. This experience sharpened my technical, communication, and project 
+            On the Ecommerce and Social teams, I created marketing emails, website graphics, and
+            organic social content using Photoshop, Illustrator, and After Effects. Highlights included
+            designing seasonal campaigns, photographing in-store product shots, and contributing to
+            Marshalls' Instagram. This experience sharpened my technical, communication, and project
             management skills while deepening my understanding of brand marketing.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       {/* Tab Navigation */}
       <div className="tab-navigation">
@@ -166,13 +162,13 @@ export default function DesignMarshalls() {
               including signage in both English and Spanish.
             </h4>
 
-            <SpringGOImages />
+            <ImageGridLightbox {...springGrandOpening} />
 
-            <OOHSignage />
+            <ImageGridLightbox {...oohSignage} />
 
-            <SignageInStore />
+            <ImageGridLightbox {...inStoreSignage} />
 
-            <BilingualSignage />
+            <ImageGridLightbox {...bilingualSignage} />
 
             
 

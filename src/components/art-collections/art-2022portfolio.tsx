@@ -1,16 +1,13 @@
 import React from 'react';
 import '../mainpages/art-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import MasonryGrid from '../page-components/MasonryGrid';
 import { getAssetPath } from '../../utils/assetUtils';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
 
 export default function Art2022Portfolio() {
-  // Set darkMode to true for the art collection page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.art-2022-works' });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true, '.art-2022-works');
 
   // XTRAordinary Portfolio images
   const portfolio2022Images = [
@@ -90,24 +87,23 @@ export default function Art2022Portfolio() {
 
   return (
     <main className="art-container">
-      <div
-        className="art-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/04_ART/header.png')})` }}
-      >
-        <div className="art-section-header-introtext">
-          <h1>Ordinary & Extraordinary</h1>
-          <p>
-          The theme of this portfolio is the collapsing of boundaries between the ordinary and
-          extraordinary found in everything around us.
-          <br></br><br></br>
-          While the norms are used as standards for order, goodness, and positivity, their antonyms
-          are grounded with disorder, evil, and negativity. This portfolio aims to unsettle the arbitrary concepts
-          of these qualities and show the beauty of their coexistence in the things, emotions, and ideas
-          around us. Ultimately, I hope to return the visibility and justice to those traditionally suppressed,
-          marginalized elements.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        variant="art"
+        backgroundImage="/pictures/portfolio-content_spring2026/04_ART/header.png"
+        title="Ordinary & Extraordinary"
+        intro={
+          <>
+            The theme of this portfolio is the collapsing of boundaries between the ordinary and
+            extraordinary found in everything around us.
+            <br></br><br></br>
+            While the norms are used as standards for order, goodness, and positivity, their antonyms
+            are grounded with disorder, evil, and negativity. This portfolio aims to unsettle the arbitrary concepts
+            of these qualities and show the beauty of their coexistence in the things, emotions, and ideas
+            around us. Ultimately, I hope to return the visibility and justice to those traditionally suppressed,
+            marginalized elements.
+          </>
+        }
+      />
 
 
 

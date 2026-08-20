@@ -1,3 +1,31 @@
+/* Brand tokens. Defined once here; every stylesheet references these. */
+:root {
+  --cream: #F0EDE6;
+  --ink: #101010;
+  --blue: #0024cc;
+  --red: #AE1D14;
+  --green: #025A44;
+
+  --font-display: "neue-haas-grotesk-display", sans-serif;
+
+  /* Type scale. Every size below is referenced as a token so the scale can be
+     adjusted in one place. */
+  --text-body: 1.2vw;
+  --text-meta: 1.1vw;
+  --text-small: 1vw;
+  --text-caption: 1.05vw;
+}
+
+/* The scale steps up on small screens, where 1vw is only a few pixels. */
+@media (max-width: 768px) {
+  :root {
+    --text-body: 3.8vw;
+    --text-meta: 3.5vw;
+    --text-small: 3.2vw;
+    --text-caption: 3.2vw;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

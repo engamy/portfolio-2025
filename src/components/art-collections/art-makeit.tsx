@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../mainpages/art-style.css';
 import './art-makeit.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
 import { getAssetPath } from '../../utils/assetUtils';
+import ImageLightbox from '../page-components/ImageLightbox';
+import { useLightbox } from '../../hooks/useLightbox';
+import { usePageMode } from '../../hooks/usePageMode';
+import PageHero from '../page-components/PageHero';
 
 export default function ArtMakeIt() {
-  // Set darkMode to true for the art collection page
-  usePageDarkMode(true);
+  usePageMode({ initial: true, flipAt: '.art-makeit-works' });
   
-  // Enable scroll-based dark mode for this page
-  useScrollDarkMode(true, '.art-makeit-works');
 
-  // State for lightbox
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // MakeIt images
   const makeItImages = [
@@ -61,41 +58,40 @@ export default function ArtMakeIt() {
     }
   ];
 
-  const openLightbox = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
-  };
+  // ImageLightbox wants src/alt/caption; the collection stores title/description.
+  const lightboxImages = makeItImages.map(image => ({
+    id: image.id,
+    src: image.src,
+    alt: image.title,
+    caption: image.title
+  }));
 
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
+  const lightbox = useLightbox(lightboxImages);
 
   return (
     <main className="art-container">
-      <div className="art-section-header">
-        <div className="art-section-header-content">
-          <div className="art-section-header-introtext">
-            <h1>Make It</h1>
-            <p>
+      <PageHero
+        variant="art"
+        thumbnail="/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg"
+        thumbnailAlt="Make It Collection header"
+        title="Make It"
+        intro={
+          <>
             "Students will generate a series of 8" x 8" handmade collages using found media (newspapers, magazines, trash, scraps, photos, etc.). This assignment will aid students to understand design principles of hierarchy, scale, symmetry, asymmetry, repetition, rhythm, balance, and movement. Balance the compositions using letterforms, images, and color."
-            </p>
-          </div>
-          <div className="art-section-header-image">
-            <img 
-              src={getAssetPath('/pictures/portfolio-content_spring2026/04_ART/makeit/four.jpg')} 
-              alt="Make It Collection header"
-              className="header-thumbnail"
-            />
-          </div>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="art-assorted art-makeit-works">
         <h2>Make It Collection</h2>
 
         <div className="makeit-grid">
-          {makeItImages.map((image) => (
+          {makeItImages.map((image, index) => (
             <div key={image.id} className="image-item">
-              <div className="image-container" onClick={() => openLightbox(image.src)}>
+              <div
+                className="image-container"
+                {...lightbox.triggerProps(index, image.title)}
+              >
                 <img src={image.src} alt={image.title} />
               </div>
             </div>
@@ -103,15 +99,13 @@ export default function ArtMakeIt() {
         </div>
       </div>
 
-      {/* Lightbox */}
-      {selectedImage && (
-        <div className="lightbox-overlay" onClick={closeLightbox}>
-          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={closeLightbox}>×</button>
-            <img src={selectedImage} alt="Lightbox view" />
-          </div>
-        </div>
-      )}
+      <ImageLightbox
+        isOpen={lightbox.isOpen}
+        currentImage={lightbox.currentImage}
+        onClose={lightbox.close}
+        onNext={lightbox.next}
+        onPrevious={lightbox.previous}
+      />
 
     </main>
   );

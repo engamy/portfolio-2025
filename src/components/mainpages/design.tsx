@@ -1,150 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './design-style.css';
 import './home-style.css';
-import { usePageDarkMode } from '../../hooks/usePageDarkMode';
-import { useScrollDarkMode } from '../../hooks/useScrollDarkMode';
-import { getAssetPath } from '../../utils/assetUtils';
+import FeaturedCaseStudyCard from '../page-components/FeaturedCaseStudyCard';
+import { marshallsCaseStudy } from '../../data/caseStudies';
+import { usePageMode } from '../../hooks/usePageMode';
+import CollectionCard from '../page-components/CollectionCard';
+import { designCollections } from '../../data/collections';
+import PageHero from '../page-components/PageHero';
 
 export default function Design() {
-  // Set darkMode to true for the design page
-  usePageDarkMode(true);
+  usePageMode({ initial: true });
   
-  // Enable scroll-based dark mode for this page. The featured-work section
-  // is the first dark panel after the hero, so trigger on that.
-  useScrollDarkMode(false, '.design-featured', false);
 
   return (
     <main className="design-container">
-      <div
-        className="design-section-header"
-        style={{ backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg')})` }}
-      >
-        <div className="design-section-header-introtext">
-          <h1>Designer</h1>
-          <p>
-          Because design is in every aspect of our lives, I get to explore 
-          various fields and combine research and creativity in order to 
-          craft solutions that engage, inspire, and address complex challenges.
-          <br></br><br></br>
-          I've explored the intersection of design and innovation, spanning UI/UX, 
-          graphic design, and corporate branding, and I'm always eager to learn more!
-          </p>
-        </div>
-      </div>
+      <PageHero
+        variant="design"
+        backgroundImage="/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/header-1.jpg"
+        title="Designer"
+        intro={
+          <>
+            Because design is in every aspect of our lives, I get to explore
+            various fields and combine research and creativity in order to
+            craft solutions that engage, inspire, and address complex challenges.
+            <br></br><br></br>
+            I've explored the intersection of design and innovation, spanning UI/UX,
+            graphic design, and corporate branding, and I'm always eager to learn more!
+          </>
+        }
+      />
 
       <section className="home-featured design-featured">
         <div className="home-featured-header">
-          <h2>Featured Work</h2>
-          <p>Latest case study from my TJX/Marshalls graphic design co-op.</p>
+          <h2>Case Studies</h2>
         </div>
-        <Link to="/design-marshalls-casestudy" className="home-featured-card">
-          <div className="home-featured-image">
-            <img
-              src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_marshalls.jpg')}
-              alt="Designing the Trend Shop for Marshalls.com"
-            />
-          </div>
-          <div className="home-featured-info">
-            <p className="home-featured-eyebrow">Case Study</p>
-            <h3>Designing the Trend Shop for Marshalls.com</h3>
-            <p className="home-featured-dates">Graphic Designer, TJX · January–June 2025</p>
-            <div className="home-featured-tags">
-              <p>Brand Identity</p>
-              <p>Web Design</p>
-              <p>Typography</p>
-              <p>Design Systems</p>
-              <p>Print Design</p>
-              <p>Marketing</p>
-            </div>
-            <p className="home-featured-cta">Read the case study →</p>
-          </div>
-        </Link>
+        <FeaturedCaseStudyCard {...marshallsCaseStudy} />
       </section>
 
       <div className="design-collections">
         <h2>Collections</h2>
 
-        {/* CBA Collection: HIDDEN UNTIL COMPLETED */}
-        {/* <div className="design-collection">
-          <a href="" target="_blank">
-            <div className="design-collection-image">
-              <img src="/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_cba.jpg" alt="CBA Collection" />
-            </div>
-            <div className="design-collection-info">
-              <h4>Community Built Association</h4>
-              <p>Month 20XX</p>
-              <div className="design-collection-tags">
-                <p>Web Design</p>
-                <p>UI/UX</p>
-                <p>User Research</p>
-                <p>Prototyping</p>
-                <p>Wireframing</p>
-                <p>Responsive</p>
-              </div>
-            </div>
-          </a>
-        </div> */}
-
-        <div className="design-collection">
-          <Link to="/design-dishwasher">
-            <div className="design-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_iotDishwasher.png')} alt="IoT Dishwasher Collection" />
-            </div>
-            <div className="design-collection-info">
-              <h4>IoT Dishwasher</h4>
-              <p>September 2024</p>
-              <div className="design-collection-tags">
-                <p>Product Design</p>
-                <p>IoT</p>
-                <p>User Experience</p>
-                <p>Interface Design</p>
-                <p>Smart Home</p>
-                <p>Technology</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className="design-collection">
-          <Link to="/design-reading-redesign">
-            <div className="design-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnail_readingRedesign.jpg')} alt="Reading Redesign Collection" />
-            </div>
-            <div className="design-collection-info">
-              <h4>Reading Redesign</h4>
-              <p>November 2024</p>
-              <div className="design-collection-tags">
-                <p>UX Design</p>
-                <p>User Research</p>
-                <p>Information Architecture</p>
-                <p>Wireframing</p>
-                <p>Prototyping</p>
-                <p>Usability</p>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className="design-collection">
-          <Link to="/design-layouts">
-            <div className="design-collection-image">
-              <img src={getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/thumbnai_layoutDesign.png')} alt="Layout Design Collection" />
-            </div>
-            <div className="design-collection-info">
-              <h4>Layout Design</h4>
-              <p>March 2024 - June 2025</p>
-              <div className="design-collection-tags">
-                <p>Layout Design</p>
-                <p>Typography</p>
-                <p>Grid Systems</p>
-                <p>Visual Hierarchy</p>
-                <p>Composition</p>
-                <p>Print Design</p>
-              </div>
-            </div>
-          </Link>
-        </div>
+        {designCollections.map(collection => (
+          <CollectionCard key={collection.to} variant="design" {...collection} />
+        ))}
       </div>
     </main>
   );

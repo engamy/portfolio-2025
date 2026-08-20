@@ -2,7 +2,7 @@
     width: 100vw;
     margin: 0;
     padding: 0;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--font-display);
     line-height: 1;
 }
 
@@ -40,7 +40,7 @@
     font-style: italic;
     margin: 0;
     margin-bottom: 1vw;
-    color: #0024cc;
+    color: var(--blue);
 }
 
 .design-section-header .design-section-header-introtext p {
@@ -50,7 +50,7 @@
 
 /* Marshalls specific header colors */
 .design-section-header .design-section-header-introtext .marshalls-title {
-    color: #0024cc !important;
+    color: var(--blue) !important;
 }
 
 .design-section-header .design-section-header-introtext .marshalls-description {
@@ -58,11 +58,11 @@
 }
 
 .design-collections {
-    background-color: #101010;
+    background-color: var(--ink);
     margin: 0;
     padding: 0;
     line-height: 1;
-    color: #F0EDE6;
+    color: var(--cream);
     width: 100%;
 
     display: flex;
@@ -81,8 +81,8 @@
 }
 
 .design-intro {
-    font-size: 1.2vw;
-    color: #F0EDE6;
+    font-size: var(--text-body);
+    color: var(--cream);
     width: 80vw;
     line-height: 1.4;
     margin: 0;
@@ -92,92 +92,11 @@
 .design-collections h3 {
     font-size: 2vw;
     font-style: italic;
-    color: #F0EDE6;
+    color: var(--cream);
     width: 80vw;
     margin: 0;
     margin-top: 2vw;
 }
-
-.design-collection {
-    width: 25.3vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.design-collection a, .design-collection a:visited {
-    text-decoration: none;
-    color: #F0EDE6;
-}
-
-.design-collection-image {
-    width: 100%;
-    height: 25.3vw;
-    background-color: #F0EDE6;
-    margin-bottom: 2vw;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.design-collection-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.design-collection-image:hover {
-    transform: scale(1.05);
-    transition: all 0.2s ease;
-}
-
-.design-collection-image:hover img {
-    transform: scale(1.1);
-}
-
-.design-collection-info {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0px;
-    padding: 0;
-}
-
-.design-collection-info h4 {
-    font-size: 1.5vw;
-    margin: 0;
-}
-
-.design-collection-info p {
-    font-size: 1vw;
-}
-
-.design-collection-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5vw;
-}
-
-.design-collection-tags p {
-    background-color: #F0EDE6;
-    color: #101010;
-    padding: 0.5vw 1vw;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 0.75vw;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid #F0EDE6;
-    margin: 0;
-}
-
-.design-collection-tags p:hover {
-    background-color: #AE1D14;
-    color: #F0EDE6;
-    border-color: #AE1D14;
-}
-
 .pdf-container {
     width: 80vw;
     margin-top: 2vw;
@@ -235,81 +154,6 @@
         text-align: left;
         padding-left: 0;
     }
-
-    .design-collection {
-        width: 100% !important;
-        margin: 0 auto 4vw auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 0 !important;
-    }
-
-    .design-collection a {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        text-align: center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .design-collection-image {
-        height: 80vw !important;
-        width: 80vw !important;
-        margin: 0 auto 6vw auto !important;
-        border-radius: 15px !important;
-        display: block !important;
-        position: relative !important;
-        left: 33.33% !important;
-        transform: translateX(-50%) !important;
-        overflow: hidden !important;
-    }
-
-    .design-collection-image img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    .design-collection-info {
-        width: 100%;
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .design-collection-info h4 {
-        font-size: 5vw;
-        margin-bottom: 3vw;
-        margin-top: 2vw;
-        text-align: left;
-    }
-
-    .design-collection-info p {
-        font-size: 3.5vw;
-        margin-bottom: 4vw;
-        text-align: left;
-    }
-
-    .design-collection-tags {
-        gap: 2vw;
-        margin-top: 2vw;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .design-collection-tags p {
-        padding: 2vw 3vw;
-        border-radius: 15px;
-        font-size: 2.5vw;
-    }
-
     .pdf-container {
         width: 90vw;
         margin-top: 4vw;
@@ -328,18 +172,4 @@
 
     .design-collections h2 {
         font-size: 9vw;
-    }
-
-    .design-collection-info h4 {
-        font-size: 6vw;
-    }
-
-    .design-collection-info p {
-        font-size: 4vw;
-    }
-
-    .design-collection-tags p {
-        font-size: 3vw;
-        padding: 2.5vw 3.5vw;
-    }
-}
+    }}

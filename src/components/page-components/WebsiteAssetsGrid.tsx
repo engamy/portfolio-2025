@@ -1,66 +1,52 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ImageLightbox from './ImageLightbox';
 import './WebsiteAssetsGrid.css';
 import { getAssetPath } from '../../utils/assetUtils';
+import { useLightbox } from '../../hooks/useLightbox';
 
-interface WebsiteAsset {
-  id: number;
-  thumbnailImage: string;
-  lightboxImage: string;
-  title: string;
-  alt: string;
-}
+const SITE_ASSETS =
+  '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets';
+
+/**
+ * The two banners are sized against each other rather than laid out on a grid,
+ * so this keeps its own markup instead of using ImageGridLightbox. The
+ * modifier class drives that sizing.
+ */
+const websiteAssets = [
+  {
+    id: 1,
+    modifier: 'desktop-banner',
+    thumbnail: getAssetPath(`${SITE_ASSETS}/sitebanner_desktop_live.png`),
+    src: getAssetPath(`${SITE_ASSETS}/sitebanner_desktop.jpg`),
+    caption: 'Desktop Site Banner',
+    alt: 'Desktop site banner thumbnail'
+  },
+  {
+    id: 2,
+    modifier: 'mobile-banner',
+    thumbnail: getAssetPath(`${SITE_ASSETS}/sitebanner_mobile_live.jpg`),
+    src: getAssetPath(`${SITE_ASSETS}/sitebanner_mobile.jpg`),
+    caption: 'Mobile Site Banner',
+    alt: 'Mobile site banner thumbnail'
+  }
+];
 
 const WebsiteAssetsGrid: React.FC = () => {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<{ id: number; src: string; caption: string; alt: string } | null>(null);
-
-  // Define the website assets with their thumbnail and lightbox image pairs
-  const websiteAssets: WebsiteAsset[] = [
-    {
-      id: 1,
-      thumbnailImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop_live.png'),
-      lightboxImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_desktop.jpg'),
-      title: 'Desktop Site Banner',
-      alt: 'Desktop site banner thumbnail'
-    },
-    {
-      id: 2,
-      thumbnailImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile_live.jpg'),
-      lightboxImage: getAssetPath('/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets/sitebanner_mobile.jpg'),
-      title: 'Mobile Site Banner',
-      alt: 'Mobile site banner thumbnail'
-    }
-  ];
-
-  const handleImageClick = (asset: WebsiteAsset) => {
-    setCurrentImage({
-      id: asset.id,
-      src: asset.lightboxImage,
-      caption: asset.title,
-      alt: asset.alt
-    });
-    setIsLightboxOpen(true);
-  };
-
-  const handleCloseLightbox = () => {
-    setIsLightboxOpen(false);
-    setCurrentImage(null);
-  };
+  const lightbox = useLightbox(websiteAssets);
 
   return (
     <div className="website-assets-container">
       <div className="website-assets-grid">
-        {websiteAssets.map((asset) => (
+        {websiteAssets.map((asset, index) => (
           <div key={asset.id} className="website-asset-item">
-            <div 
+            <div
               className="website-asset-thumbnail-container"
-              onClick={() => handleImageClick(asset)}
+              {...lightbox.triggerProps(index, asset.caption)}
             >
-              <img 
-                src={asset.thumbnailImage} 
+              <img
+                src={asset.thumbnail}
                 alt={asset.alt}
-                className={`website-asset-thumbnail ${asset.id === 1 ? 'desktop-banner' : asset.id === 2 ? 'mobile-banner' : ''}`}
+                className={`website-asset-thumbnail ${asset.modifier}`}
               />
             </div>
           </div>
@@ -68,9 +54,11 @@ const WebsiteAssetsGrid: React.FC = () => {
       </div>
 
       <ImageLightbox
-        isOpen={isLightboxOpen}
-        currentImage={currentImage}
-        onClose={handleCloseLightbox}
+        isOpen={lightbox.isOpen}
+        currentImage={lightbox.currentImage}
+        onClose={lightbox.close}
+        onNext={lightbox.next}
+        onPrevious={lightbox.previous}
       />
     </div>
   );

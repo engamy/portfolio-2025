@@ -1,28 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useState } from 'react';
+import {
+  isAboveThreshold,
+  useScrollListener,
+} from './useScrollThreshold';
 
+/** True while the page is scrolled less than `thresholdVw` from the top. */
 export const useScrollVisibility = (thresholdVw: number = 35) => {
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const threshold = window.innerWidth * (thresholdVw / 100); // Convert vw to pixels
-      
-      // Hide element when scrolled past threshold, show when above threshold
-      setIsVisible(scrollY < threshold);
-    };
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
-    
-    // Initial call to set the correct state
-    handleScroll();
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+  const update = useCallback(() => {
+    setIsVisible(isAboveThreshold(thresholdVw));
   }, [thresholdVw]);
 
+  useScrollListener(update);
+
   return isVisible;
-}; 
+};

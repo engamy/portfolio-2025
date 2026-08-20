@@ -1,18 +1,18 @@
 /* Override header styles for dark theme */
 .design-section-header .design-section-header-introtext {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 .design-section-header {
-  background-color: #101010
+  background-color: var(--ink)
 }
 
 .design-section-header .design-section-header-introtext h1 {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 .design-section-header .design-section-header-introtext p {
-  color: #F0EDE6 !important;
+  color: var(--cream) !important;
 }
 
 /* Header content layout */
@@ -36,9 +36,9 @@
 
 .dishwasher-content {
   padding: 2rem 10vw;
-  background-color: #F0EDE6;
-  color: #101010;
-  font-family: "neue-haas-grotesk-display", sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
   line-height: 1;
 }
 
@@ -46,7 +46,7 @@
   font-size: 2.5vw;
   font-style: italic;
   margin-bottom: 1rem;
-  color: #101010;
+  color: var(--ink);
 }
 
 .dishwasher-content h3 {
@@ -54,7 +54,7 @@
   font-style: italic;
   margin-top: 2vw;
   margin-bottom: 0.5vw;
-  color: #101010;
+  color: var(--ink);
 }
 
 .dishwasher-content h4 {
@@ -62,7 +62,7 @@
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 1vw;
-  color: #101010;
+  color: var(--ink);
   opacity: 0.8;
 }
 
@@ -71,12 +71,12 @@
   font-weight: normal;
   margin-top: 0;
   margin-bottom: 1vw;
-  color: #101010;
+  color: var(--ink);
   opacity: 0.8;
 }
 
 .figma-link {
-  color: #101010;
+  color: var(--ink);
   text-decoration: none;
   transition: color 0.3s ease;
 }

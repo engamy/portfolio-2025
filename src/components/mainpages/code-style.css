@@ -1,8 +1,8 @@
 .code-container {
-    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-family: var(--font-display);
     margin: 0;
-    background-color: #101010;
-    color: #F0EDE6;
+    background-color: var(--ink);
+    color: var(--cream);
     width: 100%;
     overflow-x: hidden;
 }
@@ -116,17 +116,17 @@
 .project .project-title-time h3 {
     font-size: 1.5vw;
     margin: 0;
-    color: #F0EDE6;
+    color: var(--cream);
 }
 
 .project .project-title-time p{
-    font-size: 1vw;
+    font-size: var(--text-small);
     margin: 0;
     color: #878787;
 }
 
 .project .project-desc {
-    font-size: 1.2vw;
+    font-size: var(--text-body);
     margin: 0;
     line-height: 1.2em;
 }
@@ -142,7 +142,7 @@
 }
 
 .project-links a:hover {
-    color: #AE1D14;
+    color: var(--red);
 }
 
 .project-tags {
@@ -153,22 +153,22 @@
 }
 
 .project-tags a, .project-tags p {
-    background-color: #F0EDE6;
-    color: #101010;
+    background-color: var(--cream);
+    color: var(--ink);
     padding: 0.5vw 1vw;
     border-radius: 20px;
     text-decoration: none;
     font-size: 0.75vw;
     font-weight: 500;
     transition: all 0.2s ease;
-    border: 1px solid #F0EDE6;
+    border: 1px solid var(--cream);
     margin: 0;
 }
 
 .project-tags a:hover, .project-tags p:hover {
-    background-color: #AE1D14;
-    color: #F0EDE6;
-    border-color: #AE1D14;
+    background-color: var(--red);
+    color: var(--cream);
+    border-color: var(--red);
 }
 
 

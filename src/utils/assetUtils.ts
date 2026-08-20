@@ -4,19 +4,21 @@
  * @param path - The path to the asset relative to the public folder (e.g., '/pictures/...')
  * @returns S3 URL if using S3, or local path if not
  */
+// Resolved once at module load rather than per call, so the warning below
+// fires a single time instead of once per asset on the page.
+const envVarSet = process.env.REACT_APP_USE_S3_VIDEOS;
+const isProduction = process.env.NODE_ENV === 'production';
+const useS3ForAssets = envVarSet === 'true' || (isProduction && envVarSet !== 'false');
+const s3BucketUrl =
+  process.env.REACT_APP_S3_BUCKET_URL || 'https://portfolio2025-assets.s3.amazonaws.com';
+
+if (isProduction && !useS3ForAssets) {
+  console.warn(
+    'getAssetPath: S3 is disabled in production. Set REACT_APP_USE_S3_VIDEOS=true to enable.'
+  );
+}
+
 export const getAssetPath = (path: string): string => {
-  // Check if we should use S3 for ALL assets
-  // Default to true in production, or if REACT_APP_USE_S3_VIDEOS is explicitly set
-  const envVarSet = process.env.REACT_APP_USE_S3_VIDEOS;
-  const isProduction = process.env.NODE_ENV === 'production';
-  const useS3ForAssets = envVarSet === 'true' || (isProduction && envVarSet !== 'false');
-  const s3BucketUrl = process.env.REACT_APP_S3_BUCKET_URL || 'https://portfolio2025-assets.s3.amazonaws.com';
-  
-  // Log for debugging
-  if (isProduction && !useS3ForAssets) {
-    console.warn('getAssetPath: S3 is disabled in production. Set REACT_APP_USE_S3_VIDEOS=true to enable.');
-  }
-  
   // If using S3 for assets
   if (useS3ForAssets) {
     // Convert local path to S3 path
