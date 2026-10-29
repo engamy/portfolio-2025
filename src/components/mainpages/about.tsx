@@ -59,6 +59,17 @@ export default function About() {
 
             <div className="experience">
               <div className="experience-details">
+                <h3>Sandbox NU</h3>
+                <p>UX Designer for Sightline, a NASA-funded citizen science project</p>
+              </div>
+              <div className="experience-time-place">
+                <p>Boston, MA</p>
+                <p>September 2026 - December 2026</p>
+              </div>
+            </div>
+
+            <div className="experience">
+              <div className="experience-details">
                 <h3>NExT Consulting</h3>
                 <p>Software Engineer & Product Designer</p>
               </div>
