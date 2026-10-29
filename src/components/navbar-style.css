@@ -18,13 +18,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 3.25rem;
-  padding: 0.5rem var(--pad);
+  min-height: 2.5rem;
+  padding: 0.2rem var(--pad);
 }
 
 .nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.95rem; }
-.nav a { text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
-.nav a:hover, .nav a[aria-current="page"] { border-bottom-color: currentColor; }
+.nav a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: transform 0.2s ease;
+}
+.nav a:hover { transform: scale(1.14); }
+/* The current page keeps the underline: it is a state, not a hover cue. */
+.nav a[aria-current="page"] { border-bottom-color: currentColor; }
 .nav a:focus-visible,
 .brand:focus-visible,
 .menu-btn:focus-visible,
