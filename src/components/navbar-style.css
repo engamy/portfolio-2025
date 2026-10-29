@@ -27,12 +27,9 @@
   display: inline-block;
   text-decoration: none;
   padding: 0.25rem 0;
-  border-bottom: 2px solid transparent;
   transition: transform 0.2s ease;
 }
 .nav a:hover { transform: scale(1.14); }
-/* The current page keeps the underline: it is a state, not a hover cue. */
-.nav a[aria-current="page"] { border-bottom-color: currentColor; }
 .nav a:focus-visible,
 .brand:focus-visible,
 .menu-btn:focus-visible,
