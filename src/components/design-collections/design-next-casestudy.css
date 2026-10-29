@@ -2,10 +2,10 @@
 
 .next-hero {
   position: relative;
-  /* Not full-bleed: the hero introduces the page rather than filling the
-     first screen, so the opening section is visible without scrolling. */
-  height: 62vh;
-  min-height: 26rem;
+  height: 100vh;
+  /* The snapshot cards sit inside the hero, so it grows past the viewport
+     rather than clipping them on short screens. */
+  min-height: max(100vh, 46rem);
   background-color: var(--ink);
   display: flex;
   align-items: flex-end;
@@ -60,9 +60,46 @@
   display: flex;
   flex-direction: column;
   gap: 1.5vw;
-  max-width: 70vw;
+  max-width: 80vw;
 }
 
+/* Impact Snapshot, sitting on the hero image. The cards are restyled for a
+   dark backdrop: the page versions are ink-on-cream and would be unreadable
+   here. */
+.next-snapshot {
+  margin-top: 1vw;
+}
+
+.next-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--cream);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.next-hero .next-bento-row {
+  gap: 1.2vw;
+}
+
+.next-hero .next-bento-card {
+  background-color: rgba(16, 16, 16, 0.55);
+  border-color: rgba(240, 237, 230, 0.45);
+  padding: 1.3vw 1.4vw;
+  /* Keeps the text legible over the brighter parts of the photo. */
+  backdrop-filter: blur(2px);
+}
+
+.next-hero .next-bento-card h3 {
+  color: var(--cream);
+  font-size: 1.15vw;
+  margin: 0 0 0.5vw 0;
+}
+
+.next-hero .next-bento-card p {
+  color: var(--cream);
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
 
 .next-title {
   font-size: 4vw !important;
@@ -125,73 +162,6 @@
   display: flow-root;
 }
 
-/* ---------- "Read more" expander button ---------- */
-
-.next-readmore-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 3vw;
-}
-
-.next-readmore-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6vw;
-  background-color: var(--green);
-  border: 1px solid var(--green);
-  color: var(--cream);
-  padding: 0.9vw 2.4vw;
-  border-radius: 999px;
-  font-size: var(--text-meta);
-  font-family: inherit;
-  line-height: 1;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.next-readmore-btn:hover {
-  background-color: transparent;
-  color: var(--green);
-  transform: translateY(2px);
-}
-
-.next-readmore-arrow {
-  font-size: 1.25vw;
-  line-height: 1;
-}
-
-/* Context section — image and text in equal-height columns. */
-.next-section.next-context-section {
-  display: grid;
-  grid-template-columns: 22vw 1fr;
-  gap: 3vw;
-  align-items: stretch;
-}
-
-/* Two prose sections shown side by side (e.g., Problem + Goals). */
-.next-section.next-twocol-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4vw;
-  align-items: start;
-}
-
-/* Three prose subsections shown side by side (e.g., Context). */
-.next-context-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3vw;
-  align-items: start;
-}
-
-/* Solution section — prose on the left, vertical before/after on the right. */
-.next-section.next-solution-section {
-  display: grid;
-  grid-template-columns: 28vw 1fr;
-  gap: 3vw;
-  align-items: center;
-}
-
 .next-content h2 {
   font-size: 2.8vw;
   font-style: italic;
@@ -204,21 +174,6 @@
   font-style: italic;
   margin: 0 0 1.5vw 0;
   color: var(--green);
-}
-
-/* Final design subheading starts on a fresh row beneath any
-   preceding float (e.g., the lifecycle figure in Feature 1). */
-.next-final-design {
-  clear: both;
-  margin-top: 2vw !important;
-}
-
-/* Used on Feature 1's "Final design" h3 when the resdetails figure
-   floats from within the prose above — we want the h3 to wrap
-   beside the float instead of clearing below it. */
-.next-final-design--no-clear {
-  clear: none !important;
-  margin-top: 2vw !important;
 }
 
 .next-prose p {
@@ -272,112 +227,6 @@
 
 /* Density layout: content on the left (header + prose),
    lifecycle image on the right. Lives inside .next-subsection. */
-/* Reservations intro: the "Why" and "central decision" blocks on the left,
-   the lifecycle diagram alongside them on the right. */
-.next-reservations-intro {
-  display: grid;
-  grid-template-columns: 50vw 1fr;
-  gap: 2.5vw;
-  align-items: start;
-}
-
-.next-reservations-intro + .next-subsection {
-  margin-top: 5vw;
-}
-
-/* The lifecycle diagram this used to sit beside now lives up in the intro
-   grid, so the write-up takes the full content width and splits into two
-   columns instead (see .next-prose--flowcols below). */
-.next-density-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5vw;
-}
-
-/* Process and Key Insights: text at the width it had as one column, with the
-   industry reference screens in the space beside it. */
-.next-section.next-process-section {
-  display: grid;
-  /* Both columns sized explicitly so the leftover width sits between them
-     rather than stretching the reference column. */
-  grid-template-columns: 38vw 32vw;
-  gap: 4vw;
-  justify-content: space-between;
-  align-items: start;
-}
-
-.next-process-section .next-prose {
-  margin-bottom: 1.5vw;
-}
-
-.next-reference-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 2vw;
-  /* A little narrower than the body column, so the reference screens read as
-     supporting material beside the text. */
-  max-width: 32vw;
-}
-
-.next-reference-figure {
-  margin: 0;
-}
-
-.next-reference-figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.next-reference-figure figcaption {
-  font-size: var(--text-caption);
-  line-height: 1.5;
-  text-align: center;
-  margin-top: 0.8vw;
-  opacity: 0.7;
-  font-style: italic;
-  color: var(--ink);
-}
-
-.next-learnings {
-  list-style: decimal;
-  margin: 0;
-  padding-left: 1.6vw;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5vw;
-}
-
-.next-learnings li {
-  font-size: var(--text-body);
-  line-height: 1.55;
-  color: var(--ink);
-}
-
-.next-learnings li::marker {
-  color: var(--ink);
-}
-
-/* The opening sentence of each item sits on its own line. */
-.next-learnings li span {
-  display: block;
-}
-
-/* 5. Text that flows across two columns instead of one paragraph per column. */
-.next-prose--flowcols {
-  column-count: 2;
-  column-gap: 3vw;
-  /* A set height makes the text wrap from the first column into the second
-     instead of balancing into two separate-looking blocks. */
-  height: 10vw;
-}
-
-.next-prose--flowcols p {
-  break-inside: auto;
-}
-
 /* ---------- Inline links in body copy ---------- */
 
 .next-prose a,
@@ -390,55 +239,6 @@
 
 .next-prose a:hover {
   opacity: 0.7;
-}
-
-/* ---------- Goals: numbered list with circled numerals ---------- */
-
-.next-goals {
-  list-style: none;
-  counter-reset: next-goal;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5vw;
-}
-
-.next-goals li {
-  counter-increment: next-goal;
-  position: relative;
-  padding-left: 3.6vw;
-  font-size: var(--text-body);
-  line-height: 1.55;
-  color: var(--ink);
-}
-
-/* A line of space either side of the first goal, which frames the two below it. */
-.next-goals li:first-child {
-  margin-top: calc(var(--text-body) * 1.55);
-  margin-bottom: calc(var(--text-body) * 1.55);
-}
-
-.next-goals li::before {
-  content: counter(next-goal);
-  position: absolute;
-  left: 0;
-  top: 0;
-  /* Exactly one line tall, so a one-line goal is the same height as its
-     circle. Any taller and the circle spills into the gap below; any shorter
-     and single-line items sit in a taller box than they need. */
-  width: calc(var(--text-body) * 1.55);
-  height: calc(var(--text-body) * 1.55);
-  box-sizing: border-box;
-  border: 1px solid var(--green);
-  border-radius: 50%;
-  color: var(--green);
-  font-size: 1.15vw;
-  font-weight: 600;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ---------- Design 1 / Design 2 as subsections of Solution ---------- */
@@ -458,12 +258,6 @@
   margin: 0 0 0.5vw 0;
   color: var(--green);
   font-weight: 500;
-}
-
-/* ---------- Half-width subsections (the two "Why" blocks) ---------- */
-
-.next-subsection--half {
-  max-width: 45vw;
 }
 
 /* ---------- Bento cards (Quick Summary: PSR row + Impact) ---------- */
@@ -512,31 +306,6 @@
   color: var(--ink);
 }
 
-/* Impact-specific: stat + substat sit on the same baseline. */
-.next-bento-stat-header {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.8vw;
-  margin-bottom: 1vw;
-}
-
-.next-bento-stat {
-  font-size: 4.2vw;
-  line-height: 1;
-  font-style: italic;
-  color: var(--green);
-  font-weight: 500;
-}
-
-.next-bento-substat {
-  font-size: 1.2vw;
-  font-style: italic;
-  color: var(--green);
-  font-weight: 500;
-  line-height: 1.2;
-}
-
 /* Spacing between a bento row and surrounding prose within a section. */
 .next-prose + .next-bento-row {
   margin-top: 2vw;
@@ -546,161 +315,9 @@
   margin-top: 2vw;
 }
 
-/* ---------- Comparison row (e.g., Item-level vs Part-level) ---------- */
-
-.next-comparison-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5vw;
-  margin-top: 1.5vw;
-}
-
-.next-comparison-card {
-  background-color: transparent;
-  border-color: rgba(2, 90, 68, 0.4);
-}
-
-.next-content .next-comparison-card h5 {
-  font-size: 1.5vw;
-  margin-bottom: 0.5vw;
-}
-
-.next-comparison-quote {
-  font-size: var(--text-meta) !important;
-  font-style: italic;
-  /* Lighter than the heading green so the quote reads as supporting text. */
-  color: rgba(2, 90, 68, 0.62) !important;
-  margin: 0 0 1vw 0 !important;
-  line-height: 1.4 !important;
-}
-
-/* The display italic sets "lo" too tightly in words like "flour". */
-.next-kern {
-  letter-spacing: 0.03em;
-}
-
-/* ---------- Density principle visuals (placeholder vs lifecycle) ---------- */
-
-.next-density-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2vw;
-  align-items: start;
-  margin-top: 1.5vw;
-}
-
-.next-density-figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.next-density-figure img {
-  width: 100%;
-  max-width: none;
-  max-height: none;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-.next-density-figure figcaption {
-  font-size: var(--text-caption);
-  line-height: 1.5;
-  text-align: center;
-  margin-top: 1vw;
-  opacity: 0.7;
-  font-style: italic;
-  color: var(--ink);
-}
-
-.next-placeholder--density {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-}
-
-/* Reservation line lifecycle figure — fills its grid cell on the
-   right of the density subsection (desktop). */
-.next-density-lifecycle {
-  margin: 0;
-}
-
-.next-density-lifecycle img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
 /* ---------- Before / After comparison (Harbor v1.0 → v2.0) ---------- */
 
 /* Stacked vertically: v1.0 → arrow (down) → v2.0 */
-/* Desktop: v1.0 -> v2.0 reads across, on the same line as the Solution text.
-   The mobile block below returns it to a vertical stack. */
-.next-beforeafter {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.2vw;
-}
-
-.next-prose + .next-beforeafter {
-  margin-top: 2vw;
-}
-
-.next-beforeafter + .next-prose {
-  margin-top: 2vw;
-}
-
-.next-beforeafter-box {
-  background-color: transparent;
-  border: 1px solid rgba(2, 90, 68, 0.4);
-  flex: 1;
-  min-width: 0;
-  box-sizing: border-box;
-  align-self: stretch;
-}
-
-.next-content .next-beforeafter-box h3 {
-  font-size: 1.8vw;
-  margin: 0 0 1.2vw 0;
-  color: var(--green);
-  font-style: italic;
-}
-
-.next-beforeafter-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6vw;
-}
-
-.next-beforeafter-box li {
-  font-size: var(--text-meta);
-  line-height: 1.45;
-  color: var(--ink);
-  padding-left: 1.2vw;
-  position: relative;
-}
-
-.next-beforeafter-box li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--green);
-  font-weight: 700;
-}
-
-.next-beforeafter-arrow {
-  font-size: 2.2vw;
-  color: var(--green);
-  font-style: italic;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
 /* ---------- Placeholder image (stand-in for unshot visuals) ---------- */
 
 .next-placeholder {
@@ -718,54 +335,9 @@
   box-sizing: border-box;
 }
 
-.next-placeholder--portrait {
-  width: 22vw;
-  height: 30vw;
-}
-
 .next-placeholder--landscape {
   width: 40vw;
   height: 24vw;
-}
-
-/* Context variant — fills its grid cell so the placeholder
-   matches the text column's height. */
-.next-placeholder--context {
-  width: 100%;
-  height: 100%;
-}
-
-/* Float margins win over the placeholder's own (none) when floated. */
-.next-placeholder.next-float-left {
-  margin: 0.3vw 3vw 3vw 0;
-}
-
-.next-placeholder.next-float-right {
-  margin: 0.3vw 0 3vw 3vw;
-}
-
-/* ---------- Float utilities (text wraps around image) ---------- */
-
-.next-float-left {
-  float: left;
-  margin: 0.3vw 3vw 3vw 0;
-  shape-outside: margin-box;
-}
-
-.next-float-right {
-  float: right;
-  margin: 0.3vw 0 3vw 3vw;
-  shape-outside: margin-box;
-}
-
-/* Chained selectors so float margins win over the
-   `.next-figure { margin: 0 }` reset below. */
-.next-figure.next-float-left {
-  margin: 0.3vw 3vw 3vw 0;
-}
-
-.next-figure.next-float-right {
-  margin: 0.3vw 0 3vw 3vw;
 }
 
 /* ---------- Figures ---------- */
@@ -799,31 +371,6 @@
   object-fit: contain;
 }
 
-.next-figure--portrait img {
-  width: auto;
-  max-width: 32vw;
-  max-height: 65vh;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Smaller variant used when text wraps around the figure */
-.next-figure--thumb.next-figure--landscape img {
-  max-width: 40vw;
-}
-
-.next-figure--thumb.next-figure--portrait img {
-  max-width: 20vw;
-  max-height: 60vh;
-}
-
-/* Extra-large variant used when the image should cut through
-   an entire section (e.g., the Material Planner in Feature 2). */
-.next-figure--xl.next-figure--portrait img {
-  max-width: 35vw;
-  max-height: none;
-}
-
 /* Non-clickable variant (e.g., team photo at the end) */
 .next-figure--static {
   cursor: default;
@@ -833,85 +380,9 @@
   transform: none;
 }
 
-/* Mobile-only figures (placed below Final Design in DOM); hidden on desktop. */
-.next-figure--mobile-only {
-  display: none;
-}
-
 /* Team photo (floated, non-clickable) — 50vw on desktop */
 .next-figure--static.next-figure--landscape img {
   max-width: 50vw;
-}
-
-/* Team photo placed at the bottom of the case study — centered, with caption */
-.next-teamphoto-section {
-  display: flex;
-  justify-content: center;
-}
-
-.next-teamphoto {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.next-teamphoto img {
-  display: block;
-  width: 100%;
-  max-width: 55vw;
-  height: auto;
-  border-radius: 12px;
-}
-
-.next-teamphoto figcaption {
-  font-size: var(--text-caption);
-  text-align: center;
-  margin-top: 0.8vw;
-  opacity: 0.7;
-  font-style: italic;
-  color: var(--ink);
-}
-
-/* ---------- Logos (Quick Summary intro, side-by-side row) ---------- */
-
-.next-logos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1.5vw;
-  width: 25.5vw;
-}
-
-/* Two-column layout pairing the logo row with the intro prose,
-   vertically centered against the text + footnote on the right. */
-.next-summary-intro {
-  display: grid;
-  grid-template-columns: 25.5vw 1fr;
-  gap: 3vw;
-  align-items: center;
-}
-
-/* Spacing between the intro block and the bento row that follows. */
-.next-summary-intro + .next-subsection {
-  margin-top: 2.5vw;
-}
-
-.next-logo {
-  display: block;
-  object-fit: contain;
-}
-
-.next-logo--next {
-  width: 12vw;
-  height: auto;
-  border-radius: 6px;
-}
-
-.next-logo--via {
-  width: 12vw;
-  height: auto;
 }
 
 /* ---------- Mobile ---------- */
@@ -919,12 +390,12 @@
 @media (max-width: 768px) {
   .next-hero {
     height: auto;
-    min-height: 62vh;
+    min-height: 100vh;
     background-position: center;
   }
 
   .next-hero-overlay {
-    padding: 14vh 5vw 12vw 5vw;
+    padding: 18vh 5vw 12vw 5vw;
     box-sizing: border-box;
   }
 
@@ -933,6 +404,29 @@
     max-width: 100%;
   }
 
+  .next-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .next-hero .next-bento-row,
+  .next-hero .next-bento-row--two {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .next-hero .next-bento-card {
+    padding: 5vw 5vw;
+  }
+
+  .next-hero .next-bento-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .next-hero .next-bento-card p {
+    font-size: 3.8vw;
+  }
 
   .next-title {
     font-size: 9vw !important;
@@ -964,20 +458,6 @@
     gap: 12vw;
   }
 
-  .next-readmore-row {
-    margin-top: 6vw;
-  }
-
-  .next-readmore-btn {
-    font-size: 3.5vw;
-    padding: 3vw 6vw;
-    gap: 2vw;
-  }
-
-  .next-readmore-arrow {
-    font-size: 3.8vw;
-  }
-
   .next-content h2 {
     font-size: 7vw;
     margin-bottom: 4vw;
@@ -986,10 +466,6 @@
   .next-content h3 {
     font-size: 5.5vw;
     margin-bottom: 3vw;
-  }
-
-  .next-final-design {
-    margin-top: 6vw !important;
   }
 
   .next-prose p {
@@ -1029,27 +505,9 @@
     font-size: 3.6vw;
   }
 
-  .next-bento-stat-header {
-    gap: 3vw;
-    margin-bottom: 3vw;
-  }
-
-  .next-bento-stat {
-    font-size: 13vw;
-  }
-
-  .next-bento-substat {
-    font-size: 4vw;
-  }
-
   .next-placeholder {
     font-size: 3.4vw;
     padding: 5vw;
-  }
-
-  .next-placeholder--portrait {
-    width: 100%;
-    height: 60vw;
   }
 
   .next-placeholder--landscape {
@@ -1057,49 +515,12 @@
     height: 50vw;
   }
 
-  .next-placeholder--context {
-    width: 100%;
-    height: 60vw;
-  }
-
-  .next-section.next-context-section {
-    grid-template-columns: 1fr;
-    gap: 5vw;
-  }
-
   .next-prose + .next-bento-row,
-  .next-bento-row + .next-prose {
+.next-bento-row + .next-prose {
     margin-top: 5vw;
   }
 
-  .next-placeholder.next-float-left,
-  .next-placeholder.next-float-right {
-    float: none;
-    margin: 0 0 4vw 0;
-  }
-
-  /* Floats stack: figure becomes a normal block above the prose */
-  .next-float-left,
-  .next-float-right {
-    float: none;
-    margin: 0 0 4vw 0;
-  }
-
-  /* On mobile, the desktop-only floated figures are hidden and the
-     mobile-only duplicates render below Final Design instead. */
-  .next-figure--desktop-only {
-    display: none;
-  }
-
-  .next-figure--mobile-only {
-    display: block;
-    margin: 4vw 0 0 0;
-  }
-
-  .next-figure--landscape img,
-  .next-figure--portrait img,
-  .next-figure--thumb.next-figure--landscape img,
-  .next-figure--thumb.next-figure--portrait img {
+  .next-figure--landscape img {
     width: 100%;
     max-width: 100%;
     max-height: none;
@@ -1107,92 +528,6 @@
 
   .next-figure--static.next-figure--landscape img {
     max-width: 100%;
-  }
-
-  .next-teamphoto img {
-    max-width: 100%;
-  }
-
-
-  /* Logos go side-by-side on mobile to save vertical space */
-  .next-logos {
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    gap: 6vw;
-  }
-
-  .next-summary-intro {
-    grid-template-columns: 1fr;
-    gap: 5vw;
-  }
-
-  .next-summary-intro + .next-subsection {
-    margin-top: 7vw;
-  }
-
-  .next-section.next-twocol-section {
-    grid-template-columns: 1fr;
-    gap: 10vw;
-  }
-
-  .next-context-grid {
-    grid-template-columns: 1fr;
-    gap: 8vw;
-  }
-
-  .next-section.next-solution-section {
-    grid-template-columns: 1fr;
-    gap: 6vw;
-  }
-
-  .next-section.next-process-section {
-    grid-template-columns: 1fr;
-    gap: 8vw;
-  }
-
-  .next-reference-stack {
-    gap: 6vw;
-    /* The desktop cap would leave these at a third of the screen width. */
-    max-width: 100%;
-    align-items: center;
-  }
-
-  .next-learnings {
-    gap: 4vw;
-    padding-left: 5vw;
-  }
-
-  .next-learnings li {
-    font-size: 3.8vw;
-  }
-
-  .next-prose--flowcols {
-    column-count: 1;
-    height: auto;
-  }
-
-  .next-reservations-intro {
-    grid-template-columns: 1fr;
-    gap: 6vw;
-  }
-
-  .next-subsection--half {
-    max-width: 100%;
-  }
-
-  .next-goals {
-    gap: 4vw;
-  }
-
-  .next-goals li {
-    font-size: 3.8vw;
-    padding-left: 9vw;
-  }
-
-  .next-goals li::before {
-    font-size: 3.6vw;
   }
 
   .next-content h4 {
@@ -1205,30 +540,9 @@
     margin-bottom: 2vw;
   }
 
-  .next-comparison-row {
-    grid-template-columns: 1fr;
-    gap: 4vw;
-  }
-
-  .next-content .next-comparison-card h5 {
-    font-size: 5vw;
-    margin-bottom: 2vw;
-  }
-
-  .next-comparison-quote {
-    font-size: 3.4vw !important;
-    margin-bottom: 3vw !important;
-  }
-
-  .next-density-comparison {
-    grid-template-columns: 1fr;
-    gap: 6vw;
-  }
-
   .next-bento-row--two {
     grid-template-columns: 1fr;
   }
-
 
   /* Decision/Tradeoffs subsection collapses to one column. */
   .next-subsection.next-twocol-subsection {
@@ -1236,47 +550,7 @@
     gap: 7vw;
   }
 
-  .next-beforeafter {
-    flex-direction: column;
-    gap: 3vw;
   }
-
-  .next-prose + .next-beforeafter,
-  .next-beforeafter + .next-prose {
-    margin-top: 5vw;
-  }
-
-  .next-beforeafter-box {
-    max-width: 100%;
-  }
-
-  .next-beforeafter-arrow {
-    font-size: 10vw;
-    transform: rotate(90deg);
-  }
-
-  .next-content .next-beforeafter-box h3 {
-    font-size: 5.5vw;
-    margin-bottom: 3vw;
-  }
-
-  .next-beforeafter-box ul {
-    gap: 2vw;
-  }
-
-  .next-beforeafter-box li {
-    font-size: 3.6vw;
-    padding-left: 3.5vw;
-  }
-
-  .next-logo--next {
-    width: 28vw;
-  }
-
-  .next-logo--via {
-    width: 28vw;
-  }
-}
 
 @media (max-width: 480px) {
   .next-title {

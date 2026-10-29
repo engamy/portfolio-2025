@@ -22,6 +22,8 @@ interface CaseStudyHeroProps {
    * use different treatments by design.
    */
   backgroundMode: 'image' | 'css';
+  /** Extra content rendered inside the hero, under the note. */
+  children?: React.ReactNode;
 }
 
 /**
@@ -38,7 +40,8 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
   note,
   meta,
   backgroundImage,
-  backgroundMode
+  backgroundMode,
+  children
 }) => {
   const resolved = getAssetPath(backgroundImage);
 
@@ -73,6 +76,7 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
             </div>
           )}
           {note && <p className={`${variant}-hero-note`}>{note}</p>}
+          {children}
         </div>
       </div>
     </div>

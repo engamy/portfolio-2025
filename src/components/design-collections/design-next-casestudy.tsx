@@ -36,14 +36,9 @@ export default function DesignNextCasestudy() {
         backgroundImage={`${ASSET_BASE}/via_hero.jpg`}
         title="Via Separations: Internal Operations & Warehouse/Inventory Management System"
         note="Via's product is a specialized industrial component under NDA, so the screenshots in this case study use a three-layer cake and its ingredients as a stand-in. The structure on screen is real, with different names on the data."
-      />
-
-      <div className="next-content">
-
-        {/* Impact Snapshot */}
-        <section className="next-section">
-          <h2>Impact Snapshot</h2>
-
+      >
+        <div className="next-snapshot">
+          <h2 className="next-snapshot-title">Impact Snapshot</h2>
           <div className="next-bento-row next-bento-row--outline next-bento-row--two">
             <div className="next-bento-card">
               <h3>Role</h3>
@@ -75,7 +70,10 @@ export default function DesignNextCasestudy() {
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </CaseStudyHero>
+
+      <div className="next-content">
 
         {/* 1. Context & Problem Framing */}
         <section className="next-section">
