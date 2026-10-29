@@ -1,9 +1,9 @@
 .about-container {
-    /* The background is 1920x4309, so at full width it is 224.427vw tall.
+    /* The background is 1920x4600, so at full width it is 239.583vw tall.
        Matching that exactly means the page ends where the image does: no strip
        of bare background below it, and no part of the image cut off. Keep this
        in step with the image if it is ever re-exported. */
-    height: 224.427vw;
+    height: 239.583vw;
     background-size: 100% auto;
     background-position: top center;
     background-repeat: no-repeat;
