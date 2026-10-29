@@ -1,9 +1,10 @@
 .about-container {
-    /* The background is 1920x4600, so at full width it is 239.583vw tall.
-       Matching that exactly means the page ends where the image does: no strip
-       of bare background below it, and no part of the image cut off. Keep this
-       in step with the image if it is ever re-exported. */
-    height: 239.583vw;
+    /* The background is 1920x4600 (239.583vw at full width), but its artwork
+       stops at row 4308 and the last 292px are blank cream. Ending the section
+       at 224.427vw trims that tail without clipping the seal, and the cut is
+       invisible because the image's cream is the same as the page background.
+       Recheck where the artwork ends if the image is re-exported. */
+    height: 224.427vw;
     background-size: 100% auto;
     background-position: top center;
     background-repeat: no-repeat;
