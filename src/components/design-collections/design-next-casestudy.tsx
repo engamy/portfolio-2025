@@ -48,7 +48,7 @@ export default function DesignNextCasestudy() {
         backgroundImage={`${ASSET_BASE}/via_hero.jpg`}
         title="Harbor Warehouse Management System v2.0"
         subtitle="Designing as an engineer, for engineers"
-        note="Via's product is a specialized industrial component under NDA, so the screenshots in this case study use a three-layer cake and its ingredients as a stand-in. The structure on screen is real; only the names changed."
+        note="Via's product is a specialized industrial component under NDA, so the screenshots in this case study use a three-layer cake and its ingredients as a stand-in. The structure on screen is real, with different names on the data."
         meta={[
           {
             label: 'Role',
@@ -106,7 +106,7 @@ export default function DesignNextCasestudy() {
               <div className="next-bento-card">
                 <h3>Solution</h3>
                 <p>
-                  One system in place of the scatter: a queryable product structure, a
+                  One system covering all of it: a queryable product structure, a
                   planner that calculates what to order and when, a reservation system
                   tracking who has claimed what, and a genealogy record tracing finished
                   products back to their raw material lots.
@@ -116,8 +116,8 @@ export default function DesignNextCasestudy() {
                 <h3>Result</h3>
                 <p>
                   Material planning, demand reservations, and as-built traceability
-                  did not exist in Harbor before. They now live in one system instead of
-                  a chain of disconnected workbooks and verbal handoffs.
+                  did not exist in Harbor before. All three now run in Harbor, where
+                  they used to run through disconnected workbooks and verbal handoffs.
                 </p>
               </div>
             </div>
@@ -205,8 +205,8 @@ export default function DesignNextCasestudy() {
                 <p>
                   Via was scaling from qualification batches of 20 to 40 modules into
                   commercial orders of hundreds or thousands, projected to reach tens of
-                  thousands across multiple customers. The spreadsheets behind the
-                  smaller scale were about to meet a volume they were never built for.
+                  thousands across multiple customers. The spreadsheets that handled the
+                  smaller batches were not going to hold at that volume.
                 </p>
               </div>
             </div>
@@ -232,18 +232,20 @@ export default function DesignNextCasestudy() {
             <h2>Problem</h2>
             <div className="next-prose">
               <p>
-                Planning ran through manually maintained spreadsheets. Demand arrived
-                through several channels and was captured in conversation. The genealogy
-                of a finished product, meaning the raw material lots inside it, was
-                recorded nowhere. The operation worked because a few people carried the
-                lead times, batch constraints, and supplier quirks in their heads.
+                Planning ran through manually maintained spreadsheets, and demand
+                arrived through several channels and was captured in conversation.
+                Nothing recorded the genealogy of a finished product, meaning the raw
+                material lots inside it. The operation worked because a few people
+                carried the lead times, batch constraints, and supplier quirks in their
+                heads.
               </p>
               <p>
-                The cost was not speed. The spreadsheets calculated Via's needs
-                perfectly well. The cost was that the pattern multiplied: every new
-                supplier meant another copy of a calculator, every production run
-                another set of references. Manageable at Via's scale, the bottleneck at
-                its forecasted one.
+                The spreadsheets calculated Via's needs accurately. The problem was
+                that they multiplied: every new supplier meant another copy of a
+                calculator, and every production run added another set of references
+                that someone had to keep current. That was workable at the volume Via
+                was running, and it would not have held at the volume Via was
+                forecasting.
               </p>
             </div>
           </div>
@@ -254,8 +256,8 @@ export default function DesignNextCasestudy() {
                 Build around the workflow Via already had.
               </li>
               <li>
-                Move the informal process into software so it survives growth, with its
-                informality intact.
+                Move the informal process into software without making it more rigid
+                than the people using it needed.
               </li>
               <li>
                 Replace the compounding spreadsheet pattern with one system, so the next
@@ -284,8 +286,8 @@ export default function DesignNextCasestudy() {
               <span>The warehouse already had an informal reservation system.</span>
               To make sure inventory would be there for a specific production run,
               people set parts aside and kept track of it themselves, and nobody else
-              could see what had been claimed. A reservation feature would formalize a
-              practice Via already had.
+              could see what had been claimed. A reservation feature meant giving that
+              habit a place in the system where the rest of the team could see it.
             </li>
             <li>
               <span>Planning ran on conversation and memory.</span>
@@ -383,7 +385,8 @@ export default function DesignNextCasestudy() {
                     A reservation is a claim on inventory for a future need. The supply
                     chain lead needed to set parts aside for an upcoming build and see what
                     had been promised against what was actually in the warehouse. The
-                    informal version could not survive more customers and concurrent runs.
+                    informal version already had gaps, and more customers and
+                    concurrent runs would widen them.
                   </p>
                 </div>
               </div>
@@ -409,10 +412,10 @@ export default function DesignNextCasestudy() {
                       <span className="next-kern">flour</span> on this exact shelf"
                     </p>
                     <p>
-                      Feels safer, because a specific carton seems guaranteed. The cost is
-                      forcing the supply chain lead to know which items will exist months
-                      before they arrive, even when it makes no difference which carton
-                      she ends up pulling.
+                      This feels safer, since a named carton seems guaranteed. It also
+                      requires the supply chain lead to know which items will exist
+                      months before they arrive, even when it makes no difference which
+                      carton she ends up pulling.
                     </p>
                   </div>
                   <div className="next-bento-card next-comparison-card">
@@ -422,8 +425,8 @@ export default function DesignNextCasestudy() {
                       no matter which"
                     </p>
                     <p>
-                      Asks nothing of the planner except a part and a quantity, at the cost
-                      of no hard guarantee that any specific item is set aside.
+                      This asks the planner for a part and a quantity, nothing more.
+                      In exchange, no specific item is actually held for anyone.
                     </p>
                   </div>
                 </div>
@@ -451,8 +454,8 @@ export default function DesignNextCasestudy() {
                 We went with part-level. Asking the supply chain lead to reserve a
                 particular item on a particular shelf half a year out would have created
                 friction at the moment we were trying to get her into the system at all,
-                and every item of a given part was interchangeable to Via anyway. What
-                she needed to record was an amount.
+                and every item of a given part was interchangeable to Via anyway. She
+                needed to record an amount, so that is what we asked her for.
               </p>
               <p>
                 While part-level reservations created less friction, the consequence is
@@ -476,13 +479,13 @@ export default function DesignNextCasestudy() {
                 <p>
                   A reservation line had to show its place in the lifecycle at a
                   glance, which meant three quantities: Needed, Reserved, and
-                  Fulfilled. Three numbers per part, dozens of parts per reservation.
-                  My instinct as a graphic designer was that a screen with less data is
-                  a better screen, and I had to unlearn that here. The sparser version
-                  looked lighter but would have forced the supply chain lead to
-                  reconstruct the relationship between the three quantities in her
-                  head, for every part. A segmented bar with one derived status per
-                  line read cleaner and was faster for her.
+                  Fulfilled. That is three numbers per part, and a single reservation
+                  can cover dozens of parts. My instinct as a graphic designer was that
+                  a screen with less data on it is a better screen, and I had to unlearn
+                  that here. The sparser version looked lighter, but it would have left
+                  the supply chain lead reconstructing how the three quantities related
+                  for every part on the page. A segmented bar with one derived status
+                  per line ended up both cleaner to look at and faster for her to use.
                 </p>
               </div>
             </div>
@@ -552,8 +555,8 @@ export default function DesignNextCasestudy() {
                   The planner walks the structure, subtracts inventory at every level,
                   substitutes an in-stock alternate when the primary part is short, and
                   schedules backward from the need-by date through each lead time to
-                  produce an order-by date. It does the arithmetic that has to be
-                  automatic and leaves the judgment calls to the supply chain lead.
+                  produce an order-by date. It handles the arithmetic, and the supply
+                  chain lead still decides what actually gets ordered.
                 </p>
               </div>
             </div>
@@ -561,14 +564,15 @@ export default function DesignNextCasestudy() {
               <h4 className="next-subheading">Density without clutter</h4>
               <div className="next-prose">
                 <p>
-                  Each planner row is heavy as raw numbers, but the density is the
-                  point: for every row the supply chain lead needs two things at once,
+                  Each planner row is heavy as raw numbers, and it needs to be: for
+                  every row the supply chain lead needs two things at once,
                   whether she has enough of a part and whether she has enough time to
                   order more if she does not.
                 </p>
                 <p>
-                  Harbor taught me a screen can be packed and still easy to read, as long
-                  as every element answers a question the user is already asking.
+                  Working on Harbor changed how I think about dense screens. A packed
+                  row stays readable when every number in it answers a question the
+                  user already has.
                 </p>
               </div>
             </div>
@@ -625,9 +629,9 @@ export default function DesignNextCasestudy() {
                   knew at the time, and the system we built on it worked.
                 </p>
                 <p>
-                  The material planner taught us more. Once it started producing
-                  requirements for parts that did not yet exist, we could see that
-                  reservations also had to track demand for inventory on its way in,
+                  The material planner turned up a case we had not accounted for. Once
+                  it started producing requirements for parts that did not yet exist,
+                  reservations had to track demand for inventory still on its way in,
                   which meant separating needed from reserved from fulfilled.
                 </p>
               </div>
@@ -636,16 +640,17 @@ export default function DesignNextCasestudy() {
               <h3 className="next-subheading">Knowing when to rebuild</h3>
               <div className="next-prose">
                 <p>
-                  Rebuilding it was a hard call and the right one. The redesign moved
-                  each line to the three quantities, the same model that later made the
-                  progress bar readable at a glance. The design that reads as clean now
-                  is the one the planner taught us how to build.
+                  Rebuilding it was a hard call, and I think it was the correct one.
+                  The redesign moved each line to the three quantities, the same model
+                  that later made the progress bar readable at a glance. That progress
+                  bar only works because of the rework the planner forced on us.
                 </p>
                 <p>
-                  The lesson is not that wrong assumptions should be avoided, which is
-                  unrealistic under time pressure and incomplete information. It is to
-                  build so a wrong one stays survivable, and to recognize when working
-                  around a mistake costs more than replacing it.
+                  Under time pressure and incomplete information, some of your
+                  assumptions are going to be wrong. What I took from this is to build
+                  so a wrong assumption can be replaced later, and to watch for the
+                  point where working around a mistake starts costing more than fixing
+                  it.
                 </p>
               </div>
             </div>
@@ -682,9 +687,9 @@ export default function DesignNextCasestudy() {
 
           <div className="next-prose">
             <p>
-              If I were to make Via's processes even more efficient with Harbor, I'd
-              take the same approach that made us successful: listen to their needs, and
-              build our decisions from Via's workflows.
+              If I kept working on Harbor, I'd work the same way we did this time:
+              keep asking Via how they actually operate, and build from what they tell
+              us.
             </p>
           </div>
         </section>
