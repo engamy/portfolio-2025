@@ -13,7 +13,8 @@ interface CaseStudyHeroProps {
   subtitle?: string;
   /** Short caveat shown under the metadata, e.g. an NDA stand-in note. */
   note?: string;
-  meta: CaseStudyMeta[];
+  /** Omit entirely for a hero that carries only a title and note. */
+  meta?: CaseStudyMeta[];
   backgroundImage: string;
   /**
    * How the background is applied. 'image' renders a blurred <img> behind the
@@ -62,13 +63,15 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
         <div className={`${variant}-hero-text`}>
           <h1 className={`${variant}-title`}>{title}</h1>
           {subtitle && <p className={`${variant}-subtitle`}>{subtitle}</p>}
-          <div className={`${variant}-meta`}>
-            {meta.map(item => (
-              <p key={item.label}>
-                <span>{item.label}</span> {item.value}
-              </p>
-            ))}
-          </div>
+          {meta && meta.length > 0 && (
+            <div className={`${variant}-meta`}>
+              {meta.map(item => (
+                <p key={item.label}>
+                  <span>{item.label}</span> {item.value}
+                </p>
+              ))}
+            </div>
+          )}
           {note && <p className={`${variant}-hero-note`}>{note}</p>}
         </div>
       </div>

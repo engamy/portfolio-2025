@@ -2,7 +2,10 @@
 
 .next-hero {
   position: relative;
-  height: 100vh;
+  /* Not full-bleed: the hero introduces the page rather than filling the
+     first screen, so the opening section is visible without scrolling. */
+  height: 62vh;
+  min-height: 26rem;
   background-color: var(--ink);
   display: flex;
   align-items: flex-end;
@@ -916,12 +919,12 @@
 @media (max-width: 768px) {
   .next-hero {
     height: auto;
-    min-height: 100vh;
+    min-height: 62vh;
     background-position: center;
   }
 
   .next-hero-overlay {
-    padding: 25vh 5vw 12vw 5vw;
+    padding: 14vh 5vw 12vw 5vw;
     box-sizing: border-box;
   }
 
