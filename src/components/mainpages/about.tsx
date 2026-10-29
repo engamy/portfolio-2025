@@ -60,7 +60,7 @@ export default function About() {
             <div className="experience">
               <div className="experience-details">
                 <h3>Sandbox NU</h3>
-                <p>UX Designer for Sightline, a NASA-funded citizen science project</p>
+                <p>UX Designer for Sightline</p>
               </div>
               <div className="experience-time-place">
                 <p>Boston, MA</p>
@@ -242,7 +242,7 @@ export default function About() {
           </div>
           <div className="testimonies-container">
 
-            <div className="testimony-1">
+            <div className="testimony">
               <div className="testimony-quote">
                 <p>
                   It has been wonderful having Amy on our team. 
@@ -258,7 +258,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="testimony-2">
+            <div className="testimony">
               <div className="testimony-quote">
                 <p>
                 [Amy’s] work really shined, was executed at a very 
@@ -270,6 +270,21 @@ export default function About() {
               </div>
               <div className="testimony-name">
                 <p>-Marshalls Creative Manager</p>
+              </div>
+            </div>
+
+            <div className="testimony">
+              <div className="testimony-quote">
+                <p>
+                  Amy was a <span>fantastic team member</span>, continuously
+                  seeking opportunities to deliver more value to the client.
+                  Amy demonstrated <span>impressive adaptability and
+                  capability</span> across both software engineering and
+                  UI/UX product design.
+                </p>
+              </div>
+              <div className="testimony-name">
+                <p>-NExT Consulting Manager</p>
               </div>
             </div>
 
