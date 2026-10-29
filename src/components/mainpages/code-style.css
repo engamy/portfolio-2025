@@ -262,3 +262,21 @@
         border-radius: 15px;
     }
 }
+
+/* A single project on its own page: the list has no header above it here, so
+   it needs its own clearance under the sticky nav. */
+.code-project-page {
+    min-height: 100vh;
+    padding: 4vw 0 6vw;
+}
+
+.code-project-page .back {
+    color: var(--cream);
+    margin-bottom: 3vw;
+}
+
+@media (max-width: 768px) {
+    .code-project-page {
+        padding: 12vw 0 12vw;
+    }
+}

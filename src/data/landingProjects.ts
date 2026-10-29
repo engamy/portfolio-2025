@@ -37,10 +37,13 @@ export interface LandingProject {
   to?: string;
   /** Real thumbnail, where one exists. Falls back to the placeholder block. */
   image?: string;
+  /** Set when `image` is a video rather than a still. */
+  mediaType?: 'image' | 'video';
 }
 
 const DESIGN = '/pictures/portfolio-content_spring2026/02_DESIGN';
 const ART = '/pictures/portfolio-content_spring2026/04_ART';
+const CODE = '/pictures/portfolio-content_spring2026/03_CODE';
 
 /** The route for a project that has no page of its own yet. */
 export const placeholderPath = (slug: string) => '/' + slug;
@@ -123,7 +126,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Full-stack web application',
     focus: 'Full-stack web app',
     tags: ['se', 'ct'],
-    img: 'Coopalytics dashboard in a browser frame'
+    img: 'Coopalytics dashboard in a browser frame',
+    to: '/coopalytics',
+    image: CODE + '/coopalytics.mp4',
+    mediaType: 'video'
   },
   {
     slug: 'scout-djoda',
@@ -131,7 +137,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Full-stack web app & branding',
     focus: 'Full-stack web app and branding',
     tags: ['se', 'pd'],
-    img: 'Scout and Djoda app screens with branding'
+    img: 'Scout and Djoda app screens with branding',
+    to: '/scout-djoda',
+    image: CODE + '/djoda.mp4',
+    mediaType: 'video'
   },
   {
     slug: 'affectrum',
@@ -155,7 +164,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'CS architecture / game development',
     focus: 'Game development',
     tags: ['se'],
-    img: 'Three Trios game board mid-play'
+    img: 'Three Trios game board mid-play',
+    to: '/three-trios',
+    image: CODE + '/threetrios.mp4',
+    mediaType: 'video'
   },
   {
     slug: 'minesweeper',
@@ -163,7 +175,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Systems & algorithms',
     focus: 'Systems and algorithms',
     tags: ['se'],
-    img: 'Minesweeper board mid-game'
+    img: 'Minesweeper board mid-game',
+    to: '/minesweeper',
+    image: CODE + '/minesweeper.mp4',
+    mediaType: 'video'
   },
   {
     slug: 'lightemall',
@@ -171,7 +186,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Systems & algorithms',
     focus: 'Systems and algorithms',
     tags: ['se'],
-    img: 'LightEmAll puzzle grid with powered tiles'
+    img: 'LightEmAll puzzle grid with powered tiles',
+    to: '/lightemall',
+    image: CODE + '/lightemall.mp4',
+    mediaType: 'video'
   },
   {
     slug: '3d-mfa',
@@ -179,7 +197,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: '3D modeling & web graphics',
     focus: '3D and web graphics',
     tags: ['ct'],
-    img: '3D model render'
+    img: '3D model render',
+    to: '/3d-mfa',
+    image: CODE + '/3dmfa_2.mp4',
+    mediaType: 'video'
   },
   {
     slug: 'nupr-markiplier-wikibook',

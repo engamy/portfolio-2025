@@ -23,7 +23,9 @@ import { useAboutNavbarMode } from './hooks/useAboutNavbarMode';
 import { IconSprite } from './components/page-components/IconSprite';
 import { isSectionId, scrollToSection } from './utils/sectionScroll';
 import ProjectPlaceholder from './components/mainpages/project-placeholder';
+import CodeProject from './components/mainpages/code-project';
 import { PLACEHOLDER_PROJECTS, placeholderPath } from './data/landingProjects';
+import { projects } from './data/projects';
 
 const AppContent: React.FC = () => {
   const { darkMode } = useDarkMode();
@@ -72,7 +74,18 @@ const AppContent: React.FC = () => {
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />
 
-        {/* One route per project that has no case study page yet. */}
+        {/* Engineering projects that have a page of their own. */}
+        {projects
+          .filter(project => project.slug)
+          .map(project => (
+            <Route
+              key={project.slug}
+              path={`/${project.slug}`}
+              element={<CodeProject project={project} />}
+            />
+          ))}
+
+        {/* One route per project that has no page of its own yet. */}
         {PLACEHOLDER_PROJECTS.map(project => (
           <Route
             key={project.slug}

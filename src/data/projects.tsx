@@ -10,6 +10,11 @@ export interface ProjectLink {
 
 export interface Project {
   title: string;
+  /**
+   * Route slug for projects that have a page of their own. Also what the
+   * landing grid matches on, so the card and the page cannot drift apart.
+   */
+  slug?: string;
   /** Course and term, or just the term. */
   meta: string;
   description: React.ReactNode;
@@ -22,6 +27,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: 'Coopalytics',
+    slug: 'coopalytics',
     meta: 'Introduction to Databases | Summer 2025',
     video: 'coopalytics.mp4',
     description: (
@@ -66,6 +72,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Djoda Website',
+    slug: 'scout-djoda',
     meta: 'Spring 2025',
     video: 'djoda.mp4',
     description: (
@@ -104,6 +111,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Three Trios',
+    slug: 'three-trios',
     meta: 'Object-Oriented Design | Fall 2024',
     video: 'threetrios.mp4',
     description: (
@@ -156,6 +164,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Minesweeper',
+    slug: 'minesweeper',
     meta: 'Fundamentals of CS II | Fall 2024',
     video: 'minesweeper.mp4',
     description: (
@@ -180,6 +189,7 @@ export const projects: Project[] = [
   },
   {
     title: 'LightEmAll',
+    slug: 'lightemall',
     meta: 'Fundamentals of CS II | Spring 2024',
     video: 'lightemall.mp4',
     description: (
@@ -256,6 +266,7 @@ export const projects: Project[] = [
   },
   {
     title: '3DMFA',
+    slug: '3d-mfa',
     meta: 'Spring 2024',
     video: '3dmfa_2.mp4',
     description: (

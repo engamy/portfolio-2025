@@ -46,7 +46,7 @@ const Thumb: React.FC<{
     );
   }
 
-  if ('mediaType' in item && item.mediaType === 'video') {
+  if (item.mediaType === 'video') {
     return (
       <video
         className={classes}
