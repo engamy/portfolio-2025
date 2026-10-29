@@ -31,15 +31,21 @@
   margin: 0;
 }
 
+.foot-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.3rem;
+}
+
 .foot-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   gap: 0.7rem;
 }
 
 .foot-contact { text-align: right; }
-.foot-contact .social { justify-content: flex-end; margin-top: 1.2rem; }
+.foot-contact .social { justify-content: flex-end; }
 
 .foot-right {
   display: flex;
@@ -56,7 +62,7 @@
 }
 
 @media (max-width: 700px) {
-  .foot-contact, .foot-contact .social, .foot-actions {
+  .foot-contact, .foot-contact .social {
     text-align: left;
     justify-content: flex-start;
   }

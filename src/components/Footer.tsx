@@ -9,13 +9,15 @@ export default function Footer() {
   return (
     <footer className="foot">
       <div className="foot-inner">
-        <p className="copy">© Amy Eng 2026 All Rights Reserved</p>
+        <div className="foot-left">
+          <div className="foot-actions">
+            <ContactButtons />
+          </div>
+          <p className="copy">© Amy Eng 2026 All Rights Reserved</p>
+        </div>
 
         <div className="foot-right">
           <div className="foot-contact">
-            <div className="foot-actions">
-              <ContactButtons />
-            </div>
             <SocialLinks size="md" />
           </div>
           <div className="foot-logo">

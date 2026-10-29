@@ -64,13 +64,26 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
     closeMenu();
   }, [location.pathname, location.hash, closeMenu]);
 
-  const sectionItems = SECTION_IDS.map(id => (
-    <li key={id}>
-      <SectionLink id={id} onNavigate={closeMenu}>
-        {SECTION_LABELS[id]}
-      </SectionLink>
-    </li>
-  ));
+  const navItems = (
+    <>
+      {SECTION_IDS.map(id => (
+        <li key={id}>
+          <SectionLink id={id} onNavigate={closeMenu}>
+            {SECTION_LABELS[id]}
+          </SectionLink>
+        </li>
+      ))}
+      <li>
+        <Link
+          to="/about"
+          aria-current={isAbout ? 'page' : undefined}
+          onClick={closeMenu}
+        >
+          About
+        </Link>
+      </li>
+    </>
+  );
 
   return (
     <header className="site">
@@ -79,18 +92,11 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
           Amy Eng
         </Link>
 
-        <nav className="nav-desktop" aria-label="Home page sections">
-          <ul className="nav">{sectionItems}</ul>
+        <nav className="nav-desktop" aria-label="Main">
+          <ul className="nav">{navItems}</ul>
         </nav>
 
         <div className="site-right">
-          <Link
-            className="about-pill"
-            to="/about"
-            aria-current={isAbout ? 'page' : undefined}
-          >
-            About
-          </Link>
           <SocialLinks size="sm" />
         </div>
 
@@ -114,20 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
 
       <div className="mobile-menu" id="mobile-menu" hidden={!isMenuOpen}>
         <nav aria-label="Menu">
-          <p className="menu-label">Home page</p>
-          <ul className="menu-list">{sectionItems}</ul>
-          <p className="menu-label">Other pages</p>
-          <ul className="menu-list">
-            <li>
-              <Link
-                to="/about"
-                aria-current={isAbout ? 'page' : undefined}
-                onClick={closeMenu}
-              >
-                About
-              </Link>
-            </li>
-          </ul>
+          <ul className="menu-list">{navItems}</ul>
         </nav>
         <SocialLinks size="md" onNavigate={closeMenu} />
       </div>
