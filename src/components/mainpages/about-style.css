@@ -1,7 +1,11 @@
 .about-container {
-    height: 222.187vw;
-    background-size: cover;
-    background-position: center;
+    /* The background is 1920x4309, so at full width it is 224.427vw tall.
+       Matching that exactly means the page ends where the image does: no strip
+       of bare background below it, and no part of the image cut off. Keep this
+       in step with the image if it is ever re-exported. */
+    height: 224.427vw;
+    background-size: 100% auto;
+    background-position: top center;
     background-repeat: no-repeat;
     width: 100%;
     font-family: var(--font-display);
@@ -213,12 +217,12 @@
 
 .quote-mark--open {
     top: -1.4vw;
-    left: 1vw;
+    left: 0.1vw;
 }
 
 .quote-mark--close {
     bottom: -2.9vw;
-    right: 1vw;
+    right: 0.1vw;
 }
 
 .testimonies-container p span {
@@ -399,12 +403,12 @@
 
     .quote-mark--open {
         top: -4vw;
-        left: 2vw;
+        left: 0.5vw;
     }
 
     .quote-mark--close {
         bottom: -8vw;
-        right: 2vw;
+        right: 0.5vw;
     }
 
     .testimony-name p {
