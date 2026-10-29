@@ -23,7 +23,7 @@ export default function About() {
     >
       <div className="about-intro">
         <img 
-          src={getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/greece2024_pfp.jpg')} 
+          src={getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/me.png')} 
           alt="Amy Eng profile" 
           className="about-profile-image"
         />

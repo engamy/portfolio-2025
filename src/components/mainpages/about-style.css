@@ -256,14 +256,13 @@
         background-color: var(--cream) !important;
     }
 
+    /* me.png is a full-length cutout on transparency, so it is shown whole
+       rather than cropped square: a 1:1 cover crop cut off the head. */
     .about-profile-image {
         display: block;
-        width: 90vw;
-        height: 90vw;
-        border-radius: 10px;
-        margin: 0 auto 30px auto;
-        object-fit: cover;
-        margin-top: 5vw;
+        width: 62vw;
+        height: auto;
+        margin: 4vw auto 2vw auto;
     }
 
     .about-intro h1 {

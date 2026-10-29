@@ -71,7 +71,7 @@
 /* The nav bar reads light or dark from this class on the document element.
    Navbar sets it from DarkModeContext. */
 :root.nav-light {
-  --nav-bg: #FFFFFF;
+  --nav-bg: var(--cream);
   --nav-fg: var(--ink);
 }
 
