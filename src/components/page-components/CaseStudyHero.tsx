@@ -22,7 +22,7 @@ interface CaseStudyHeroProps {
    * use different treatments by design.
    */
   backgroundMode: 'image' | 'css';
-  /** Extra content rendered inside the hero, under the note. */
+  /** Extra content placed beside the title block rather than under it. */
   children?: React.ReactNode;
 }
 
@@ -45,6 +45,25 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
 }) => {
   const resolved = getAssetPath(backgroundImage);
 
+  // Kept as one fragment so the markup is identical whether or not the hero
+  // has an aside beside it.
+  const heading = (
+    <>
+      <h1 className={`${variant}-title`}>{title}</h1>
+      {subtitle && <p className={`${variant}-subtitle`}>{subtitle}</p>}
+      {meta && meta.length > 0 && (
+        <div className={`${variant}-meta`}>
+          {meta.map(item => (
+            <p key={item.label}>
+              <span>{item.label}</span> {item.value}
+            </p>
+          ))}
+        </div>
+      )}
+      {note && <p className={`${variant}-hero-note`}>{note}</p>}
+    </>
+  );
+
   return (
     <div
       className={`design-section-header ${variant}-hero`}
@@ -64,19 +83,14 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
       )}
       <div className={`${variant}-hero-overlay`}>
         <div className={`${variant}-hero-text`}>
-          <h1 className={`${variant}-title`}>{title}</h1>
-          {subtitle && <p className={`${variant}-subtitle`}>{subtitle}</p>}
-          {meta && meta.length > 0 && (
-            <div className={`${variant}-meta`}>
-              {meta.map(item => (
-                <p key={item.label}>
-                  <span>{item.label}</span> {item.value}
-                </p>
-              ))}
-            </div>
+          {children ? (
+            <>
+              <div className={`${variant}-hero-main`}>{heading}</div>
+              <div className={`${variant}-hero-aside`}>{children}</div>
+            </>
+          ) : (
+            heading
           )}
-          {note && <p className={`${variant}-hero-note`}>{note}</p>}
-          {children}
         </div>
       </div>
     </div>

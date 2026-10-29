@@ -58,16 +58,31 @@
 
 .next-hero-text {
   display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+/* Title, subtitle and note stay a column; the snapshot sits beside them. */
+.next-hero-main {
+  display: flex;
   flex-direction: column;
   gap: 1.5vw;
-  max-width: 80vw;
+  flex: 1 1 44%;
+  min-width: 0;
+}
+
+.next-hero-aside {
+  flex: 1 1 56%;
+  min-width: 0;
 }
 
 /* Impact Snapshot, sitting on the hero image. The cards are restyled for a
    dark backdrop: the page versions are ink-on-cream and would be unreadable
    here. */
 .next-snapshot {
-  margin-top: 1vw;
+  margin: 0;
 }
 
 .next-snapshot-title {
@@ -83,7 +98,7 @@
 
 .next-hero .next-bento-card {
   background-color: rgba(16, 16, 16, 0.55);
-  border-color: rgba(240, 237, 230, 0.45);
+  border-color: var(--cream);
   padding: 1.3vw 1.4vw;
   /* Keeps the text legible over the brighter parts of the photo. */
   backdrop-filter: blur(2px);
@@ -102,8 +117,9 @@
 }
 
 .next-title {
-  font-size: 4vw !important;
-  line-height: 1.05 !important;
+  /* Sized for the narrower column it now shares with the snapshot. */
+  font-size: 3.2vw !important;
+  line-height: 1.08 !important;
   margin: 0 !important;
   color: var(--cream) !important;
   font-style: italic;
@@ -400,8 +416,19 @@
   }
 
   .next-hero-text {
-    gap: 3vw;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
     max-width: 100%;
+  }
+
+  .next-hero-main {
+    gap: 3vw;
+    flex: 0 0 auto;
+  }
+
+  .next-hero-aside {
+    flex: 0 0 auto;
   }
 
   .next-snapshot-title {
