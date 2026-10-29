@@ -157,22 +157,53 @@
 }
 
 .testimony {
+    --quote-gap: 4vw;
     display: flex;
     flex-direction: column;
 }
 
-/* The frame used to exist only under the mobile breakpoint, so the quotes sat
-   unframed on desktop. */
+/* Positioning context for the two strokes and the quote marks below. */
 .testimony-quote {
     position: relative;
     flex: 1;
-    border: 0.2vw solid var(--red);
-    border-radius: 1.4vw;
     padding: 2.2vw 1.8vw;
 }
 
+/* Two L-shaped strokes rather than one box: the frame stops short of the
+   top-left and bottom-right corners, so the quote marks sit in the gaps
+   without needing an opaque block to break the line. */
 .testimony-quote::before,
 .testimony-quote::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: var(--red);
+    border-width: 0;
+}
+
+/* Top edge and right edge. */
+.testimony-quote::before {
+    top: 0;
+    right: 0;
+    left: var(--quote-gap);
+    bottom: var(--quote-gap);
+    border-top-width: 0.2vw;
+    border-right-width: 0.2vw;
+    border-top-right-radius: 1.4vw;
+}
+
+/* Left edge and bottom edge. */
+.testimony-quote::after {
+    bottom: 0;
+    left: 0;
+    top: var(--quote-gap);
+    right: var(--quote-gap);
+    border-bottom-width: 0.2vw;
+    border-left-width: 0.2vw;
+    border-bottom-left-radius: 1.4vw;
+}
+
+.quote-mark {
     position: absolute;
     font-size: 5vw;
     line-height: 1;
@@ -180,14 +211,12 @@
     font-weight: bold;
 }
 
-.testimony-quote::before {
-    content: '“';
+.quote-mark--open {
     top: -1.4vw;
     left: 1vw;
 }
 
-.testimony-quote::after {
-    content: '”';
+.quote-mark--close {
     bottom: -2.9vw;
     right: 1vw;
 }
@@ -344,24 +373,36 @@
         font-size: 4vw;
     }
 
+    .testimony {
+        --quote-gap: 12vw;
+    }
+
     .testimony-quote {
-        border-width: 4px;
-        border-radius: 30px;
         padding: 7vw 6vw;
     }
 
-    .testimony-quote::before,
-    .testimony-quote::after {
-        font-size: 13vw;
-        padding: 0 5px;
+    .testimony-quote::before {
+        border-top-width: 4px;
+        border-right-width: 4px;
+        border-top-right-radius: 30px;
     }
 
-    .testimony-quote::before {
+    .testimony-quote::after {
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+        border-bottom-left-radius: 30px;
+    }
+
+    .quote-mark {
+        font-size: 13vw;
+    }
+
+    .quote-mark--open {
         top: -4vw;
         left: 2vw;
     }
 
-    .testimony-quote::after {
+    .quote-mark--close {
         bottom: -8vw;
         right: 2vw;
     }

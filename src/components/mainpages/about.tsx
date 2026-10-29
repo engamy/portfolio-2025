@@ -244,6 +244,8 @@ export default function About() {
 
             <div className="testimony">
               <div className="testimony-quote">
+                <span className="quote-mark quote-mark--open" aria-hidden="true">“</span>
+                <span className="quote-mark quote-mark--close" aria-hidden="true">”</span>
                 <p>
                   It has been wonderful having Amy on our team. 
                   She is a <span>hard worker</span>, a resourceful 
@@ -260,6 +262,8 @@ export default function About() {
 
             <div className="testimony">
               <div className="testimony-quote">
+                <span className="quote-mark quote-mark--open" aria-hidden="true">“</span>
+                <span className="quote-mark quote-mark--close" aria-hidden="true">”</span>
                 <p>
                 [Amy’s] work really shined, was executed at a very 
                 professional level, and was refined, clean, and 
@@ -275,6 +279,8 @@ export default function About() {
 
             <div className="testimony">
               <div className="testimony-quote">
+                <span className="quote-mark quote-mark--open" aria-hidden="true">“</span>
+                <span className="quote-mark quote-mark--close" aria-hidden="true">”</span>
                 <p>
                   Amy was a <span>fantastic team member</span>, continuously
                   seeking opportunities to deliver more value to the client.
