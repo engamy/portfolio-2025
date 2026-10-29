@@ -5,6 +5,7 @@ import { getAssetPath } from '../../utils/assetUtils';
 import { usePageMode } from '../../hooks/usePageMode';
 import { Icon } from '../page-components/IconSprite';
 import SocialLinks from '../page-components/SocialLinks';
+import ContactButtons from '../page-components/ContactButtons';
 import {
   FILTERS,
   LAB,
@@ -15,10 +16,6 @@ import {
   TagId,
   projectPath
 } from '../../data/landingProjects';
-
-const EMAIL = 'amyeng895@gmail.com';
-const RESUME_URL =
-  'https://drive.google.com/file/d/1DYxynZ03pDDg3kl_eAzx-SQyZm-Pu_dV/view?usp=sharing';
 
 const HOME = '/pictures/portfolio-content_spring2026/01_HOME';
 
@@ -66,17 +63,6 @@ const Thumb: React.FC<{
   );
 };
 
-const ResumeButton: React.FC<{ children: React.ReactNode }> = ({ children }) =>
-  RESUME_URL ? (
-    <a className="btn" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
-      {children}
-    </a>
-  ) : (
-    <span className="btn pending" aria-disabled="true" title="Resume link coming soon">
-      {children}
-    </span>
-  );
-
 export default function Landing() {
   // Light nav over the white hero, dark from the Featured band down.
   usePageMode({ initial: false, flipAt: '.featured' });
@@ -113,8 +99,7 @@ export default function Landing() {
                 concentration) at <strong>Northeastern University</strong>.
               </p>
               <div className="quick">
-                <ResumeButton>Resume (PDF)</ResumeButton>
-                <a className="btn" href={`mailto:${EMAIL}`}>Email</a>
+                <ContactButtons />
                 <SocialLinks size="lg" />
               </div>
             </div>

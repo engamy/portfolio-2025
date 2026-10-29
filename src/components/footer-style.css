@@ -1,6 +1,9 @@
 /* Footer, ported from the landing reference. Always ink-on-cream regardless of
    the nav mode, so it reads the same on every route. */
 .foot {
+  --fg: var(--cream);
+  --bg: var(--ink);
+  --focus: var(--cream);
   background: var(--ink);
   color: var(--cream);
   padding: 3.5rem 0 3rem;
@@ -18,29 +21,6 @@
 
 .foot p { margin: 0 0 0.35rem; }
 
-.foot .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.foot .link-groups {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 3rem;
-  margin: 0.8rem 0 1.8rem;
-}
-
-.foot .group-label {
-  margin: 0 0 0.3rem;
-  color: var(--gray);
-  font-size: 0.88rem;
-  font-weight: 300;
-}
-
 .foot a { text-underline-offset: 4px; }
 .foot a:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
 
@@ -49,6 +29,13 @@
   font-weight: 300;
   font-size: 0.9rem;
   margin: 0;
+}
+
+.foot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem;
 }
 
 .foot-contact { text-align: right; }
@@ -69,7 +56,7 @@
 }
 
 @media (max-width: 700px) {
-  .foot-contact, .foot-contact .social {
+  .foot-contact, .foot-contact .social, .foot-actions {
     text-align: left;
     justify-content: flex-start;
   }
