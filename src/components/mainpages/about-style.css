@@ -22,10 +22,12 @@
 .about-intro h1{
     position: fixed;
     color: var(--cream);
+    /* The band's edge falls at 9.8 degrees, so the heading runs parallel to it
+       and sits just above the line. */
     transform: rotate(-10deg);
     font-size: 6vw;
     font-style: italic;
-    top: 15vw;
+    top: 20vw;
     left: 39.4vw;
     transition: opacity 0.3s ease-in-out;
 }
