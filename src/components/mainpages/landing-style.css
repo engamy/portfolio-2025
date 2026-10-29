@@ -105,8 +105,18 @@
 .thumb {
   display: block;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: var(--radius);
+}
+
+/* <video> defaults to object-fit: contain, unlike <img>, so a video thumbnail
+   would letterbox inside its box. State the crop at element specificity.
+   The same files play uncropped on the project pages, which size them with
+   .project-preview instead. */
+video.thumb {
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Featured (diagonal split) */
