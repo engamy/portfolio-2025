@@ -18,7 +18,7 @@ export default function About() {
     <main
       className="about-container"
       style={{
-        backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/background.jpg')})`
+        backgroundImage: `url(${getAssetPath('/pictures/portfolio-content_spring2026/05_ABOUT/about-background-blank.jpg')})`
       }}
     >
       <div className="about-intro">
