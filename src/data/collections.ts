@@ -19,7 +19,7 @@ export const artCollections: Collection[] = [
   {
     to: '/art-2022-portfolio',
     openInNewTab: true,
-    media: `${ART}/XTRAordinary/evangelion.jpg`,
+    media: `${ART}/XTRAordinary/youth.jpg`,
     mediaAlt: '2022 Portfolio',
     title: 'Ordinary and Extraordinary Portfolio',
     date: '2022-2023',

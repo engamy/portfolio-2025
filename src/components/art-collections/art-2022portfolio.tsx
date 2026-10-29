@@ -6,7 +6,7 @@ import { usePageMode } from '../../hooks/usePageMode';
 import PageHero from '../page-components/PageHero';
 
 export default function Art2022Portfolio() {
-  usePageMode({ initial: true, flipAt: '.art-2022-works' });
+  usePageMode({ initial: true });
   
 
   // XTRAordinary Portfolio images
@@ -107,7 +107,7 @@ export default function Art2022Portfolio() {
 
 
 
-      <div className="art-assorted art-2022-works">
+      <div className="art-assorted art-assorted--dark art-2022-works">
         <h2>Ordinary & Extraordinary</h2>
 
         <div className="art-assorted-container">

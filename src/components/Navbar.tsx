@@ -1,164 +1,137 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './navbar-style.css';
-import { getAssetPath } from '../utils/assetUtils';
+import SectionLink from './page-components/SectionLink';
+import SocialLinks from './page-components/SocialLinks';
+import { SECTION_IDS } from '../utils/sectionScroll';
 
 interface NavbarProps {
   darkMode?: boolean;
 }
 
+const SECTION_LABELS: Record<string, string> = {
+  home: 'Home',
+  featured: 'Featured',
+  work: 'Work',
+  'creative-lab': 'Creative Lab'
+};
+
 const Navbar: React.FC<NavbarProps> = ({ darkMode = false }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const isAbout = location.pathname === '/about';
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/design', label: 'Design' },
-    { path: '/code', label: 'Code' },
-    { path: '/art', label: 'Art' },
-    { path: '/about', label: 'About' }
-  ];
+  // The reference reads --nav-bg/--nav-fg off the document element so the
+  // safe-area strip above the bar can match it. DarkModeContext decides which
+  // way round it goes: dark nav is the default, light adds the class.
+  useEffect(() => {
+    document.documentElement.classList.toggle('nav-light', !darkMode);
+  }, [darkMode]);
 
-  const isActive = (path: string) => {
-    if (path === '/') return location.pathname === '/';
-    return location.pathname === path || location.pathname.startsWith(`${path}-`);
-  };
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
-  const socialLinks = [
-    { 
-      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/linkedin.png'), 
-      url: 'https://www.linkedin.com/in/amyeng895/', 
-      alt: 'LinkedIn' 
-    },
-    { 
-      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/instagram.png'), 
-      url: 'https://www.instagram.com/yifeng.art/', 
-      alt: 'Instagram' 
-    },
-    { 
-      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/github.png'), 
-      url: 'https://github.com/engamy', 
-      alt: 'GitHub' 
-    },
-    { 
-      icon: getAssetPath('/pictures/portfolio-content_spring2026/06_ICONS/youtube.png'), 
-      url: 'https://www.youtube.com/@yifengart', 
-      alt: 'YouTube' 
-    }
-  ];
+  // Close on Escape, on a click outside the header, and when the viewport
+  // grows past the breakpoint where the menu button disappears.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+        document.getElementById('menu-btn')?.focus();
+      }
+    };
+    const onClick = (event: MouseEvent) => {
+      const header = document.querySelector('.site');
+      if (header && !header.contains(event.target as Node)) closeMenu();
+    };
+    const onResize = () => {
+      if (window.innerWidth > 760) closeMenu();
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('click', onClick);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('click', onClick);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [isMenuOpen, closeMenu]);
+
+  // Any route change closes the menu.
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname, location.hash, closeMenu]);
+
+  const sectionItems = SECTION_IDS.map(id => (
+    <li key={id}>
+      <SectionLink id={id} onNavigate={closeMenu}>
+        {SECTION_LABELS[id]}
+      </SectionLink>
+    </li>
+  ));
 
   return (
-    <nav className={`navbar-light ${darkMode ? 'navbar-dark' : ''}`}>
-      <div className="navbar-container">
-        <div className="navbar-brand">
-          <Link to="/" className="brand-link" onClick={() => setIsMenuOpen(false)}>Amy Eng</Link>
-        </div>
+    <header className="site">
+      <div className="site-inner">
+        <Link className="brand" to="/" onClick={closeMenu}>
+          Amy Eng
+        </Link>
 
-        <ul className="navbar-nav">
-          {navItems.map((item) => (
-            <li key={item.path} className="nav-item">
-              <Link
-                to={item.path}
-                className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <nav className="nav-desktop" aria-label="Home page sections">
+          <ul className="nav">{sectionItems}</ul>
+        </nav>
 
-        <div className="navbar-spacer"></div>
-
-        <div className="social-icons">
-          {socialLinks.map((social) => (
-            <a
-              key={social.alt}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-              title={social.alt}
-            >
-              <img 
-                src={social.icon} 
-                alt={social.alt} 
-                className="social-icon"
-              />
-            </a>
-          ))}
+        <div className="site-right">
+          <Link
+            className="about-pill"
+            to="/about"
+            aria-current={isAbout ? 'page' : undefined}
+          >
+            About
+          </Link>
+          <SocialLinks size="sm" />
         </div>
 
         <button
-          className={`hamburger-button ${isMenuOpen ? 'open' : ''}`}
-          aria-label="Toggle navigation menu"
+          type="button"
+          className="menu-btn"
+          id="menu-btn"
           aria-expanded={isMenuOpen}
-          aria-controls="mobile-overlay"
-          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-controls="mobile-menu"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setIsMenuOpen(open => !open)}
         >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
+          <svg className="i-open" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          <svg className="i-close" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
       </div>
 
-      <div
-        id="mobile-overlay"
-        className={`mobile-overlay ${isMenuOpen ? 'open' : ''}`}
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!isMenuOpen}
-      >
-          <div className="overlay-header">
-            <Link to="/" className="overlay-brand-link" onClick={() => setIsMenuOpen(false)}>
-              Amy Eng
-            </Link>
-            <button
-              className="exit-button"
-              aria-label="Close navigation menu"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span className="exit-line" />
-              <span className="exit-line" />
-            </button>
-          </div>
-          <div className="overlay-content">
-            <ul className="overlay-nav">
-              {navItems.map((item) => (
-                <li key={item.path} className="overlay-item">
-                  <Link
-                    to={item.path}
-                    className={`overlay-link ${isActive(item.path) ? 'active' : ''}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="overlay-footer">
-              <div className="overlay-social-icons">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.alt}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-link"
-                    title={social.alt}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <img 
-                      src={social.icon} 
-                      alt={social.alt} 
-                      className="social-icon"
-                    />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="mobile-menu" id="mobile-menu" hidden={!isMenuOpen}>
+        <nav aria-label="Menu">
+          <p className="menu-label">Home page</p>
+          <ul className="menu-list">{sectionItems}</ul>
+          <p className="menu-label">Other pages</p>
+          <ul className="menu-list">
+            <li>
+              <Link
+                to="/about"
+                aria-current={isAbout ? 'page' : undefined}
+                onClick={closeMenu}
+              >
+                About
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <SocialLinks size="md" onNavigate={closeMenu} />
       </div>
-    </nav>
+    </header>
   );
 };
 

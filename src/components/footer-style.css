@@ -1,153 +1,76 @@
-.footer-container {
-  width: 100%;
-  background: #111;
-  color: #f5f5f5;
+/* Footer, ported from the landing reference. Always ink-on-cream regardless of
+   the nav mode, so it reads the same on every route. */
+.foot {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 3.5rem 0 3rem;
+}
+
+.foot-inner {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  padding: 2.5vw 2.5vw 2.5vw 2.5vw;
-  box-sizing: border-box;
-  font-family: var(--font-display);
+  align-items: flex-end;
+  gap: 2.5rem;
+  /* Same gutters as .site-inner, so the footer edges line up with the nav. */
+  padding: 0 var(--pad);
 }
 
-.footer-left {
+.foot p { margin: 0 0 0.35rem; }
+
+.foot .links {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.footer-nav-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-
-.footer-nav-links {
+.foot .link-groups {
   display: flex;
-  gap: 0.8vw;
-  margin-bottom: 0.8vw;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  margin: 0.8rem 0 1.8rem;
 }
 
-.footer-nav-links a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s;
+.foot .group-label {
+  margin: 0 0 0.3rem;
+  color: var(--gray);
+  font-size: 0.88rem;
+  font-weight: 300;
 }
 
-.footer-nav-links a:hover {
-  color: #ff3c20;
+.foot a { text-underline-offset: 4px; }
+.foot a:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+
+.foot .copy {
+  color: var(--gray);
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
-.footer-copyright {
-  color: #888;
-  font-size: 0.95rem;
-  margin-top: 16px;
-}
+.foot-contact { text-align: right; }
+.foot-contact .social { justify-content: flex-end; margin-top: 1.2rem; }
 
-.footer-right {
+.foot-right {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.footer-links {
-  display: flex;
-  margin-top: 3vw;
-  flex-direction: column;
-  gap: 1vw;
-  text-align: right;
-  align-items: right;
-  justify-content: space-between;
-}
-
-.footer-contact-label {
-  font-weight: bold;
-}
-
-.footer-socials {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  gap: 0.8vw;
-}
-
-.footer-socials img {
-  width: 2vw;
-  height: 2vw;
-  object-fit: contain;
-  transition: filter 0.2s;
-}
-
-.footer-logo img {
-  width: 5.3vw;
+/* The reference shows a placeholder block here; the real mark is an asset. */
+.foot-logo img {
+  display: block;
+  width: 6.5rem;
   height: auto;
-  margin-left: 2vw;
 }
 
-@media (max-width: 800px) {
-  .footer-container {
-    flex-direction: row;
-    align-items: center;
-    padding: 8vw 5vw 12vw;
-    gap: 20px;
-  }
-  
-  .footer-left {
-    display: none; /* Hide navigation links and copyright on mobile */
-  }
-  
-  .footer-right {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    gap: 9vw;
-  }
-  
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2vw;
+@media (max-width: 700px) {
+  .foot-contact, .foot-contact .social {
     text-align: left;
-    margin-top: 0;
+    justify-content: flex-start;
   }
-  
-  .footer-email-phone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-  }
-  
-  .footer-socials {
-    justify-content: center;
-    gap: 16px;
-  }
-  
-  .footer-socials img {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .footer-logo {
-    align-self: flex-start;
-  }
-  
-  .footer-logo img {
-    width: 60px;
-    height: auto;
-    margin-left: 0;
-  }
-  
-  .footer-copyright {
-    text-align: center;
-    font-size: 0.8rem;
-    margin-top: 0;
-  }
-} 
+}

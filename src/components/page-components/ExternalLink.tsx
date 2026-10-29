@@ -4,6 +4,7 @@ interface ExternalLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   'aria-label'?: string;
 }
 
