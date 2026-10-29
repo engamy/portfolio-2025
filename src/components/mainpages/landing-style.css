@@ -101,11 +101,13 @@
 }
 .ph span { max-width: 24ch; }
 
-/* Real thumbnails sit in the same slot as the placeholders. */
+/* Real thumbnails sit in the same slot as the placeholders.
+   No height here: cards are grid items stretched to the row height, so a
+   percentage height resolves against the whole card and the thumbnail covers
+   its own title. The aspect-ratio per section defines the box. */
 .thumb {
   display: block;
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: var(--radius);
 }
