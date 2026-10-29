@@ -236,7 +236,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="experience-container">
+        <div className="experience-container experience-container--testimonies">
           <div className="experience-title">
             <h2>Testimonies</h2>
           </div>

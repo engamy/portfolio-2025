@@ -127,6 +127,19 @@
 
 }
 
+/* The testimonies stack under their title rather than sitting beside it:
+   three boxes do not fit in the width left over next to a 28vw title, so the
+   third used to run off the right edge of the viewport. */
+.experience-container--testimonies {
+    flex-direction: column;
+    width: 76vw;
+}
+
+.experience-container--testimonies .experience-title {
+    width: auto;
+    margin-bottom: 1.2vw;
+}
+
 /* A real three-column grid. The previous layout placed two boxes with
    hand-tuned negative margins, which left no room for a third. */
 .testimonies-container {
@@ -135,8 +148,7 @@
     gap: 2.5vw;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 5vw;
-    margin: 8vw 0 0 0;
+    margin: 3vw 0 0 0;
 }
 
 .testimonies-container p {
@@ -166,8 +178,6 @@
     line-height: 1;
     color: var(--red);
     font-weight: bold;
-    background-color: var(--cream);
-    padding: 0 0.3vw;
 }
 
 .testimony-quote::before {
@@ -316,6 +326,10 @@
 
     .experience-details span {
         font-size: 3.5vw;
+    }
+
+    .experience-container--testimonies {
+        width: auto;
     }
 
     .testimonies-container {
