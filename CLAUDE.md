@@ -10,6 +10,21 @@ npm run build      # production build → build/
 npm test           # Jest test runner (watch mode)
 ```
 
+## Deployment
+
+Nothing in this repo builds or publishes the site. There is no CI workflow, no
+`netlify.toml`/`vercel.json`/`amplify.yml`, no `CNAME`, and no `homepage` field
+or deploy script in `package.json`. Hosting is wired up outside the repository,
+so **which branch is live cannot be determined from these files** — check the
+host's dashboard before assuming.
+
+Per the repo owner, `v2-rework` is the branch serving
+https://www.amyengportfolio.com. `main` is the default branch for PRs.
+
+Pushing any other branch cannot alter what a different branch serves, so work
+can be pushed freely for backup or review. The one thing to confirm before
+pushing is that you are not pushing to whichever branch the host builds from.
+
 ## Architecture
 
 **Stack**: React 19 + TypeScript, Create React App (react-scripts), React Router DOM v6, React Spring for animations.
@@ -50,6 +65,18 @@ npm test           # Jest test runner (watch mode)
    curl -I https://portfolio2025-assets.s3.amazonaws.com/assets/portfolio-content_spring2026/<path>/<file>
    ```
    200 means good. 404 means the upload didn't happen or the key differs from the local path. 403 means the bucket policy isn't applied — see `aws-config/README.md`.
+
+**Replacing an existing asset:** re-uploading to the same S3 key does not
+reliably reach anyone who has already loaded the old bytes — browsers keep
+serving the cached copy, so a corrected image still looks broken and a `curl`
+against the key will disagree with what the page shows. Give the new file a new
+name (`foo-v2.jpg`) and update the reference. If you must keep the key, set
+`--cache-control "no-cache"` on the upload, and expect a hard refresh to be
+needed anyway.
+
+When an image's dimensions drive layout (a fixed `height` in `vw`, say),
+recompute that number after replacing it. A replacement of a different size
+silently crops or leaves a gap.
 
 **Lightbox images:** `lightbox.trigger(...)` stores the path verbatim, so the src has to be wrapped: `lightbox.trigger(getAssetPath(path), alt, caption)`. Without the wrap the lightbox loads from the local origin while the inline `<img>` loads from S3, which looks like "the thumbnail is broken but the lightbox works".
 
