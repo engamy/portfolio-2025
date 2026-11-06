@@ -24,6 +24,8 @@ const EmailAssetsGrid: React.FC = () => {
                 src={asset.approvedImage}
                 alt={asset.folderName}
                 className="email-asset-thumbnail"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {asset.cbImage && (
@@ -43,6 +45,8 @@ const EmailAssetsGrid: React.FC = () => {
                   src={asset.cbImage}
                   alt={`${asset.folderName} CB`}
                   className="email-asset-thumbnail"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             )}

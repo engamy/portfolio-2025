@@ -38,6 +38,27 @@
   gap: 0.9rem;
 }
 
+/* Closing note above the resume and email buttons. Replaces the old
+   thank-you band that sat above the footer on the case studies. */
+.foot-thanks {
+  margin-bottom: 0.4rem;
+}
+
+.foot-thanks p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cream);
+}
+
+.foot .foot-thanks-title {
+  margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
 .foot-actions {
   display: flex;
   flex-wrap: wrap;

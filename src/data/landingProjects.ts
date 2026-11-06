@@ -55,9 +55,9 @@ export const projectPath = (project: LandingProject) =>
 export const PROJECTS: LandingProject[] = [
   {
     slug: 'via-separations',
-    title: 'Via Separations',
-    ctx: 'Harbor v2.0 · NExT Consulting × Via Separations',
-    focus: 'Flagship case study, enterprise SaaS',
+    title: 'Via Separations <> NExT Consulting',
+    ctx: 'Internal operations & Warehouse/Inventory management system',
+    focus: 'Internal operations & Warehouse/Inventory management system',
     tags: ['pd', 'se'],
     img: 'Harbor v2.0 main product screen',
     featured: true,
@@ -75,9 +75,9 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'marshalls-trend-shop',
-    title: 'Marshalls.com Trend Shop',
-    ctx: 'Graphic Design & Design Systems · TJX Companies',
-    focus: 'Flagship case study, e-commerce system',
+    title: 'Marshalls',
+    ctx: 'Designing exploratory web layouts & brand systems at scale',
+    focus: 'Designing exploratory web layouts & brand systems at scale',
     tags: ['pd', 'ds'],
     img: 'Trend Shop page on the blue geometric Marshalls pattern',
     featured: true,
@@ -87,10 +87,12 @@ export const PROJECTS: LandingProject[] = [
   {
     slug: 'kahsay',
     title: 'Kahsay',
-    ctx: 'UX case study',
-    focus: 'UX case study',
-    tags: ['pd'],
-    img: 'Key screens from the Kahsay case study'
+    ctx: 'Brand Identity for a foodtech startup',
+    focus: 'Brand Identity for a foodtech startup',
+    tags: ['pd', 'ds'],
+    img: 'Key screens from the Kahsay case study',
+    to: '/kahsay',
+    image: DESIGN + '/03_KAHSAY/thumbnail-kahsay.jpg'
   },
   {
     slug: 'iot-dishwasher',

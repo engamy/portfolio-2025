@@ -3,6 +3,7 @@ import ImageLightbox from './ImageLightbox';
 import './WebsiteAssetsGrid.css';
 import { getAssetPath } from '../../utils/assetUtils';
 import { useLightbox } from '../../hooks/useLightbox';
+import { fullVariant, inlineVariant } from '../../data/imageVariants';
 
 const SITE_ASSETS =
   '/pictures/portfolio-content_spring2026/02_DESIGN/01_MARSHALLS/02_ECOMM/site_assets';
@@ -16,15 +17,15 @@ const websiteAssets = [
   {
     id: 1,
     modifier: 'desktop-banner',
-    thumbnail: getAssetPath(`${SITE_ASSETS}/sitebanner_desktop_live.png`),
-    src: getAssetPath(`${SITE_ASSETS}/sitebanner_desktop.jpg`),
+    thumbnail: getAssetPath(inlineVariant(`${SITE_ASSETS}/sitebanner_desktop_live.png`)),
+    src: getAssetPath(fullVariant(`${SITE_ASSETS}/sitebanner_desktop.jpg`)),
     caption: 'Desktop Site Banner',
     alt: 'Desktop site banner thumbnail'
   },
   {
     id: 2,
     modifier: 'mobile-banner',
-    thumbnail: getAssetPath(`${SITE_ASSETS}/sitebanner_mobile_live.jpg`),
+    thumbnail: getAssetPath(inlineVariant(`${SITE_ASSETS}/sitebanner_mobile_live.jpg`)),
     src: getAssetPath(`${SITE_ASSETS}/sitebanner_mobile.jpg`),
     caption: 'Mobile Site Banner',
     alt: 'Mobile site banner thumbnail'
@@ -47,6 +48,8 @@ const WebsiteAssetsGrid: React.FC = () => {
                 src={asset.thumbnail}
                 alt={asset.alt}
                 className={`website-asset-thumbnail ${asset.modifier}`}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

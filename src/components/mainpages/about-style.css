@@ -211,6 +211,8 @@
 }
 
 .quote-mark {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
     position: absolute;
     font-size: 5vw;
     line-height: 1;

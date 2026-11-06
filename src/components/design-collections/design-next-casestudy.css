@@ -25,7 +25,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: blur(5px);
+  filter: blur(5px) brightness(0.65);
   /* slight scale prevents soft blurred edges from showing the underlying bg */
   transform: scale(1.04);
   z-index: 0;
@@ -98,16 +98,32 @@
 
 .next-hero .next-bento-card {
   background-color: rgba(16, 16, 16, 0.55);
-  border-color: var(--cream);
   padding: 1.3vw 1.4vw;
   /* Keeps the text legible over the brighter parts of the photo. */
   backdrop-filter: blur(2px);
+}
+
+/* Needs the extra class to beat .next-bento-row--outline .next-bento-card,
+   which comes later in the file and otherwise paints the border green. */
+.next-hero .next-bento-row--outline .next-bento-card {
+  border-color: var(--cream);
 }
 
 .next-hero .next-bento-card h3 {
   color: var(--cream);
   font-size: 1.15vw;
   margin: 0 0 0.5vw 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Sized in em so it tracks the heading at every breakpoint. Overrides the
+   global .ic, which fills its container. */
+.next-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
 }
 
 .next-hero .next-bento-card p {
@@ -401,6 +417,137 @@
   max-width: 50vw;
 }
 
+/* ---------- Prose beside a figure ---------- */
+
+/* Two-column row of prose and one figure. The DOM order is the mobile
+   order; the modifiers reorder the figure into the other column on desktop.
+   Default: figure on the right. */
+.next-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  margin: 2.5vw 0;
+}
+
+.next-split .next-placeholder--landscape {
+  width: 100%;
+}
+
+/* Figure is first in the DOM (above the prose on mobile), right on desktop. */
+.next-split--figure-first > .next-figure {
+  order: 1;
+}
+
+/* Figure is after the prose in the DOM, left on desktop. */
+.next-split--figure-left > .next-figure {
+  order: -1;
+}
+
+/* Section 1 body copy set in two newspaper columns on desktop. */
+.next-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+/* Lifecycle diagram at roughly half its default split width. */
+.next-split--small-figure {
+  grid-template-columns: 1fr 3fr;
+}
+
+/* 2x2 grid: two paragraphs on top, each one's image below it. */
+.next-pair-grid {
+  display: flex;
+  gap: 4vw;
+  align-items: flex-start;
+  margin: 2.5vw 0;
+}
+
+.next-pair-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+
+.next-prose strong {
+  font-weight: 700;
+}
+
+.next-figure--center {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5vw;
+}
+
+/* ---------- Tablet / small laptop ---------- */
+
+/* Between this and the mobile breakpoint the side-by-side hero squeezes the
+   snapshot cards too narrow, so the title column and the snapshot stack. The
+   type is resized for the full-width column. */
+@media (min-width: 769px) and (max-width: 1152px) {
+  .next-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .next-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .next-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .next-hero-main {
+    gap: 2vw;
+    flex: 0 0 auto;
+  }
+
+  .next-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .next-title {
+    font-size: 5.4vw !important;
+  }
+
+  .next-subtitle {
+    font-size: 2.3vw;
+  }
+
+  .next-hero-note {
+    max-width: 70vw;
+    font-size: 1.6vw;
+  }
+
+  .next-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .next-hero .next-bento-row {
+    gap: 2vw;
+  }
+
+  .next-hero .next-bento-card {
+    padding: 2.4vw 2.6vw;
+  }
+
+  .next-hero .next-bento-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .next-hero .next-bento-card p {
+    font-size: 1.65vw;
+  }
+}
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
@@ -555,6 +702,31 @@
 
   .next-figure--static.next-figure--landscape img {
     max-width: 100%;
+  }
+
+  .next-split {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+    margin: 5vw 0;
+  }
+
+  .next-split--figure-first > .next-figure,
+  .next-split--figure-left > .next-figure {
+    order: 0;
+  }
+
+  .next-prose--columns {
+    column-count: 1;
+  }
+
+  .next-pair-grid {
+    flex-direction: column;
+    gap: 5vw;
+    margin: 5vw 0;
+  }
+
+  .next-pair-col {
+    gap: 5vw;
   }
 
   .next-content h4 {

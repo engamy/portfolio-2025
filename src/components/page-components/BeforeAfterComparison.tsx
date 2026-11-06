@@ -57,6 +57,8 @@ const BeforeAfterComparison: React.FC = () => {
               src={image}
               alt={`${title} ${index + 1}`}
               className="comparison-image"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}

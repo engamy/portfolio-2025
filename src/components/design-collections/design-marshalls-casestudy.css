@@ -1,76 +1,189 @@
+/* Marshalls case study. Structure follows the Via case study
+   (design-next-casestudy.css), with Marshalls blue for headings. */
+
+.ms-casestudy {
+  --ms-blue: #0024cc;
+  --ms-blue-line: rgba(0, 36, 204, 0.4);
+}
+
 /* ---------- Hero ---------- */
 
-.trendshop-hero {
+.ms-hero {
   position: relative;
   height: 100vh;
-  background-size: 180%;
-  background-position: center center;
-  background-repeat: no-repeat;
+  /* The summary cards sit inside the hero, so it grows past the viewport
+     rather than clipping them on short screens. */
+  min-height: max(100vh, 46rem);
+  background-color: var(--ink);
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  overflow: hidden;
+  /* Override .design-section-header's padding so the hero is full width. */
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
-.trendshop-hero::before {
+.ms-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(5px) brightness(0.6);
+  /* Slight scale hides the soft edges the blur leaves. */
+  transform: scale(1.04);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ms-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.45) 0%,
-    rgba(0, 0, 0, 0.55) 60%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
+  background-color: rgba(0, 0, 0, 0.35);
   pointer-events: none;
-}
-
-.trendshop-hero-overlay {
-  position: relative;
   z-index: 1;
+}
+
+.ms-hero-overlay {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  padding: 0 10vw 18vw 10vw;
+  display: flex;
+  padding: 0 10vw 8vw 10vw;
+  box-sizing: border-box;
 }
 
-.trendshop-hero-text {
-  max-width: 70vw;
+.ms-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
 }
 
+.ms-hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  flex: 1 1 44%;
+  min-width: 0;
+}
 
-.trendshop-title {
-  font-size: 4.5vw !important;
+.ms-hero-aside {
+  flex: 1 1 56%;
+  min-width: 0;
+}
+
+.ms-title {
+  font-size: 3.6vw !important;
   line-height: 1.05 !important;
   margin: 0 !important;
   color: var(--cream) !important;
   font-style: italic;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
-.trendshop-meta {
-  display: flex;
-  gap: 3vw;
-  margin-top: 1.5vw;
-  flex-wrap: wrap;
-}
-
-.trendshop-meta p {
-  font-size: var(--text-meta) !important;
-  margin: 0 !important;
-  width: auto !important;
-  color: var(--cream) !important;
-}
-
-.trendshop-meta p span {
-  display: block;
-  font-size: 0.75vw;
+.ms-snapshot-title {
+  margin: 0 0 1.2vw 0;
   color: var(--cream);
-  margin-bottom: 0.25vw;
-  font-weight: 700;
-  opacity: 0.75;
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+/* ---------- Cards (hero summary, points, takeaways) ---------- */
+
+.ms-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5vw;
+}
+
+.ms-card {
+  border: 1px solid var(--ms-blue-line);
+  border-radius: 12px;
+  padding: 2vw 1.8vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.ms-content .ms-card h3 {
+  font-size: 1.6vw;
+  margin: 0 0 1vw 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.ms-cards--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ms-cards--points {
+  margin-top: 1.5vw;
+}
+
+/* Point cards carry body-size copy, so their headings sit closer to it. */
+.ms-cards--points .ms-card h3 {
+  font-size: 1.35vw;
+  font-style: normal;
+}
+
+.ms-card p {
+  font-size: var(--text-meta);
+  line-height: 1.5;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Hero variant: light text on a dark scrim over the photo. */
+.ms-cards--hero {
+  gap: 1.2vw;
+}
+
+.ms-cards--hero .ms-card {
+  background-color: rgba(16, 16, 16, 0.55);
+  border-color: var(--cream);
+  padding: 1.3vw 1.4vw;
+  backdrop-filter: blur(2px);
+}
+
+.ms-cards--hero .ms-card h3 {
+  color: var(--cream);
+  font-size: 1.15vw;
+  font-style: italic;
+  margin: 0 0 0.5vw 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.ms-cards--hero .ms-card p {
+  color: var(--cream);
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
+
+/* Sized in em so it tracks the heading. Overrides the global .ic, which
+   fills its container. */
+.ms-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.ms-cards--takeaways {
+  margin-top: 2vw;
 }
 
 /* ---------- Content ---------- */
 
-.trendshop-content {
+.ms-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
   padding: 5vw 10vw;
   background-color: var(--cream);
   color: var(--ink);
@@ -78,477 +191,546 @@
   line-height: 1.4;
 }
 
-.trendshop-section {
-  margin-bottom: 6vw;
+.ms-section {
+  display: flow-root;
 }
 
-.trendshop-content h2 {
+.ms-content h2 {
   font-size: 2.8vw;
   font-style: italic;
   margin: 0 0 1.5vw 0;
-  color: var(--blue);
+  color: var(--ms-blue);
 }
 
-.trendshop-content h3 {
+.ms-content h3 {
   font-size: 1.9vw;
   font-style: italic;
-  margin: 3vw 0 0.5vw 0;
-  color: var(--blue);
+  margin: 0 0 1vw 0;
+  color: var(--ms-blue);
 }
 
-.trendshop-content h4 {
-  font-size: 1.1vw;
-  font-weight: normal;
-  margin: 0 0 1.5vw 0;
-  color: var(--ink);
-  opacity: 0.75;
-  line-height: 1.4;
+.ms-content h4 {
+  font-size: 1.4vw;
+  font-style: italic;
+  margin: 0 0 1vw 0;
+  color: var(--ms-blue);
 }
 
-.trendshop-prose p {
+.ms-subsection {
+  display: flow-root;
+}
+
+.ms-section > .ms-prose + .ms-subsection,
+.ms-subsection + .ms-subsection {
+  margin-top: 3.5vw;
+}
+
+.ms-prose p {
   font-size: var(--text-body);
   line-height: 1.55;
   margin: 0 0 1.2vw 0;
   color: var(--ink);
 }
 
-.trendshop-prose strong {
-  color: var(--blue);
+.ms-prose p:last-child {
+  margin-bottom: 0;
 }
 
-.trendshop-prose--full {
-  max-width: 100%;
+.ms-prose strong {
+  font-weight: 700;
 }
 
-/* Two-column layouts (prose + figure) */
-.trendshop-twocol {
+.ms-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+/* ---------- Term list (bold lead-in points) ---------- */
+
+/* Term on the left, description on the right, one row per point. */
+.ms-terms {
+  margin: 1.5vw 0 0 0;
+}
+
+.ms-terms > div {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 3vw;
+  padding: 1.2vw 0;
+}
+
+.ms-terms dt {
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--ink);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+}
+
+/* Icon before a point's term, in rows and cards alike. Overrides the
+   global .ic, which fills its container. */
+.ms-point-icon {
+  flex: 0 0 auto;
+  width: 1.2em;
+  height: 1.2em;
+  color: var(--ms-blue);
+}
+
+.ms-terms dt .ms-point-icon {
+  margin-top: 0.15em;
+}
+
+.ms-terms dd {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---------- Intro + brand marks ---------- */
+
+.ms-split--brands {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 5vw;
   align-items: center;
 }
 
-.trendshop-twocol--reverse .trendshop-figure {
-  order: 0;
-}
-
-.trendshop-figure {
-  cursor: pointer;
-  margin: 0;
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 1vw;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1px solid rgba(16, 16, 16, 0.06);
-}
-
-.trendshop-figure:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.trendshop-figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
-
-.trendshop-figure figcaption {
-  font-size: var(--text-caption);
-  text-align: center;
-  margin-top: 0.6vw;
-  opacity: 0.7;
-  font-style: italic;
-}
-
-/* ---------- Exploration grids ---------- */
-
-.trendshop-explore-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2vw;
-  margin: 1vw 0 2vw 0;
-}
-
-.trendshop-explore-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 1vw;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(16, 16, 16, 0.06);
+.ms-brands {
   display: flex;
   flex-direction: column;
-  gap: 0.8vw;
+  align-items: center;
+  gap: 2.5vw;
 }
 
-.trendshop-explore-tile {
-  position: relative;
+.ms-brands img {
+  display: block;
+  width: 70%;
+  height: auto;
+}
+
+/* ---------- Figures and grids ---------- */
+
+.ms-figure {
+  margin: 0;
   cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: var(--cream);
-  aspect-ratio: 16 / 9;
   transition: transform 0.25s ease;
 }
 
-.trendshop-explore-tile:hover {
-  transform: scale(1.02);
+.ms-figure:hover {
+  transform: scale(1.01);
 }
 
-.trendshop-explore-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.ms-figure img {
   display: block;
-}
-
-.trendshop-explore-label {
-  margin: 0.3vw 0 0 0;
-  font-size: 1vw;
-  font-style: italic;
-  color: var(--blue);
-  text-align: center;
-}
-
-/* ---------- Wordmark grid ---------- */
-
-.trendshop-wordmark-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 2vw;
-  margin: 1vw 0 2vw 0;
-}
-
-.trendshop-wordmark-tile {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 1.5vw;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(16, 16, 16, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8vw;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  min-height: 18vw;
-}
-
-.trendshop-wordmark-tile:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.trendshop-wordmark-tile img {
-  max-width: 100%;
-  max-height: 14vw;
-  object-fit: contain;
-  display: block;
-}
-
-.trendshop-wordmark-tile p {
-  margin: 0;
-  font-size: 0.85vw;
-  color: var(--blue);
-  font-weight: 700;
-}
-
-/* ---------- Trade-offs grid (prose + callout) ---------- */
-
-.trendshop-tradeoffs-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3vw;
-  align-items: start;
-}
-
-/* ---------- Callout (feedback) ---------- */
-
-.trendshop-callout {
-  background-color: #ffffff;
-  color: var(--ink);
-  border-radius: 16px;
-  padding: 2vw 2.5vw;
-  margin: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(16, 16, 16, 0.06);
-}
-
-.trendshop-callout-eyebrow {
-  font-size: 0.85vw;
-  margin: 0 0 1.2vw 0;
-  font-weight: 700;
-  color: var(--blue);
-}
-
-.trendshop-callout-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8vw;
-}
-
-.trendshop-callout-list li {
-  font-size: var(--text-small);
-  line-height: 1.5;
-  padding-left: 1.4vw;
-  position: relative;
-}
-
-.trendshop-callout-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55vw;
-  width: 0.45vw;
-  height: 0.45vw;
-  background-color: var(--blue);
-  border-radius: 50%;
-}
-
-.trendshop-callout-list strong {
-  color: var(--blue);
-}
-
-/* ---------- Shipped grid ---------- */
-
-.trendshop-shipped-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2vw;
-  margin: 1.5vw 0;
-}
-
-.trendshop-shipped-tile--single {
-  margin: 2vw 0 0 0;
-  width: 100%;
-}
-
-.trendshop-shipped-tile {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 0.8vw;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(16, 16, 16, 0.06);
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
-}
-
-.trendshop-shipped-tile:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.trendshop-shipped-tile img {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 16, 16, 0.12);
 }
 
-/* ---------- Other Work section (dark panel) ---------- */
-/* The embedded reusable grids were originally styled for the dark
-   /design-marshalls page. Wrapping Other Work in a dark panel keeps
-   their typography and contrast identical to the original page. */
-
-.trendshop-otherwork {
-  margin: 8vw -10vw -5vw -10vw;
-  padding: 6vw 10vw;
-  background-color: var(--ink);
-  color: var(--cream);
+.ms-figure--full {
+  margin-top: 2vw;
 }
 
-.trendshop-otherwork h2,
-.trendshop-otherwork h3 {
-  color: var(--cream);
+.ms-grid {
+  display: grid;
+  gap: 2vw;
+  align-items: start;
+  margin-top: 2vw;
 }
 
-.trendshop-otherwork h4 {
-  color: var(--cream);
-  opacity: 0.9;
+.ms-grid--two {
+  grid-template-columns: 1fr 1fr;
 }
 
-.trendshop-otherwork-intro {
-  font-size: var(--text-body);
-  max-width: 70vw;
-  line-height: 1.55;
-  margin: 0 0 3vw 0;
-  color: var(--cream);
-  opacity: 0.9;
+/* ---------- Iterations ---------- */
+
+/* Three columns; each iteration spans the parent's three rows through
+   subgrid, so headings, copy and images start at the same height in every
+   column regardless of how long each one's copy runs. */
+.ms-iterations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  column-gap: 3vw;
+  margin-top: 2.5vw;
+}
+
+.ms-iteration {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+}
+
+.ms-iteration h4 {
+  margin-bottom: 1vw;
+}
+
+.ms-iteration .ms-prose {
+  margin-bottom: 1.5vw;
+}
+
+.ms-iteration .ms-prose p {
+  font-size: var(--text-meta);
+}
+
+/* ---------- Heading beside its paragraph ---------- */
+
+.ms-inline-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3vw;
+  align-items: baseline;
+}
+
+.ms-inline-head h3,
+.ms-content .ms-inline-head h4 {
+  margin: 0;
+}
+
+/* ---------- Minor subsections (h4 with icon) ---------- */
+
+.ms-minor {
+  margin-top: 2.5vw;
+}
+
+.ms-minor + .ms-minor {
+  margin-top: 4vw;
+}
+
+.ms-content .ms-minor h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.8vw;
+}
+
+/* ---------- Embedded gallery components ---------- */
+
+.ms-embed {
+  margin-top: 2.5vw;
+}
+
+/* ---------- Sign pairs (photo + design) ---------- */
+
+.ms-pairs {
+  gap: 3vw;
+}
+
+.ms-pair {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+
+/* Grand opening posters: the in-store photo is cropped to the poster's
+   own ratio so the two read as a matched pair. */
+.ms-pair--poster .ms-figure {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.ms-pair--poster .ms-figure img {
+  aspect-ratio: 2448 / 3744;
+  object-fit: cover;
+}
+
+/* Signage: every image the same height, widths follow each image. */
+.ms-pair--signage .ms-figure img {
+  height: 22vw;
+  width: auto;
+}
+
+.ms-caption {
+  margin: 0.8vw 0 0 0;
+  text-align: center;
+  font-size: var(--text-meta);
+  font-style: italic;
+  color: rgba(16, 16, 16, 0.7);
+}
+
+/* ---------- Before / after mockups ---------- */
+
+.ms-mockup-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  font-size: var(--text-meta);
+  color: rgba(16, 16, 16, 0.7);
+}
+
+.ms-mockup-row {
+  margin-top: 0.8vw;
+  align-items: center;
+}
+
+/* ---------- Tablet / small laptop ---------- */
+
+/* Below this width the side-by-side hero squeezes the cards too narrow, so
+   the title and summary stack. */
+@media (min-width: 769px) and (max-width: 1152px) {
+  .ms-hero {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .ms-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .ms-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .ms-hero-main,
+  .ms-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .ms-title {
+    font-size: 5.4vw !important;
+  }
+
+  .ms-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .ms-cards--hero {
+    gap: 2vw;
+  }
+
+  .ms-cards--hero .ms-card {
+    padding: 2.4vw 2.6vw;
+  }
+
+  .ms-cards--hero .ms-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .ms-cards--hero .ms-card p {
+    font-size: 1.65vw;
+  }
 }
 
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
-  .trendshop-hero {
-    height: 80vh;
-    background-position: center;
+  .ms-hero {
+    height: auto;
+    min-height: 100vh;
   }
 
-  .trendshop-hero-overlay {
-    padding: 0 5vw 18vw 5vw;
+  .ms-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
   }
 
-  .trendshop-hero-text {
+  .ms-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
     max-width: 100%;
   }
 
-
-  .trendshop-title {
-    font-size: 9vw !important;
+  .ms-hero-main,
+  .ms-hero-aside {
+    flex: 0 0 auto;
   }
 
-  .trendshop-meta {
-    gap: 6vw;
+  .ms-title {
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .ms-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .ms-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .ms-card {
+    padding: 6vw 5vw;
+  }
+
+  .ms-content .ms-card h3 {
+    font-size: 5vw;
+    margin-bottom: 3vw;
+  }
+
+  .ms-card p {
+    font-size: 3.6vw;
+  }
+
+  .ms-cards--hero .ms-card {
+    padding: 5vw;
+  }
+
+  .ms-cards--hero .ms-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .ms-cards--hero .ms-card p {
+    font-size: 3.8vw;
+  }
+
+  .ms-cards--takeaways {
     margin-top: 5vw;
   }
 
-  .trendshop-meta p {
-    font-size: 3.5vw !important;
-  }
-
-  .trendshop-meta p span {
-    font-size: 2.5vw;
-    margin-bottom: 1vw;
-  }
-
-  .trendshop-content {
+  .ms-content {
     padding: 8vw 5vw;
+    gap: 12vw;
   }
 
-  .trendshop-section {
-    margin-bottom: 12vw;
-  }
-
-  .trendshop-content h2 {
+  .ms-content h2 {
     font-size: 7vw;
     margin-bottom: 4vw;
   }
 
-  .trendshop-content h3 {
+  .ms-content h3 {
     font-size: 5.5vw;
-    margin: 8vw 0 2vw 0;
-  }
-
-  .trendshop-content h4 {
-    font-size: 3.8vw;
-    margin-bottom: 4vw;
-  }
-
-  .trendshop-prose p {
-    font-size: 3.8vw;
     margin-bottom: 3vw;
   }
 
-  .trendshop-prose--full {
-    max-width: 100%;
+  .ms-content h4 {
+    font-size: 4.6vw;
+    margin-bottom: 3vw;
   }
 
-  .trendshop-twocol,
-  .trendshop-twocol--reverse,
-  .trendshop-tradeoffs-grid {
+  .ms-section > .ms-prose + .ms-subsection,
+  .ms-subsection + .ms-subsection {
+    margin-top: 9vw;
+  }
+
+  .ms-prose p {
+    margin-bottom: 3vw;
+  }
+
+  .ms-prose--columns {
+    column-count: 1;
+  }
+
+  .ms-terms {
+    margin-top: 4vw;
+  }
+
+  .ms-terms > div {
     grid-template-columns: 1fr;
-    gap: 5vw;
+    gap: 1.5vw;
+    padding: 3.5vw 0;
   }
 
-  .trendshop-twocol--reverse .trendshop-figure {
-    order: -1;
-  }
-
-  .trendshop-figure {
-    padding: 2vw;
-  }
-
-
-  .trendshop-explore-grid {
+  .ms-split--brands {
     grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .ms-brands {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8vw;
+  }
+
+  .ms-brands img {
+    width: 38%;
+  }
+
+  .ms-grid {
     gap: 4vw;
+    margin-top: 5vw;
   }
 
-  .trendshop-explore-card {
-    padding: 3vw;
-    gap: 2vw;
-  }
-
-  .trendshop-explore-label {
-    font-size: 3.5vw;
-    margin-top: 1.5vw;
-  }
-
-  .trendshop-wordmark-grid {
+  .ms-grid--two {
     grid-template-columns: 1fr;
-    gap: 4vw;
   }
 
-  .trendshop-wordmark-tile {
-    padding: 5vw;
-    min-height: auto;
+  .ms-cards--points .ms-card h3 {
+    font-size: 4.6vw;
   }
 
-  .trendshop-wordmark-tile img {
-    max-height: 40vw;
+  /* Iterations stack; each drops the subgrid and lays out on its own. */
+  .ms-iterations {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    row-gap: 9vw;
   }
 
-  .trendshop-wordmark-tile p {
-    font-size: 3vw;
+  .ms-iteration {
+    grid-row: auto;
+    grid-template-rows: none;
   }
 
-  .trendshop-callout {
-    padding: 6vw 6vw;
+  .ms-iteration h4 {
+    margin-bottom: 3vw;
   }
 
-  .trendshop-callout-eyebrow {
-    font-size: 2.8vw;
+  .ms-iteration .ms-prose {
     margin-bottom: 4vw;
   }
 
-  .trendshop-callout-list {
+  .ms-iteration .ms-prose p {
+    font-size: var(--text-body);
+  }
+
+  .ms-figure--full,
+  .ms-embed {
+    margin-top: 5vw;
+  }
+
+  .ms-inline-head {
+    grid-template-columns: 1fr;
     gap: 3vw;
   }
 
-  .trendshop-callout-list li {
-    font-size: 3.6vw;
-    padding-left: 4vw;
+  .ms-minor {
+    margin-top: 6vw;
   }
 
-  .trendshop-callout-list li::before {
-    width: 2vw;
-    height: 2vw;
-    top: 2vw;
+  .ms-minor + .ms-minor {
+    margin-top: 9vw;
   }
 
-  .trendshop-shipped-grid {
-    grid-template-columns: 1fr;
-    gap: 4vw;
+  .ms-content .ms-minor h4 {
+    margin-bottom: 2vw;
   }
 
-  .trendshop-otherwork {
-    margin: 14vw -5vw -8vw -5vw;
-    padding: 10vw 5vw;
+  .ms-pairs {
+    gap: 7vw;
   }
 
-  .trendshop-otherwork-intro {
-    font-size: 3.8vw;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .trendshop-title {
-    font-size: 10vw !important;
+  .ms-pair {
+    gap: 3vw;
   }
 
-  .trendshop-content h2 {
-    font-size: 8vw;
+  .ms-pair--signage .ms-figure img {
+    height: 52vw;
   }
 
-  .trendshop-content h3 {
-    font-size: 6vw;
+  .ms-caption {
+    margin-top: 2vw;
+  }
+
+  /* Before/after rows stay side by side so the comparison still reads. */
+  .ms-mockup-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+    margin-top: 2vw;
+  }
+
+  .ms-mockup-labels {
+    gap: 3vw;
   }
 }

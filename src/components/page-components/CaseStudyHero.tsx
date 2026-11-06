@@ -1,5 +1,6 @@
 import React from 'react';
 import { getAssetPath } from '../../utils/assetUtils';
+import { inlineVariant } from '../../data/imageVariants';
 
 export interface CaseStudyMeta {
   label: string;
@@ -8,20 +9,21 @@ export interface CaseStudyMeta {
 
 interface CaseStudyHeroProps {
   /** Chooses the class prefix, and with it the page's own hero styling. */
-  variant: 'next' | 'trendshop';
+  variant: 'next' | 'ms' | 'ks';
   title: React.ReactNode;
   subtitle?: string;
   /** Short caveat shown under the metadata, e.g. an NDA stand-in note. */
   note?: string;
   /** Omit entirely for a hero that carries only a title and note. */
   meta?: CaseStudyMeta[];
-  backgroundImage: string;
+  /** Omit for a hero whose background comes entirely from its stylesheet. */
+  backgroundImage?: string;
   /**
    * How the background is applied. 'image' renders a blurred <img> behind the
    * text; 'css' sets a background-image on the hero itself. The two case studies
-   * use different treatments by design.
+   * use different treatments by design. Ignored without a backgroundImage.
    */
-  backgroundMode: 'image' | 'css';
+  backgroundMode?: 'image' | 'css';
   /** Extra content placed beside the title block rather than under it. */
   children?: React.ReactNode;
 }
@@ -43,7 +45,9 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
   backgroundMode,
   children
 }) => {
-  const resolved = getAssetPath(backgroundImage);
+  const resolved = backgroundImage
+    ? getAssetPath(inlineVariant(backgroundImage))
+    : null;
 
   // Kept as one fragment so the markup is identical whether or not the hero
   // has an aside beside it.
@@ -68,12 +72,12 @@ const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({
     <div
       className={`design-section-header ${variant}-hero`}
       style={
-        backgroundMode === 'css'
+        resolved && backgroundMode === 'css'
           ? { backgroundImage: `url(${resolved})` }
           : undefined
       }
     >
-      {backgroundMode === 'image' && (
+      {resolved && backgroundMode === 'image' && (
         <img
           src={resolved}
           alt=""

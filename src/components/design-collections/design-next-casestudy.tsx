@@ -7,6 +7,7 @@ import ImageLightbox from '../page-components/ImageLightbox';
 import { usePageMode } from '../../hooks/usePageMode';
 import CaseStudyHero from '../page-components/CaseStudyHero';
 import { useSingleImageLightbox } from '../../hooks/useLightbox';
+import { Icon } from '../page-components/IconSprite';
 
 const ASSET_BASE = '/pictures/portfolio-content_spring2026/02_DESIGN/02_NEXT';
 
@@ -38,21 +39,21 @@ export default function DesignNextCasestudy() {
         note="Via's product is a specialized industrial component under NDA, so the screenshots in this case study use a three-layer cake and its ingredients as a stand-in. The structure on screen is real, with different names on the data."
       >
         <div className="next-snapshot">
-          <h2 className="next-snapshot-title">Impact Snapshot</h2>
+          <h2 className="next-snapshot-title">Quick Summary</h2>
           <div className="next-bento-row next-bento-row--outline next-bento-row--two">
             <div className="next-bento-card">
-              <h3>Role</h3>
+              <h3><Icon id="i-person" className="next-card-icon" />Role</h3>
               <p>Product Designer, Software Engineer, and Systems Consultant</p>
             </div>
             <div className="next-bento-card">
-              <h3>Tools</h3>
+              <h3><Icon id="i-code" className="next-card-icon" />Tools</h3>
               <p>
                 TypeScript, React, Material UI (MUI), MUI X Pro, Relational
                 Databases.
               </p>
             </div>
             <div className="next-bento-card">
-              <h3>Impact</h3>
+              <h3><Icon id="i-bars" className="next-card-icon" />Impact</h3>
               <p>
                 Architected and developed scalable internal UI flows (reservation,
                 material planner, and mBOM systems), navigated critical system
@@ -61,7 +62,7 @@ export default function DesignNextCasestudy() {
               </p>
             </div>
             <div className="next-bento-card">
-              <h3>Core Outcome</h3>
+              <h3><Icon id="i-target" className="next-card-icon" />Core Outcome</h3>
               <p>
                 Translated complex enterprise supply chain workflows into an
                 intuitive platform built on top of the existing Harbor v1.0
@@ -78,27 +79,31 @@ export default function DesignNextCasestudy() {
         {/* 1. Context & Problem Framing */}
         <section className="next-section">
           <h2>1. Context &amp; Problem Framing</h2>
-          <div className="next-prose">
+          <div className="next-prose next-prose--columns">
             <p>
-              Working at the intersection of design, code, and systems consulting,
-              my primary responsibility was translating Via Separations’ complex
-              enterprise supply chain workflows into an intuitive platform built on
-              top of the existing Harbor v1.0 warehouse system.
+              Working at the intersection of <strong>design, code, and systems
+              consulting</strong>, my primary responsibility was translating Via
+              Separations’ <strong>complex enterprise supply chain workflows</strong>{' '}
+              into an intuitive platform built on top of the existing{' '}
+              <strong>Harbor v1.0</strong> warehouse system.
             </p>
             <p>
               While v1.0 tracked inventory, surrounding workflows remained
-              scattered: material planning lived in manual spreadsheets, demand was
-              estimated informally, and contract manufacturer data was
-              disconnected. As Via scaled from small qualification batches of dozens
-              of modules to commercial orders of thousands of modules, this reliance
-              on human memory and spreadsheets became a bottleneck. My job was to
-              ensure every UI pattern was technically feasible, architecturally
-              sound, and aligned with operational realities.
+              scattered: material planning lived in <strong>manual
+              spreadsheets</strong>, demand was estimated informally, and contract
+              manufacturer data was disconnected. As Via scaled from small
+              qualification batches of <strong>dozens of modules</strong> to
+              commercial orders of <strong>thousands of modules</strong>, this
+              reliance on human memory and spreadsheets became a{' '}
+              <strong>bottleneck</strong>. My job was to ensure every UI pattern was
+              technically feasible, architecturally sound, and aligned with
+              operational realities.
             </p>
             <p>
-              As part of a five-person engineering team, I owned end-to-end UX
-              research, wireframing, and interactive prototyping while directly
-              contributing to frontend implementation in TypeScript and React.
+              As part of a <strong>five-person engineering team</strong>, I owned{' '}
+              <strong>end-to-end UX research, wireframing, and interactive
+              prototyping</strong> while directly contributing to{' '}
+              <strong>frontend implementation in TypeScript and React</strong>.
             </p>
           </div>
         </section>
@@ -112,26 +117,32 @@ export default function DesignNextCasestudy() {
               consistency is vital. We leaned on the Material UI (MUI) library to
               maintain design consistency with v1.0.
             </p>
-            <p>
-              For example, designing the Manufacturing Bill of Materials (mBOM) tree
-              view required collapsible data grids to indicate hierarchical nesting
-              levels (from finished modules down to raw chemicals). This is the
-              recognized industry-standard approach for visualizing complex
-              multi-level product hierarchies, making it essential for user
-              comprehension. Recognizing that custom-building a duplicate tree
-              structure would introduce tech debt, we successfully advocated for Via
-              to adopt the MUI X Pro license to natively support hierarchical data
-              grids and row-grouping.
-            </p>
           </div>
 
-          <figure className="next-figure next-figure--static next-figure--landscape">
-            <div className="next-placeholder next-placeholder--landscape">
-              Side-by-side wireframe snippet: a flat spreadsheet-style BOM view next
-              to the hierarchical mBOM tree view, illustrating why collapsible
-              nesting was necessary to reduce visual clutter.
+          {/* Figure comes first in the DOM so it sits above the paragraph on
+              mobile; on desktop it is ordered into the right column. */}
+          <div className="next-split next-split--figure-first">
+            <figure className="next-figure next-figure--static next-figure--landscape">
+              <div className="next-placeholder next-placeholder--landscape">
+                Side-by-side wireframe snippet: a flat spreadsheet-style BOM view next
+                to the hierarchical mBOM tree view, illustrating why collapsible
+                nesting was necessary to reduce visual clutter.
+              </div>
+            </figure>
+            <div className="next-prose">
+              <p>
+                For example, designing the Manufacturing Bill of Materials (mBOM) tree
+                view required collapsible data grids to indicate hierarchical nesting
+                levels (from finished modules down to raw chemicals). This is the
+                recognized industry-standard approach for visualizing complex
+                multi-level product hierarchies, making it essential for user
+                comprehension. Recognizing that custom-building a duplicate tree
+                structure would introduce tech debt, we successfully advocated for Via
+                to adopt the MUI X Pro license to natively support hierarchical data
+                grids and row-grouping.
+              </p>
             </div>
-          </figure>
+          </div>
 
           <div className="next-prose">
             <p>
@@ -148,84 +159,93 @@ export default function DesignNextCasestudy() {
         {/* 3. System Evolution: Rethinking Demand and Reservations */}
         <section className="next-section">
           <h2>3. System Evolution: Rethinking Demand and Reservations</h2>
-          <div className="next-prose">
-            <p>
-              Through continuous weekly syncs and active listening sessions with
-              primary stakeholders, it became clear that tracking needed, reserved,
-              and fulfilled quantities separately across disparate sheets created
-              cognitive friction.
-            </p>
-            <p>
-              To solve this, I proposed transitioning the reservation system into a
-              holistic, quantitative framework tracking Needed, Reserved, and
-              Fulfilled.
-            </p>
+
+          {/* Each figure follows its prose in the DOM, which is the mobile
+              order; --figure-left moves it into the left column on desktop. */}
+          <div className="next-split next-split--figure-left next-split--small-figure">
+            <div className="next-prose">
+              <p>
+                Through continuous weekly syncs and active listening sessions with
+                primary stakeholders, it became clear that tracking needed, reserved,
+                and fulfilled quantities separately across disparate sheets created
+                cognitive friction.
+              </p>
+              <p>
+                To solve this, I proposed transitioning the reservation system into a
+                holistic, quantitative framework tracking Needed, Reserved, and
+                Fulfilled.
+              </p>
+            </div>
+            <figure
+              className="next-figure next-figure--landscape"
+              {...lightbox.trigger(
+                getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`),
+                'Reservation line lifecycle',
+                'Reservation line lifecycle'
+              )}
+            >
+              <img
+                src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
+                alt="Reservation line lifecycle"
+              />
+            </figure>
           </div>
 
-          <figure
-            className="next-figure next-figure--landscape"
-            {...lightbox.trigger(
-              getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`),
-              'Reservation line lifecycle',
-              'Reservation line lifecycle'
-            )}
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
-              alt="Reservation line lifecycle"
-            />
-          </figure>
-
-          <div className="next-prose">
-            <p>
-              Rather than displaying dense, text-heavy numbers in data grid rows, I
-              researched industry-standard enterprise tools and introduced a
-              segmented progress bar component. This replaced numerical clutter with
-              an intuitive, color-coded proportional view that allowed supply chain
-              managers to immediately gauge fulfillment health at a glance. After
-              mocking up the concept, I aligned the engineering team and presented
-              the streamlined workflow to the client, where it was adopted to anchor
-              the new reservation experience.
-            </p>
+          {/* Two columns, each a paragraph with its own image directly
+              beneath it. They stack on mobile. */}
+          <div className="next-pair-grid">
+            <div className="next-pair-col">
+              <div className="next-prose">
+                <p>
+                  Rather than displaying dense, text-heavy numbers in data grid rows, I
+                  researched industry-standard enterprise tools and introduced a
+                  segmented progress bar component. This replaced numerical clutter with
+                  an intuitive, color-coded proportional view that allowed supply chain
+                  managers to immediately gauge fulfillment health at a glance. After
+                  mocking up the concept, I aligned the engineering team and presented
+                  the streamlined workflow to the client, where it was adopted to anchor
+                  the new reservation experience.
+                </p>
+              </div>
+              <figure
+                className="next-figure next-figure--landscape"
+                {...lightbox.trigger(
+                  getAssetPath(`${ASSET_BASE}/via-resdetails.png`),
+                  'Reservation details view',
+                  'Reservation details view'
+                )}
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
+                  alt="Reservation details view"
+                />
+              </figure>
+            </div>
+            <div className="next-pair-col">
+              <div className="next-prose">
+                <p>
+                  To handle complex multi-level requirements across manufacturing
+                  stages, we paired this demand visibility with an automated material
+                  planning interface that walked the mBOM hierarchy in real time.
+                </p>
+              </div>
+              <figure
+                className="next-figure next-figure--landscape"
+                {...lightbox.trigger(
+                  getAssetPath(`${ASSET_BASE}/via-mrp.png`),
+                  'Material planner interface',
+                  'Material planner interface'
+                )}
+              >
+                <img
+                  src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
+                  alt="Material planner interface"
+                />
+              </figure>
+            </div>
           </div>
 
-          <figure
-            className="next-figure next-figure--landscape"
-            {...lightbox.trigger(
-              getAssetPath(`${ASSET_BASE}/via-resdetails.png`),
-              'Reservation details view',
-              'Reservation details view'
-            )}
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
-              alt="Reservation details view"
-            />
-          </figure>
-
-          <div className="next-prose">
-            <p>
-              To handle complex multi-level requirements across manufacturing
-              stages, we paired this demand visibility with an automated material
-              planning interface that walked the mBOM hierarchy in real time.
-            </p>
-          </div>
-
-          <figure
-            className="next-figure next-figure--landscape"
-            {...lightbox.trigger(
-              getAssetPath(`${ASSET_BASE}/via-mrp.png`),
-              'Material planner interface',
-              'Material planner interface'
-            )}
-          >
-            <img
-              src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
-              alt="Material planner interface"
-            />
-          </figure>
-
-          <figure className="next-figure next-figure--static next-figure--landscape">
+          <figure className="next-figure next-figure--static next-figure--landscape next-figure--center">
             <div className="next-placeholder next-placeholder--landscape">
               UI component breakdown graphic: the "anatomy" of the segmented
               progress bar component, showing how needed, reserved, and fulfilled
@@ -237,8 +257,7 @@ export default function DesignNextCasestudy() {
         {/* 4. Dual-Perspective Synthesis */}
         <section className="next-section">
           <h2>
-            4. Dual-Perspective Synthesis: How Design Sharpens Engineering (and
-            Vice Versa)
+            4. How Design Sharpens Engineering (and Vice Versa)
           </h2>
 
           <div className="next-subsection next-twocol-subsection">
@@ -355,6 +374,7 @@ export default function DesignNextCasestudy() {
         </section>
 
       </div>
+
 
       <ImageLightbox
         isOpen={lightbox.isOpen}

@@ -1,5 +1,5 @@
 /* Base body styling lives in index.css, which owns the brand tokens and the
-   DM Sans stack. This file is only the app shell and the generic page frame. */
+   DM Sans/Urbanist stacks. This file is only the app shell and the generic page frame. */
 
 .App {
   min-height: 100vh;

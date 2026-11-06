@@ -1,0 +1,1333 @@
+/* Kahsay case study. Structure follows the Via and Marshalls case studies;
+   colors come from the Kahsay brand guidelines (August 2026). */
+
+.ks-casestudy {
+  --ks-pine: #0F5C46;
+  --ks-spruce: #0A4133;
+  --ks-jade: #1A7A5E;
+  --ks-eucalyptus: #E2ECE7;
+  --ks-copper: #A85C2E;
+  --ks-wheat: #D9C08A;
+  --ks-oat: #EFE3D0;
+  --ks-ink: #1F2420;
+  --ks-ink-soft: #3F4741;
+  --ks-muted: #6F7872;
+  --ks-ivory: #FAF6EF;
+  --ks-line: rgba(15, 92, 70, 0.35);
+}
+
+/* ---------- Hero ---------- */
+
+/* Title and Quick Summary on a mesh-style gradient built from the Kahsay
+   palette: wide, overlapping washes of jade, copper and wheat over spruce,
+   with the bottom left kept deep green so the title holds its contrast. The
+   fractal noise layer gives it grain so it reads as a surface. The hero is
+   only as tall as its content. */
+.ks-hero {
+  position: relative;
+  display: flex;
+  /* .design-section-header makes every hero a full-height, centred column
+     (a column on mobile); this one sizes to its content. */
+  flex-direction: row;
+  align-items: flex-end;
+  height: auto;
+  min-height: 0;
+  /* Override .design-section-header's padding so the hero is full width. */
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--ks-spruce);
+  background-image:
+    /* Deep spruce anchoring the title, bottom left */
+    radial-gradient(70% 90% at 0% 100%, rgba(10, 65, 51, 0.95) 0%, rgba(10, 65, 51, 0) 70%),
+    /* Burnt copper warming the top right */
+    radial-gradient(60% 85% at 100% 0%, rgba(168, 92, 46, 0.7) 0%, rgba(168, 92, 46, 0) 70%),
+    /* Wheat glow low on the right, behind the cards */
+    radial-gradient(45% 70% at 88% 100%, rgba(217, 192, 138, 0.45) 0%, rgba(217, 192, 138, 0) 70%),
+    /* Jade lifting the top left */
+    radial-gradient(55% 80% at 25% 0%, rgba(26, 122, 94, 0.85) 0%, rgba(26, 122, 94, 0) 70%),
+    /* Pine through the middle */
+    radial-gradient(60% 90% at 55% 55%, rgba(15, 92, 70, 0.9) 0%, rgba(15, 92, 70, 0) 75%),
+    /* Full-coverage base so no gap between the washes falls to black */
+    radial-gradient(140% 160% at 45% 40%, var(--ks-pine) 0%, var(--ks-spruce) 100%);
+}
+
+.ks-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ks-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.ks-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.ks-hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  flex: 1 1 40%;
+  min-width: 0;
+}
+
+.ks-hero-aside {
+  flex: 1 1 60%;
+  min-width: 0;
+}
+
+.ks-title {
+  font-size: 4vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: var(--ks-ivory) !important;
+  font-style: italic;
+}
+
+.ks-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--ks-ivory);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+/* ---------- Quick Summary cards ---------- */
+
+.ks-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2vw;
+}
+
+.ks-card {
+  border: 1px solid var(--ks-ivory);
+  border-radius: 12px;
+  padding: 1.2vw 1.4vw;
+  background-color: rgba(10, 65, 51, 0.45);
+}
+
+.ks-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  font-size: 1.15vw;
+  font-style: italic;
+  color: var(--ks-ivory);
+}
+
+.ks-card p {
+  margin: 0;
+  font-size: 0.95vw;
+  line-height: 1.45;
+  color: var(--ks-ivory);
+}
+
+.ks-card a,
+.ks-card a:visited {
+  color: var(--ks-ivory);
+  text-underline-offset: 0.2em;
+}
+
+/* Sized in em so it tracks the heading. Overrides the global .ic, which
+   fills its container. */
+.ks-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Content ---------- */
+
+.ks-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw;
+  background-color: var(--cream);
+  color: var(--ks-ink);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.ks-section {
+  display: flow-root;
+}
+
+.ks-content h2 {
+  font-size: 2.8vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: var(--ks-pine);
+}
+
+.ks-subsection {
+  margin-top: 4vw;
+}
+
+.ks-prose p {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  margin: 0 0 1.2vw 0;
+  color: var(--ks-ink);
+}
+
+.ks-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.ks-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+.ks-prose--narrow {
+  max-width: 62%;
+}
+
+.ks-after-figure {
+  margin-top: 3vw;
+}
+
+/* Heading on the left, its paragraph on the right. */
+.ks-inline-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3vw;
+  align-items: baseline;
+}
+
+.ks-inline-head h2 {
+  margin: 0;
+}
+
+/* Prose beside a figure; the figure takes the right column unless
+   --figure-left is set. */
+.ks-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  margin-top: 3vw;
+}
+
+.ks-split--figure-left > .ks-figure {
+  order: -1;
+}
+
+
+/* ---------- Figures and grids ---------- */
+
+.ks-figure {
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.ks-figure:hover {
+  transform: scale(1.01);
+}
+
+.ks-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 36, 32, 0.1);
+}
+
+.ks-figure figcaption,
+.ks-caption {
+  margin: 0.7vw 0 0 0;
+  text-align: center;
+  font-size: var(--text-meta);
+  font-style: italic;
+  color: var(--ks-muted);
+}
+
+.ks-figure--full {
+  margin-top: 2.5vw;
+}
+
+.ks-grid {
+  display: grid;
+  gap: 2vw;
+  align-items: start;
+  margin-top: 2.5vw;
+}
+
+.ks-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ks-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Wordmark tests are wide strips, so four sit two-up. */
+.ks-grid--four {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vw 3vw;
+}
+
+/* ---------- Logo exploration ---------- */
+
+/* Sketch page, a 3x3 grid of digital F marks, then the tongue. */
+.ks-logo-explore {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.8fr;
+  gap: 2.5vw;
+  align-items: start;
+  margin-top: 2.5vw;
+}
+
+.ks-fgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6vw;
+}
+
+.ks-fgrid .ks-figure img {
+  border-radius: 6px;
+}
+
+.ks-fgrid-caption {
+  grid-column: 1 / -1;
+  margin-top: 0.1vw;
+}
+
+/* The tongue logo has its own ivory backdrop; drop the frame. */
+.ks-figure--tongue img {
+  border: none;
+}
+
+.ks-oma {
+  display: grid;
+  grid-template-columns: 1fr 1.46fr;
+  gap: 1.5vw;
+  align-items: end;
+}
+
+.ks-figure--wordmark {
+  max-width: 50%;
+  margin: 3vw auto 0 auto;
+}
+
+.ks-figure--wordmark img {
+  border: none;
+}
+
+/* ---------- Color review: palette options ---------- */
+
+.ks-palettes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5vw;
+  margin-top: 3vw;
+}
+
+.ks-content .ks-palette-name {
+  margin: 0 0 1rem 0;
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--ks-ink);
+}
+
+/* Centered titles that introduce a group of options or the final system. */
+.ks-content .ks-center-title {
+  margin: 5vw 0 2.5vw 0;
+  font-size: 1.9rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--ks-pine);
+}
+
+/* A centered title that opens its subsection needs no space above it. */
+.ks-subsection > .ks-center-title:first-child {
+  margin-top: 0;
+}
+
+/* Each palette option as a row of color dots with their hex codes. */
+.ks-dots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ks-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ks-dot-chip {
+  display: block;
+  width: 100%;
+  max-width: 4.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* Keeps the near-white neutrals visible on the cream page. */
+  border: 1px solid rgba(31, 36, 32, 0.14);
+  box-sizing: border-box;
+}
+
+.ks-dot-hex {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: normal;
+  font-variant-numeric: tabular-nums;
+  color: var(--ks-ink-soft);
+}
+
+.ks-caption--block {
+  margin-top: 1rem;
+}
+
+/* Live app layout mockup under each palette. Each .ks-mock sets its
+   palette as --m-primary, --m-bg, --m-ink and --m-pill-*; tints are mixed
+   from those so every color on the card comes from its own palette. */
+.ks-mock {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  letter-spacing: normal;
+  color: var(--m-ink);
+}
+
+.ks-mock-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--m-ink) 10%, transparent);
+  background: var(--m-bg);
+}
+
+.ks-mock-head {
+  height: 4.5rem;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  background: color-mix(in srgb, var(--m-primary) 18%, var(--m-bg));
+}
+
+.ks-mock-body {
+  padding: 0.95rem 1rem 1.05rem;
+}
+
+.ks-mock-pill,
+.ks-mock-match,
+.ks-mock-chip {
+  display: inline-block;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ks-mock-pill {
+  padding: 0.2rem 0.55rem;
+  background: var(--m-pill-bg);
+  color: var(--m-pill-fg);
+  font-weight: 700;
+}
+
+.ks-mock-title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.ks-mock-meta {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--m-ink) 62%, var(--m-bg));
+}
+
+.ks-mock-match {
+  margin-top: 0.6rem;
+  padding: 0.18rem 0.55rem;
+  background: color-mix(in srgb, var(--m-primary) 10%, var(--m-bg));
+  color: var(--m-primary);
+}
+
+.ks-mock-blurb {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--m-ink) 82%, var(--m-bg));
+}
+
+.ks-mock-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.ks-mock-btn {
+  padding: 0.45rem 0.8rem;
+  border: 1.5px solid var(--m-primary);
+  border-radius: 8px;
+  background: var(--m-primary);
+  color: var(--m-bg);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.ks-mock-btn--ghost {
+  background: transparent;
+  color: var(--m-primary);
+}
+
+.ks-mock-kicker,
+.ks-mock-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.ks-mock-kicker {
+  margin-bottom: 0.3rem;
+  color: var(--m-primary);
+}
+
+.ks-mock-label {
+  margin-top: 0.85rem;
+  color: color-mix(in srgb, var(--m-ink) 70%, var(--m-bg));
+}
+
+.ks-mock-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+.ks-mock-chip {
+  padding: 0.2rem 0.6rem;
+  background: color-mix(in srgb, var(--m-primary) 9%, var(--m-bg));
+  color: color-mix(in srgb, var(--m-primary) 85%, var(--m-ink));
+}
+
+.ks-mock-chip--on {
+  background: var(--m-primary);
+  color: var(--m-bg);
+}
+
+.ks-mock-meter {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.ks-mock-meter-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.ks-mock-track {
+  display: block;
+  height: 5px;
+  margin-top: 0.3rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--m-ink) 8%, var(--m-bg));
+}
+
+.ks-mock-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* ---------- Final brand guidelines ---------- */
+
+/* Rebuilt from the guideline pages: Onest for display type, Plus Jakarta
+   Sans for body, set at the guidelines' -40 tracking. */
+.ks-guide,
+.ks-voice-cards,
+.ks-voice-rules {
+  --ks-onest: "Onest", system-ui, sans-serif;
+  --ks-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* The colors on the left, the final-system paragraph beside them. */
+.ks-guide-intro {
+  display: grid;
+  grid-template-columns: 2.6fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+/* With no heading between them, the type system needs its own space below
+   the colors. */
+.ks-guide-intro + .ks-guide-type {
+  margin-top: 5vw;
+}
+
+/* Colors: four families, each a column of swatches. */
+.ks-guide-colors {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8vw;
+}
+
+.ks-content .ks-guide-group-name {
+  margin: 0;
+  font-family: var(--ks-onest);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--ks-ink);
+}
+
+.ks-guide-group-role {
+  display: block;
+  margin: 0.3rem 0 1.1rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.875rem;
+  letter-spacing: -0.02em;
+  color: var(--ks-ink-soft);
+}
+
+.ks-guide-swatches {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ks-guide-swatch {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.ks-guide-chip {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(31, 36, 32, 0.14);
+  box-sizing: border-box;
+}
+
+.ks-guide-swatch-text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.1rem;
+  font-family: var(--ks-jakarta);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.ks-guide-swatch-name {
+  font-family: var(--ks-onest);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.03em;
+  color: var(--ks-ink);
+}
+
+.ks-guide-swatch-hex {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ks-ink);
+}
+
+.ks-guide-swatch-use {
+  font-size: 0.8rem;
+  color: var(--ks-muted);
+}
+
+/* Typography: the two faces on the left, the type scale on the right. */
+.ks-guide-type {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+.ks-guide-faces {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.ks-content .ks-guide-face-name {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--ks-ink);
+}
+
+.ks-guide-face--onest .ks-guide-face-name {
+  font-family: var(--ks-onest);
+  font-weight: 800;
+}
+
+.ks-guide-face--jakarta .ks-guide-face-name {
+  font-family: var(--ks-jakarta);
+  font-weight: 700;
+}
+
+.ks-guide-face-role {
+  display: block;
+  margin: 0.35rem 0 1rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.875rem;
+  letter-spacing: -0.02em;
+  color: var(--ks-ink-soft);
+}
+
+.ks-guide-face-glyphs {
+  display: block;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--ks-ink);
+}
+
+.ks-guide-face--onest .ks-guide-face-glyphs {
+  font-family: var(--ks-onest);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ks-guide-face--jakarta .ks-guide-face-glyphs {
+  font-family: var(--ks-jakarta);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.ks-guide-scale {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.ks-guide-level {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.2rem;
+  align-items: baseline;
+}
+
+.ks-guide-level-role {
+  font-family: var(--ks-jakarta);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ks-muted);
+}
+
+.ks-guide-sample {
+  display: block;
+  color: var(--ks-ink);
+  letter-spacing: -0.04em;
+}
+
+.ks-guide-sample--headline {
+  font-family: var(--ks-onest);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.ks-guide-sample--header {
+  font-family: var(--ks-onest);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+
+.ks-guide-sample--subheader {
+  font-family: var(--ks-onest);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.ks-guide-sample--paragraph {
+  font-family: var(--ks-jakarta);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+}
+
+.ks-guide-sample--label {
+  font-family: var(--ks-jakarta);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.ks-guide-level-spec {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  color: var(--ks-muted);
+}
+
+.ks-guide-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ks-guide-btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  background: var(--ks-pine);
+  color: var(--ks-ivory);
+  font-family: var(--ks-jakarta);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+
+.ks-guide-btn--copper {
+  background: var(--ks-copper);
+}
+
+/* ---------- Verbal identity ---------- */
+
+.ks-split--voice {
+  align-items: start;
+  margin-top: 0;
+}
+
+/* The cards sit under the verbal identity paragraph. */
+.ks-voice-cards {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.ks-voice-card {
+  padding: 1.4rem 1.6rem;
+  border-radius: 16px;
+}
+
+/* Pale Eucalyptus and Pink Clay, from the guidelines. */
+.ks-voice-card--do {
+  background: #E2ECE7;
+}
+
+.ks-voice-card--dont {
+  background: #F1E2D6;
+}
+
+.ks-content .ks-voice-card-title,
+.ks-content .ks-voice-rule-title {
+  margin: 0 0 0.6rem 0;
+  font-family: var(--ks-onest);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+  color: var(--ks-ink);
+}
+
+.ks-voice-card ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ks-voice-card li {
+  font-family: var(--ks-onest);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: var(--ks-ink);
+}
+
+.ks-voice-why {
+  font-family: var(--ks-jakarta);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: -0.01em;
+  color: var(--ks-muted);
+}
+
+/* Lexicon and mechanics, in the column beside the paragraph and cards. */
+.ks-voice-rules {
+  display: grid;
+  gap: 2rem;
+}
+
+.ks-voice-mechanics {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: var(--ks-ink);
+}
+
+.ks-voice-mechanics li {
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+.ks-voice-rule-text {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: var(--ks-ink);
+}
+
+.ks-voice-rule-text strong {
+  font-weight: 700;
+}
+
+/* ---------- Type review: display typeface specimens ---------- */
+
+/* Each specimen sets --ks-display (and --ks-display-weight) inline; body copy
+   is Plus Jakarta Sans throughout, the pairing every option was shown with. */
+.ks-typefaces {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+  --ks-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.ks-typeface {
+  color: var(--ks-ink);
+}
+
+.ks-typeface span {
+  display: block;
+  letter-spacing: normal;
+}
+
+.ks-content .ks-type-name {
+  margin: 0;
+  font-family: var(--ks-display);
+  font-weight: var(--ks-display-weight, 700);
+  font-style: normal;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: normal;
+  color: var(--ks-ink);
+}
+
+.ks-type-pairing {
+  margin-top: 0.35rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.875rem;
+  color: var(--ks-muted);
+}
+
+.ks-type-alphabet {
+  margin: 1.4rem 0;
+  font-family: var(--ks-display);
+  font-weight: var(--ks-display-weight, 700);
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.ks-type-headline {
+  font-family: var(--ks-display);
+  font-weight: var(--ks-display-weight, 700);
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.ks-type-sub {
+  margin: 0.35rem 0 1.1rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.ks-type-body {
+  margin-bottom: 0.7rem;
+  font-family: var(--ks-jakarta);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ks-ink-soft);
+}
+
+.ks-type-body--strong {
+  font-weight: 700;
+}
+
+/* ---------- Landing page: video and mobile screens ---------- */
+
+/* Device frames. Each frame is a size container, so the bezel, corner radii
+   and laptop base are set in cqw and scale with the frame's own width. */
+.ks-device {
+  container-type: inline-size;
+  --ks-bezel: #1c1f1d;
+}
+
+.ks-device-screen {
+  position: relative;
+  background: var(--ks-bezel);
+}
+
+.ks-device .ks-device-screen img,
+.ks-device .ks-device-screen video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Reserve each recording's shape before it loads, so the frames don't
+   collapse and the page doesn't jump. Matches the 1440x900 and 480x1044
+   source files. */
+.ks-device--laptop .ks-device-screen video {
+  aspect-ratio: 1440 / 900;
+  object-fit: cover;
+}
+
+.ks-device--phone .ks-device-screen video {
+  aspect-ratio: 480 / 1044;
+  object-fit: cover;
+}
+
+/* Laptop: dark bezel with a camera dot, on a lighter base with a lip. */
+.ks-device--laptop .ks-device-screen {
+  margin: 0 6cqw;
+  padding: 1.6cqw 1.6cqw 2.2cqw;
+  border-radius: 2.2cqw 2.2cqw 0 0;
+}
+
+.ks-device--laptop .ks-device-screen::before {
+  content: '';
+  position: absolute;
+  top: 0.55cqw;
+  left: 50%;
+  width: 0.5cqw;
+  height: 0.5cqw;
+  border-radius: 50%;
+  background: #3b413d;
+  transform: translateX(-50%);
+}
+
+.ks-device--laptop .ks-device-screen::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: -0.9cqw;
+  left: 50%;
+  width: 14cqw;
+  height: 0.9cqw;
+  border-radius: 0 0 1cqw 1cqw;
+  background: #a7ada9;
+  transform: translateX(-50%);
+}
+
+.ks-device--laptop::after {
+  content: '';
+  display: block;
+  height: 2cqw;
+  border-radius: 0 0 1.6cqw 1.6cqw;
+  background: #c6cbc8;
+}
+
+/* Phone: rounded bezel. The screenshots carry their own status bar and
+   Dynamic Island, so the frame adds no notch. */
+.ks-device--phone .ks-device-screen {
+  padding: 3.4cqw;
+  border-radius: 15cqw;
+}
+
+.ks-device--phone .ks-device-screen img,
+.ks-device--phone .ks-device-screen video {
+  border-radius: 11.6cqw;
+}
+
+/* Desktop and mobile recordings side by side. The 3.56 : 1 column ratio makes
+   the laptop and phone frames come out the same height. */
+.ks-recordings {
+  display: grid;
+  grid-template-columns: 3.56fr 1fr;
+  gap: 3vw;
+  align-items: end;
+  margin-top: 4vw;
+}
+
+/* ---------- Tablet / small laptop ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .ks-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .ks-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .ks-hero-main,
+  .ks-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .ks-title {
+    font-size: 5.6vw !important;
+  }
+
+  .ks-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .ks-cards {
+    gap: 2vw;
+  }
+
+  .ks-card {
+    padding: 2.2vw 2.4vw;
+  }
+
+  .ks-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .ks-card p {
+    font-size: 1.65vw;
+  }
+
+  .ks-guide-colors {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4vw;
+  }
+
+  .ks-guide-type,
+  .ks-guide-intro {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .ks-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .ks-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .ks-hero-main,
+  .ks-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .ks-title {
+    font-size: 9.5vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .ks-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .ks-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .ks-card {
+    padding: 5vw;
+  }
+
+  .ks-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .ks-card p {
+    font-size: 3.8vw;
+  }
+
+  .ks-guide-colors {
+    grid-template-columns: 1fr 1fr;
+    gap: 7vw 4vw;
+  }
+
+  .ks-guide-type,
+  .ks-guide-intro,
+  .ks-voice-rules {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .ks-guide-level {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .ks-guide-sample--headline {
+    font-size: 1.6rem;
+  }
+
+  .ks-guide-intro + .ks-guide-type {
+    margin-top: 12vw;
+  }
+
+  .ks-content .ks-center-title {
+    margin: 12vw 0 6vw 0;
+    font-size: 1.5rem;
+  }
+
+  .ks-content {
+    padding: 8vw 5vw;
+    gap: 12vw;
+  }
+
+  .ks-content h2 {
+    font-size: 7vw;
+    margin-bottom: 4vw;
+  }
+
+  .ks-subsection {
+    margin-top: 9vw;
+  }
+
+  .ks-prose p {
+    margin-bottom: 3vw;
+  }
+
+  .ks-prose--columns {
+    column-count: 1;
+  }
+
+  .ks-prose--narrow {
+    max-width: none;
+  }
+
+  .ks-after-figure {
+    margin-top: 6vw;
+  }
+
+  .ks-inline-head,
+  .ks-split {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .ks-split {
+    margin-top: 6vw;
+  }
+
+  /* On mobile the figure follows its text. */
+  .ks-split--figure-left > .ks-figure {
+    order: 0;
+  }
+
+  .ks-figure figcaption,
+  .ks-caption {
+    margin-top: 2vw;
+  }
+
+  .ks-figure--full,
+  .ks-grid {
+    margin-top: 5vw;
+  }
+
+  .ks-grid {
+    gap: 4vw;
+  }
+
+  .ks-grid--two,
+  .ks-grid--three,
+  .ks-grid--four {
+    grid-template-columns: 1fr;
+  }
+
+  .ks-logo-explore {
+    grid-template-columns: 1fr;
+    gap: 6vw;
+    margin-top: 5vw;
+  }
+
+  .ks-fgrid {
+    gap: 2vw;
+  }
+
+  .ks-figure--tongue {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+
+  .ks-oma {
+    gap: 3vw;
+  }
+
+  .ks-figure--wordmark {
+    max-width: 80%;
+    margin-top: 6vw;
+  }
+
+  .ks-palettes,
+  .ks-typefaces {
+    grid-template-columns: 1fr;
+    gap: 7vw;
+    margin-top: 6vw;
+  }
+
+  /* Too narrow for the pair; the phone drops below the laptop. */
+  .ks-recordings {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 8vw;
+    margin-top: 8vw;
+  }
+
+  .ks-recordings > .ks-device--laptop {
+    width: 100%;
+  }
+
+  .ks-recordings > .ks-device--phone {
+    width: 55%;
+  }
+}

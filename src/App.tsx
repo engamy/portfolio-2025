@@ -16,6 +16,7 @@ import DesignWikiBook from './components/design-collections/design-layouts';
 import DesignMarshalls from './components/design-collections/design-marshalls';
 import DesignMarshallsCasestudy from './components/design-collections/design-marshalls-casestudy';
 import DesignNextCasestudy from './components/design-collections/design-next-casestudy';
+import DesignKahsayCasestudy from './components/design-collections/design-kahsay-casestudy';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
@@ -70,6 +71,7 @@ const AppContent: React.FC = () => {
         <Route path="/design-marshalls" element={<DesignMarshalls />} />
         <Route path="/design-marshalls-casestudy" element={<DesignMarshallsCasestudy />} />
         <Route path="/design-next-casestudy" element={<DesignNextCasestudy />} />
+        <Route path="/kahsay" element={<DesignKahsayCasestudy />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />

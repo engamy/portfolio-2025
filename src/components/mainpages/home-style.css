@@ -96,6 +96,8 @@
 }
 
 .smallbio p:first-of-type {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
   font-size: 3.2vw;
   font-weight: bold;
   line-height: 1.1;

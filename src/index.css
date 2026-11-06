@@ -29,7 +29,10 @@
   --nav-bg: var(--ink);
   --nav-fg: var(--cream);
 
+  /* DM Sans for all display type (headings, nav, buttons, tags, labels);
+     Urbanist for running body copy only. */
   --font-display: "DM Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-body: "Urbanist", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
   /* Type scale. Every size below is referenced as a token so the scale can be
      adjusted in one place. */
@@ -89,9 +92,9 @@ body {
   color: var(--fg);
   font-family: var(--font-display);
   font-size: 1.0625rem;
-  /* Tracking and leading are both pulled in from the reference defaults:
-     -20 tracking, and tighter leading across body copy. */
-  letter-spacing: -0.02em;
+  /* DM Sans is set at -40 tracking; Urbanist body copy resets to normal below. */
+  letter-spacing: -0.04em;
+  /* Leading is pulled in from the reference defaults: tighter across body copy. */
   line-height: 1.35;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -112,6 +115,17 @@ body::before {
 img, svg { max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3, p, ul { margin-top: 0; }
+/* Tracking is restated with each font switch, since an em letter-spacing is
+   inherited as the parent's computed length rather than rescaled per size. */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.04em; }
+p, li, blockquote, dd { font-family: var(--font-body); letter-spacing: normal; }
+/* Tag pills, labels and nav items are set in <p>s or <li>s but read as display
+   type, so they stay in DM Sans. */
+[class*="-tags"] p,
+.tags li,
+.nav li,
+.menu-list li,
+.home-featured-dates { font-family: var(--font-display); letter-spacing: -0.04em; }
 
 .wrap {
   max-width: 82rem;

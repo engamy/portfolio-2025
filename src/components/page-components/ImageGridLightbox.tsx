@@ -69,6 +69,8 @@ const ImageGridLightbox: React.FC<ImageGridLightboxProps> = ({
               src={image.thumbnail ?? image.src}
               alt={image.alt}
               className="gallery-grid-thumbnail"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}

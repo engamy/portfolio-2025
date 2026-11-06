@@ -119,7 +119,6 @@ export default function Landing() {
                 <h3>{project.title}</h3>
                 <p className="ctx">{project.ctx}</p>
                 <TagPills tags={project.tags} />
-                <span className="more">Read case study</span>
               </Link>
             ))}
           </div>

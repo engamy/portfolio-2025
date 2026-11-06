@@ -117,7 +117,7 @@
 .wireframe-video-container {
   width: 400px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 15px;
   padding: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -135,7 +135,7 @@
 .figma-prototype-vertical {
   width: 420px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 15px;
   padding: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -152,7 +152,7 @@
 .figma-prototype {
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
@@ -175,7 +175,7 @@
 }
 
 .image-item {
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 20px;
   padding: 0.75vw;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -207,7 +207,7 @@
   justify-content: center;
   margin: 2vw 0;
   padding: 2vw;
-  background-color: #ffffff;
+  background-color: var(--cream);
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
