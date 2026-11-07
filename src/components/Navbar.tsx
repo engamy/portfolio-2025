@@ -12,7 +12,7 @@ interface NavbarProps {
 const SECTION_LABELS: Record<string, string> = {
   home: 'Home',
   featured: 'Featured',
-  work: 'Work',
+  work: 'Projects',
   'creative-lab': 'Creative Lab'
 };
 

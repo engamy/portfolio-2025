@@ -59,19 +59,21 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Internal operations & Warehouse/Inventory management system',
     focus: 'Internal operations & Warehouse/Inventory management system',
     tags: ['pd', 'se'],
-    img: 'Harbor v2.0 main product screen',
+    img: 'Via Separations logo in a circle over rows of separation pipes',
     featured: true,
     to: '/design-next-casestudy',
-    image: DESIGN + '/02_NEXT/via_teamphoto.jpg'
+    image: DESIGN + '/02_NEXT/thumbnail-via-logo.jpg'
   },
   {
     slug: 'sightline',
     title: 'Sightline',
-    ctx: 'Product Design & Software Engineering',
-    focus: 'Flagship case study',
-    tags: ['pd', 'se'],
-    img: 'Sightline hero product screen',
-    featured: true
+    ctx: 'Citizen science reporting app for natural disasters',
+    focus: 'Citizen science reporting app for natural disasters',
+    tags: ['pd'],
+    img: 'Sightline eye logo on white',
+    featured: true,
+    to: '/sightline',
+    image: DESIGN + '/04_SIGHTLINE/thumbnail-sightline-v4.jpg'
   },
   {
     slug: 'marshalls-trend-shop',
@@ -115,14 +117,6 @@ export const PROJECTS: LandingProject[] = [
     image: DESIGN + '/thumbnail_readingRedesign.jpg'
   },
   {
-    slug: 'engine-red',
-    title: 'Engine Red',
-    ctx: 'Interactive app / product concept',
-    focus: 'Interactive app',
-    tags: ['ct', 'se'],
-    img: 'Engine Red app concept, hero screen'
-  },
-  {
     slug: 'coopalytics',
     title: 'Coopalytics',
     ctx: 'Full-stack web application',
@@ -143,22 +137,6 @@ export const PROJECTS: LandingProject[] = [
     to: '/scout-djoda',
     image: CODE + '/djoda.mp4',
     mediaType: 'video'
-  },
-  {
-    slug: 'affectrum',
-    title: 'Affectrum',
-    ctx: 'Interactive / affective computing',
-    focus: 'Affective computing',
-    tags: ['ct', 'pd'],
-    img: 'Affectrum interactive visualization'
-  },
-  {
-    slug: 'social-posts',
-    title: 'Social Posts',
-    ctx: 'Brand & social media visuals',
-    focus: 'Brand and social visuals',
-    tags: ['ds'],
-    img: 'Grid of branded social media posts'
   },
   {
     slug: 'three-trios',
@@ -219,7 +197,7 @@ export const PROJECTS: LandingProject[] = [
     title: 'CBA',
     ctx: 'Web design & non-profit client work',
     focus: 'Web design',
-    tags: ['ds', 'se'],
+    tags: ['ds'],
     img: 'Community Built Association site on desktop and phone'
   }
 ];

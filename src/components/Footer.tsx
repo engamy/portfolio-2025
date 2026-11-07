@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="foot-left">
           <div className="foot-thanks">
             <p className="foot-thanks-title">Thank you for learning more about me!</p>
-            <p>If you'd like to get in touch, here's how to reach me.</p>
+            <p>Can I learn more about you? Say hello below.</p>
           </div>
           <div className="foot-actions">
             <ContactButtons />

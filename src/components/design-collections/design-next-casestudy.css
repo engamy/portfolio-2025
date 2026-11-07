@@ -455,6 +455,37 @@
   grid-template-columns: 1fr 3fr;
 }
 
+/* Team photo at the end of the page, full content width. */
+.next-figure--team img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.next-figure--team figcaption {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: var(--text-meta);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Wide diagrams: the prose above, the figure at full width below it so its
+   text stays readable. */
+.next-split--stacked {
+  grid-template-columns: 1fr;
+  gap: 2.5vw;
+}
+
+.next-split--stacked > .next-figure {
+  order: 1;
+}
+
+.next-split--stacked .next-figure--landscape img {
+  max-width: 100%;
+}
+
 /* 2x2 grid: two paragraphs on top, each one's image below it. */
 .next-pair-grid {
   display: flex;

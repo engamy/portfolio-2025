@@ -1,0 +1,1041 @@
+/* Sightline case study. Structure follows the Kahsay case study; colors are
+   the Sightline design system tokens. */
+
+.sl-casestudy {
+  --sl-primary-700: #021d39;
+  --sl-primary-600: #022d59;
+  --sl-primary-500: #054a91;
+  --sl-primary-400: #0069d5;
+  --sl-primary-300: #358fec;
+  --sl-primary-200: #bbdeff;
+  --sl-primary-50: #f3f9ff;
+  --sl-accent-400: #cb4700;
+  --sl-accent-300: #e75a0e;
+  --sl-accent-50: #ffede4;
+  --sl-ink: #110d07;
+  --sl-ink-soft: #4b443b;
+  --sl-muted: #86827d;
+  --sl-ivory: #f7f6f2;
+  --sl-line: rgba(5, 74, 145, 0.25);
+  --sl-figtree: "Figtree", system-ui, sans-serif;
+}
+
+/* ---------- Hero ---------- */
+
+/* Title and Quick Summary on a mesh-style gradient of the Sightline blues,
+   with a coral wash at the top right and the bottom left kept deep so the
+   title holds its contrast. The noise layer adds grain. */
+.sl-hero {
+  position: relative;
+  display: flex;
+  /* .design-section-header makes every hero a full-height, centred column;
+     this one sizes to its content. */
+  flex-direction: row;
+  align-items: flex-end;
+  height: auto;
+  min-height: 0;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--sl-primary-700);
+  background-image:
+    /* Primary 700 anchoring the title, bottom left */
+    radial-gradient(70% 90% at 0% 100%, rgba(2, 29, 57, 0.95) 0%, rgba(2, 29, 57, 0) 70%),
+    /* Accent 300 at the top right */
+    radial-gradient(55% 85% at 100% 0%, rgba(231, 90, 14, 0.55) 0%, rgba(231, 90, 14, 0) 70%),
+    /* Primary 300 low on the right */
+    radial-gradient(50% 75% at 85% 100%, rgba(53, 143, 236, 0.45) 0%, rgba(53, 143, 236, 0) 70%),
+    /* Primary 400 at the top left */
+    radial-gradient(55% 80% at 25% 0%, rgba(0, 105, 213, 0.7) 0%, rgba(0, 105, 213, 0) 70%),
+    /* Full-coverage base so no gap falls to black */
+    radial-gradient(140% 160% at 45% 40%, var(--sl-primary-500) 0%, var(--sl-primary-600) 100%);
+}
+
+.sl-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sl-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.sl-hero-text {
+  display: flex;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.sl-hero-main {
+  flex: 1 1 45%;
+  min-width: 0;
+}
+
+.sl-hero-aside {
+  flex: 1 1 55%;
+  min-width: 0;
+}
+
+.sl-title {
+  font-size: 3.6vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: var(--sl-ivory) !important;
+  font-style: italic;
+}
+
+
+/* App icon above the hero title. */
+.sl-hero-logo {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.sl-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--sl-ivory);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.sl-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2vw;
+}
+
+.sl-card {
+  border: 1px solid var(--sl-ivory);
+  border-radius: 12px;
+  padding: 1.2vw 1.4vw;
+  background-color: rgba(2, 29, 57, 0.45);
+}
+
+.sl-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  font-size: 1.15vw;
+  font-style: italic;
+  color: var(--sl-ivory);
+}
+
+.sl-card p {
+  margin: 0;
+  font-size: 0.95vw;
+  line-height: 1.45;
+  color: var(--sl-ivory);
+}
+
+.sl-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Content ---------- */
+
+.sl-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw;
+  background-color: var(--cream);
+  color: var(--sl-ink);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.sl-section {
+  display: flow-root;
+}
+
+.sl-content h2 {
+  font-size: 2.8vw;
+  font-style: italic;
+  margin: 0 0 1.5vw 0;
+  color: var(--sl-primary-700);
+}
+
+.sl-prose p {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  margin: 0 0 1.2vw 0;
+  color: var(--sl-ink);
+}
+
+.sl-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.sl-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+.sl-after {
+  margin-top: 3vw;
+}
+
+.sl-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+/* ---------- Competitive analysis ---------- */
+
+/* One box per app: its icon, name and what we took from it. */
+.sl-apps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin: 2.5vw 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sl-app {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.3rem;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 13, 7, 0.08);
+}
+
+.sl-app-icon {
+  flex: 0 0 auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 13, 7, 0.1);
+  object-fit: cover;
+}
+
+.sl-content .sl-app-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  color: var(--sl-primary-700);
+}
+
+.sl-app-tag {
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--sl-primary-50);
+  color: var(--sl-primary-500);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.sl-app-note {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--sl-ink);
+}
+
+/* ---------- Figures ---------- */
+
+.sl-figure {
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.sl-figure:hover {
+  transform: scale(1.01);
+}
+
+.sl-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 13, 7, 0.1);
+}
+
+.sl-figure figcaption,
+.sl-caption {
+  margin: 0.8rem 0 0;
+  text-align: center;
+  font-size: var(--text-meta);
+  font-style: italic;
+  color: var(--sl-muted);
+}
+
+/* iPhone frame for app screens. The bezel and corner radii are set in cqw so
+   they scale with the step's width. */
+/* The step is the size container, so the frame's cqw units track its width. */
+.sl-step {
+  container-type: inline-size;
+}
+
+.sl-phone {
+  margin: 0;
+  padding: 3.6cqw;
+  border-radius: 15cqw;
+  background: #1c1f1d;
+  cursor: pointer;
+}
+
+.sl-phone-screen {
+  overflow: hidden;
+  border-radius: 11.4cqw;
+  background: #ffffff;
+}
+
+.sl-phone-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* A screen longer than the phone scrolls inside a phone-height screen
+   (393 x 852), with the scrollbar hidden. */
+.sl-phone-screen--scroll {
+  aspect-ratio: 393 / 852;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.sl-phone-screen--scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Under a step caption in the final flow. */
+.sl-step-hint {
+  margin-top: -0.15rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--sl-muted);
+}
+
+/* Sits under the phone, so it reads as a note on the screen above it. */
+.sl-phone-hint {
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--sl-muted);
+}
+
+.sl-grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: start;
+}
+
+/* ---------- Design system: color tokens ---------- */
+
+/* Design system intro: the copy in one column, the logo beside it. */
+.sl-intro {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5vw;
+  align-items: center;
+}
+
+.sl-logo {
+  margin: 0;
+  text-align: center;
+}
+
+.sl-logo-mark {
+  display: block;
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+}
+
+/* Color tokens and the type hierarchy side by side on desktop. */
+.sl-system {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 4vw;
+  align-items: start;
+  margin-top: 3vw;
+}
+
+.sl-tokens {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.sl-scale-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.sl-content .sl-scale-head h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--sl-primary-500);
+}
+
+.sl-scale-head span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--sl-muted);
+}
+
+/* One row per scale, darkest to lightest, like the Figma color page. */
+.sl-swatches {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sl-swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 4.75rem;
+  padding: 0.5rem 0.55rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: var(--sl-figtree);
+}
+
+.sl-swatch--light {
+  color: var(--sl-ink);
+  border: 1px solid rgba(17, 13, 7, 0.08);
+}
+
+.sl-swatch-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.sl-swatch-hex {
+  font-size: 0.68rem;
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Design system: type hierarchy ---------- */
+
+.sl-content .sl-typescale-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+  color: var(--sl-primary-500);
+}
+
+.sl-type-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.5vw;
+  align-items: baseline;
+  padding: 0.9rem 0;
+}
+
+.sl-type-role {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--sl-primary-700);
+}
+
+.sl-type-role span {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--sl-muted);
+}
+
+.sl-type-samples {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  font-family: var(--sl-figtree);
+  line-height: 1.25;
+  letter-spacing: normal;
+  color: var(--sl-ink);
+}
+
+.sl-type-w400 { font-weight: 400; }
+.sl-type-w500 { font-weight: 500; }
+.sl-type-w700 { font-weight: 700; }
+
+/* ---------- A/B testing ---------- */
+
+.sl-ab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  margin-top: 2.5vw;
+}
+
+.sl-ab-option {
+  padding: 1.5rem 1.7rem;
+  border: 1px solid var(--sl-line);
+  border-radius: 14px;
+}
+
+/* The flow we kept gets the accent fill. */
+.sl-ab-option--chosen {
+  border-color: var(--sl-accent-300);
+  background: var(--sl-accent-50);
+}
+
+.sl-ab-option .sl-figure {
+  margin-top: 1rem;
+}
+
+.sl-ab-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sl-muted);
+}
+
+.sl-content .sl-ab-option h3,
+.sl-content .sl-feature h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: var(--sl-primary-700);
+}
+
+.sl-ab-option p,
+.sl-feature p {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--sl-ink);
+}
+
+/* ---------- User flows ---------- */
+
+/* Boxes and arrows, laid out like the original flow diagram: the empty form on
+   the left, and one row per path leading out of it. Each path stays on one
+   line; below laptop width the chart turns vertical. */
+.sl-flows {
+  display: grid;
+  gap: 2.5vw;
+}
+
+.sl-flow {
+  padding: 1.8rem;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(17, 13, 7, 0.08);
+}
+
+.sl-content .sl-flow-title {
+  margin: 0 0 1.4rem;
+  font-size: 1.15rem;
+  color: var(--sl-primary-700);
+}
+
+.sl-chart {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  align-items: start;
+  overflow-x: auto;
+}
+
+.sl-chart-rows {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.sl-chart-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sl-chart-step {
+  display: flex;
+  align-items: center;
+}
+
+.sl-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 6.2rem;
+  min-height: 5.4rem;
+  padding: 0.5rem 0.45rem;
+  border: 1.5px solid var(--sl-primary-300);
+  border-radius: 8px;
+  background: var(--sl-primary-50);
+  font-family: var(--sl-figtree);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--sl-primary-600);
+}
+
+.sl-box--start {
+  border-color: var(--sl-primary-500);
+}
+
+.sl-box--start span {
+  margin-top: 0.25rem;
+  font-weight: 400;
+  color: var(--sl-ink-soft);
+}
+
+/* Screens the app shows, as opposed to states of the form. */
+.sl-box--system {
+  border-color: var(--sl-primary-500);
+  background: var(--sl-primary-500);
+  color: #ffffff;
+}
+
+/* A static arrow: a line with a head, its action written above it. */
+.sl-arrow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 3.6rem;
+  padding: 0 0.1rem 0.9rem;
+  box-sizing: border-box;
+}
+
+.sl-arrow::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  right: 0.45rem;
+  bottom: 0.4rem;
+  height: 1.5px;
+  background: var(--sl-muted);
+}
+
+.sl-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0.25rem;
+  bottom: calc(0.4rem - 4px);
+  border-left: 7px solid var(--sl-muted);
+  border-top: 4.75px solid transparent;
+  border-bottom: 4.75px solid transparent;
+}
+
+.sl-arrow-label {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--sl-ink-soft);
+}
+
+/* The row only Flow 2 has. */
+.sl-chart-row--added .sl-box {
+  border-color: var(--sl-accent-300);
+  background: var(--sl-accent-50);
+  color: var(--sl-accent-400);
+}
+
+.sl-chart-tag {
+  margin-left: 0.8rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--sl-accent-300);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* Four app screens in phones under the overview. */
+.sl-hero-phones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5vw;
+  max-width: 62rem;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: start;
+}
+
+/* My three competitor audits in one row. */
+.sl-audits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5vw;
+  align-items: start;
+}
+
+/* Mid-fi boards: a two-by-two wall, each cropped to the same shape so the
+   volume reads at a glance. The full board opens in the lightbox. */
+.sl-boards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vw;
+}
+
+.sl-boards .sl-figure img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Feedback quotes from the affinity map. */
+.sl-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  margin-top: 2.5vw;
+}
+
+.sl-quote {
+  margin: 0;
+  padding: 1.3rem 1.5rem;
+  border-radius: 14px;
+  background: var(--sl-primary-50);
+}
+
+.sl-quote p {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--sl-ink);
+}
+
+.sl-quote cite {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--sl-muted);
+}
+
+/* ---------- Review and confirmation ---------- */
+
+.sl-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2vw 4vw;
+  margin-top: 2.5vw;
+}
+
+/* All six screens in one row on desktop. */
+.sl-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.2vw;
+  align-items: start;
+  margin-top: 3.5vw;
+  padding: 0;
+  list-style: none;
+  row-gap: 3.5vw;
+}
+
+/* Labels share one height so every screen starts on the same line, even
+   when a label wraps in the narrow six-across row. */
+.sl-step-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  min-height: 5.6em;
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sl-ink);
+}
+
+.sl-step-num {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--sl-primary-700);
+  color: var(--sl-ivory);
+  font-size: 0.8rem;
+}
+
+/* ---------- Tablet / small laptop ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .sl-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .sl-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .sl-hero-main,
+  .sl-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .sl-title {
+    font-size: 5.2vw !important;
+  }
+
+  .sl-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .sl-cards {
+    gap: 2vw;
+  }
+
+  .sl-card {
+    padding: 2.2vw 2.4vw;
+  }
+
+  .sl-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .sl-card p {
+    font-size: 1.65vw;
+  }
+
+  .sl-split {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-system {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-swatches {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sl-quotes {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4vw;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .sl-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .sl-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .sl-hero-main,
+  .sl-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .sl-title {
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .sl-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .sl-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .sl-card {
+    padding: 5vw;
+  }
+
+  .sl-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .sl-card p {
+    font-size: 3.8vw;
+  }
+
+  .sl-content {
+    padding: 8vw 5vw;
+    gap: 12vw;
+  }
+
+  .sl-content h2 {
+    font-size: 7vw;
+    margin-bottom: 4vw;
+  }
+
+  .sl-prose--columns {
+    column-count: 1;
+  }
+
+  .sl-prose p {
+    margin-bottom: 4vw;
+  }
+
+  .sl-after {
+    margin-top: 6vw;
+  }
+
+  .sl-hero-phones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+  }
+
+  .sl-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-split,
+  .sl-system,
+  .sl-boards,
+  .sl-flows,
+  .sl-audits,
+  .sl-ab,
+  .sl-features,
+  .sl-quotes,
+  .sl-grid-two {
+    grid-template-columns: 1fr;
+    gap: 5vw;
+  }
+
+  .sl-swatches {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sl-scale-head {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .sl-type-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .sl-apps {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+    margin-top: 7vw;
+  }
+
+
+}
+
+/* ---------- User flows below laptop width: vertical ---------- */
+
+@media (max-width: 1152px) {
+  .sl-flow {
+    padding: 1.2rem;
+  }
+
+  .sl-chart {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .sl-chart-rows {
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .sl-chart-row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    row-gap: 0;
+  }
+
+  .sl-chart-step {
+    flex-direction: column;
+  }
+
+  .sl-box {
+    width: 13rem;
+    min-height: 0;
+  }
+
+  .sl-arrow {
+    width: auto;
+    min-height: 2.8rem;
+    padding: 0.35rem 0 0.35rem 1.2rem;
+    align-items: center;
+  }
+
+  .sl-arrow::before {
+    left: 0.3rem;
+    right: auto;
+    top: 0.25rem;
+    bottom: 0.55rem;
+    width: 1.5px;
+    height: auto;
+  }
+
+  .sl-arrow::after {
+    left: calc(0.3rem - 4px);
+    right: auto;
+    bottom: 0.2rem;
+    border-left: 4.75px solid transparent;
+    border-right: 4.75px solid transparent;
+    border-top: 7px solid var(--sl-muted);
+    border-bottom: 0;
+  }
+
+  .sl-chart-tag {
+    margin: 0.6rem 0 0;
+  }
+}

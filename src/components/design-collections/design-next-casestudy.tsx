@@ -121,13 +121,19 @@ export default function DesignNextCasestudy() {
 
           {/* Figure comes first in the DOM so it sits above the paragraph on
               mobile; on desktop it is ordered into the right column. */}
-          <div className="next-split next-split--figure-first">
-            <figure className="next-figure next-figure--static next-figure--landscape">
-              <div className="next-placeholder next-placeholder--landscape">
-                Side-by-side wireframe snippet: a flat spreadsheet-style BOM view next
-                to the hierarchical mBOM tree view, illustrating why collapsible
-                nesting was necessary to reduce visual clutter.
-              </div>
+          <div className="next-split next-split--figure-first next-split--stacked">
+            <figure
+              className="next-figure next-figure--landscape"
+              {...lightbox.trigger(
+                getAssetPath(`${ASSET_BASE}/via-bom-vs-mbom.png`),
+                'The same ten parts as a flat spreadsheet BOM and as a nested mBOM tree view',
+                'Flat BOM vs. mBOM tree'
+              )}
+            >
+              <img
+                src={getAssetPath(`${ASSET_BASE}/via-bom-vs-mbom.png`)}
+                alt="The same ten parts as a flat spreadsheet BOM and as a nested mBOM tree view"
+              />
             </figure>
             <div className="next-prose">
               <p>
@@ -162,7 +168,7 @@ export default function DesignNextCasestudy() {
 
           {/* Each figure follows its prose in the DOM, which is the mobile
               order; --figure-left moves it into the left column on desktop. */}
-          <div className="next-split next-split--figure-left next-split--small-figure">
+          <div className="next-split next-split--figure-left next-split--stacked">
             <div className="next-prose">
               <p>
                 Through continuous weekly syncs and active listening sessions with
@@ -179,13 +185,13 @@ export default function DesignNextCasestudy() {
             <figure
               className="next-figure next-figure--landscape"
               {...lightbox.trigger(
-                getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`),
+                getAssetPath(`${ASSET_BASE}/via-resline-lifecycle-v2.png`),
                 'Reservation line lifecycle',
                 'Reservation line lifecycle'
               )}
             >
               <img
-                src={getAssetPath(`${ASSET_BASE}/via-resline_lifecycle.png`)}
+                src={getAssetPath(`${ASSET_BASE}/via-resline-lifecycle-v2.png`)}
                 alt="Reservation line lifecycle"
               />
             </figure>
@@ -210,13 +216,13 @@ export default function DesignNextCasestudy() {
               <figure
                 className="next-figure next-figure--landscape"
                 {...lightbox.trigger(
-                  getAssetPath(`${ASSET_BASE}/via-resdetails.png`),
+                  getAssetPath(`${ASSET_BASE}/via-resdetails-v2.png`),
                   'Reservation details view',
                   'Reservation details view'
                 )}
               >
                 <img
-                  src={getAssetPath(`${ASSET_BASE}/via-resdetails.png`)}
+                  src={getAssetPath(`${ASSET_BASE}/via-resdetails-v2.png`)}
                   alt="Reservation details view"
                 />
               </figure>
@@ -232,26 +238,19 @@ export default function DesignNextCasestudy() {
               <figure
                 className="next-figure next-figure--landscape"
                 {...lightbox.trigger(
-                  getAssetPath(`${ASSET_BASE}/via-mrp.png`),
+                  getAssetPath(`${ASSET_BASE}/via-mrp-v2.png`),
                   'Material planner interface',
                   'Material planner interface'
                 )}
               >
                 <img
-                  src={getAssetPath(`${ASSET_BASE}/via-mrp.png`)}
+                  src={getAssetPath(`${ASSET_BASE}/via-mrp-v2.png`)}
                   alt="Material planner interface"
                 />
               </figure>
             </div>
           </div>
 
-          <figure className="next-figure next-figure--static next-figure--landscape next-figure--center">
-            <div className="next-placeholder next-placeholder--landscape">
-              UI component breakdown graphic: the "anatomy" of the segmented
-              progress bar component, showing how needed, reserved, and fulfilled
-              states map to visual color coding.
-            </div>
-          </figure>
         </section>
 
         {/* 4. Dual-Perspective Synthesis */}
@@ -371,6 +370,28 @@ export default function DesignNextCasestudy() {
               us.
             </p>
           </div>
+        </section>
+
+        {/* Team photo */}
+        <section className="next-section">
+          <figure
+            className="next-figure next-figure--team"
+            {...lightbox.trigger(
+              getAssetPath(`${ASSET_BASE}/via-teamphoto-w2400.jpg`),
+              'The NExT Consulting team at Via Separations headquarters',
+              'Team photo at Via Separations headquarters'
+            )}
+          >
+            <img
+              src={getAssetPath(`${ASSET_BASE}/via-teamphoto-w2400.jpg`)}
+              alt="The NExT Consulting team at Via Separations headquarters"
+              width={2400}
+              height={1637}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Team photo at Via Separations headquarters</figcaption>
+          </figure>
         </section>
 
       </div>
