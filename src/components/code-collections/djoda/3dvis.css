@@ -1,0 +1,132 @@
+/* Copied from the Djoda repo (my-app/src/components/3dvis.css), with every
+   selector scoped under .djoda-spine and the commented-out media queries
+   removed. The phone rules at the end are the only addition. */
+.djoda-spine {
+    --Djoda-yellow: #ecf170;
+    --Djoda-black: #232323;
+    --Djoda-offWhite: #dedede;
+    --Djoda-cream: #f9f6ed;
+    --Djoda-pink: rgba(254, 180, 180, 1);
+    --Djoda-purple: rgba(178, 134, 253, 1);
+    --Djoda-blue: #4351E3;
+}
+
+
+
+.djoda-spine .sidePanel {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    background-color: var(--Djoda-black);
+    color: white;
+    padding-left: 7.361vw;
+    padding-right: 7.361vw;
+    position: relative;
+}
+
+.djoda-spine .blueLine {
+    background: var(--Djoda-2nd-blue, #4351E3);
+    width: 27.5vw;
+    height: 1.4vw;
+    position: absolute;
+    z-index: 1;
+    top: 2.5vw;
+    margin-left: 4.5vw;
+    opacity: 0.6;
+}
+
+.djoda-spine .sidePanel h1 {
+    font-size: 2.8vw;
+    color: var(--Djoda-offWhite);
+    font-weight: bold;
+    z-index: 2;
+    margin-bottom: 0.3vw;
+}
+
+.djoda-spine .sidePanel h2 {
+    font-size: 2vw;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0;
+}
+
+.djoda-spine .sidePanel h3 {
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.djoda-spine .sidePanel h6 {
+    font-size: 1.3vw;
+    box-shadow: 2.222vw 2.222vw var(--Djoda-blue);
+}
+
+.djoda-spine .sidePanel p {
+    margin-top: 4vw;
+    font-size: 1.15vw;
+    box-shadow: 2.222vw 2.222vw var(--Djoda-purple);
+}
+
+.djoda-spine .spinePartTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    box-shadow: 2.222vw 2.222vw var(--Djoda-pink);
+}
+
+.djoda-spine .sidePanel p, .djoda-spine .sidePanel h6, .djoda-spine .spinePartTitle {
+    background-color: var(--Djoda-cream);
+    padding: 1vw;
+    border-radius: 0.972vw;
+    border: 1px solid black;
+    margin-bottom: 1vw;
+    color: var(--Djoda-black);
+}
+
+/* Portfolio overrides: the section sits on the page's cream instead of the
+   Djoda site's near-black, with dark text and room above the heading. */
+.djoda-spine .sidePanel {
+    background-color: transparent;
+    color: var(--Djoda-black);
+    padding-top: 3vw;
+    box-sizing: border-box;
+}
+
+.djoda-spine .sidePanel h1 {
+    color: var(--Djoda-black);
+    margin-top: 0;
+}
+
+.djoda-spine .blueLine {
+    top: 5.5vw;
+}
+
+/* Added for the portfolio: the original was desktop-only (two 50vw
+   columns), so phones stack the panel above the model. */
+@media (max-width: 768px) {
+  .djoda-spine {
+    flex-direction: column;
+  }
+
+  .djoda-spine .sidePanel {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 8vw 6vw 12vw;
+  }
+
+  .djoda-spine .sidePanel h1 { font-size: 7vw; }
+  .djoda-spine .sidePanel h2 { font-size: 5vw; }
+  .djoda-spine .sidePanel h3 { font-size: 4vw; }
+  .djoda-spine .sidePanel h6 { font-size: 3.8vw; }
+  .djoda-spine .sidePanel p { font-size: 3.6vw; }
+  .djoda-spine .blueLine { top: 15vw; width: 60vw; height: 3vw; margin-left: 10vw; }
+
+  .djoda-spine > div:last-child {
+    width: 100% !important;
+    height: 80vh !important;
+  }
+}

@@ -133,27 +133,25 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'coopalytics',
-    hidden: true,
     title: 'Coopalytics',
-    ctx: 'Full-stack web application',
-    focus: 'Full-stack web app',
-    tags: ['se', 'ct'],
-    img: 'Coopalytics dashboard in a browser frame',
+    ctx: 'Building Data-Driven Analytics for a Co-op Platform',
+    focus: 'Building Data-Driven Analytics for a Co-op Platform',
+    tags: ['se'],
+    img: 'Coopalytics Student Analytics page with pay metrics and a wage table',
     to: '/coopalytics',
-    image: CODE + '/coopalytics.mp4',
-    mediaType: 'video'
+    // A still of the Student Analytics page, zoomed in so it reads at card
+    // size. The case study keeps the full coopalytics.mp4.
+    image: CODE + '/coopalytics/thumbnail-coopalytics.jpg'
   },
   {
     slug: 'scout-djoda',
-    hidden: true,
-    title: 'Scout / Djoda',
-    ctx: 'Full-stack web app & branding',
-    focus: 'Full-stack web app and branding',
-    tags: ['se', 'pd'],
-    img: 'Scout and Djoda app screens with branding',
+    title: 'Djoda',
+    ctx: 'Building an Interactive 3D Spine for a Wellness Startup',
+    focus: 'Building an Interactive 3D Spine for a Wellness Startup',
+    tags: ['se'],
+    img: 'Djoda landing page hero reading Corsey by Djoda',
     to: '/scout-djoda',
-    image: CODE + '/djoda.mp4',
-    mediaType: 'video'
+    image: CODE + '/djoda/thumbnail-djoda.jpg'
   },
   {
     slug: 'three-trios',
@@ -198,7 +196,9 @@ export const PROJECTS: LandingProject[] = [
     tags: ['se'],
     img: 'Pipe Fantasy grid with green goo flowing through placed pipes',
     to: '/pipe-fantasy',
-    image: CODE + '/pipefantasy_1.mp4',
+    // Cropped to the game board on white, with the black transition frames
+    // cut. The case study keeps the full pipefantasy_1.mp4.
+    image: CODE + '/pipefantasy-loop.mp4',
     mediaType: 'video'
   },
   {
@@ -288,6 +288,8 @@ export const ALL_PROJECTS_ORDER = [
   'via-separations',
   'minesweeper',
   'mentor-matcher',
+  'coopalytics',
+  'scout-djoda',
   'pipe-fantasy',
 ];
 

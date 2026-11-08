@@ -1,0 +1,11 @@
+Model Information:
+* title:	Spine
+* source:	https://sketchfab.com/3d-models/spine-39ad9be7118d402ca7266fab01b75fed
+* author:	Ruth Lilly Medical Library, IU School of Medicine (https://sketchfab.com/iusmlib)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Spine" (https://sketchfab.com/3d-models/spine-39ad9be7118d402ca7266fab01b75fed) by Ruth Lilly Medical Library, IU School of Medicine (https://sketchfab.com/iusmlib) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

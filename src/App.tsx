@@ -23,6 +23,8 @@ import CodeThreeTriosCasestudy from './components/code-collections/code-threetri
 import CodeLightEmAllCasestudy from './components/code-collections/code-lightemall-casestudy';
 import CodeMinesweeperCasestudy from './components/code-collections/code-minesweeper-casestudy';
 import CodePipeFantasyCasestudy from './components/code-collections/code-pipefantasy-casestudy';
+import CodeCoopalyticsCasestudy from './components/code-collections/code-coopalytics-casestudy';
+import CodeDjodaCasestudy from './components/code-collections/code-djoda-casestudy';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
@@ -35,7 +37,7 @@ import { PLACEHOLDER_PROJECTS, placeholderPath } from './data/landingProjects';
 import { projects } from './data/projects';
 
 // Engineering projects whose case study replaces the generic project page.
-const CASE_STUDY_SLUGS = ['three-trios', 'lightemall', 'minesweeper', 'pipe-fantasy'];
+const CASE_STUDY_SLUGS = ['three-trios', 'lightemall', 'minesweeper', 'pipe-fantasy', 'coopalytics', 'scout-djoda'];
 
 const AppContent: React.FC = () => {
   const { darkMode } = useDarkMode();
@@ -87,6 +89,8 @@ const AppContent: React.FC = () => {
         <Route path="/lightemall" element={<CodeLightEmAllCasestudy />} />
         <Route path="/minesweeper" element={<CodeMinesweeperCasestudy />} />
         <Route path="/pipe-fantasy" element={<CodePipeFantasyCasestudy />} />
+        <Route path="/coopalytics" element={<CodeCoopalyticsCasestudy />} />
+        <Route path="/scout-djoda" element={<CodeDjodaCasestudy />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />
