@@ -137,11 +137,10 @@ export const PROJECTS: LandingProject[] = [
     ctx: 'Building Data-Driven Analytics for a Co-op Platform',
     focus: 'Building Data-Driven Analytics for a Co-op Platform',
     tags: ['se'],
-    img: 'Coopalytics Student Analytics page with pay metrics and a wage table',
+    img: 'Coopalytics logo on white',
     to: '/coopalytics',
-    // A still of the Student Analytics page, zoomed in so it reads at card
-    // size. The case study keeps the full coopalytics.mp4.
-    image: CODE + '/coopalytics/thumbnail-coopalytics.jpg'
+    // The Coopalytics logo from the app's assets, centred on white.
+    image: CODE + '/coopalytics/thumbnail-coopalytics-logo.jpg'
   },
   {
     slug: 'scout-djoda',
@@ -151,7 +150,7 @@ export const PROJECTS: LandingProject[] = [
     tags: ['se'],
     img: 'Djoda landing page hero reading Corsey by Djoda',
     to: '/scout-djoda',
-    image: CODE + '/djoda/thumbnail-djoda.jpg'
+    image: CODE + '/djoda/thumbnail-djoda-v2.jpg'
   },
   {
     slug: 'three-trios',

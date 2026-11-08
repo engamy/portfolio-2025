@@ -695,20 +695,20 @@
 
 .dj-bleed .djoda-spine .sidePanel {
   width: 50%;
-  height: 80vh;
+  height: 95vh;
   padding-left: 4vw;
   padding-right: 4vw;
 }
 
 .dj-bleed .djoda-spine > div:last-child {
   width: 50% !important;
-  height: 80vh !important;
+  height: 95vh !important;
 }
 
 .dj-loading {
   display: grid;
   place-items: center;
-  height: 80vh;
+  height: 95vh;
   color: var(--ink);
   font-family: var(--font-body);
 }
@@ -725,8 +725,8 @@
 
 @media (max-width: 768px) {
   .dj-bleed .djoda-spine .sidePanel { width: 100%; height: auto; padding-right: 10vw; }
-  .dj-bleed .djoda-spine > div:last-child { width: 100% !important; height: 70vh !important; }
-  .dj-loading { height: 60vh; }
+  .dj-bleed .djoda-spine > div:last-child { width: 100% !important; height: 85vh !important; }
+  .dj-loading { height: 85vh; }
   .cg-content .dj-credit { margin-top: -8vw; }
   .dj-shots { grid-template-columns: 1fr; gap: 6vw; }
 }
