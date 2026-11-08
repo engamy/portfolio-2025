@@ -41,6 +41,10 @@ export default function DesignNextCasestudy() {
         <div className="next-snapshot">
           <h2 className="next-snapshot-title">Quick Summary</h2>
           <div className="next-bento-row next-bento-row--outline next-bento-row--two">
+            <div className="next-bento-card next-bento-card--wide">
+              <h3><Icon id="i-columns" className="next-card-icon" />Timeline</h3>
+              <p>Spring 2026 (January to April 2026)</p>
+            </div>
             <div className="next-bento-card">
               <h3><Icon id="i-person" className="next-card-icon" />Role</h3>
               <p>Product Designer, Software Engineer, and Systems Consultant</p>

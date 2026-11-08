@@ -233,6 +233,11 @@
   order: -1;
 }
 
+/* Text gets the wider column; the figure stays modest on desktop. */
+.ks-split--small-figure {
+  grid-template-columns: 3fr 2fr;
+}
+
 
 /* ---------- Figures and grids ---------- */
 

@@ -211,13 +211,15 @@ export default function DesignMarshallsCasestudy() {
     <main className="design-container ms-casestudy">
       <CaseStudyHero
         variant="ms"
-        backgroundMode="image"
-        backgroundImage={`${RETAIL}/storedesign_mockups/after_washingtonHeights-2.jpg`}
         title="Marshalls: Designing Exploratory Web Layouts & Brand Systems at Scale"
       >
         <div className="ms-snapshot">
           <h2 className="ms-snapshot-title">Quick Summary</h2>
           <div className="ms-cards ms-cards--hero">
+            <div className="ms-card ms-card--wide">
+              <h3><Icon id="i-columns" className="ms-card-icon" />Timeline</h3>
+              <p>January 2025 to June 2025</p>
+            </div>
             <div className="ms-card">
               <h3><Icon id="i-person" className="ms-card-icon" />Role</h3>
               <p>Graphic Design Co-op (Marshalls / The TJX Companies)</p>
@@ -232,7 +234,7 @@ export default function DesignMarshallsCasestudy() {
             <div className="ms-card">
               <h3><Icon id="i-pen" className="ms-card-icon" />Tools</h3>
               <p>
-                Adobe Photoshop, Adobe Illustrator, After Effects, Marshalls brand
+                Adobe Photoshop, Adobe Illustrator, Adobe InDesign, After Effects, Marshalls brand
                 design guidelines.
               </p>
             </div>

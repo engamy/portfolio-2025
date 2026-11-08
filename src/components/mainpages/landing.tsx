@@ -11,7 +11,7 @@ import {
   LAB,
   LabItem,
   LandingProject,
-  PROJECTS,
+  VISIBLE_PROJECTS as PROJECTS,
   TAGS,
   TagId,
   projectPath
@@ -93,10 +93,10 @@ export default function Landing() {
 
             <div className="hero-bio">
               <p className="lead">
-                Hello, I’m Amy! I’m a <strong>designer with a software background</strong>{' '}
-                based in both <strong>Boston &amp; New York City</strong>, studying{' '}
-                <strong>Design and Computer Science</strong> (Interaction Design
-                concentration) at <strong>Northeastern University</strong>.
+                Hello, I’m Amy!<br />
+                I’m a <strong>designer with a software background</strong>,
+                currently studying <strong>Interaction Design and Computer Science</strong>{' '}
+                at <strong>Northeastern University</strong>.
               </p>
               <div className="quick">
                 <ContactButtons />
@@ -109,8 +109,9 @@ export default function Landing() {
 
       <section className="featured" id="featured" aria-labelledby="featured-h">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head section-head--stacked">
             <h2 id="featured-h">Featured</h2>
+            <p className="sub">Featured case studies, picked from the full list below.</p>
           </div>
           <div className="feat-grid">
             {featured.map(project => (
@@ -128,14 +129,21 @@ export default function Landing() {
       <section className="work" id="work" aria-labelledby="work-h">
         <div className="wrap">
           <div className="section-head">
-            <h2 id="work-h">Projects</h2>
+            <div>
+              <h2 id="work-h">Projects</h2>
+              <p className="sub">
+                Professional and academic work, added and updated as each project wraps up.
+              </p>
+            </div>
             <p className="count" aria-live="polite">
               Showing {visible.length} of {PROJECTS.length}
             </p>
           </div>
 
           <div className="chips" role="group" aria-label="Filter projects by category">
-            {FILTERS.map(filter => (
+            {FILTERS.filter(
+              filter => filter.id === 'all' || PROJECTS.some(p => p.tags.includes(filter.id as TagId))
+            ).map(filter => (
               <button
                 key={filter.id}
                 type="button"

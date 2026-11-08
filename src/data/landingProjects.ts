@@ -39,6 +39,8 @@ export interface LandingProject {
   image?: string;
   /** Set when `image` is a video rather than a still. */
   mediaType?: 'image' | 'video';
+  /** Left off the landing page for now. The entry and its route stay. */
+  hidden?: boolean;
 }
 
 const DESIGN = '/pictures/portfolio-content_spring2026/02_DESIGN';
@@ -88,6 +90,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'kahsay',
+    hidden: true,
     title: 'Kahsay',
     ctx: 'Brand Identity for a foodtech startup',
     focus: 'Brand Identity for a foodtech startup',
@@ -98,6 +101,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'iot-dishwasher',
+    hidden: true,
     title: 'IoT Dishwasher',
     ctx: 'Smart home UI & interface design',
     focus: 'Smart home UI',
@@ -108,6 +112,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'reading-redesign',
+    hidden: true,
     title: 'Reading Redesign',
     ctx: 'Mobile UX / app redesign',
     focus: 'Mobile UX',
@@ -118,6 +123,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'coopalytics',
+    hidden: true,
     title: 'Coopalytics',
     ctx: 'Full-stack web application',
     focus: 'Full-stack web app',
@@ -129,6 +135,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'scout-djoda',
+    hidden: true,
     title: 'Scout / Djoda',
     ctx: 'Full-stack web app & branding',
     focus: 'Full-stack web app and branding',
@@ -140,6 +147,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'three-trios',
+    hidden: true,
     title: 'Three Trios',
     ctx: 'CS architecture / game development',
     focus: 'Game development',
@@ -151,6 +159,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'minesweeper',
+    hidden: true,
     title: 'Minesweeper',
     ctx: 'Systems & algorithms',
     focus: 'Systems and algorithms',
@@ -162,6 +171,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'lightemall',
+    hidden: true,
     title: 'LightEmAll',
     ctx: 'Systems & algorithms',
     focus: 'Systems and algorithms',
@@ -173,6 +183,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: '3d-mfa',
+    hidden: true,
     title: '3D MFA / Interactive',
     ctx: '3D modeling & web graphics',
     focus: '3D and web graphics',
@@ -184,6 +195,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'nupr-markiplier-wikibook',
+    hidden: true,
     title: 'NUPR & Markiplier Wikibook',
     ctx: 'Editorial, typography & layout design',
     focus: 'Editorial layout',
@@ -194,6 +206,7 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'cba',
+    hidden: true,
     title: 'CBA',
     ctx: 'Web design & non-profit client work',
     focus: 'Web design',
@@ -242,4 +255,7 @@ export const LAB: LabItem[] = [
 ];
 
 /** Projects that need a placeholder page generated for them. */
+/** The projects the landing page lists. */
+export const VISIBLE_PROJECTS = PROJECTS.filter(p => !p.hidden);
+
 export const PLACEHOLDER_PROJECTS = PROJECTS.filter(p => !p.to);

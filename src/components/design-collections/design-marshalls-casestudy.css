@@ -8,42 +8,46 @@
 
 /* ---------- Hero ---------- */
 
+/* Title and Quick Summary on a mesh-style gradient built around Marshalls
+   blue: wide radial washes of navy, cobalt, azure and violet, with the bottom
+   left kept deep so the title holds its contrast. A fractal noise layer adds
+   grain. The hero is only as tall as its content. Matches the Kahsay and
+   Sightline heroes. */
 .ms-hero {
   position: relative;
-  height: 100vh;
-  /* The summary cards sit inside the hero, so it grows past the viewport
-     rather than clipping them on short screens. */
-  min-height: max(100vh, 46rem);
-  background-color: var(--ink);
   display: flex;
+  /* .design-section-header makes every hero a full-height, centred column;
+     this one sizes to its content. */
+  flex-direction: row;
   align-items: flex-end;
   justify-content: flex-start;
+  height: auto;
+  min-height: 0;
   overflow: hidden;
   /* Override .design-section-header's padding so the hero is full width. */
   padding: 0 !important;
   box-sizing: border-box;
-}
-
-.ms-hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: blur(5px) brightness(0.6);
-  /* Slight scale hides the soft edges the blur leaves. */
-  transform: scale(1.04);
-  z-index: 0;
-  pointer-events: none;
-  user-select: none;
+  background-color: #00136e;
+  background-image:
+    /* Deep navy anchoring the title, bottom left */
+    radial-gradient(70% 90% at 0% 100%, rgba(0, 12, 70, 0.95) 0%, rgba(0, 12, 70, 0) 70%),
+    /* Violet at the top right */
+    radial-gradient(55% 85% at 100% 0%, rgba(122, 60, 220, 0.6) 0%, rgba(122, 60, 220, 0) 70%),
+    /* Azure low on the right, behind the cards */
+    radial-gradient(50% 75% at 85% 100%, rgba(40, 140, 255, 0.5) 0%, rgba(40, 140, 255, 0) 70%),
+    /* Bright Marshalls blue at the top left */
+    radial-gradient(55% 80% at 25% 0%, rgba(20, 70, 255, 0.8) 0%, rgba(20, 70, 255, 0) 70%),
+    /* Full-coverage base so no gap falls to black */
+    radial-gradient(140% 160% at 45% 40%, #0024cc 0%, #001a94 100%);
 }
 
 .ms-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 1;
 }
@@ -53,7 +57,8 @@
   z-index: 2;
   width: 100%;
   display: flex;
-  padding: 0 10vw 8vw 10vw;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
   box-sizing: border-box;
 }
 
@@ -136,6 +141,11 @@
   line-height: 1.5;
   margin: 0;
   color: var(--ink);
+}
+
+/* A short entry (the timeline) that runs across the full row. */
+.ms-card--wide {
+  grid-column: 1 / -1;
 }
 
 /* Hero variant: light text on a dark scrim over the photo. */
@@ -473,11 +483,6 @@
 /* Below this width the side-by-side hero squeezes the cards too narrow, so
    the title and summary stack. */
 @media (min-width: 769px) and (max-width: 1152px) {
-  .ms-hero {
-    height: auto;
-    min-height: 100vh;
-  }
-
   .ms-hero-overlay {
     padding: 16vh 8vw 8vw 8vw;
   }
@@ -524,11 +529,6 @@
 /* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
-  .ms-hero {
-    height: auto;
-    min-height: 100vh;
-  }
-
   .ms-hero-overlay {
     padding: 18vh 5vw 12vw 5vw;
   }

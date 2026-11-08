@@ -482,21 +482,34 @@ export default function DesignKahsayCasestudy() {
             </div>
           </div>
 
-          <div className="ks-prose ks-prose--columns ks-after-figure">
-            <p>
-              OMA launched during our first two rounds of app testing with about 50 to
-              70 friends and family, who sent feedback through an in-app button. We
-              weren't testing the mascot, but people noticed the switch. Most comments
-              about it said the same thing: they didn't understand why it was a dog,
-              and they wanted the tongue back. So we went back to it.
-            </p>
-            <p>
-              The bloodhound made sense once you heard the explanation, and the tongue
-              didn't need one. OMA answered the team's goals of elevating the brand and
-              preparing for a chat assistant. It didn't answer the user's first
-              question, which was what this app is about. For a product built on taste,
-              a warm and obvious cue did more than a metaphor users had to work out.
-            </p>
+          <div className="ks-split ks-split--small-figure ks-after-figure">
+            <div className="ks-prose">
+              <p>
+                OMA launched during our first two rounds of app testing with about 50 to
+                70 friends and family, who sent feedback through an in-app button. We
+                weren't testing the mascot, but people noticed the switch. Most comments
+                about it said the same thing: they didn't understand why it was a dog,
+                and they wanted the tongue back.
+              </p>
+              <p>
+                Before going back, we debated designing a new mark altogether, and I
+                sketched another round of options. We went back to the tongue because
+                that's what our users asked for.
+              </p>
+              <p>
+                The bloodhound made sense once you heard the explanation, and the tongue
+                didn't need one. OMA answered the team's goals of elevating the brand and
+                preparing for a chat assistant. It didn't answer the user's first
+                question, which was what this app is about. For a product built on
+                taste, a warm and obvious cue did more than a metaphor users had to work
+                out.
+              </p>
+            </div>
+            {figure(
+              'logo-ideation-sketches.jpg',
+              'Hand-drawn Kahsay logo ideation sheet: thirteen concepts including cloches, location pins, a tongue-shaped K and a hand holding a fork, beside the brand traits Expert, Premium, Craving, Bold, Human and Calm',
+              'Logo ideation after OMA'
+            )}
           </div>
         </section>
 

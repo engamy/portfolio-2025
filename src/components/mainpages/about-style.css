@@ -3,8 +3,11 @@
        stops at row 4308 and the last 292px are blank cream. Ending the section
        at 224.427vw trims that tail without clipping the seal, and the cut is
        invisible because the image's cream is the same as the page background.
-       Recheck where the artwork ends if the image is re-exported. */
-    height: 224.427vw;
+       Recheck where the artwork ends if the image is re-exported.
+       The intro is shifted down with relative offsets, which do not add to the
+       flow height, so the extra 3vw keeps the testimony credits at the bottom
+       from being clipped by overflow. */
+    min-height: calc(224.427vw + 3vw);
     background-size: 100% auto;
     background-position: top center;
     background-repeat: no-repeat;
@@ -27,7 +30,7 @@
     transform: rotate(-10deg);
     font-size: 6vw;
     font-style: italic;
-    top: 20vw;
+    top: 18.8vw;
     left: 39.4vw;
     transition: opacity 0.3s ease-in-out;
 }
@@ -44,7 +47,28 @@
 .about-contacticon {
     position: relative;
     left: 40vw;
-    top: 27.5vw;
+    /* A clear gap below the closing line of the intro. */
+    top: 29vw;
+}
+
+.about-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.4vw;
+    font-family: var(--font-body);
+    --fg: var(--ink);
+    --bg: var(--cream);
+    --focus: var(--ink);
+}
+
+.about-buttons .btn,
+.about-buttons .btn:visited {
+    color: var(--ink);
+}
+
+.about-buttons .btn:hover {
+    color: var(--cream);
 }
 
 .about-contacticon img {
@@ -159,7 +183,7 @@
 }
 
 .testimonies-container p {
-    font-size: 1.15vw;
+    font-size: 1.4vw;
     line-height: 1.4;
 }
 
@@ -238,7 +262,7 @@
     font-weight: bold;
     font-style: italic;
     text-align: right;
-    font-size: 1vw;
+    font-size: 1.15vw;
     margin-top: 2.4vw;
 }
 
@@ -299,13 +323,17 @@
         left: auto;
         top: auto;
         text-align: left;
-        margin: 20px 0;
+        margin: 36px 0 20px;
         margin-left: 3vw;
     }
 
     .about-contacticon img {
         width: 10vw;
         margin-right: 2vw;
+    }
+
+    .about-buttons {
+        margin-top: 20px;
     }
 
     .resumes {
@@ -380,7 +408,7 @@
     }
 
     .testimonies-container p {
-        font-size: 4vw;
+        font-size: 4.6vw;
     }
 
     .testimony {
@@ -418,7 +446,7 @@
     }
 
     .testimony-name p {
-        font-size: 3.6vw;
+        font-size: 4vw;
         margin-top: 10vw;
         text-align: right;
     }

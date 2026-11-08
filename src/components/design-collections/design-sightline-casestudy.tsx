@@ -696,11 +696,22 @@ export default function DesignSightlineCasestudy() {
               hazards.
             </p>
             <p>
-              The main thing I learned is that in crisis design, each extra decision
-              costs the user something. Dropping the mode toggle, building on an
-              accessible design system with Figtree and high-contrast color tokens, and
-              adding a final review step kept the data accurate while keeping the
-              reporting flow quick for someone on the street.
+              I learned to design for someone with no training who is reporting under
+              stress. A label that makes sense to a researcher can stop a resident
+              standing in floodwater, so every step had to read clearly the first
+              time.
+            </p>
+            <p>
+              I also learned to test assumptions before committing to them. Our team
+              didn't know whether evidence first or photos first would feel more
+              natural until we put both in front of users, and the flow we didn't
+              choose still pointed to real problems, like needing an Other option.
+            </p>
+            <p>
+              Working through more than 100 lo-fi and mid-fi screens is what surfaced
+              the hard cases: reporting several kinds of evidence at once, adding a
+              type that isn't on the list, and rating severity consistently. Most of
+              those only appeared once I'd drawn the flow several different ways.
             </p>
           </div>
         </section>

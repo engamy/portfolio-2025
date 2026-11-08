@@ -21,8 +21,8 @@
    two cannot drift apart. */
 @media (min-width: 901px) {
   .hero { --hero-h: 88vh; min-height: var(--hero-h); }
-  /* Lifts the bio a little above the grid's centre line. */
-  .hero-bio { margin-bottom: 4rem; }
+  /* Sits the bio a touch below the grid's centre line. */
+  .hero-bio { margin-top: 1rem; }
 }
 
 .hero-grid {
@@ -68,6 +68,11 @@
   line-height: 1.28;
 }
 .hero-bio .lead strong { font-weight: 800; }
+/* Desktop: the bio reaches a little past its column into the photo's empty
+   side, so the last line is not a lone word. */
+@media (min-width: 901px) {
+  .hero-bio .lead { margin-left: -4rem; text-wrap: pretty; }
+}
 
 .quick {
   display: flex;
@@ -176,12 +181,12 @@ video.thumb {
 }
 .card:hover, .card:focus-visible { transform: scale(1.04); z-index: 1; }
 .card h3 {
-  margin: 1.1rem 0 0.15rem;
+  margin: 1.25rem 0 0.45rem;
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.2;
 }
-.card .ctx { margin: 0; font-weight: 300; font-style: italic; letter-spacing: 0.03em; }
+.card .ctx { margin: 0; font-weight: 300; font-style: italic; letter-spacing: 0.03em; line-height: 1.45; }
 .card:focus-visible { outline: 3px solid var(--focus); outline-offset: 6px; }
 
 .tags {
@@ -190,7 +195,7 @@ video.thumb {
   gap: 0.4rem;
   list-style: none;
   padding: 0;
-  margin: 0.85rem 0 0;
+  margin: 1.1rem 0 0;
 }
 .tags li {
   border: 1.5px solid var(--pill-border);
@@ -210,7 +215,10 @@ video.thumb {
   --bg: var(--ink);
   background: var(--alt-bg);
   color: var(--cream);
-  padding-top: 4.5rem;
+  /* Tucks under Featured's clipped bottom edge, which otherwise antialiases
+     into a 1px cream line between the two bands. */
+  margin-top: -1px;
+  padding-top: calc(4.5rem + 1px);
   padding-bottom: 5rem;
 }
 .count { margin: 0; font-weight: 300; }
@@ -252,7 +260,7 @@ video.thumb {
   padding-top: 4.5rem;
   padding-bottom: 5.5rem;
 }
-.lab .sub { margin: 0.6rem 0 0; font-weight: 400; }
+.section-head .sub { margin: 0.6rem 0 0; font-weight: 400; }
 
 /* Same geometry as the projects grid rather than a ragged masonry, so the
    two sections line up. */

@@ -4,6 +4,7 @@ import { useScrollVisibility } from '../../hooks/useScrollVisibility';
 import { getAssetPath } from '../../utils/assetUtils';
 import { usePageMode } from '../../hooks/usePageMode';
 import ExternalLink from '../page-components/ExternalLink';
+import ContactButtons from '../page-components/ContactButtons';
 import { ICONS, socials } from '../../data/socials';
 
 
@@ -28,13 +29,24 @@ export default function About() {
           className="about-profile-image"
         />
         <h1 style={{ opacity: isH1Visible ? 1 : 0 }}>Hello, I'm Amy!</h1>
-        <p>I'm a <span style={{fontWeight: 'bold'}}>Computer Science and Interaction Design</span> major at <span style={{fontWeight: 'bold'}}>Northeastern University</span>, currently based in <span style={{fontWeight: 'bold'}}>Boston</span>. I grew up in New Jersey with my family (and our cat, Ellie!).
-          <br></br><br></br>
-          I've been coding since middle school, using languages like <span style={{fontWeight: 'bold'}}>Java, Python, HTML/CSS, JavaScript, TypeScript, SQL</span>, and tools like <span style={{fontWeight: 'bold'}}>VS Code, IntelliJ, Cursor, Eclipse, and Git</span>. I'm passionate about <span style={{fontWeight: 'bold'}}>UI/UX design and full-stack development</span>.
-          <br></br><br></br>
-          As a lifelong artist, I have strong skills in both <span style={{fontWeight: 'bold'}}>traditional and digital media</span>, and I enjoy solving problems through <span style={{fontWeight: 'bold'}}>creative, user-focused design</span>.
-          <br></br><br></br>
-          Thanks for visiting — feel free to reach out!</p>
+        <p>
+          I'm a <strong>Computer Science and Interaction Design</strong> major at{' '}
+          <strong>Northeastern University</strong>, currently based in <strong>Boston</strong>. I
+          grew up in New Jersey with my family and plan to settle in <strong>New York</strong> after
+          graduation, though I'm open to relocating.
+          <br /><br />
+          I've been coding since middle school and I'm comfortable across software development, with
+          hands-on <strong>full-stack</strong> experience in <strong>React and TypeScript</strong>. My
+          passion is <strong>product design and user-centered work</strong>. I do my best thinking
+          when I'm asking what a user needs and how each decision will affect them, and I want to see
+          my work make <strong>a real difference for real people</strong>.
+          <br /><br />
+          I'm also a lifelong artist and still draw whenever I can. I work in both{' '}
+          <strong>traditional and digital media</strong>, and I bring that to solving problems
+          through <strong>creative, user-focused design</strong>.
+          <br /><br />
+          Thanks for visiting. Feel free to reach out!
+        </p>
 
         <div className="about-contacticon">
           {socials.map(social => (
@@ -42,6 +54,9 @@ export default function About() {
               <img src={getAssetPath(`${ICONS}/${social.icon}`)} alt={social.label} />
             </ExternalLink>
           ))}
+          <div className="about-buttons">
+            <ContactButtons />
+          </div>
         </div>
 
         {/* <div className="resumes">

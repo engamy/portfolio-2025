@@ -322,6 +322,11 @@
   grid-template-columns: 1fr 1fr;
 }
 
+/* A short entry (the timeline) that runs across both columns. */
+.next-bento-card--wide {
+  grid-column: 1 / -1;
+}
+
 /* Bento card heading — smaller than the section h3 so it scales
    inside the card without dominating the body copy. */
 .next-content .next-bento-card h3 {
