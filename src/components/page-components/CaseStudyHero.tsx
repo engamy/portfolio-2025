@@ -9,7 +9,7 @@ export interface CaseStudyMeta {
 
 interface CaseStudyHeroProps {
   /** Chooses the class prefix, and with it the page's own hero styling. */
-  variant: 'next' | 'ms' | 'ks' | 'sl';
+  variant: 'next' | 'ms' | 'ks' | 'sl' | 'mm' | 'tt' | 'cg';
   title: React.ReactNode;
   subtitle?: string;
   /** Short caveat shown under the metadata, e.g. an NDA stand-in note. */

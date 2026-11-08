@@ -1,0 +1,489 @@
+/* Mentor Matcher case study. A lighter page than the flagship case studies,
+   built on the same pattern as Marshalls: a grain gradient hero with the
+   Quick Summary, then cream content. The navy comes from the wireframes. */
+
+.mm-casestudy {
+  --mm-navy: #0b2266;
+  --mm-line: rgba(11, 34, 102, 0.18);
+}
+
+/* ---------- Hero ---------- */
+
+/* Mesh-style gradient in the wireframes' colours: their navy (#002157,
+   the stat cards), slate blue (#4b6186, the user pills) and match green
+   (#5bb06d, approved pairs), with the bottom left kept darkest (#031c45, the
+   buttons) so the title holds its contrast, and a fractal noise layer for
+   grain. */
+.mm-hero {
+  position: relative;
+  display: flex;
+  /* .design-section-header makes every hero a full-height, centred column;
+     this one sizes to its content. */
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background-color: #002157;
+  background-image:
+    radial-gradient(70% 90% at 0% 100%, rgba(3, 28, 69, 0.95) 0%, rgba(3, 28, 69, 0) 70%),
+    radial-gradient(55% 85% at 100% 0%, rgba(91, 176, 109, 0.55) 0%, rgba(91, 176, 109, 0) 70%),
+    radial-gradient(50% 75% at 85% 100%, rgba(75, 97, 134, 0.7) 0%, rgba(75, 97, 134, 0) 70%),
+    radial-gradient(55% 80% at 25% 0%, rgba(75, 97, 134, 0.6) 0%, rgba(75, 97, 134, 0) 70%),
+    radial-gradient(140% 160% at 45% 40%, #0a2c66 0%, #031c45 100%);
+}
+
+.mm-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mm-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.mm-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.mm-hero-main {
+  flex: 1 1 44%;
+  min-width: 0;
+}
+
+.mm-hero-aside {
+  flex: 1 1 56%;
+  min-width: 0;
+}
+
+.mm-title {
+  font-size: 3.6vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: var(--cream) !important;
+  font-style: italic;
+}
+
+.mm-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--cream);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.mm-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2vw;
+}
+
+.mm-card {
+  border: 1px solid var(--cream);
+  border-radius: 12px;
+  padding: 1.3vw 1.4vw;
+  background-color: rgba(16, 16, 16, 0.4);
+}
+
+/* The timeline runs across the full row. */
+.mm-card--wide {
+  grid-column: 1 / -1;
+}
+
+.mm-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  color: var(--cream);
+  font-size: 1.15vw;
+  font-style: italic;
+}
+
+.mm-card p {
+  margin: 0;
+  color: var(--cream);
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
+
+/* Sized in em so it tracks the heading. */
+.mm-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Content ---------- */
+
+.mm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw 7vw;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.mm-section {
+  display: flow-root;
+}
+
+.mm-content h2 {
+  margin: 0 0 1.5vw 0;
+  color: var(--mm-navy);
+  font-size: 2.8vw;
+  font-style: italic;
+}
+
+.mm-content h3 {
+  margin: 0 0 1vw 0;
+  color: var(--mm-navy);
+  font-size: 1.9vw;
+  font-style: italic;
+}
+
+.mm-prose p {
+  margin: 0 0 1.2vw 0;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.mm-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.mm-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+.mm-after {
+  margin-top: 2.5vw;
+}
+
+/* Round 1 and round 2 of the same screen, side by side. */
+.mm-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3vw;
+  align-items: start;
+}
+
+/* Copy beside the tall mentor screen. */
+.mm-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: center;
+}
+
+.mm-figure {
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.mm-figure figcaption {
+  margin: 0 0 0.8vw;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.mm-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--mm-line);
+  border-radius: 12px;
+}
+
+/* ---------- Matching algorithm diagram ---------- */
+
+.mm-split--built {
+  align-items: start;
+}
+
+.mm-algo {
+  margin: 0;
+  padding: 1.6vw 1.8vw;
+  border: 1px solid var(--mm-line);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.mm-algo-legend {
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom: 0.8vw;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  color: var(--ink);
+}
+
+.mm-algo-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.mm-dot {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.mm-dot--mentor { background-color: #002157; }
+.mm-dot--mentee { background-color: #4b6186; }
+
+.mm-algo-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 1.4vw;
+  align-items: center;
+  padding: 0.9vw 0;
+  border-top: 1px solid var(--mm-line);
+}
+
+.mm-algo-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mm-content .mm-algo-copy h4 {
+  margin: 0 0 0.3rem;
+  font-size: 1.15vw;
+  font-style: italic;
+  color: var(--mm-navy);
+}
+
+.mm-algo-copy p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.mm-algo figcaption {
+  margin-top: 0.6vw;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  color: var(--ink);
+  opacity: 0.6;
+  text-align: center;
+}
+
+.mm-node--mentor { fill: #002157; }
+.mm-node--mentee { fill: #4b6186; }
+
+.mm-node-cap {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  fill: #002157;
+}
+
+.mm-edge {
+  stroke: #9aa6ba;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.mm-edge--cut {
+  stroke: #e0574f;
+  stroke-dasharray: 4 4;
+  opacity: 0.7;
+}
+
+.mm-edge-x {
+  stroke: #e0574f;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.mm-edge--score {
+  stroke: #002157;
+}
+
+.mm-edge--faint {
+  opacity: 0.25;
+}
+
+.mm-edge--match {
+  stroke: #5bb06d;
+  stroke-width: 4;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .mm-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .mm-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .mm-title {
+    font-size: 5.4vw !important;
+  }
+
+  .mm-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .mm-cards {
+    gap: 2vw;
+  }
+
+  .mm-card {
+    padding: 2.4vw 2.6vw;
+  }
+
+  .mm-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .mm-card p {
+    font-size: 1.65vw;
+  }
+
+  .mm-content h2 {
+    font-size: 4vw;
+  }
+
+  .mm-content h3 {
+    font-size: 2.8vw;
+  }
+
+  .mm-content .mm-algo-copy h4 {
+    font-size: 1.8vw;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .mm-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .mm-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .mm-title {
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .mm-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .mm-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .mm-card {
+    padding: 5vw;
+  }
+
+  .mm-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .mm-card p {
+    font-size: 3.8vw;
+  }
+
+  .mm-content {
+    padding: 8vw 5vw 14vw;
+    gap: 12vw;
+  }
+
+  .mm-content h2 {
+    font-size: 7vw;
+    margin-bottom: 4vw;
+  }
+
+  .mm-content h3 {
+    font-size: 5.5vw;
+    margin-bottom: 3vw;
+  }
+
+  .mm-prose p {
+    margin-bottom: 4vw;
+  }
+
+  .mm-prose--columns {
+    column-count: 1;
+  }
+
+  .mm-after {
+    margin-top: 6vw;
+  }
+
+  .mm-pair,
+  .mm-split {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .mm-figure figcaption {
+    margin-bottom: 2vw;
+  }
+
+  .mm-algo {
+    padding: 4vw;
+  }
+
+  .mm-algo-stage {
+    grid-template-columns: 1fr;
+    gap: 2vw;
+    padding: 4vw 0;
+  }
+
+  .mm-content .mm-algo-copy h4 {
+    font-size: 4.6vw;
+  }
+}

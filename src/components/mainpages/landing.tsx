@@ -12,6 +12,7 @@ import {
   LabItem,
   LandingProject,
   VISIBLE_PROJECTS as PROJECTS,
+  ALL_PROJECTS_ORDER,
   TAGS,
   TagId,
   projectPath
@@ -68,7 +69,14 @@ export default function Landing() {
   usePageMode({ initial: false, flipAt: '.featured' });
 
   const [active, setActive] = useState<'all' | TagId>('all');
-  const visible = PROJECTS.filter(p => active === 'all' || p.tags.includes(active));
+  const rank = (slug: string) => {
+    const i = ALL_PROJECTS_ORDER.indexOf(slug);
+    return i === -1 ? ALL_PROJECTS_ORDER.length : i;
+  };
+  const visible =
+    active === 'all'
+      ? [...PROJECTS].sort((a, b) => rank(a.slug) - rank(b.slug))
+      : PROJECTS.filter(p => p.tags.includes(active));
   const featured = PROJECTS.filter(p => p.featured);
 
   return (

@@ -61,6 +61,38 @@
   min-height: 80vh;
 }
 
+/* Until the new image has loaded and its orientation is known, the base
+   rule above would draw it cropped (cover plus min sizes), then it would
+   jump to the contained size. Keep it hidden for that moment instead. */
+.lightbox-image.is-pending {
+  visibility: hidden;
+}
+
+/* Shown in place of the hidden image while it downloads. */
+.lightbox-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: -1.4rem 0 0 -1.4rem;
+  border: 2px solid var(--cream);
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: lightbox-spin 0.8s linear infinite;
+}
+
+@keyframes lightbox-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-spinner {
+    animation-duration: 2.4s;
+  }
+}
+
 /* Orientation-specific hooks */
 .lightbox-image.is-landscape {
   /* Example defaults; tweak as needed */
@@ -82,6 +114,43 @@
 }
 
 
+/* Step arrows, shown when the gallery has more than one image. */
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0;
+  border: 1.5px solid var(--cream);
+  border-radius: 999px;
+  background: rgba(16, 16, 16, 0.5);
+  color: var(--cream);
+  cursor: pointer;
+  z-index: 10001;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lightbox-arrow:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.lightbox-arrow svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lightbox-arrow--prev { left: 2rem; }
+.lightbox-arrow--next { right: 2rem; }
+
 /* Keyboard navigation support */
 .lightbox-overlay:focus {
   outline: none;
@@ -92,6 +161,16 @@
   .lightbox-overlay {
     padding: 10px;
   }
+  /* Phones swipe; the arrows stay as a visible cue, pinned low. */
+  .lightbox-arrow {
+    top: auto;
+    bottom: 1.5rem;
+    transform: none;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .lightbox-arrow--prev { left: calc(50% - 3.4rem); }
+  .lightbox-arrow--next { right: calc(50% - 3.4rem); }
   .lightbox-image {
     width: 95vw;
     max-width: 95vw;

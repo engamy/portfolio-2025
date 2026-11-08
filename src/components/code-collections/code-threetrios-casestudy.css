@@ -1,0 +1,822 @@
+/* Three Trios case study. Same structure as the Mentor Matcher and Marshalls
+   pages: a grain gradient hero with the Quick Summary, then cream content.
+   Diagram colours are the game's own (TTPanel.java): red and blue cards,
+   yellow open cells, grey holes. */
+
+.tt-casestudy {
+  --tt-ink: #1b1b2b;
+  --tt-line: rgba(27, 27, 43, 0.16);
+  --tt-red: #faa0a0;
+  --tt-red-deep: #c8463f;
+  --tt-blue: #a7d1f8;
+  --tt-blue-deep: #2f6fb8;
+  --tt-open: #d2d86f;
+  --tt-hole: #aeacac;
+}
+
+/* ---------- Hero ---------- */
+
+/* Red against blue, the two players: a deep red wash on the left and a deep
+   blue one on the right over near-black, darkest bottom left so the title
+   holds its contrast, with a fractal noise layer for grain. */
+.tt-hero {
+  position: relative;
+  display: flex;
+  /* .design-section-header makes every hero a full-height, centred column;
+     this one sizes to its content. */
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background-color: #141420;
+  background-image:
+    radial-gradient(70% 90% at 0% 100%, rgba(10, 10, 18, 0.95) 0%, rgba(10, 10, 18, 0) 70%),
+    radial-gradient(60% 90% at 100% 10%, rgba(47, 111, 184, 0.7) 0%, rgba(47, 111, 184, 0) 70%),
+    radial-gradient(55% 85% at 10% 0%, rgba(200, 70, 63, 0.65) 0%, rgba(200, 70, 63, 0) 70%),
+    radial-gradient(50% 70% at 80% 100%, rgba(47, 111, 184, 0.4) 0%, rgba(47, 111, 184, 0) 70%),
+    radial-gradient(140% 160% at 45% 40%, #2a2236 0%, #121220 100%);
+}
+
+.tt-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tt-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.tt-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.tt-hero-main {
+  flex: 1 1 44%;
+  min-width: 0;
+}
+
+.tt-hero-aside {
+  flex: 1 1 56%;
+  min-width: 0;
+}
+
+.tt-title {
+  font-size: 3.6vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: var(--cream) !important;
+  font-style: italic;
+}
+
+.tt-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--cream);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.tt-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2vw;
+}
+
+.tt-sum-card {
+  border: 1px solid var(--cream);
+  border-radius: 12px;
+  padding: 1.3vw 1.4vw;
+  background-color: rgba(16, 16, 16, 0.4);
+}
+
+.tt-sum-card--wide {
+  grid-column: 1 / -1;
+}
+
+.tt-sum-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  color: var(--cream);
+  font-size: 1.15vw;
+  font-style: italic;
+}
+
+.tt-sum-card p {
+  margin: 0;
+  color: var(--cream);
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
+
+.tt-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.tt-hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95vw;
+}
+
+.tt-hero-links a {
+  color: var(--cream);
+  text-underline-offset: 3px;
+}
+
+/* ---------- Content ---------- */
+
+.tt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw 7vw;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.tt-section {
+  display: flow-root;
+}
+
+.tt-content h2 {
+  margin: 0 0 1.5vw 0;
+  color: var(--tt-ink);
+  font-size: 2.8vw;
+  font-style: italic;
+}
+
+.tt-content h3 {
+  margin: 0 0 0.8vw 0;
+  color: var(--tt-ink);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.tt-content h4 {
+  margin: 0 0 0.4rem;
+  color: var(--tt-ink);
+  font-size: 1.15vw;
+  font-style: italic;
+}
+
+.tt-prose p,
+.tt-strat p,
+.tt-term p {
+  margin: 0 0 1.2vw 0;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.tt-prose p:last-child,
+.tt-term p:last-child {
+  margin-bottom: 0;
+}
+
+.tt-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+.tt-content code {
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  background-color: rgba(27, 27, 43, 0.07);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.tt-after {
+  margin-top: 2.5vw;
+}
+
+.tt-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: center;
+}
+
+.tt-split--top {
+  align-items: start;
+}
+
+.tt-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3vw;
+  align-items: start;
+}
+
+.tt-figure {
+  margin: 0;
+  cursor: zoom-in;
+}
+
+.tt-figure--video {
+  cursor: default;
+}
+
+/* The demo's caption sits under the video. */
+.tt-figure--video figcaption {
+  margin: 0.8vw 0 0;
+}
+
+.tt-figure figcaption {
+  margin: 0 0 0.8vw;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.tt-figure img,
+.tt-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--tt-line);
+  border-radius: 12px;
+}
+
+.tt-diagram-note {
+  margin: 0.8vw 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+/* ---------- Mini cards (battle and corner diagrams) ---------- */
+
+/* A card with one value on each side, laid out like the game draws them. */
+.tt-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #151515;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05vw;
+  color: #151515;
+}
+
+.tt-card--red { background-color: var(--tt-red); }
+.tt-card--blue { background-color: var(--tt-blue); }
+
+.tt-card-v {
+  display: grid;
+  place-items: center;
+}
+
+.tt-card-v--n { grid-area: 1 / 2; }
+.tt-card-v--w { grid-area: 2 / 1; }
+.tt-card-v--e { grid-area: 2 / 3; }
+.tt-card-v--s { grid-area: 3 / 2; }
+
+.tt-card-v.is-hot {
+  margin: 12%;
+  border-radius: 50%;
+  background-color: #151515;
+  color: #ffffff;
+}
+
+/* ---------- Battle ---------- */
+
+.tt-battle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5vw;
+}
+
+.tt-battle-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1vw;
+}
+
+.tt-battle-step p {
+  margin: 0;
+  font-size: var(--text-meta);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---------- Architecture diagram ---------- */
+
+.tt-arch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
+  margin: 0;
+  padding: 1.8vw;
+  border: 1px solid var(--tt-line);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.tt-arch-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+}
+
+.tt-arch-row--one {
+  grid-template-columns: 1fr;
+}
+
+/* Connectors between rows: an arrow under each column (one controller per
+   view), with the interface named between them. */
+.tt-arch-conn {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 1vw;
+  height: 3.4rem;
+}
+
+.tt-arr-pair {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.tt-arch-label {
+  align-self: center;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  line-height: 1.3;
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+/* A static arrow: a line with a triangular head at one end. */
+.tt-arr {
+  position: relative;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: var(--tt-ink);
+}
+
+.tt-arr::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.tt-arr--down::after {
+  bottom: -1px;
+  border-top: 8px solid var(--tt-ink);
+}
+
+.tt-arr--up::after {
+  top: -1px;
+  border-bottom: 8px solid var(--tt-ink);
+}
+
+.tt-arch-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+  margin-top: 1vw;
+  padding-top: 1vw;
+  border-top: 1px dashed var(--tt-line);
+}
+
+.tt-node {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.8vw 1vw;
+  border: 1.5px solid var(--tt-ink);
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.tt-node strong {
+  font-size: 1vw;
+  color: var(--tt-ink);
+}
+
+.tt-node span {
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  line-height: 1.35;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.tt-node--red { background-color: var(--tt-red); }
+.tt-node--blue { background-color: var(--tt-blue); }
+.tt-node--model { background-color: var(--tt-open); }
+
+.tt-node--small {
+  border-style: dashed;
+}
+
+.tt-node--adapter {
+  border-color: var(--tt-blue-deep);
+}
+
+/* ---------- Strategies ---------- */
+
+.tt-strats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+}
+
+.tt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(100%, 15rem);
+  margin-top: 0.5vw;
+  border: 1px solid #151515;
+}
+
+.tt-bcell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border: 0.5px solid #151515;
+  font-family: var(--font-body);
+  font-size: 1.3vw;
+  font-weight: 700;
+  color: #151515;
+}
+
+.tt-bcell--empty { background-color: var(--tt-open); }
+.tt-bcell--hole { background-color: var(--tt-hole); }
+.tt-bcell--red { background-color: var(--tt-red); }
+.tt-bcell--blue { background-color: var(--tt-blue); }
+
+.tt-bcell.is-best {
+  outline: 4px solid #151515;
+  outline-offset: -4px;
+}
+
+.tt-bcell--card .tt-card {
+  width: 100%;
+  border: 0;
+  font-size: 0.85vw;
+}
+
+.tt-corner {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  flex-wrap: wrap;
+}
+
+.tt-corner-sum {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+}
+
+/* ---------- Adapter diagram ---------- */
+
+.tt-adapter {
+  display: grid;
+  grid-template-columns: 1fr 2.5rem 1.2fr 2.5rem 1fr;
+  align-items: center;
+  margin: 0;
+  padding: 2vw;
+  border: 1px solid var(--tt-line);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.tt-adapter-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vw;
+}
+
+.tt-adapter-col h4 {
+  text-align: center;
+}
+
+/* Static connector: a line with a head pointing right. */
+.tt-adapter-arrow {
+  position: relative;
+  height: 2px;
+  margin: 0 0.3rem;
+  background-color: var(--tt-ink);
+}
+
+.tt-adapter-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  border-left: 8px solid var(--tt-ink);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.tt-adapter-small {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.tt-adapter-small span {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--tt-line);
+  border-radius: 999px;
+  background-color: #ffffff;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.tt-terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw 4vw;
+}
+
+/* ---------- Links ---------- */
+
+.tt-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  --fg: var(--ink);
+  --bg: var(--cream);
+  --focus: var(--ink);
+}
+
+.tt-links .btn,
+.tt-links .btn:visited {
+  color: var(--ink);
+}
+
+.tt-links .btn:hover {
+  color: var(--cream);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .tt-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .tt-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .tt-title {
+    font-size: 5.4vw !important;
+  }
+
+  .tt-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .tt-cards {
+    gap: 2vw;
+  }
+
+  .tt-sum-card {
+    padding: 2.4vw 2.6vw;
+  }
+
+  .tt-sum-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .tt-sum-card p,
+  .tt-hero-links {
+    font-size: 1.65vw;
+  }
+
+  .tt-content h2 { font-size: 4vw; }
+  .tt-content h3 { font-size: 2.6vw; }
+  .tt-content h4 { font-size: 1.9vw; }
+  .tt-node strong { font-size: 1.6vw; }
+  .tt-card { font-size: 1.7vw; }
+  .tt-bcell { font-size: 2.2vw; }
+  .tt-bcell--card .tt-card { font-size: 1.4vw; }
+
+  .tt-adapter {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tt-adapter-arrow {
+    width: 2px;
+    height: 1.6rem;
+    margin: 0 auto;
+  }
+
+  .tt-adapter-arrow::after {
+    right: auto;
+    top: auto;
+    left: -5px;
+    bottom: -1px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--tt-ink);
+    border-bottom: 0;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .tt-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .tt-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .tt-title {
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .tt-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .tt-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .tt-sum-card {
+    padding: 5vw;
+  }
+
+  .tt-sum-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .tt-sum-card p,
+  .tt-hero-links {
+    font-size: 3.8vw;
+  }
+
+  .tt-content {
+    padding: 8vw 5vw 14vw;
+    gap: 12vw;
+  }
+
+  .tt-content h2 { font-size: 7vw; margin-bottom: 4vw; }
+  .tt-content h3 { font-size: 5.5vw; margin-bottom: 3vw; }
+  .tt-content h4 { font-size: 4.6vw; }
+
+  .tt-prose p,
+  .tt-strat p,
+  .tt-term p {
+    margin-bottom: 4vw;
+  }
+
+  .tt-prose--columns {
+    column-count: 1;
+  }
+
+  .tt-after {
+    margin-top: 6vw;
+  }
+
+  .tt-split,
+  .tt-pair,
+  .tt-strats,
+  .tt-terms,
+  .tt-battle {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .tt-figure figcaption {
+    margin-bottom: 2vw;
+  }
+
+  .tt-figure--video figcaption {
+    margin: 2vw 0 0;
+  }
+
+  .tt-diagram-note {
+    margin-top: 2vw;
+  }
+
+  .tt-card { font-size: 4.2vw; }
+  .tt-bcell { font-size: 5vw; }
+  .tt-bcell--card .tt-card { font-size: 3.4vw; }
+
+  .tt-battle-row {
+    margin-bottom: 3vw;
+  }
+
+  .tt-arch,
+  .tt-adapter {
+    padding: 4vw;
+  }
+
+  .tt-arch {
+    gap: 2vw;
+  }
+
+  .tt-arch-row,
+  .tt-arch-side {
+    gap: 2vw;
+  }
+
+  .tt-arch-conn {
+    height: 3rem;
+  }
+
+  .tt-node {
+    padding: 3vw;
+  }
+
+  .tt-node strong {
+    font-size: 3.8vw;
+  }
+
+  .tt-adapter {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .tt-adapter-col {
+    gap: 2.5vw;
+  }
+
+  .tt-adapter-arrow {
+    width: 2px;
+    height: 1.6rem;
+    margin: 0 auto;
+  }
+
+  .tt-adapter-arrow::after {
+    right: auto;
+    top: auto;
+    left: -5px;
+    bottom: -1px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--tt-ink);
+    border-bottom: 0;
+  }
+
+  .tt-corner {
+    gap: 4vw;
+  }
+}

@@ -18,6 +18,11 @@ import DesignMarshallsCasestudy from './components/design-collections/design-mar
 import DesignNextCasestudy from './components/design-collections/design-next-casestudy';
 import DesignKahsayCasestudy from './components/design-collections/design-kahsay-casestudy';
 import DesignSightlineCasestudy from './components/design-collections/design-sightline-casestudy';
+import DesignMentorMatcherCasestudy from './components/design-collections/design-mentormatcher-casestudy';
+import CodeThreeTriosCasestudy from './components/code-collections/code-threetrios-casestudy';
+import CodeLightEmAllCasestudy from './components/code-collections/code-lightemall-casestudy';
+import CodeMinesweeperCasestudy from './components/code-collections/code-minesweeper-casestudy';
+import CodePipeFantasyCasestudy from './components/code-collections/code-pipefantasy-casestudy';
 import DesignReadingRedesign from './components/design-collections/design-readingredesign';
 import DesignDishwasher from './components/design-collections/design-dishwasher';
 import { DarkModeProvider, useDarkMode } from './contexts/DarkModeContext';
@@ -28,6 +33,9 @@ import ProjectPlaceholder from './components/mainpages/project-placeholder';
 import CodeProject from './components/mainpages/code-project';
 import { PLACEHOLDER_PROJECTS, placeholderPath } from './data/landingProjects';
 import { projects } from './data/projects';
+
+// Engineering projects whose case study replaces the generic project page.
+const CASE_STUDY_SLUGS = ['three-trios', 'lightemall', 'minesweeper', 'pipe-fantasy'];
 
 const AppContent: React.FC = () => {
   const { darkMode } = useDarkMode();
@@ -74,13 +82,19 @@ const AppContent: React.FC = () => {
         <Route path="/design-next-casestudy" element={<DesignNextCasestudy />} />
         <Route path="/kahsay" element={<DesignKahsayCasestudy />} />
         <Route path="/sightline" element={<DesignSightlineCasestudy />} />
+        <Route path="/mentor-matcher" element={<DesignMentorMatcherCasestudy />} />
+        <Route path="/three-trios" element={<CodeThreeTriosCasestudy />} />
+        <Route path="/lightemall" element={<CodeLightEmAllCasestudy />} />
+        <Route path="/minesweeper" element={<CodeMinesweeperCasestudy />} />
+        <Route path="/pipe-fantasy" element={<CodePipeFantasyCasestudy />} />
         <Route path="/design-reading-redesign" element={<DesignReadingRedesign />} />
         <Route path="/design-dishwasher" element={<DesignDishwasher />} />
         <Route path="/about" element={<About />} />
 
         {/* Engineering projects that have a page of their own. */}
+        {/* These have full case studies, routed above. */}
         {projects
-          .filter(project => project.slug)
+          .filter(project => project.slug && !CASE_STUDY_SLUGS.includes(project.slug))
           .map(project => (
             <Route
               key={project.slug}

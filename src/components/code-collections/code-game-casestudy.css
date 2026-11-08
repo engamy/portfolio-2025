@@ -1,0 +1,614 @@
+/* Shared stylesheet for the smaller game case studies (LightEmAll,
+   Minesweeper, Pipe Fantasy). Same structure as the Three Trios page: a
+   grain gradient hero with the Quick Summary, then cream content. Each page
+   sets its own hero colours with a modifier on <main>. */
+
+.cg-casestudy {
+  --cg-ink: #1b1b22;
+  --cg-line: rgba(27, 27, 34, 0.16);
+  --cg-accent: #1b1b22;
+  --cg-hero-a: rgba(80, 80, 90, 0.6);
+  --cg-hero-b: rgba(60, 60, 70, 0.5);
+  --cg-hero-base-1: #2a2a32;
+  --cg-hero-base-2: #121216;
+}
+
+/* LightEmAll: the game's yellow wires and cyan power station on dark grey. */
+.cg--lightemall {
+  --cg-accent: #8a6d00;
+  --cg-hero-a: rgba(214, 170, 20, 0.6);
+  --cg-hero-b: rgba(40, 150, 160, 0.45);
+  --cg-hero-base-1: #34312a;
+  --cg-hero-base-2: #141412;
+}
+
+/* Minesweeper: grey tiles, orange flags and the blue "1". */
+.cg--minesweeper {
+  --cg-accent: #2a4fa8;
+  --cg-hero-a: rgba(220, 140, 30, 0.5);
+  --cg-hero-b: rgba(50, 90, 200, 0.55);
+  --cg-hero-base-1: #3a3a3f;
+  --cg-hero-base-2: #17171a;
+}
+
+/* Pipe Fantasy: green goo running through grey pipes. */
+.cg--pipefantasy {
+  --cg-accent: #2b7a3a;
+  --cg-hero-a: rgba(60, 170, 80, 0.55);
+  --cg-hero-b: rgba(150, 150, 150, 0.35);
+  --cg-hero-base-1: #263228;
+  --cg-hero-base-2: #111512;
+}
+
+/* ---------- Hero ---------- */
+
+.cg-hero {
+  position: relative;
+  display: flex;
+  /* .design-section-header makes every hero a full-height, centred column;
+     this one sizes to its content. */
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background-color: var(--cg-hero-base-2);
+  background-image:
+    radial-gradient(70% 90% at 0% 100%, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0) 70%),
+    radial-gradient(60% 90% at 100% 10%, var(--cg-hero-a) 0%, transparent 70%),
+    radial-gradient(55% 85% at 15% 0%, var(--cg-hero-b) 0%, transparent 70%),
+    radial-gradient(50% 70% at 80% 100%, var(--cg-hero-b) 0%, transparent 70%),
+    radial-gradient(140% 160% at 45% 40%, var(--cg-hero-base-1) 0%, var(--cg-hero-base-2) 100%);
+}
+
+.cg-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cg-hero-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.cg-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.cg-hero-main {
+  flex: 1 1 44%;
+  min-width: 0;
+}
+
+.cg-hero-aside {
+  flex: 1 1 56%;
+  min-width: 0;
+}
+
+.cg-title {
+  font-size: 3.6vw !important;
+  line-height: 1.05 !important;
+  margin: 0 !important;
+  color: var(--cream) !important;
+  font-style: italic;
+}
+
+.cg-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  color: var(--cream);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.cg-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2vw;
+}
+
+.cg-sum-card {
+  border: 1px solid var(--cream);
+  border-radius: 12px;
+  padding: 1.3vw 1.4vw;
+  background-color: rgba(16, 16, 16, 0.4);
+}
+
+.cg-sum-card--wide {
+  grid-column: 1 / -1;
+}
+
+.cg-sum-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  color: var(--cream);
+  font-size: 1.15vw;
+  font-style: italic;
+}
+
+.cg-sum-card p {
+  margin: 0;
+  color: var(--cream);
+  font-size: 0.95vw;
+  line-height: 1.45;
+}
+
+.cg-sum-card a {
+  color: var(--cream);
+  text-underline-offset: 3px;
+}
+
+.cg-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Content ---------- */
+
+.cg-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw 7vw;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.cg-section {
+  display: flow-root;
+}
+
+.cg-content h2 {
+  margin: 0 0 1.5vw 0;
+  color: var(--cg-ink);
+  font-size: 2.8vw;
+  font-style: italic;
+}
+
+.cg-content h3 {
+  margin: 0 0 0.8vw 0;
+  color: var(--cg-ink);
+  font-size: 1.6vw;
+  font-style: italic;
+}
+
+.cg-content h4 {
+  margin: 0 0 0.4rem;
+  color: var(--cg-ink);
+  font-size: 1.15vw;
+  font-style: italic;
+}
+
+.cg-prose p,
+.cg-term p {
+  margin: 0 0 1.2vw 0;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.cg-prose p:last-child,
+.cg-term p:last-child {
+  margin-bottom: 0;
+}
+
+.cg-content code {
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  background-color: rgba(27, 27, 34, 0.07);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.cg-after {
+  margin-top: 2.5vw;
+}
+
+.cg-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: start;
+}
+
+.cg-figure {
+  margin: 0;
+}
+
+.cg-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--cg-line);
+  border-radius: 12px;
+}
+
+.cg-figure figcaption {
+  margin: 0.8vw 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  text-align: center;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.cg-note {
+  margin: 0.8vw 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+  color: var(--ink);
+  opacity: 0.65;
+}
+
+/* A framed diagram on a light panel. */
+.cg-diagram {
+  margin: 0;
+  padding: 1.8vw;
+  border: 1px solid var(--cg-line);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* .cg-diagram resets the figure margin, so the gap under body text has to
+   be restated here with matching specificity. */
+.cg-diagram.cg-after {
+  margin-top: 2.5vw;
+}
+
+/* A diagram box that shrinks to its content instead of filling the column,
+   so a square board sits in a square frame. */
+.cg-diagram--fit {
+  justify-self: start;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cg-diagram--fit .cg-board {
+  width: 15rem;
+  max-width: 100%;
+}
+
+/* Heading and caption wrap to the board's width so they don't widen it. */
+.cg-diagram--fit h4,
+.cg-diagram--fit .cg-note {
+  max-width: 15rem;
+}
+
+.cg-diagram-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: start;
+}
+
+.cg-diagram-pair > div > h4 {
+  margin-bottom: 0.8vw;
+}
+
+.cg-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cg-terms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw 4vw;
+}
+
+/* ---------- Tile boards (Minesweeper, Pipe Fantasy) ---------- */
+
+.cg-board {
+  display: grid;
+  width: min(100%, 17rem);
+  border: 1px solid #151515;
+}
+
+.cg-tile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  border: 0.5px solid #151515;
+  font-family: var(--font-body);
+  font-size: 1.15vw;
+  font-weight: 700;
+}
+
+/* ---------- LightEmAll diagrams ---------- */
+
+.le-edge {
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.le-edge--tree {
+  stroke: #d6aa14;
+  stroke-width: 5;
+}
+
+.le-edge--skip {
+  stroke: #9a9a9a;
+  stroke-dasharray: 4 4;
+}
+
+.le-weight-bg { fill: var(--cream); }
+
+.le-weight {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--cg-ink);
+}
+
+.le-node { fill: #3d3d3d; }
+
+/* The game's tile colours: dark grey tiles, light grey wires, yellow when lit. */
+.le-tile {
+  fill: #404040;
+  stroke: #2a2a2a;
+  stroke-width: 1;
+}
+
+.le-wire {
+  stroke: #c0c0c0;
+  stroke-width: 10;
+  stroke-linecap: butt;
+}
+
+.le-wire--lit { stroke: #ffd400; }
+
+.le-hub { fill: #c0c0c0; }
+.le-hub--lit { fill: #ffd400; }
+
+.le-station {
+  fill: #2bd9d9;
+  stroke: #ff8000;
+  stroke-width: 2;
+}
+
+.le-rotated {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-dasharray: 6 4;
+}
+
+/* ---------- Minesweeper diagrams ---------- */
+
+/* The game's colours: dark grey covered tiles, grey uncovered tiles. */
+.ms-tile {
+  background-color: #404040;
+}
+
+.ms-tile.is-open { background-color: #8c8c8c; }
+
+.ms-tile.is-clicked { outline: 3px solid #ffffff; outline-offset: -5px; }
+
+.ms-tile.is-centre { background-color: #8c8c8c; }
+
+.ms-tile.is-near { background-color: #5a76c2; }
+
+.ms-n1 { color: #1530d6; }
+.ms-n2 { color: #0e8a2a; }
+.ms-n3 { color: #c81e1e; }
+.ms-n4 { color: #b5179e; }
+
+/* ---------- Pipe Fantasy diagrams ---------- */
+
+.pf-empty,
+.pf-tile {
+  fill: #ffffff;
+  stroke: #d7d7d7;
+  stroke-width: 1;
+}
+
+.pf-tile--start { fill: #f1f1f1; }
+
+.pf-tile--blocked { fill: #f6e3e1; }
+
+.pf-pipe {
+  stroke: #b8b8b8;
+  stroke-width: 20;
+}
+
+.pf-pipe-hub { fill: #b8b8b8; }
+
+/* Goo fills only the sides it actually passed through. */
+.pf-goo {
+  stroke: #2fbf3f;
+  stroke-width: 8;
+}
+
+.pf-goo-hub { fill: #2fbf3f; }
+
+.pf-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  fill: var(--cg-ink);
+}
+
+/* Centred heading and caption on the Pipe Fantasy diagrams. */
+.pf-centered .cg-note,
+.cg-content .pf-center-title {
+  text-align: center;
+}
+
+/* ---------- Links ---------- */
+
+.cg-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-body);
+  --fg: var(--ink);
+  --bg: var(--cream);
+  --focus: var(--ink);
+}
+
+.cg-links .btn,
+.cg-links .btn:visited {
+  color: var(--ink);
+}
+
+.cg-links .btn:hover {
+  color: var(--cream);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .cg-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .cg-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .cg-title {
+    font-size: 5.4vw !important;
+  }
+
+  .cg-snapshot-title {
+    font-size: 2.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .cg-cards {
+    gap: 2vw;
+  }
+
+  .cg-sum-card {
+    padding: 2.4vw 2.6vw;
+  }
+
+  .cg-sum-card h3 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+  }
+
+  .cg-sum-card p {
+    font-size: 1.65vw;
+  }
+
+  .cg-content h2 { font-size: 4vw; }
+  .cg-content h3 { font-size: 2.6vw; }
+  .cg-content h4 { font-size: 1.9vw; }
+  .cg-tile { font-size: 2vw; }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .cg-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .cg-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .cg-title {
+    font-size: 9vw !important;
+    line-height: 1.1 !important;
+  }
+
+  .cg-snapshot-title {
+    font-size: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .cg-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .cg-sum-card {
+    padding: 5vw;
+  }
+
+  .cg-sum-card h3 {
+    font-size: 4.6vw;
+    margin-bottom: 2vw;
+  }
+
+  .cg-sum-card p {
+    font-size: 3.8vw;
+  }
+
+  .cg-content {
+    padding: 8vw 5vw 14vw;
+    gap: 12vw;
+  }
+
+  .cg-content h2 { font-size: 7vw; margin-bottom: 4vw; }
+  .cg-content h3 { font-size: 5.5vw; margin-bottom: 3vw; }
+  .cg-content h4 { font-size: 4.6vw; }
+
+  .cg-prose p,
+  .cg-term p {
+    margin-bottom: 4vw;
+  }
+
+  .cg-after {
+    margin-top: 6vw;
+  }
+
+  .cg-split,
+  .cg-terms,
+  .cg-diagram-pair {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .cg-figure figcaption,
+  .cg-note {
+    margin-top: 2vw;
+  }
+
+  .cg-diagram {
+    padding: 4vw;
+  }
+
+  .cg-diagram.cg-after {
+    margin-top: 6vw;
+  }
+
+  .cg-tile {
+    font-size: 4.4vw;
+  }
+}

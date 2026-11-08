@@ -82,11 +82,21 @@ export const PROJECTS: LandingProject[] = [
     title: 'Marshalls',
     ctx: 'Designing exploratory web layouts & brand systems at scale',
     focus: 'Designing exploratory web layouts & brand systems at scale',
-    tags: ['pd', 'ds'],
+    tags: ['ds'],
     img: 'Trend Shop page on the blue geometric Marshalls pattern',
     featured: true,
     to: '/design-marshalls-casestudy',
     image: DESIGN + '/thumbnail_marshalls.jpg'
+  },
+  {
+    slug: 'mentor-matcher',
+    title: 'Mentor Matcher',
+    ctx: 'Matching platform for a Khoury staff mentorship program',
+    focus: 'Matching platform for a Khoury staff mentorship program',
+    tags: ['pd', 'se'],
+    img: 'Northeastern University Khoury College of Computer Sciences logo on cream',
+    to: '/mentor-matcher',
+    image: DESIGN + '/05_MENTORMATCHER/thumbnail-mentormatcher-v4.jpg'
   },
   {
     slug: 'kahsay',
@@ -147,22 +157,22 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'three-trios',
-    hidden: true,
     title: 'Three Trios',
-    ctx: 'CS architecture / game development',
-    focus: 'Game development',
+    ctx: 'Architecting a Two-Player Card Game with AI Opponents',
+    focus: 'Architecting a Two-Player Card Game with AI Opponents',
     tags: ['se'],
     img: 'Three Trios game board mid-play',
     to: '/three-trios',
-    image: CODE + '/threetrios.mp4',
+    // Gameplay only: title screens trimmed and letterbox cropped. The case
+    // study keeps the full threetrios.mp4.
+    image: CODE + '/threetrios-loop.mp4',
     mediaType: 'video'
   },
   {
     slug: 'minesweeper',
-    hidden: true,
     title: 'Minesweeper',
-    ctx: 'Systems & algorithms',
-    focus: 'Systems and algorithms',
+    ctx: 'Rebuilding a Classic with a Recursive Flood Fill',
+    focus: 'Rebuilding a Classic with a Recursive Flood Fill',
     tags: ['se'],
     img: 'Minesweeper board mid-game',
     to: '/minesweeper',
@@ -171,14 +181,24 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'lightemall',
-    hidden: true,
     title: 'LightEmAll',
-    ctx: 'Systems & algorithms',
-    focus: 'Systems and algorithms',
+    ctx: "Generating Solvable Puzzles with Kruskal's Algorithm",
+    focus: "Generating Solvable Puzzles with Kruskal's Algorithm",
     tags: ['se'],
     img: 'LightEmAll puzzle grid with powered tiles',
     to: '/lightemall',
     image: CODE + '/lightemall.mp4',
+    mediaType: 'video'
+  },
+  {
+    slug: 'pipe-fantasy',
+    title: 'Pipe Fantasy',
+    ctx: 'Implementing a Timed Puzzle Game in Racket',
+    focus: 'Implementing a Timed Puzzle Game in Racket',
+    tags: ['se'],
+    img: 'Pipe Fantasy grid with green goo flowing through placed pipes',
+    to: '/pipe-fantasy',
+    image: CODE + '/pipefantasy_1.mp4',
     mediaType: 'video'
   },
   {
@@ -255,6 +275,22 @@ export const LAB: LabItem[] = [
 ];
 
 /** Projects that need a placeholder page generated for them. */
+/**
+ * Order of the "All Projects" view: design and engineering work mixed
+ * together instead of grouped. Projects not listed here keep their data
+ * order after these.
+ */
+export const ALL_PROJECTS_ORDER = [
+  'sightline',
+  'three-trios',
+  'marshalls-trend-shop',
+  'lightemall',
+  'via-separations',
+  'minesweeper',
+  'mentor-matcher',
+  'pipe-fantasy',
+];
+
 /** The projects the landing page lists. */
 export const VISIBLE_PROJECTS = PROJECTS.filter(p => !p.hidden);
 

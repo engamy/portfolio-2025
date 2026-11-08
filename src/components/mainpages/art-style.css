@@ -208,3 +208,62 @@
         margin-left: 5vw;
     }
 }
+
+/* ---------- Ordinary & Extraordinary ----------
+   A short title and the artist statement, then the pieces one at a time. */
+.art-xo {
+    background-color: var(--ink);
+    color: var(--cream);
+    min-height: 100vh;
+}
+
+.art-xo-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2rem 4vw;
+    align-items: start;
+    max-width: 82rem;
+    margin: 0 auto;
+    padding: 8.5rem 7vw 3rem;
+    box-sizing: border-box;
+}
+
+.art-xo-head h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+}
+
+.art-xo-about p {
+    margin: 0 0 1rem;
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--cream);
+}
+
+.art-xo-about p:last-child {
+    margin-bottom: 0;
+}
+
+.art-xo-works {
+    max-width: 82rem;
+    margin: 0 auto;
+    padding: 1rem 4vw 6rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .art-xo-head {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 6.5rem 5vw 2rem;
+    }
+
+    .art-xo-works {
+        padding: 0 5vw 4rem;
+    }
+}

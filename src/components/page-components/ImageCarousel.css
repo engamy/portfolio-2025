@@ -1,0 +1,234 @@
+/* One-at-a-time carousel. Colours come from the surrounding section through
+   currentColor, so it works on the cream and ink bands alike. */
+.carousel {
+  width: 100%;
+}
+
+.carousel-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: clamp(22rem, 72vh, 52rem);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+/* Spinner while a piece is still downloading; the image fades in over it. */
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-slide.is-loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: -1.2rem 0 0 -1.2rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: carousel-spin 0.8s linear infinite;
+}
+
+.carousel-slide.is-loading img {
+  opacity: 0;
+}
+
+@keyframes carousel-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide.is-loading::before {
+    animation-duration: 2.4s;
+  }
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: zoom-in;
+  transition: opacity 0.25s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.carousel-slide img:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.carousel-arrow {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.carousel-arrow:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.carousel-chevron {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Title centred under the piece, with the count beneath it. */
+.carousel-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 1.2rem 4.5rem 0;
+  text-align: center;
+}
+
+.carousel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.carousel-count {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.carousel-thumbs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.6rem 4.5rem 0;
+}
+
+.carousel-thumb {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0.5;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-thumb:hover {
+  opacity: 0.85;
+}
+
+.carousel-thumb[aria-current="true"] {
+  opacity: 1;
+  border-color: currentColor;
+}
+
+.carousel-thumb:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Phones: swipe is the main control, so the arrows shrink and sit under
+   the image beside the counter. */
+@media (max-width: 768px) {
+  .carousel-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .carousel-slide {
+    height: 56vh;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    bottom: -3.6rem;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .carousel-arrow--prev {
+    left: calc(50% - 3.2rem);
+  }
+
+  .carousel-arrow--next {
+    right: calc(50% - 3.2rem);
+  }
+
+  .carousel-meta {
+    margin: 4.6rem 0 0;
+  }
+
+  .carousel-thumbs {
+    margin: 1.2rem 0 0;
+    gap: 0.45rem;
+  }
+
+  .carousel-thumb {
+    width: 3rem;
+    height: 3rem;
+  }
+}

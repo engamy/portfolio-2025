@@ -1,9 +1,8 @@
 import React from 'react';
 import '../mainpages/art-style.css';
-import MasonryGrid from '../page-components/MasonryGrid';
+import ImageCarousel from '../page-components/ImageCarousel';
 import { getAssetPath } from '../../utils/assetUtils';
 import { usePageMode } from '../../hooks/usePageMode';
-import PageHero from '../page-components/PageHero';
 
 export default function Art2022Portfolio() {
   usePageMode({ initial: true });
@@ -21,7 +20,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 2,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/bloodyMary.jpg'),
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/bloodyMary-w1600.jpg'),
       caption: 'Bloody Mary - Digital character illustration with dark themes and dramatic lighting',
       alt: 'Bloody Mary character illustration',
       width: 800,
@@ -45,7 +44,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 5,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/nineToFive.jpg'),
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/nineToFive-w1600.jpg'),
       caption: 'Nine to Five - Digital illustration exploring themes of work and daily routine',
       alt: 'Nine to Five illustration',
       width: 800,
@@ -61,7 +60,7 @@ export default function Art2022Portfolio() {
     },
     {
       id: 7,
-      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/youth.jpg'),
+      src: getAssetPath('/pictures/portfolio-content_spring2026/04_ART/XTRAordinary/youth-w1600.jpg'),
       caption: 'Youth - Digital illustration capturing the energy and vitality of young life',
       alt: 'Youth illustration',
       width: 800,
@@ -85,36 +84,37 @@ export default function Art2022Portfolio() {
     }
   ];
 
+  // The title is the part of each caption before the dash. Each piece also
+  // has a 160px square crop for the thumbnail strip, named <file>-thumb.jpg
+  // (the three largest pieces use 1600px copies, <file>-w1600.jpg).
+  const slides = portfolio2022Images.map(image => ({
+    ...image,
+    title: image.caption.split(' - ')[0],
+    thumb: image.src.replace(/(-w1600)?\.jpg$/, '-thumb.jpg'),
+  }));
+
   return (
-    <main className="art-container">
-      <PageHero
-        variant="art"
-        backgroundImage="/pictures/portfolio-content_spring2026/04_ART/header.png"
-        title="Ordinary & Extraordinary"
-        intro={
-          <>
+    <main className="art-container art-xo">
+      <header className="art-xo-head">
+        <h1>Ordinary &amp; Extraordinary</h1>
+        <div className="art-xo-about">
+          <p>
             The theme of this portfolio is the collapsing of boundaries between the ordinary and
             extraordinary found in everything around us.
-            <br></br><br></br>
+          </p>
+          <p>
             While the norms are used as standards for order, goodness, and positivity, their antonyms
-            are grounded with disorder, evil, and negativity. This portfolio aims to unsettle the arbitrary concepts
-            of these qualities and show the beauty of their coexistence in the things, emotions, and ideas
-            around us. Ultimately, I hope to return the visibility and justice to those traditionally suppressed,
-            marginalized elements.
-          </>
-        }
-      />
-
-
-
-      <div className="art-assorted art-assorted--dark art-2022-works">
-        <h2>Ordinary & Extraordinary</h2>
-
-        <div className="art-assorted-container">
-          <MasonryGrid images={portfolio2022Images} />
+            are grounded with disorder, evil, and negativity. This portfolio aims to unsettle the
+            arbitrary concepts of these qualities and show the beauty of their coexistence in the
+            things, emotions, and ideas around us. Ultimately, I hope to return the visibility and
+            justice to those traditionally suppressed, marginalized elements.
+          </p>
         </div>
-      </div>
+      </header>
 
+      <div className="art-xo-works">
+        <ImageCarousel images={slides} label="Ordinary & Extraordinary portfolio" />
+      </div>
     </main>
   );
 }

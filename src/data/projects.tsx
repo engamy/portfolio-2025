@@ -179,12 +179,9 @@ export const projects: Project[] = [
         cells that are adjacent to a mine, and the adjacent cells will reveal a
         number representing the number of mines directly adjacent to it. This
         version does not have a time limit, so think before you click!
-        <br />
-        <br />
-        Due to academic integrity guidelines, this Github repo is only available
-        on request (email).
       </>
     ),
+    links: [{ label: 'Github Repo', href: 'https://github.com/engamy/minesweeper' }],
     tags: ['Java SE 11', 'Eclipse IDE', 'Java Funworld Library']
   },
   {
@@ -200,12 +197,9 @@ export const projects: Project[] = [
         This game uses a depth-first-search algorithm to light up connecting
         wires, as well as Kruskal's algorithm to generate random boards under the
         condition that all the wires can connect.
-        <br />
-        <br />
-        Due to academic integrity guidelines, this Github repo is only available
-        on request (email).
       </>
     ),
+    links: [{ label: 'Github Repo', href: 'https://github.com/engamy/lightemall' }],
     tags: [
       'Java SE 11',
       'Eclipse IDE',
@@ -305,12 +299,9 @@ export const projects: Project[] = [
         that will allow for the longest goo-flow, resulting in a higher score!
         The round ends when the pipe hits the edge of the screen or hits a
         non-connective pipe.
-        <br />
-        <br />
-        Due to academic integrity guidelines, this Github repo is only available
-        on request (email).
       </>
     ),
+    links: [{ label: 'Github Repo', href: 'https://github.com/engamy/pipe-fantasy' }],
     tags: [
       'DrRacket BSL',
       'Recursion',

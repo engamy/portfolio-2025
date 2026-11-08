@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './ImageLightbox.css';
 import { LightboxImage } from '../../hooks/useLightbox';
 
@@ -18,12 +18,15 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
   onNext,
   onPrevious
 }) => {
-  const [orientation, setOrientation] = useState<'landscape' | 'portrait' | 'square' | null>(null);
-
-  useEffect(() => {
-    // reset orientation when image changes
-    setOrientation(null);
-  }, [currentImage?.src]);
+  // Stored with the src it was measured from, so a new image never borrows
+  // the previous one's sizing for a frame before its own load event.
+  const [measured, setMeasured] = useState<{
+    src: string;
+    orientation: 'landscape' | 'portrait' | 'square' | null;
+  } | null>(null);
+  const orientation =
+    measured && measured.src === currentImage?.src ? measured.orientation : null;
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   // Esc closes, arrows step through the gallery when it has more than one image.
   useEffect(() => {
@@ -62,34 +65,72 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
 
   const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.currentTarget;
-    const naturalWidth = img.naturalWidth;
-    const naturalHeight = img.naturalHeight;
-    if (naturalWidth === 0 || naturalHeight === 0) {
-      setOrientation(null);
-      return;
-    }
-    if (naturalWidth > naturalHeight) {
-      setOrientation('landscape');
-    } else if (naturalHeight > naturalWidth) {
-      setOrientation('portrait');
-    } else {
-      setOrientation('square');
-    }
+    const { naturalWidth: w, naturalHeight: h } = img;
+    const value = w === 0 || h === 0 ? null : w > h ? 'landscape' : h > w ? 'portrait' : 'square';
+    // currentSrc is the resolved URL; match on the prop we rendered instead.
+    setMeasured({ src: img.getAttribute('src') ?? '', orientation: value });
   };
+  // A horizontal swipe steps through the gallery on touch screens.
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) onNext?.();
+    else onPrevious?.();
+  };
+
   if (!isOpen || !currentImage) return null;
 
   return (
-    <div className="lightbox-overlay" onClick={onClose} role="dialog" aria-modal="true">
+    <div
+      className="lightbox-overlay"
+      onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
         <button className="lightbox-close" onClick={onClose} aria-label="Close image">
           ×
         </button>
 
+        {onPrevious && (
+          <button
+            className="lightbox-arrow lightbox-arrow--prev"
+            onClick={onPrevious}
+            aria-label="Previous image"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+        )}
+        {onNext && (
+          <button
+            className="lightbox-arrow lightbox-arrow--next"
+            onClick={onNext}
+            aria-label="Next image"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        )}
+
+        {orientation === null && (
+          <div className="lightbox-spinner" role="status" aria-label="Loading image" />
+        )}
+
         <div className="lightbox-image-container">
           <img
             src={currentImage.src}
             alt={currentImage.alt}
-            className={`lightbox-image ${orientation ? `is-${orientation}` : ''}`.trim()}
+            className={`lightbox-image ${orientation ? `is-${orientation}` : 'is-pending'}`}
             onLoad={handleImageLoad}
           />
         </div>
