@@ -15,7 +15,7 @@ const KAHSAY = '/pictures/portfolio-content_spring2026/02_DESIGN/03_KAHSAY';
 const summary = [
   { icon: 'i-person', label: 'Client', value: 'Kahsay' },
   { icon: 'i-modules', label: 'Type', value: 'Freelance brand and web design' },
-  { icon: 'i-target', label: 'Role', value: 'Brand and web designer, sole designer on a small startup team' },
+  { icon: 'i-target', label: 'Role', value: 'Independent brand and web designer, contracted by Kahsay LLC' },
   { icon: 'i-pen', label: 'Tools', value: 'Figma, Adobe Illustrator, Photoshop, Wix' },
   { icon: 'i-columns', label: 'Timeline', value: 'May 2025 to September 2026' },
   { icon: 'i-monitor', label: 'Live site', value: 'kahsay.app', href: 'https://kahsay.app' },
@@ -31,7 +31,7 @@ const wordmarkTests = [
 ];
 
 // Three of the palette options from the color review. The final palette came
-// out of the team's discussion of these and isn't one of them. The first
+// out of Kahsay's review of these and isn't one of them. The first
 // swatch is the primary color.
 // `mockup` drives the live app layout mockup under each palette: the pill
 // colors, and the fill colors of its three meters in order.
@@ -106,40 +106,40 @@ const guideColors = [
     name: 'Emeralds',
     role: 'Primary accent',
     colors: [
-      { name: 'Pine', hex: '#0F5C46', use: 'Primary, CTAs' },
-      { name: 'Deep Spruce', hex: '#0A4133', use: 'On-tint text' },
-      { name: 'Jade', hex: '#1A7A5E', use: 'Hover state' },
-      { name: 'Pale Eucalyptus', hex: '#E2ECE7', use: 'Tinted surfaces' },
+      { name: 'Pine', hex: '#0F5C46' },
+      { name: 'Deep Spruce', hex: '#0A4133' },
+      { name: 'Jade', hex: '#1A7A5E' },
+      { name: 'Pale Eucalyptus', hex: '#E2ECE7' },
     ],
   },
   {
     name: 'Coppers',
     role: 'Secondary accent',
     colors: [
-      { name: 'Burnt Copper', hex: '#A85C2E', use: 'Food CTAs' },
-      { name: 'Burnt Sienna', hex: '#8C4A22', use: 'Hover state' },
-      { name: 'Pink Clay', hex: '#F1E2D6', use: 'Tinted surfaces' },
+      { name: 'Burnt Copper', hex: '#A85C2E' },
+      { name: 'Burnt Sienna', hex: '#8C4A22' },
+      { name: 'Pink Clay', hex: '#F1E2D6' },
     ],
   },
   {
     name: 'Champagnes',
     role: 'Tertiary accent for foodies',
     colors: [
-      { name: 'Wheat', hex: '#D9C08A', use: 'Premium CTAs' },
-      { name: 'Bronze Olive', hex: '#8C6D22', use: 'Text and icons on Wheat' },
-      { name: 'Vanilla Cream', hex: '#F6EEDD', use: 'Tinted surfaces' },
-      { name: 'Oat', hex: '#EFE3D0', use: 'Alternative surfaces' },
+      { name: 'Wheat', hex: '#D9C08A' },
+      { name: 'Bronze Olive', hex: '#8C6D22' },
+      { name: 'Vanilla Cream', hex: '#F6EEDD' },
+      { name: 'Oat', hex: '#EFE3D0' },
     ],
   },
   {
     name: 'Neutrals',
     role: 'Text, borders, background',
     colors: [
-      { name: 'Ink', hex: '#1F2420', use: 'Body text' },
-      { name: 'Ink Soft', hex: '#3F4741', use: 'Secondary text' },
-      { name: 'Muted Ink', hex: '#6F7872', use: 'Muted text' },
-      { name: 'Pale Ink', hex: '#A6ADA8', use: 'Inactive and disabled text' },
-      { name: 'Warm Ivory', hex: '#FAF6EF', use: 'Background' },
+      { name: 'Ink', hex: '#1F2420' },
+      { name: 'Ink Soft', hex: '#3F4741' },
+      { name: 'Muted Ink', hex: '#6F7872' },
+      { name: 'Pale Ink', hex: '#A6ADA8' },
+      { name: 'Warm Ivory', hex: '#FAF6EF' },
     ],
   },
 ];
@@ -154,38 +154,38 @@ const guideScale = [
     id: 'headline',
     role: 'Headline',
     sample: 'Discover your next favorite dish.',
-    spec: 'Onest ExtraBold, -40 letter-spacing',
+    spec: 'Onest ExtraBold',
   },
   {
     id: 'header',
     role: 'Header',
     sample: 'Your tastes, mapped.',
-    spec: 'Onest Bold, -40 letter-spacing',
+    spec: 'Onest Bold',
   },
   {
     id: 'subheader',
     role: 'Subheader',
     sample: 'A look at where your palate has traveled this year.',
-    spec: 'Onest SemiBold, -40 letter-spacing',
+    spec: 'Onest SemiBold',
   },
   {
     id: 'paragraph',
     role: 'Paragraph',
     sample:
       "Every dish you rate tells us a little more about what you love. Over time those ratings turn into a map, one that shows the cuisines you keep coming back to and the corners of the world your palate hasn't reached yet. The more you log, the clearer the picture gets, and the easier it becomes to find your next favorite meal.",
-    spec: 'Plus Jakarta Sans Regular, -40 letter-spacing',
+    spec: 'Plus Jakarta Sans Regular',
   },
   {
     id: 'label',
     role: 'Label',
     sample: 'Portuguese · Dessert',
-    spec: 'Plus Jakarta Sans SemiBold, -40 letter-spacing',
+    spec: 'Plus Jakarta Sans SemiBold',
   },
   {
     id: 'button',
     role: 'Button',
     sample: '',
-    spec: 'Plus Jakarta Sans Medium, -20 letter-spacing',
+    spec: 'Plus Jakarta Sans Medium',
   },
 ];
 
@@ -197,30 +197,7 @@ const voiceDo = [
 
 const voiceDont = [
   { line: 'Order now. Get the lamb.', why: 'Too authoritative' },
-  { line: 'How about your usual?', why: 'Too safe and familiar' },
-  { line: 'Here are five dishes you might like:', why: "We aren't just a menu of options" },
   { line: 'Based on your flavor profile, our algorithm recommends…', why: 'The machinery is talking' },
-  { line: 'We are SO excited to help you discover amazing new dishes!!', why: 'Too eager, loud, and padded' },
-];
-
-const voiceLexicon = {
-  use: "Tonight. A departure. Outside your usual. You're ready. Worth the detour. For you. The one. Discover.",
-  avoid:
-    'Algorithm. Engine. Based on your preferences. Based on your flavor profile. Curated. Amazing. Revolutionary. Incredible.',
-};
-
-const voiceMechanics = [
-  'Sentence casing',
-  'Short lines',
-  'Fragmented phrases',
-  'Light use of contractions',
-  'Colon and period set rhythm',
-  'No exclamation marks',
-  'Oxford comma',
-  'No emojis (excluding social media)',
-  'Numerals for $, times, counts',
-  'Spell out numbers 1 to 9',
-  'Numerals for 10 and up',
 ];
 
 // The three meters on the mockup's filter screen, with how full each bar is.
@@ -428,13 +405,13 @@ export default function DesignKahsayCasestudy() {
               to love and the nearby restaurants that serve them.
             </p>
             <p>
-              Kahsay hired me to design a logo. Over 16 months the work grew into the
-              logo, the wordmark, brand guidelines, and the marketing site. My client's
-              vision for the brand was modern and tech-forward. Because the product is
-              about taste, I also wanted it to feel warm and personal. Balancing those
-              two goals shaped most of the work. I documented each recommendation with
-              research and side-by-side comparisons so the team could weigh the options
-              together.
+              Kahsay engaged me as an independent designer to create a logo. Through a
+              series of scoped projects over 16 months, the work grew into the logo, the
+              wordmark, brand guidelines, and the marketing site. My client wanted a
+              modern, tech-forward brand. Because the product is about taste, I also
+              wanted it to feel warm and personal, and most of my recommendations tried
+              to do both. I documented each recommendation with research
+              and side-by-side comparisons so Kahsay could weigh the options.
             </p>
           </div>
           {deviceShot('desktop-hero.jpg', 'Kahsay marketing site, desktop hero', 'laptop', 'ks-figure--full')}
@@ -447,7 +424,7 @@ export default function DesignKahsayCasestudy() {
             <p>
               When the app was still called Flavorly, my client asked for a typographic
               F. I explored a range of F marks and also pitched a friendly tongue
-              character. The team chose the tongue.
+              character. Kahsay's founders chose the tongue.
             </p>
           </div>
 
@@ -469,11 +446,10 @@ export default function DesignKahsayCasestudy() {
               <p>
                 Later the product was renamed after omakase, the Japanese tradition of
                 letting the chef choose your meal, and I suggested shortening the name
-                to Kahsay. The new name called for a more refined direction, so we
+                to Kahsay. The new name called for a more refined direction, so I
                 revisited whether the tongue still fit. I proposed OMA, a bloodhound. A
                 bloodhound finds what nobody else can, which is roughly what the app
-                does. OMA could also become the AI assistant the team was planning, the
-                way Duolingo's owl talks to its users.
+                does.
               </p>
             </div>
             <div className="ks-oma">
@@ -485,24 +461,21 @@ export default function DesignKahsayCasestudy() {
           <div className="ks-split ks-split--small-figure ks-after-figure">
             <div className="ks-prose">
               <p>
-                OMA launched during our first two rounds of app testing with about 50 to
-                70 friends and family, who sent feedback through an in-app button. We
-                weren't testing the mascot, but people noticed the switch. Most comments
-                about it said the same thing: they didn't understand why it was a dog,
-                and they wanted the tongue back.
+                OMA launched during Kahsay's first two rounds of app testing with early
+                testers, who sent feedback through an in-app button. Kahsay wasn't
+                testing the mascot, but people noticed the switch. Most comments about it
+                said the same thing: they didn't understand why it was a dog, and they
+                wanted the tongue back.
               </p>
               <p>
-                Before going back, we debated designing a new mark altogether, and I
-                sketched another round of options. We went back to the tongue because
-                that's what our users asked for.
+                Before going back, Kahsay considered a new mark altogether, and I
+                sketched another round of options. Kahsay went back to the tongue
+                because that's what its users asked for.
               </p>
               <p>
-                The bloodhound made sense once you heard the explanation, and the tongue
-                didn't need one. OMA answered the team's goals of elevating the brand and
-                preparing for a chat assistant. It didn't answer the user's first
-                question, which was what this app is about. For a product built on
-                taste, a warm and obvious cue did more than a metaphor users had to work
-                out.
+                Testers needed the bloodhound idea explained before OMA made sense. The
+                tongue told them right away that the app was about food and taste, and
+                that's what a logo seen for a second on a home screen has to do.
               </p>
             </div>
             {figure(
@@ -544,41 +517,16 @@ export default function DesignKahsayCasestudy() {
         <section className="ks-section">
           <h2>Brand Guidelines</h2>
 
-          <div className="ks-split">
-            <div className="ks-prose">
-              <p>
-                Partway through the project, I ran a brand positioning exercise. Each of
-                the five team members, including me, rated where Kahsay should sit on
-                seven scales, such as tech-forward versus warm and human, or adventurous
-                versus reassuring. Everyone also named brands Kahsay should and
-                shouldn't resemble. Most responses leaned toward warm and human, and the
-                widest range of answers was on adventure versus reassurance. I combined
-                the responses into a list of traits, each paired with its limit, such as
-                "curated, but not exclusive" and "confident, but not loud."
-              </p>
-            </div>
-            {figure(
-              'positioning-question.png',
-              'Brand positioning exercise form: the Precision vs. Craving scale, rated 1 to 5',
-              'One of the seven scales'
-            )}
+          <div className="ks-prose ks-prose--narrow">
+            <p>
+              I ran a brand positioning exercise with Kahsay's founders. Each rated where
+              Kahsay should sit on seven scales, such as tech-forward versus warm and
+              human, or adventurous versus reassuring, and named brands Kahsay should
+              and shouldn't resemble. Responses converged on warm and human. I combined
+              them into a list of traits, each paired with its limit, such as "curated,
+              but not exclusive" and "confident, but not loud."
+            </p>
           </div>
-
-          <div className="ks-grid ks-grid--three">
-            {figure(
-              'positioning-chart-human.png',
-              'Team responses on Tech-forward vs. Human: three of five rated 5, toward human'
-            )}
-            {figure(
-              'positioning-chart-bold.png',
-              'Team responses on Understated vs. Bold: answers split between 3 and 5'
-            )}
-            {figure(
-              'positioning-chart-adventurous.png',
-              'Team responses on Adventurous vs. Reassuring: one answer at each point from 1 to 5'
-            )}
-          </div>
-          <p className="ks-caption ks-caption--block">Team responses on three of the scales</p>
 
           <div className="ks-subsection">
             <div className="ks-prose">
@@ -587,8 +535,8 @@ export default function DesignKahsayCasestudy() {
                 and four display typefaces paired with Plus Jakarta Sans, with more than
                 a dozen rejected options in an appendix. Every palette met WCAG AA
                 contrast standards. For the three strongest palettes, I used Claude to
-                build quick app layout mockups, which let the team compare each one as
-                it would look in the product.
+                build quick app layout mockups, which let Kahsay's founders compare each
+                one as it would look in the product.
               </p>
             </div>
 
@@ -613,7 +561,7 @@ export default function DesignKahsayCasestudy() {
               ))}
             </div>
             <p className="ks-caption ks-caption--block">
-              Three of the palette options the team discussed
+              Three of the palette options I proposed to Kahsay
             </p>
 
             <h3 className="ks-center-title">Display typeface options</h3>
@@ -670,7 +618,6 @@ export default function DesignKahsayCasestudy() {
                               <span className="ks-guide-swatch-text">
                                 <span className="ks-guide-swatch-name">{color.name}</span>
                                 <span className="ks-guide-swatch-hex">{color.hex}</span>
-                                <span className="ks-guide-swatch-use">{color.use}</span>
                               </span>
                             </li>
                           ))}
@@ -685,7 +632,7 @@ export default function DesignKahsayCasestudy() {
                     copper, champagne and warm neutral accents. Onest is the display
                     typeface and Plus Jakarta Sans handles body text. The app's interface now
                     pulls from these guidelines. The red logo came before the palette, and
-                    we kept it separate because the tongue only reads as a tongue in red,
+                    Kahsay kept it separate because the tongue only reads as a tongue in red,
                     and red is a common appetite cue in food branding.
                   </p>
                 </div>
@@ -736,53 +683,31 @@ export default function DesignKahsayCasestudy() {
           <div className="ks-subsection">
             <h3 className="ks-center-title">Verbal identity</h3>
             <div className="ks-split ks-split--voice">
-              <div>
-                <div className="ks-prose">
-                  <p>
-                    I also wrote the verbal identity. It comes down to one rule: point,
-                    don't push. Kahsay recommends a dish with confidence and leaves the
-                    choice to the user, so it says "A little outside your usual. You're
-                    ready for it." rather than "Order now."
-                  </p>
-                </div>
-
-                <div className="ks-voice-cards">
-                  <div className="ks-voice-card ks-voice-card--do">
-                    <h4 className="ks-voice-card-title">We sound like&hellip;</h4>
-                    <ul>
-                      {voiceDo.map(line => (
-                        <li key={line}>&ldquo;{line}&rdquo;</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="ks-voice-card ks-voice-card--dont">
-                    <h4 className="ks-voice-card-title">We don't sound like&hellip;</h4>
-                    <ul>
-                      {voiceDont.map(item => (
-                        <li key={item.line}>
-                          &ldquo;{item.line}&rdquo; <span className="ks-voice-why">({item.why})</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+              <div className="ks-prose">
+                <p>
+                  I also wrote the verbal identity. It comes down to one rule: point,
+                  don't push. Kahsay recommends a dish with confidence and leaves the
+                  choice to the user, so it says "A little outside your usual. You're
+                  ready for it." rather than "Order now."
+                </p>
               </div>
 
-              <div className="ks-voice-rules">
-                <div className="ks-voice-rule">
-                  <h4 className="ks-voice-rule-title">Lexicon</h4>
-                  <span className="ks-voice-rule-text">
-                    <strong>Words we use:</strong> {voiceLexicon.use}
-                  </span>
-                  <span className="ks-voice-rule-text">
-                    <strong>Words we avoid:</strong> {voiceLexicon.avoid}
-                  </span>
+              <div className="ks-voice-cards">
+                <div className="ks-voice-card ks-voice-card--do">
+                  <h4 className="ks-voice-card-title">We sound like&hellip;</h4>
+                  <ul>
+                    {voiceDo.map(line => (
+                      <li key={line}>&ldquo;{line}&rdquo;</li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="ks-voice-rule">
-                  <h4 className="ks-voice-rule-title">Grammar &amp; mechanics</h4>
-                  <ul className="ks-voice-mechanics">
-                    {voiceMechanics.map(rule => (
-                      <li key={rule}>{rule}</li>
+                <div className="ks-voice-card ks-voice-card--dont">
+                  <h4 className="ks-voice-card-title">We don't sound like&hellip;</h4>
+                  <ul>
+                    {voiceDont.map(item => (
+                      <li key={item.line}>
+                        &ldquo;{item.line}&rdquo; <span className="ks-voice-why">({item.why})</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -803,7 +728,7 @@ export default function DesignKahsayCasestudy() {
                 features, testimonials, the story behind the name, and an FAQ. I designed
                 separate desktop and mobile layouts in Figma and built the site in Wix.
                 The photography is stock. The app screens in the phone mockups were
-                produced by the product team, and the site around them is my work.
+                produced by Kahsay, and the site around them is my work.
               </p>
             </div>
             {deviceShot(
@@ -827,11 +752,10 @@ export default function DesignKahsayCasestudy() {
             <h2>Looking Back</h2>
             <div className="ks-prose">
               <p>
-                I ran the positioning exercise about 14 months into the project. Next
-                time I would run it first, along with a written brief. Without either in
-                place early on, the exercise brought out different views on what the
-                brand should look like later in the process than was ideal. Starting
-                with both would have given the team a shared reference point for
+                Next time I would run the positioning exercise first, along with a
+                written brief. Without either in place early on, the exercise brought out
+                different views on what the brand should look like. Starting with both
+                would have given Kahsay's founders a shared reference point for
                 decisions like the logo and the mascot, instead of working through them
                 one at a time. I now treat a brief and a positioning exercise as the
                 first step of any brand project.

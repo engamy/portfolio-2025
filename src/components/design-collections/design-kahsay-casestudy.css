@@ -575,8 +575,7 @@
 /* Rebuilt from the guideline pages: Onest for display type, Plus Jakarta
    Sans for body, set at the guidelines' -40 tracking. */
 .ks-guide,
-.ks-voice-cards,
-.ks-voice-rules {
+.ks-voice-cards {
   --ks-onest: "Onest", system-ui, sans-serif;
   --ks-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
 }
@@ -665,11 +664,6 @@
   font-size: 0.8rem;
   font-variant-numeric: tabular-nums;
   color: var(--ks-ink);
-}
-
-.ks-guide-swatch-use {
-  font-size: 0.8rem;
-  color: var(--ks-muted);
 }
 
 /* Typography: the two faces on the left, the type scale on the right. */
@@ -830,11 +824,10 @@
   margin-top: 0;
 }
 
-/* The cards sit under the verbal identity paragraph. */
+/* The cards sit beside the verbal identity paragraph. */
 .ks-voice-cards {
   display: grid;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .ks-voice-card {
@@ -851,8 +844,7 @@
   background: #F1E2D6;
 }
 
-.ks-content .ks-voice-card-title,
-.ks-content .ks-voice-rule-title {
+.ks-content .ks-voice-card-title {
   margin: 0 0 0.6rem 0;
   font-family: var(--ks-onest);
   font-weight: 700;
@@ -884,41 +876,6 @@
   font-size: 0.8rem;
   letter-spacing: -0.01em;
   color: var(--ks-muted);
-}
-
-/* Lexicon and mechanics, in the column beside the paragraph and cards. */
-.ks-voice-rules {
-  display: grid;
-  gap: 2rem;
-}
-
-.ks-voice-mechanics {
-  margin: 0;
-  padding-left: 1.2rem;
-  font-family: var(--ks-jakarta);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  letter-spacing: -0.02em;
-  color: var(--ks-ink);
-}
-
-.ks-voice-mechanics li {
-  font-family: inherit;
-  letter-spacing: inherit;
-}
-
-.ks-voice-rule-text {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-family: var(--ks-jakarta);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  letter-spacing: -0.02em;
-  color: var(--ks-ink);
-}
-
-.ks-voice-rule-text strong {
-  font-weight: 700;
 }
 
 /* ---------- Type review: display typeface specimens ---------- */
@@ -1201,11 +1158,6 @@
 
   .ks-guide-type,
   .ks-guide-intro,
-  .ks-voice-rules {
-    grid-template-columns: 1fr;
-    gap: 8vw;
-  }
-
   .ks-guide-level {
     grid-template-columns: 1fr;
     gap: 0.3rem;

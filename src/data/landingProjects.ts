@@ -100,7 +100,6 @@ export const PROJECTS: LandingProject[] = [
   },
   {
     slug: 'kahsay',
-    hidden: true,
     title: 'Kahsay',
     ctx: 'Brand Identity for a foodtech startup',
     focus: 'Brand Identity for a foodtech startup',
@@ -288,6 +287,7 @@ export const ALL_PROJECTS_ORDER = [
   'minesweeper',
   'mentor-matcher',
   'coopalytics',
+  'kahsay',
   'scout-djoda',
   'pipe-fantasy',
 ];
