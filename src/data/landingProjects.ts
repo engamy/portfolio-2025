@@ -109,6 +109,16 @@ export const PROJECTS: LandingProject[] = [
     image: DESIGN + '/03_KAHSAY/thumbnail-kahsay.jpg'
   },
   {
+    slug: 'sinsear',
+    title: 'Sinsear',
+    ctx: 'Brand identity and launch campaign for a party drink',
+    focus: 'Brand identity and launch campaign for a party drink',
+    tags: ['ds'],
+    img: 'Sinsear wordmark and fanged mouth logo on yellow',
+    to: '/sinsear',
+    image: DESIGN + '/06_SINSEAR/thumbnail-sinsear-v3.jpg'
+  },
+  {
     slug: 'iot-dishwasher',
     hidden: true,
     title: 'IoT Dishwasher',
@@ -289,6 +299,7 @@ export const ALL_PROJECTS_ORDER = [
   'coopalytics',
   'kahsay',
   'scout-djoda',
+  'sinsear',
   'pipe-fantasy',
 ];
 

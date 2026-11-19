@@ -17,6 +17,7 @@ import DesignMarshalls from './components/design-collections/design-marshalls';
 import DesignMarshallsCasestudy from './components/design-collections/design-marshalls-casestudy';
 import DesignNextCasestudy from './components/design-collections/design-next-casestudy';
 import DesignKahsayCasestudy from './components/design-collections/design-kahsay-casestudy';
+import DesignSinsearCasestudy from './components/design-collections/design-sinsear-casestudy';
 import DesignSightlineCasestudy from './components/design-collections/design-sightline-casestudy';
 import DesignMentorMatcherCasestudy from './components/design-collections/design-mentormatcher-casestudy';
 import CodeThreeTriosCasestudy from './components/code-collections/code-threetrios-casestudy';
@@ -83,6 +84,7 @@ const AppContent: React.FC = () => {
         <Route path="/design-marshalls-casestudy" element={<DesignMarshallsCasestudy />} />
         <Route path="/design-next-casestudy" element={<DesignNextCasestudy />} />
         <Route path="/kahsay" element={<DesignKahsayCasestudy />} />
+        <Route path="/sinsear" element={<DesignSinsearCasestudy />} />
         <Route path="/sightline" element={<DesignSightlineCasestudy />} />
         <Route path="/mentor-matcher" element={<DesignMentorMatcherCasestudy />} />
         <Route path="/three-trios" element={<CodeThreeTriosCasestudy />} />

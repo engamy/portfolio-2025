@@ -1,0 +1,661 @@
+/* Sinsear case study. Structure follows the Kahsay case study; colors are
+   sampled from the Sinsear logo and label artwork. */
+
+.ss-casestudy {
+  --ss-yellow: #F4EC30;
+  --ss-red: #E42828;
+  --ss-green: #8CC440;
+  --ss-char: #101814;
+  --ss-orange: #E08410;
+  --ss-muted: #5A5F52;
+  --ss-display: "Special Gothic Expanded One", var(--font-display);
+  --ss-condensed: "Special Gothic Condensed One", var(--font-display);
+  --ss-body: "42dot Sans", var(--font-display);
+}
+
+/* ---------- Hero ---------- */
+
+/* Brand yellow with the label's tone-on-tone flame pattern, which the page
+   passes in as the hero's background image. The texture is drawn once at
+   its native 2400px (or the hero's width, if wider) so the pattern never
+   visibly tiles. Sized to its content rather than the full viewport. */
+.ss-hero {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: auto;
+  min-height: 0;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--ss-yellow);
+  background-size: max(2400px, 100%) auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ss-hero-overlay {
+  position: relative;
+  width: 100%;
+  display: flex;
+  /* Top padding clears the fixed navbar. */
+  padding: 8.5rem 10vw 4.5vw 10vw;
+  box-sizing: border-box;
+}
+
+.ss-hero-text {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 3.5vw;
+  max-width: 86vw;
+}
+
+.ss-hero-main {
+  flex: 1 1 42%;
+  min-width: 0;
+}
+
+.ss-hero-aside {
+  flex: 1 1 58%;
+  min-width: 0;
+}
+
+.ss-title {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  font-size: 4vw !important;
+  line-height: 1.12 !important;
+  margin: 0 !important;
+  color: var(--ss-char) !important;
+}
+
+.ss-title-brand {
+  color: var(--ss-red);
+}
+
+.ss-snapshot-title {
+  margin: 0 0 1.2vw 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6vw;
+  color: var(--ss-char);
+  font-style: italic;
+}
+
+.ss-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2vw;
+}
+
+.ss-card {
+  border: 1.5px solid var(--ss-char);
+  border-radius: 12px;
+  padding: 1.2vw 1.4vw;
+  background-color: var(--ss-yellow);
+}
+
+.ss-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5vw 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3vw;
+  color: var(--ss-red);
+  font-style: italic;
+}
+
+.ss-card p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95vw;
+  line-height: 1.45;
+  color: var(--ss-char);
+}
+
+.ss-card-icon {
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: 1.05em;
+}
+
+/* ---------- Content ---------- */
+
+.ss-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6vw;
+  padding: 5vw 10vw;
+  background-color: var(--cream);
+  color: var(--ss-char);
+  font-family: var(--font-display);
+  line-height: 1.4;
+}
+
+.ss-section {
+  display: flow-root;
+}
+
+.ss-content h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2.8vw;
+  margin: 0 0 1.5vw 0;
+  color: var(--ss-red);
+}
+
+.ss-subsection {
+  margin-top: 4vw;
+}
+
+.ss-prose p {
+  font-size: var(--text-body);
+  line-height: 1.55;
+  margin: 0 0 1.2vw 0;
+  color: var(--ss-char);
+}
+
+.ss-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.ss-prose--columns {
+  column-count: 2;
+  column-gap: 4vw;
+}
+
+.ss-prose--narrow {
+  max-width: 62%;
+}
+
+.ss-after-figure {
+  margin-top: 3vw;
+}
+
+.ss-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  margin-top: 3vw;
+}
+
+.ss-section > h2 + .ss-split {
+  margin-top: 0;
+}
+
+.ss-split--figure-left > :first-child {
+  order: -1;
+}
+
+.ss-split--small-figure {
+  grid-template-columns: 3fr 2fr;
+}
+
+/* ---------- Figures and grids ---------- */
+
+.ss-figure {
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.ss-figure:hover {
+  transform: scale(1.01);
+}
+
+/* White multiplies away into the cream page. A transform on the figure
+   would isolate the image from the page and bring the white back, so these
+   scale the image itself on hover instead. */
+.ss-figure--multiply img {
+  mix-blend-mode: multiply;
+  transition: transform 0.25s ease;
+}
+
+.ss-figure--multiply:hover {
+  transform: none;
+}
+
+.ss-figure--multiply:hover img {
+  transform: scale(1.01);
+}
+
+.ss-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.ss-figure figcaption {
+  margin: 0.7vw 0 0 0;
+  text-align: center;
+  font-size: var(--text-meta);
+  font-style: italic;
+  color: var(--ss-muted);
+}
+
+/* Transparent artwork sits straight on the page. */
+.ss-figure--bare img {
+  border: none;
+  border-radius: 0;
+}
+
+/* The two early drink sketches, each under a live-text title. */
+.ss-sketches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: start;
+}
+
+.ss-content .ss-sketch-title {
+  margin: 0 0 0.8rem 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--ss-char);
+}
+
+/* The moodboard is tall, so it takes the narrower column beside its
+   paragraphs. */
+.ss-split--moodboard {
+  grid-template-columns: 2fr 3fr;
+}
+
+.ss-figure--full {
+  margin-top: 2.5vw;
+}
+
+.ss-grid {
+  display: grid;
+  gap: 2vw;
+  align-items: start;
+  margin-top: 2.5vw;
+}
+
+.ss-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ss-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The social post matches the height of the storefront photos above it:
+   a storefront column is half the grid less the gap, and the two images'
+   aspect ratios (1.539 storefront, 1.151 phone) scale that to this width. */
+.ss-figure--social {
+  --ss-gap: 2vw;
+  width: calc((100% - var(--ss-gap)) / 2 * 1.151 / 1.539);
+  margin: 3vw auto 0 auto;
+}
+
+.ss-grid--narrow {
+  max-width: 62%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The two wall photos are tall; keep them from running off the screen. */
+.ss-grid--wall {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: end;
+}
+
+.ss-logo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: center;
+}
+
+/* ---------- Color and type ---------- */
+
+.ss-content .ss-center-title {
+  margin: 0 0 2.5vw 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--ss-char);
+  font-style: italic;
+}
+
+.ss-palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ss-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ss-swatch-chip {
+  display: block;
+  aspect-ratio: 2 / 1;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(16, 24, 20, 0.12);
+}
+
+.ss-swatch-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.ss-swatch-hex {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ss-muted);
+}
+
+.ss-swatch-role {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.ss-type {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+}
+
+.ss-type-face {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1.2rem;
+  border-top: 1.5px solid var(--ss-char);
+}
+
+.ss-type-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.ss-type-role {
+  font-size: 0.9rem;
+  color: var(--ss-muted);
+}
+
+.ss-type-sample {
+  margin-top: 0.8rem;
+  line-height: 1.15;
+}
+
+.ss-type-sample em {
+  font-style: normal;
+  color: var(--ss-red);
+}
+
+.ss-type-face--expanded .ss-type-sample {
+  font-family: var(--ss-display);
+  font-size: 2rem;
+}
+
+.ss-type-face--condensed .ss-type-sample {
+  font-family: var(--ss-condensed);
+  font-size: 2.1rem;
+}
+
+.ss-type-face--body .ss-type-sample {
+  font-family: var(--ss-body);
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+/* ---------- First round to final ---------- */
+
+.ss-revisions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4vw;
+  margin-top: 3vw;
+}
+
+.ss-content .ss-revision-name {
+  margin: 0 0 1rem 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--ss-char);
+}
+
+/* Drafts and finals come in different shapes, so each pair shares a height
+   and keeps its own width. */
+.ss-revision-pair {
+  display: flex;
+  gap: 2vw;
+  align-items: flex-start;
+}
+
+.ss-revision-pair .ss-figure img {
+  width: auto;
+  height: 24vw;
+  max-width: 100%;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (min-width: 769px) and (max-width: 1152px) {
+  .ss-hero-overlay {
+    padding: 16vh 8vw 8vw 8vw;
+  }
+
+  .ss-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4vw;
+    max-width: 100%;
+  }
+
+  .ss-hero-main,
+  .ss-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .ss-title {
+    font-size: 5vw !important;
+  }
+
+  .ss-snapshot-title {
+    font-size: 2.8vw;
+    margin-bottom: 2vw;
+  }
+
+  .ss-cards {
+    gap: 2vw;
+  }
+
+  .ss-card {
+    padding: 2.2vw 2.4vw;
+  }
+
+  .ss-card h3 {
+    font-size: 2.2vw;
+    margin-bottom: 1vw;
+  }
+
+  .ss-card p {
+    font-size: 1.65vw;
+  }
+
+  .ss-palette {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3vw;
+  }
+
+  .ss-type {
+    grid-template-columns: 1fr;
+  }
+
+  .ss-revision-pair .ss-figure img {
+    height: 22vw;
+  }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .ss-hero {
+    /* The stacked mobile hero is taller than it is wide; cover by height. */
+    background-size: cover;
+  }
+
+  .ss-hero-overlay {
+    padding: 18vh 5vw 12vw 5vw;
+  }
+
+  .ss-hero-text {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6vw;
+    max-width: 100%;
+  }
+
+  .ss-hero-main,
+  .ss-hero-aside {
+    flex: 0 0 auto;
+  }
+
+  .ss-title {
+    font-size: 9.5vw !important;
+    line-height: 1.15 !important;
+  }
+
+  .ss-snapshot-title {
+    font-size: 6.5vw;
+    margin-bottom: 4vw;
+  }
+
+  .ss-cards {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .ss-card {
+    padding: 5vw;
+  }
+
+  .ss-card h3 {
+    font-size: 5vw;
+    margin-bottom: 2vw;
+  }
+
+  .ss-card p {
+    font-size: 3.8vw;
+  }
+
+  .ss-content {
+    gap: 14vw;
+    padding: 10vw 5vw;
+  }
+
+  .ss-content h2 {
+    font-size: 6.4vw;
+    margin-bottom: 4vw;
+  }
+
+  .ss-prose p {
+    margin-bottom: 4vw;
+  }
+
+  .ss-prose--columns {
+    column-count: 1;
+  }
+
+  .ss-prose--narrow,
+  .ss-grid--narrow,
+  .ss-grid--wall {
+    max-width: 100%;
+  }
+
+  .ss-grid--three {
+    grid-template-columns: 1fr;
+    max-width: 75%;
+  }
+
+  .ss-split,
+  .ss-split--small-figure,
+  .ss-split--moodboard {
+    grid-template-columns: 1fr;
+    gap: 6vw;
+    margin-top: 6vw;
+  }
+
+  .ss-split--figure-left > :first-child {
+    order: 0;
+  }
+
+  .ss-figure--social {
+    --ss-gap: 4vw;
+    margin-top: 8vw;
+  }
+
+  .ss-grid {
+    gap: 4vw;
+    margin-top: 6vw;
+  }
+
+  .ss-figure figcaption {
+    margin-top: 2vw;
+  }
+
+  .ss-after-figure {
+    margin-top: 8vw;
+  }
+
+  .ss-subsection {
+    margin-top: 12vw;
+  }
+
+  .ss-content .ss-center-title {
+    margin-bottom: 6vw;
+    font-size: 1.7rem;
+  }
+
+  .ss-palette {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6vw 4vw;
+  }
+
+  .ss-type {
+    grid-template-columns: 1fr;
+    gap: 8vw;
+  }
+
+  .ss-revisions {
+    grid-template-columns: 1fr;
+    gap: 10vw;
+    margin-top: 6vw;
+  }
+
+  /* Too narrow to sit side by side; stack each pair at full width. */
+  .ss-revision-pair {
+    flex-direction: column;
+    gap: 4vw;
+  }
+
+  .ss-revision-pair .ss-figure img {
+    width: 100%;
+    height: auto;
+  }
+}
